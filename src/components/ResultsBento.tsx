@@ -14,8 +14,8 @@ const ResultsBento = () => {
           {/* Row 1: short + short + long */}
           <article className="flex min-h-[250px] flex-col justify-between rounded-[28px] bg-[#FFF2A6] p-8 text-[#151515]">
             <div>
-              <p className="text-3xl font-medium tracking-tight">SMS</p>
-              <p className="mt-1 text-xl text-black/60">sendes straks</p>
+              <p className="text-3xl font-medium tracking-tight">98%</p>
+              <p className="mt-1 text-xl text-black/60"> af SMS’er læses</p>
             </div>
             <p className="text-sm text-black/55">Når opkaldet ikke bliver taget.</p>
           </article>
