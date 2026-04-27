@@ -38,13 +38,18 @@ All colors MUST be HSL.
     --ring: 220 25% 10%;
 
     --radius: 1rem;
-    /* Bento card pastels — muted healthtech tones */
-    --card-warm: 55 100% 80%; /* soft warm sand */
-    --card-warm-foreground: 28 35% 22%;
-    --card-sage: 145 35% 88%; /* dusty sage */
-    --card-sage-foreground: 145 30% 20%;
-    --card-mist: 215 66% 82%; /* dove blue */
-    --card-mist-foreground: 215 35% 22%;
+    /* Bento card pastels — Amplemarket-inspired */
+    --card-warm: 52 100% 82%; /* yellow #ffef9e */
+    --card-warm-foreground: 0 0% 8%;
+
+    --card-sage: 117 66% 81%; /* soft green */
+    --card-sage-foreground: 0 0% 8%;
+
+    --card-mist: 263 100% 85%; /* purple #d0b2ff */
+    --card-mist-foreground: 0 0% 8%;
+
+    --card-pink: 323 100% 92%; /* pink #ffd7f0 */
+    --card-pink-foreground: 0 0% 8%;
 
     --shadow-soft: 0 1px 2px hsl(220 25% 10% / 0.04), 0 8px 24px -12px hsl(220 25% 10% / 0.08);
     --shadow-lift: 0 2px 4px hsl(220 25% 10% / 0.04), 0 24px 48px -20px hsl(220 25% 10% / 0.12);
