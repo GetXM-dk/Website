@@ -8,35 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* GetXM — calm healthtech minimalism */
+    --background: 40 33% 98%;           /* warm off-white #fcfbf8 */
+    --foreground: 220 25% 10%;          /* near-black */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 25% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 220 25% 10%;             /* black ink */
+    --primary-foreground: 40 33% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 40 20% 94%;
+    --secondary-foreground: 220 25% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 15% 93%;
+    --muted-foreground: 220 10% 42%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 16 75% 56%;               /* warm coral accent */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 220 25% 10%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Bento card pastels — muted healthtech tones */
+    --card-warm: 42 60% 92%;            /* soft warm sand */
+    --card-warm-foreground: 28 35% 22%;
+    --card-sage: 140 22% 88%;           /* dusty sage */
+    --card-sage-foreground: 145 30% 20%;
+    --card-mist: 205 35% 90%;           /* dove blue */
+    --card-mist-foreground: 215 35% 22%;
+
+    --shadow-soft: 0 1px 2px hsl(220 25% 10% / 0.04), 0 8px 24px -12px hsl(220 25% 10% / 0.08);
+    --shadow-lift: 0 2px 4px hsl(220 25% 10% / 0.04), 0 24px 48px -20px hsl(220 25% 10% / 0.12);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
