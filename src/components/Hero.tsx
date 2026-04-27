@@ -60,7 +60,7 @@ const Hero = () => {
             </ul>
           </div>
 
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end px-px">
             <HeroSmsDemo />
           </div>
         </div>
