@@ -62,7 +62,7 @@ const Hero = () => {
             </ul>
           </div>
 
-          <div className="flex justify-center lg:justify-end px-px">
+          <div className="flex justify-center lg:justify-end px-[2px]">
             <HeroSmsDemo ref={demoRef} />
           </div>
         </div>
