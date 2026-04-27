@@ -22,10 +22,8 @@ const ResultsBento = () => {
 
           <article className="flex min-h-[250px] flex-col justify-between rounded-[28px] bg-[#B9F2B6] p-8 text-[#151515]">
             <div>
-              <p className="text-3xl font-medium tracking-tight">1/5</p>
-              <p className="mt-1 text-xl text-black/60">
-                Kun ca. 20% lægger en besked på en telefonsvarer, når de ringer til en virksomhed
-              </p>
+              <p className="text-3xl font-medium tracking-tight">20%/</p>
+              <p className="mt-1 text-xl text-black/60">Kun 1/5 lægger en besked, når de ringer til en virksomhed</p>
             </div>
             <p className="text-sm text-black/55">Receptionen skal ikke lære nyt.</p>
           </article>
