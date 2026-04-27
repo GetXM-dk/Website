@@ -2,11 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 const includes = [
-  "Automatisk SMS-opfølgning på ubesvarede opkald",
-  "Klinikkens navn og tone i alle beskeder",
-  "Klar besked til klinikken, når der skal handles",
-  "Vi sætter det op for jer",
-  "Ingen binding",
+  "Gratis opsætning",
+  "Ubegrænset opkald",
+  "Løbende måned + 1 md. i opsigelse",
 ];
 
 const Pricing = () => {
@@ -18,7 +16,8 @@ const Pricing = () => {
             Pris
           </p>
           <div className="mt-3 flex items-baseline gap-1">
-            <span className="text-5xl font-semibold tracking-tight text-foreground">349 kr.</span>
+            <span className="text-base text-muted-foreground">kr.</span>
+            <span className="text-6xl font-semibold tracking-tight text-foreground">349</span>
             <span className="text-base text-muted-foreground">/md.</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
@@ -29,7 +28,7 @@ const Pricing = () => {
             <a href="mailto:hej@getxm.dk?subject=Kom%20i%20gang%20med%20GetXM">Kom i gang</a>
           </Button>
 
-          <ul className="mt-8 space-y-3">
+          <ul className="mt-6 space-y-3">
             {includes.map((item) => (
               <li key={item} className="flex items-start gap-2 text-sm text-foreground">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />

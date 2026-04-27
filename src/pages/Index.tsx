@@ -2,9 +2,9 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProblemStrip from "@/components/ProblemStrip";
 import HowItWorks from "@/components/HowItWorks";
-import PhoneDemo from "@/components/PhoneDemo";
 import Outcomes from "@/components/Outcomes";
 import LostCallsBento from "@/components/LostCallsBento";
+import ResultsBento from "@/components/ResultsBento";
 import ComparisonTable from "@/components/ComparisonTable";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
@@ -18,9 +18,9 @@ const Index = () => {
         <Hero />
         <ProblemStrip />
         <HowItWorks />
-        <PhoneDemo />
         <Outcomes />
         <LostCallsBento />
+        <ResultsBento />
         <ComparisonTable />
         <Pricing />
         <FAQ />
