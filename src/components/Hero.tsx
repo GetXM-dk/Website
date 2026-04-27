@@ -31,15 +31,12 @@ const Hero = () => {
               God behandling starter, før patienten kommer ind ad døren.
             </h1>
             <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-              Når I ikke kan tage telefonen, sender GetXM automatisk en SMS til patienten. Patienten får svar på det, de typisk ringer om — og I får en klar besked, når der kræves opfølgning.
+              Når I ikke kan tage telefonen, sender GetXM automatisk en SMS til patienten. Vi hjælper patienten videre,
+              noterer hvad henvendelsen handler om og sender de relevante oplysninger til jer på mail.{" "}
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-              <Button
-                size="lg"
-                className="rounded-full px-7"
-                onClick={handleTryDemo}
-              >
+              <Button size="lg" className="rounded-full px-7" onClick={handleTryDemo}>
                 Prøv demoen
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
@@ -49,16 +46,14 @@ const Hero = () => {
             </div>
 
             <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              {[
-                "I beholder jeres telefonnummer",
-                "Vi sætter det op for jer",
-                "Ingen ekstra administration",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-accent" />
-                  <span>{item}</span>
-                </li>
-              ))}
+              {["I beholder jeres telefonnummer", "Vi sætter det op for jer", "Ingen ekstra administration"].map(
+                (item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <Check className="h-4 w-4 text-accent" />
+                    <span>{item}</span>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 
