@@ -44,8 +44,8 @@ All colors MUST be HSL.
     --card-warm-foreground: 28 35% 22%;
     --card-sage: 323 100% 92%; /* dusty sage */
     --card-sage-foreground: 145 30% 20%;
-    --card-mist: 60 9% 96%; /* dove blue */
-    --card-mist-foreground: 215 66% 82%;
+    --card-mist: 215 66% 82%; /* dove blue */
+    --card-mist-foreground: 145 30% 20%;
 
     --shadow-soft: 0 1px 2px hsl(220 25% 10% / 0.04), 0 8px 24px -12px hsl(220 25% 10% / 0.08);
     --shadow-lift: 0 2px 4px hsl(220 25% 10% / 0.04), 0 24px 48px -20px hsl(220 25% 10% / 0.12);
