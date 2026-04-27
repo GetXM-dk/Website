@@ -130,9 +130,9 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
               if (hasReplied) reset();
               else send();
             }}
-            className={`mt-3 flex items-center gap-2 rounded-full border border-accent/30 bg-card px-3 py-1.5 shadow-soft transition-all demo-input-idle focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-background ${
-              highlight ? "demo-input-active ring-2 ring-accent ring-offset-2 ring-offset-background" : ""
-            }`}
+            className={`mt-3 flex items-center gap-2 rounded-full border border-accent/30 bg-card px-3 py-1.5 transition-all ${
+              highlight ? "demo-input-active" : "demo-input-idle"
+            } focus-within:outline-none`}
           >
             {hasReplied ? (
               <button
