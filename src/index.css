@@ -134,4 +134,18 @@ All colors MUST be HSL.
   .shadow-lift {
     box-shadow: var(--shadow-lift);
   }
+  /* Hero aurora — soft, layered radial gradients for life and depth */
+  .hero-aurora {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(60% 50% at 18% 20%, hsl(16 85% 70% / 0.35), transparent 70%),
+      radial-gradient(55% 45% at 82% 18%, hsl(265 70% 78% / 0.32), transparent 72%),
+      radial-gradient(70% 55% at 50% 95%, hsl(190 70% 80% / 0.28), transparent 75%),
+      radial-gradient(40% 35% at 75% 70%, hsl(42 90% 75% / 0.30), transparent 70%);
+  }
+  .grain-overlay {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.06;
+  }
 }

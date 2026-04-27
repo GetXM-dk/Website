@@ -6,6 +6,7 @@ import LostCallsBento from "@/components/LostCallsBento";
 import ResultsBento from "@/components/ResultsBento";
 import ComparisonTable from "@/components/ComparisonTable";
 import Pricing from "@/components/Pricing";
+import BookDemo from "@/components/BookDemo";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
@@ -21,6 +22,7 @@ const Index = () => {
         <ResultsBento />
         <ComparisonTable />
         <Pricing />
+        <BookDemo />
         <FAQ />
       </main>
       <Footer />

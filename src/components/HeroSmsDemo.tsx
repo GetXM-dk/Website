@@ -1,17 +1,40 @@
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import PhoneMockup from "@/components/PhoneMockup";
 import { simulateFollowUp, type DemoScenario } from "@/lib/getxm-demo";
 import { Send, RotateCcw, MessageCircle } from "lucide-react";
 
 type Msg = { from: "getxm" | "patient"; body: string };
 
-const HeroSmsDemo = () => {
+export type HeroSmsDemoHandle = {
+  focusInput: () => void;
+};
+
+const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
   const [scenario, setScenario] = useState<DemoScenario | null>(null);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [hasReplied, setHasReplied] = useState(false);
+  const [highlight, setHighlight] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      if (hasReplied) {
+        // reset so user can type again
+        const opener = scenario?.steps.find((st) => st.kind === "smsSent");
+        setMessages(
+          opener && opener.kind === "smsSent" ? [{ from: "getxm", body: opener.body }] : [],
+        );
+        setHasReplied(false);
+        setInput("");
+      }
+      setHighlight(true);
+      window.setTimeout(() => inputRef.current?.focus(), 50);
+      window.setTimeout(() => setHighlight(false), 2600);
+    },
+  }));
 
   // Boot: load scenario + show GetXM's opening SMS
   useEffect(() => {
@@ -67,9 +90,9 @@ const HeroSmsDemo = () => {
       {/* Soft halo behind phone */}
       <div
         aria-hidden
-        className="absolute -inset-8 -z-10 rounded-[60px] bg-accent/10 blur-3xl"
+        className="absolute -inset-10 -z-10 rounded-[60px] bg-accent/20 blur-3xl"
       />
-      <PhoneMockup topLabel="Beskeder">
+      <PhoneMockup>
         <div className="flex h-full flex-col">
           <div className="flex items-center gap-2 border-b border-border pb-3">
             <div className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background">
@@ -91,7 +114,7 @@ const HeroSmsDemo = () => {
                   key={i}
                   className={`max-w-[82%] rounded-2xl px-3 py-2 text-[11px] leading-relaxed shadow-soft ${
                     isPatient
-                      ? "self-end rounded-br-md bg-foreground text-background"
+                      ? "self-end rounded-br-md bg-[hsl(211_100%_52%)] text-white"
                       : "self-start rounded-bl-md bg-secondary text-foreground"
                   }`}
                 >
@@ -117,7 +140,9 @@ const HeroSmsDemo = () => {
               if (hasReplied) reset();
               else send();
             }}
-            className="mt-3 flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 shadow-soft"
+            className={`mt-3 flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 shadow-soft transition-all ${
+              highlight ? "ring-2 ring-accent ring-offset-2 ring-offset-background animate-pulse" : ""
+            }`}
           >
             {hasReplied ? (
               <button
@@ -130,9 +155,10 @@ const HeroSmsDemo = () => {
             ) : (
               <>
                 <input
+                  ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Skriv et svar…"
+                  placeholder="Skriv dit spørgsmål her"
                   className="flex-1 bg-transparent text-[11px] text-foreground placeholder:text-muted-foreground focus:outline-none"
                   disabled={sending}
                 />
@@ -140,7 +166,7 @@ const HeroSmsDemo = () => {
                   type="submit"
                   aria-label="Send"
                   disabled={!input.trim() || sending}
-                  className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background transition-opacity disabled:opacity-40"
+                  className="flex h-7 w-7 items-center justify-center rounded-full bg-[hsl(211_100%_52%)] text-white transition-opacity disabled:opacity-40"
                 >
                   <Send className="h-3 w-3" />
                 </button>
@@ -154,6 +180,8 @@ const HeroSmsDemo = () => {
       </PhoneMockup>
     </div>
   );
-};
+});
+
+HeroSmsDemo.displayName = "HeroSmsDemo";
 
 export default HeroSmsDemo;
