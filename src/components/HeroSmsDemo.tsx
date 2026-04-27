@@ -24,9 +24,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
       if (hasReplied) {
         // reset so user can type again
         const opener = scenario?.steps.find((st) => st.kind === "smsSent");
-        setMessages(
-          opener && opener.kind === "smsSent" ? [{ from: "getxm", body: opener.body }] : [],
-        );
+        setMessages(opener && opener.kind === "smsSent" ? [{ from: "getxm", body: opener.body }] : []);
         setHasReplied(false);
         setInput("");
       }
@@ -69,9 +67,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
 
     const reply = scenario.steps.find((st) => st.kind === "getxmReply");
     const body =
-      reply && reply.kind === "getxmReply"
-        ? reply.body
-        : "Tak for din besked. Klinikken kontakter dig snarest.";
+      reply && reply.kind === "getxmReply" ? reply.body : "Tak for din besked. Klinikken kontakter dig snarest.";
     setMessages((m) => [...m, { from: "getxm", body }]);
     setHasReplied(true);
     setSending(false);
@@ -88,10 +84,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
   return (
     <div className="relative">
       {/* Soft halo behind phone */}
-      <div
-        aria-hidden
-        className="absolute -inset-10 -z-10 rounded-[60px] bg-accent/20 blur-3xl"
-      />
+      <div aria-hidden className="absolute -inset-10 -z-10 rounded-[60px] bg-accent/20 blur-3xl" />
       <PhoneMockup>
         <div className="flex h-full flex-col">
           <div className="flex items-center gap-2 border-b border-border pb-3">
@@ -99,10 +92,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
               <MessageCircle className="h-3.5 w-3.5" />
             </div>
             <div className="min-w-0">
-              <p className="truncate text-xs font-semibold">
-                {scenario?.clinicName ?? "Klinikken"}
-              </p>
-              <p className="text-[10px] text-muted-foreground">via GetXM</p>
+              <p className="truncate text-xs font-semibold">{scenario?.clinicName ?? "Klinikken"}</p>
             </div>
           </div>
 
@@ -173,9 +163,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
               </>
             )}
           </form>
-          <p className="mt-2 text-center text-[9px] text-muted-foreground">
-            Demo — ingen rigtige beskeder sendes
-          </p>
+          <p className="mt-2 text-center text-[9px] text-muted-foreground">Demo — ingen rigtige beskeder sendes</p>
         </div>
       </PhoneMockup>
     </div>
