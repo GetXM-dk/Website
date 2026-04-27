@@ -5,7 +5,7 @@ const ResultsBento = () => {
     <section className="bg-background py-20 md:py-28">
       <div className="container">
         <div className="mx-auto max-w-sm text-center">
-          <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
+          <h2 className="text-4xl font-medium tracking-tight md:text-3xl">
             Hvad sker der, når I ikke tager telefonen?
           </h2>
         </div>
@@ -14,7 +14,7 @@ const ResultsBento = () => {
           {/* Row 1: short + short + long */}
           <article className="flex min-h-[250px] flex-col justify-between rounded-[28px] bg-[#FFF2A6] p-8 text-[#151515]">
             <div>
-              <p className="text-5xl font-medium tracking-tight">SMS</p>
+              <p className="text-3xl font-medium tracking-tight">SMS</p>
               <p className="mt-1 text-xl text-black/60">sendes straks</p>
             </div>
             <p className="text-sm text-black/55">Når opkaldet ikke bliver taget.</p>
@@ -22,7 +22,7 @@ const ResultsBento = () => {
 
           <article className="flex min-h-[250px] flex-col justify-between rounded-[28px] bg-[#B9F2B6] p-8 text-[#151515]">
             <div>
-              <p className="text-5xl font-medium tracking-tight">0</p>
+              <p className="text-3xl font-medium tracking-tight">0</p>
               <p className="mt-1 text-xl text-black/60">nye systemer</p>
             </div>
             <p className="text-sm text-black/55">Receptionen skal ikke lære nyt.</p>
@@ -45,7 +45,7 @@ const ResultsBento = () => {
 
           <article className="flex min-h-[250px] flex-col justify-between rounded-[28px] bg-[#FFF2A6] p-8 text-[#151515]">
             <div>
-              <p className="text-5xl font-medium tracking-tight">Mail</p>
+              <p className="text-3xl font-medium tracking-tight">Mail</p>
               <p className="mt-1 text-xl text-black/60">klar til jer</p>
             </div>
             <p className="text-sm text-black/55">Navn, nummer og årsag samlet.</p>
@@ -53,7 +53,7 @@ const ResultsBento = () => {
 
           <article className="flex min-h-[250px] flex-col justify-between rounded-[28px] bg-[#F8CBE5] p-8 text-[#151515]">
             <div>
-              <p className="text-5xl font-medium tracking-tight">Kun</p>
+              <p className="text-3xl font-medium tracking-tight">Kun</p>
               <p className="mt-1 text-xl text-black/60">ubesvarede opkald</p>
             </div>
             <p className="text-sm text-black/55">Alt andet fortsætter som i dag.</p>
@@ -62,7 +62,7 @@ const ResultsBento = () => {
           {/* Row 3: short + short + long */}
           <article className="flex min-h-[250px] flex-col justify-between rounded-[28px] bg-[#DED8FF] p-8 text-[#151515]">
             <div>
-              <p className="text-5xl font-medium tracking-tight">Samme</p>
+              <p className="text-3xl font-medium tracking-tight">Samme</p>
               <p className="mt-1 text-xl text-black/60">telefonnummer</p>
             </div>
             <p className="text-sm text-black/55">Patienterne ringer som de plejer.</p>
@@ -70,7 +70,7 @@ const ResultsBento = () => {
 
           <article className="flex min-h-[250px] flex-col justify-between rounded-[28px] bg-[#F8CBE5] p-8 text-[#151515]">
             <div>
-              <p className="text-5xl font-medium tracking-tight">Ingen</p>
+              <p className="text-3xl font-medium tracking-tight">Ingen</p>
               <p className="mt-1 text-xl text-black/60">app eller login</p>
             </div>
             <p className="text-sm text-black/55">Bare SMS.</p>
