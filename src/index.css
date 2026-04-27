@@ -40,7 +40,7 @@ All colors MUST be HSL.
     --radius: 1rem;
 
     /* Bento card pastels — muted healthtech tones */
-    --card-warm: 255, 239, 153%; /* soft warm sand */
+    --card-warm: 55, 100%, 80%; /* soft warm sand */
     --card-warm-foreground: 28 35% 22%;
     --card-sage: 140 22% 88%; /* dusty sage */
     --card-sage-foreground: 145 30% 20%;
