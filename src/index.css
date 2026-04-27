@@ -149,3 +149,18 @@ All colors MUST be HSL.
     opacity: 0.06;
   }
 }
+
+@keyframes input-glow {
+  0% {
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0.45);
+  }
+  60% {
+    box-shadow: 0 0 0 10px hsl(var(--accent) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--accent) / 0);
+  }
+}
+.input-glow {
+  animation: input-glow 1.4s ease-out 2;
+}
