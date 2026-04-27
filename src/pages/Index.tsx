@@ -1,8 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProblemStrip from "@/components/ProblemStrip";
-import HowItWorks from "@/components/HowItWorks";
-import Outcomes from "@/components/Outcomes";
+import HowAndOutcome from "@/components/HowAndOutcome";
 import LostCallsBento from "@/components/LostCallsBento";
 import ResultsBento from "@/components/ResultsBento";
 import ComparisonTable from "@/components/ComparisonTable";
@@ -17,8 +16,7 @@ const Index = () => {
       <main>
         <Hero />
         <ProblemStrip />
-        <HowItWorks />
-        <Outcomes />
+        <HowAndOutcome />
         <LostCallsBento />
         <ResultsBento />
         <ComparisonTable />
