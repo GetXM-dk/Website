@@ -1,9 +1,9 @@
-import { Quote } from "lucide-react";
+import { MessageSquareText, Mail, PhoneCall, ShieldCheck } from "lucide-react";
 
 /**
- * Editorial-style bento grid with stat tiles and quote tiles.
- * Inspired by "Real results from real customers" layout.
- * Numbers are conservative, klinik-relevante illustrationer — ikke fake stats.
+ * Bento grid inspired by customer-result layouts.
+ * No fake customer stats or fake testimonials.
+ * Focus: concrete product outcomes and low-friction setup.
  */
 const ResultsBento = () => {
   return (
@@ -11,92 +11,87 @@ const ResultsBento = () => {
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">
-            Hvad det betyder for klinikken
+            Når telefonen ikke bliver taget
           </span>
+
           <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-            Mindre tab. Mere ro. Bedre patientoplevelse.
+            GetXM følger op, før patienten ringer videre
           </h2>
+
           <p className="mt-3 text-muted-foreground">
-            En enkel opfølgning på ubesvarede opkald flytter mere, end de fleste tror.
+            En enkel SMS-flow der hjælper patienten videre og sender de relevante oplysninger til jer.
           </p>
         </div>
 
         <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-3 md:auto-rows-[minmax(180px,auto)]">
-          {/* Row 1 */}
+          {/* Main stat / promise */}
           <article className="rounded-3xl bg-card-warm p-7 text-card-warm-foreground">
-            <p className="text-5xl font-semibold tracking-tight">~1 ud af 3</p>
-            <p className="mt-2 text-sm opacity-80">
-              ubesvarede opkald ringer aldrig tilbage
-            </p>
-            <p className="mt-8 text-xs font-medium uppercase tracking-wide opacity-70">
-              Tabt henvendelse
-            </p>
+            <PhoneCall className="h-6 w-6" />
+            <p className="mt-6 text-4xl font-semibold tracking-tight">Ubesvaret opkald</p>
+            <p className="mt-3 text-sm opacity-80">Når I ikke når telefonen, aktiveres GetXM automatisk.</p>
+            <p className="mt-8 text-xs font-medium uppercase tracking-wide opacity-70">Trigger</p>
           </article>
 
           <article className="rounded-3xl bg-card-sage p-7 text-card-sage-foreground">
-            <p className="text-5xl font-semibold tracking-tight">&lt; 2 min</p>
-            <p className="mt-2 text-sm opacity-80">
-              fra ubesvaret opkald til SMS er afsendt
-            </p>
-            <p className="mt-8 text-xs font-medium uppercase tracking-wide opacity-70">
-              Reaktionstid
-            </p>
+            <MessageSquareText className="h-6 w-6" />
+            <p className="mt-6 text-4xl font-semibold tracking-tight">SMS med det samme</p>
+            <p className="mt-3 text-sm opacity-80">Patienten får en venlig SMS og kan svare direkte.</p>
+            <p className="mt-8 text-xs font-medium uppercase tracking-wide opacity-70">Reaktion</p>
           </article>
 
           <article className="md:row-span-2 rounded-3xl border border-border bg-card p-7 shadow-soft">
-            <Quote className="h-5 w-5 text-accent" />
-            <p className="mt-4 text-base leading-relaxed text-foreground">
-              "Vi havde dårlig samvittighed hver mandag, når vi så listen over ubesvarede opkald. Nu får patienterne svar med det samme — og vi ringer kun tilbage til dem, der faktisk har brug for det."
-            </p>
-            <div className="mt-6 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-foreground">
-                MH
-              </div>
+            <ShieldCheck className="h-6 w-6 text-accent" />
+
+            <h3 className="mt-6 text-2xl font-semibold tracking-tight text-foreground">Lav risiko at teste</h3>
+
+            <div className="mt-6 space-y-5">
               <div>
-                <p className="text-sm font-semibold text-foreground">Maria H.</p>
-                <p className="text-xs text-muted-foreground">Klinikejer, tandklinik</p>
+                <p className="text-sm font-semibold text-foreground">Samme telefonnummer</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Patienterne ringer stadig til jeres normale nummer.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-foreground">Samme telefonløsning</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  I beholder jeres nuværende teleselskab og abonnement.
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-foreground">Kun ved ubesvarede opkald</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  GetXM hjælper kun, når telefonen ikke bliver taget.
+                </p>
               </div>
             </div>
           </article>
 
-          {/* Row 2 */}
           <article className="rounded-3xl bg-card-mist p-7 text-card-mist-foreground">
-            <p className="text-5xl font-semibold tracking-tight">0</p>
-            <p className="mt-2 text-sm opacity-80">
-              nye arbejdsgange for receptionen
-            </p>
-            <p className="mt-8 text-xs font-medium uppercase tracking-wide opacity-70">
-              Indførelse
-            </p>
+            <Mail className="h-6 w-6" />
+            <p className="mt-6 text-4xl font-semibold tracking-tight">Klar besked</p>
+            <p className="mt-3 text-sm opacity-80">I får navn, nummer og årsag samlet på mail.</p>
+            <p className="mt-8 text-xs font-medium uppercase tracking-wide opacity-70">Opfølgning</p>
           </article>
 
           <article className="rounded-3xl bg-accent/10 p-7">
-            <p className="text-5xl font-semibold tracking-tight text-accent">24/7</p>
-            <p className="mt-2 text-sm text-foreground/80">
-              opfølgning — også aften, weekend og lukkedage
-            </p>
-            <p className="mt-8 text-xs font-medium uppercase tracking-wide text-foreground/60">
-              Dækning
-            </p>
+            <p className="text-5xl font-semibold tracking-tight text-accent">0</p>
+            <p className="mt-3 text-sm text-foreground/80">nye systemer for receptionen at lære.</p>
+            <p className="mt-8 text-xs font-medium uppercase tracking-wide text-foreground/60">Administration</p>
           </article>
 
-          {/* Row 3 — full-width quote */}
           <article className="md:col-span-3 rounded-3xl border border-border bg-card p-7 shadow-soft md:p-9">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-              <div className="max-w-2xl">
-                <Quote className="h-5 w-5 text-accent" />
-                <p className="mt-3 text-lg leading-relaxed text-foreground md:text-xl">
-                  "Patienterne nævner det selv, når de kommer ind. De er overraskede over, at nogen tog kontakt — og de er allerede mere trygge, før de sætter sig i stolen."
+              <div className="max-w-3xl">
+                <p className="text-lg leading-relaxed text-foreground md:text-xl">
+                  GetXM erstatter ikke receptionen. Det fungerer som et sikkerhedsnet, når I ikke når telefonen — så
+                  patienten får svar, og I får en tydelig besked at følge op på.
                 </p>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-sm font-semibold text-foreground">
-                  TS
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">Thomas S.</p>
-                  <p className="text-xs text-muted-foreground">Receptionsleder, fysioterapi</p>
-                </div>
+
+              <div className="shrink-0 rounded-full bg-secondary px-5 py-3 text-sm font-medium text-foreground">
+                Ingen app. Ingen login. Bare SMS.
               </div>
             </div>
           </article>
