@@ -24,7 +24,7 @@ export const defaultScenario: DemoScenario = {
     {
       kind: "smsSent",
       from: "GetXM",
-      body: "Hej 👋 Du skriver med Tandklinikken Søndergades AI-assistent. Jeg hjælper gerne her på besked. Hvis jeg ikke kan svare, tager jeg imod din besked, så klinikken kan vende tilbage til dig. Hvad kan jeg hjælpe med?",
+      body: "Hej 👋 Vi kunne desværre ikke tage dit opkald lige nu. Skriv gerne her, så hjælper jeg dig videre. Hvad drejer din henvendelse sig om?",
     },
     {
       kind: "patientReply",
