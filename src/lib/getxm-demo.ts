@@ -24,8 +24,7 @@ export const defaultScenario: DemoScenario = {
     {
       kind: "smsSent",
       from: "GetXM",
-      body:
-        "Hej, det er Tandklinikken Søndergade. Vi kunne desværre ikke tage telefonen. Hvad ringede du om?",
+      body: "Hej 👋 Du skriver med Tandklinikken Søndergades AI-assistent. Jeg hjælper gerne her på besked. Hvis jeg ikke kan svare, tager jeg imod din besked, så klinikken kan vende tilbage til dig. Hvad kan jeg hjælpe med?",
     },
     {
       kind: "patientReply",
@@ -35,14 +34,12 @@ export const defaultScenario: DemoScenario = {
     {
       kind: "getxmReply",
       from: "GetXM",
-      body:
-        "Prisen afhænger af behandlingsbehov, tilskud og den konkrete vurdering. Klinikken kan hjælpe med at afklare det. Skriv gerne dit navn, så giver vi beskeden videre.",
+      body: "Prisen afhænger af behandlingsbehov, tilskud og den konkrete vurdering. Klinikken kan hjælpe med at afklare det. Skriv gerne dit navn, så giver vi beskeden videre.",
     },
     {
       kind: "clinicMessage",
       clinic: "Tandklinikken Søndergade",
-      summary:
-        "Patient spurgte om pris på tandrensning. Bed klinikken kontakte patienten for konkret vurdering.",
+      summary: "Patient spurgte om pris på tandrensning. Bed klinikken kontakte patienten for konkret vurdering.",
     },
   ],
 };
