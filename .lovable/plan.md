@@ -1,77 +1,75 @@
-# GetXM — Marketing Landing Page
+## Mål
 
-En one-page hjemmeside der præsenterer GetXM for klinikker og lader besøgende opleve produktet via en interaktiv telefon-mockup.
+To afgrænsede ændringer:
 
-## Tone & visuel retning
+1. Slå "Sådan virker det" + "Outcomes" sammen til én bento-sektion
+2. Redesign pris-kortet til mørkt look med coral glow
 
-- Minimalistisk healthtech-æstetik: meget hvid plads, sort tekst, én varm accentfarve
-- Pill-formede knapper (999px radius), bløde skygger, Inter font
-- Rolig, klinikvenlig — ikke sales-y, ingen fake stats, ingen "AI-buzz"
-- Mobile-first, responsivt
+---
 
-## Sektioner (one-page, i rækkefølge)
+## 1. Ny bento: `HowAndOutcome.tsx`
 
-**1. Hero**
-- Headline: "God behandling starter, før patienten kommer ind ad døren"
-- Supporting line: "Patienten får svar på det, de typisk ringer om — behandlinger, priser, åbningstider og praktiske forhold. Når der kræves opfølgning, får I en klar besked."
-- Primær CTA: "Prøv demoen" (scroller til PhoneDemo)
-- Sekundær CTA: "Se hvordan det virker"
-- Under CTA, tre bullets:
-  - I beholder jeres nummer
-  - Vi sætter det op for jer
-  - Ingen ny arbejdsgang
+**Filer:**
+- Ny: `src/components/HowAndOutcome.tsx`
+- Slet: `src/components/HowItWorks.tsx`, `src/components/Outcomes.tsx`
+- Opdater: `src/pages/Index.tsx` (fjern HowItWorks + Outcomes imports/brug, indsæt `<HowAndOutcome />` på samme placering)
 
-**2. Problem-strip**
-Kort 3-punkts strip: hvad der sker når telefonen ikke bliver taget.
+**Sektionsoverskrift:** "Sådan virker det — og hvad I får ud af det"
 
-**3. Sådan virker det**
-Tre trin:
-1. Patienten ringer — I kan ikke tage den
-2. **GetXM følger op** — automatisk via SMS
-3. I får en klar besked, hvis der skal handles
+**Layout (desktop, md+):**
 
-**4. Interaktiv telefon-demo (`PhoneDemo`)**
-- `PhoneMockup`-komponent med state machine: `idle → ringing → missed → smsSent → patientReply → getxmReply → clinicMessage`
-- Besøgende klikker "Start demo" og ser et komplet flow afspille sig
-- GetXM-svar i demoen: *"Prisen afhænger af behandlingsbehov, tilskud og den konkrete vurdering. Klinikken kan hjælpe med at afklare det. Skriv gerne dit navn, så giver vi beskeden videre."*
-- Mock-data drevet af `simulateFollowUp()` i `src/lib/getxm-demo.ts` — API-ready struktur så rigtig backend kan kobles på senere uden UI-ændringer
-- Ingen rigtig telefonnummer-input
+```text
+┌──────────────────────────┬─────────────────────────┐
+│                          │ 1. Patienten føler sig  │
+│ Sådan virker det         │    set            (warm)│
+│                          ├─────────────────────────┤
+│ 01 Patienten ringer      │ 2. Færre tabte          │
+│ 02 GetXM følger op       │    henvendelser   (sage)│
+│ 03 I får besked          ├─────────────────────────┤
+│                          │ 3. Ro i receptionen     │
+│                          │                   (mist)│
+└──────────────────────────┴─────────────────────────┘
+```
 
-**5. Outcomes**
-Kort sektion med hvad klinikken får ud af det (rolige, ærlige formuleringer — ikke procenttal).
+- Container: `grid md:grid-cols-2 gap-6`
+- Venstre: ét stort hvidt kort (`bg-card`, `rounded-3xl`, `shadow-soft`, `p-8 md:p-10`), `md:row-span-3`. Indeholder titel "Sådan virker det" + 3 trin stablet vertikalt med store tal (text-5xl, accent farve), titel og brødtekst pr. trin
+- Højre: `md:col-start-2` med 3 stablede kort i `flex flex-col gap-6`. Hvert kort `rounded-3xl shadow-soft p-6 md:p-7` med tokens: `bg-card-warm`, `bg-card-sage`, `bg-card-mist`. Ikon (Heart/Users/Inbox fra lucide-react) i `text-accent`, titel + brødtekst
 
-**6. NY: "Mister din klinik patienter uden for åbningstid?"** *(mellem Outcomes og Sammenligning)*
-- Bento-grid med 3 dæmpede pastel-cards (blød lys gul / sage / dueblå — på linje med healthtech-paletten, ikke skrigende)
-- Sektionsoverskrift: "Mister din klinik patienter uden for åbningstid?"
-- Kort intro: "De fleste tabte opkald sker ikke pga. dårlig service — de sker, fordi timing aldrig passer."
-- Tre cards:
-  - **Efter lukketid** — Patienten ringer, mens de har tid. I ser først opkaldet næste dag.
-  - **Midt i behandling** — I kan ikke tage telefonen uden at afbryde patienten foran jer.
-  - **Mandag morgen** — Listen med ubesvarede opkald er lang. Det er uklart, hvem der stadig har brug for svar.
-- Hvert card: lille ikon/illustration øverst, kort titel, én sætning under
-- Afsluttende linje under grid'et: "GetXM tager opfølgningen, så ingen patient bliver efterladt uden svar."
+**Mobil:** alt stakker automatisk (single column) — først step-kort, så de 3 outcome-kort
 
-**7. Sådan er vi anderledes**
-Sammenligningstabel: GetXM vs. callcenter vs. AI-receptionist.
+**Indhold (eksakt):** se brugerens besked — kopieres ord for ord
 
-**8. Pris**
-- "349 kr./md."
-- "Fast enkel pris for klinikker, der vil følge op på ubesvarede opkald."
-- CTA: "Kom i gang"
+---
 
-**9. FAQ**
-Accordion med de mest almindelige spørgsmål (opsætning, sikkerhed, patientdata, opsigelse).
+## 2. Pris-kort redesign
 
-**10. Footer**
-Kontakt, simple links.
+**Fil:** `src/components/Pricing.tsx`
 
-## Ikke med i denne omgang
-Backend, database, auth, faktisk SMS-afsendelse, telefonnummer-input i demo, flere sprog, kundelogin, dashboard.
+**Kort:**
+- `bg-foreground` (mørk ink), `text-background` (lys tekst)
+- `relative overflow-hidden` for at indeholde glow
+- Subtil coral glow i øverste hjørne: absolut positioneret `div` med `bg-accent/30 blur-3xl` (cirka 200×200, `-top-20 -right-20`, `pointer-events-none`)
 
-## Tekniske detaljer
+**Indhold:**
+- Eyebrow: "Pris" (uppercase, tracking-wide, `text-accent`)
+- Pris-typografi (flex baseline):
+  - `kr` lille (`text-base opacity-70`)
+  - `349` stor (`text-7xl font-semibold`)
+  - `DKK / md` lille (`text-base opacity-70`)
+- Sublinje under: "eksklusiv moms" (`text-sm opacity-60`)
+- CTA: `Kom i gang`, full width, `rounded-full`, `bg-accent text-accent-foreground`, hover-state via eksisterende button-variant override
+- Bullets med ikoner i `text-accent`:
+  - `Sparkles` — Gratis opsætning
+  - `PhoneCall` — Ubegrænset opkald
+  - `CalendarClock` — Løbende måned + 1 md. i opsigelse
+- Skillelinje: `border-t border-background/15` (lys subtil linje på mørk baggrund)
+- Under linjen, centreret småtekst:
+  - "Ønsker du en årlig aftale?" (`text-sm`)
+  - "Ring +45 00 00 00 00 eller skriv til hej@getxm.com" (`text-sm opacity-70`, telefon og mail som `<a>` med underline-on-hover)
 
-- React + Vite + Tailwind + shadcn/ui
-- Design-tokens (HSL) i `index.css`: paletten inkl. de tre dæmpede pastel-toner til bento-cards som semantiske tokens (`--card-warm`, `--card-sage`, `--card-mist`) så de er konsistente og let kan justeres
-- Komponenter i `src/components/`: `Hero`, `ProblemStrip`, `HowItWorks`, `PhoneDemo` (+ `PhoneMockup`), `Outcomes`, `LostCallsBento` (ny), `ComparisonTable`, `Pricing`, `FAQ`, `Footer`
-- Demo-logik isoleret i `src/lib/getxm-demo.ts` med typed scenario-objekter — klar til at swappe mock med rigtig API
-- Pill-knapper og 999px radius som global token
+**Beholdes:** sektion-id `pricing`, max-w-md container, mailto-link på CTA
+
+---
+
+## Ikke-mål
+- Ingen ændringer til Hero, SMS-demo, Navbar, Book demo eller andre sektioner i denne omgang
