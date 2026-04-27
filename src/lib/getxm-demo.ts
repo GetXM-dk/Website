@@ -24,7 +24,7 @@ export const defaultScenario: DemoScenario = {
     {
       kind: "smsSent",
       from: "GetXM",
-      body: "Hej 👋 Vi kunne desværre ikke tage dit opkald lige nu. Skriv gerne her, så hjælper jeg dig videre. Hvad drejer din henvendelse sig om?",
+      body: "Hej 👋 Vi kan desværre ikke besvare dit opkald lige nu. Skriv gerne her, så hjælper jeg dig videre. Hvad drejer din henvendelse sig om?",
     },
     {
       kind: "patientReply",
