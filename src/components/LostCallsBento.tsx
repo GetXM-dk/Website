@@ -2,19 +2,19 @@ import { MoonStar, Stethoscope, CalendarClock } from "lucide-react";
 
 const cards = [
   {
-    tone: "card-warm",
+    tone: "brand-ochre",
     icon: MoonStar,
     eyebrow: "Efter lukketid",
     body: "Patienten ringer, mens de har tid. I ser først opkaldet næste dag.",
   },
   {
-    tone: "card-sage",
+    tone: "brand-teal",
     icon: Stethoscope,
     eyebrow: "Midt i behandling",
     body: "I kan ikke tage telefonen uden at afbryde patienten foran jer.",
   },
   {
-    tone: "card-mist",
+    tone: "brand-pink",
     icon: CalendarClock,
     eyebrow: "Mandag morgen",
     body: "Listen med ubesvarede opkald er lang. Det er uklart, hvem der stadig har brug for svar.",
@@ -22,16 +22,16 @@ const cards = [
 ] as const;
 
 const toneClasses: Record<(typeof cards)[number]["tone"], string> = {
-  "card-warm": "bg-card-warm text-card-warm-foreground",
-  "card-sage": "bg-card-sage text-card-sage-foreground",
-  "card-mist": "bg-card-mist text-card-mist-foreground",
+  "brand-ochre": "bg-brand-ochre text-brand-ochre-foreground",
+  "brand-teal": "bg-brand-teal text-brand-teal-foreground",
+  "brand-pink": "bg-brand-pink text-brand-pink-foreground",
 };
 
 const LostCallsBento = () => {
   return (
     <section className="container py-20 md:py-28">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+        <h2 className="display-lg">
           Mister din klinik patienter uden for åbningstid?
         </h2>
         <p className="mt-3 text-muted-foreground">

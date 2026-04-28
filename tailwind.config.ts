@@ -59,6 +59,41 @@ export default {
           DEFAULT: "hsl(var(--card-mist))",
           foreground: "hsl(var(--card-mist-foreground))",
         },
+        "card-pink": {
+          DEFAULT: "hsl(var(--card-pink))",
+          foreground: "hsl(var(--card-pink-foreground))",
+        },
+        "brand-pink": {
+          DEFAULT: "hsl(var(--brand-pink))",
+          foreground: "hsl(var(--brand-pink-foreground))",
+        },
+        "brand-teal": {
+          DEFAULT: "hsl(var(--brand-teal))",
+          foreground: "hsl(var(--brand-teal-foreground))",
+        },
+        "brand-lavender": {
+          DEFAULT: "hsl(var(--brand-lavender))",
+          foreground: "hsl(var(--brand-lavender-foreground))",
+        },
+        "brand-peach": {
+          DEFAULT: "hsl(var(--brand-peach))",
+          foreground: "hsl(var(--brand-peach-foreground))",
+        },
+        "brand-ochre": {
+          DEFAULT: "hsl(var(--brand-ochre))",
+          foreground: "hsl(var(--brand-ochre-foreground))",
+        },
+        "brand-mint": {
+          DEFAULT: "hsl(var(--brand-mint))",
+          foreground: "hsl(var(--brand-mint-foreground))",
+        },
+        "brand-coral": {
+          DEFAULT: "hsl(var(--brand-coral))",
+          foreground: "hsl(var(--brand-coral-foreground))",
+        },
+        "surface-soft": "hsl(var(--surface-soft))",
+        "surface-card": "hsl(var(--surface-card))",
+        "surface-strong": "hsl(var(--surface-strong))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
