@@ -29,7 +29,7 @@ const UnansweredCalls = () => {
               className="flex flex-col rounded-3xl px-8 py-10 md:px-10 md:py-12"
               style={{ backgroundColor: background, border: `1px solid ${border}` }}
             >
-              <div className="flex flex-1 items-center justify-center pb-12">
+              <div className="flex flex-1 items-center justify-center py-20 md:py-28">
                 <img
                   src={image}
                   alt=""
