@@ -11,16 +11,8 @@ const Hero = () => {
   };
 
   return (
-    <section id="top" className="relative overflow-hidden">
-      {/* Soft cream-on-cream brand glows for depth without breaking the canvas */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-40 -top-40 h-[480px] w-[480px] rounded-full bg-brand-peach/20 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-32 top-32 h-[420px] w-[420px] rounded-full bg-brand-lavender/20 blur-3xl"
-      />
+    <section id="top" className="relative overflow-hidden hero-aurora">
+      <div aria-hidden className="pointer-events-none absolute inset-0 grain-overlay" />
 
       <div className="container relative py-16 md:py-24 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
@@ -55,11 +47,9 @@ const Hero = () => {
             </ul>
           </div>
 
-          {/* Hero illustration card holding the phone — surface-soft cream wrapper per design guide */}
+          {/* Phone floats directly on the aurora background */}
           <div className="relative flex justify-center">
-            <div className="relative w-full rounded-3xl bg-surface-soft p-6 md:p-10">
-              <HeroSmsDemo ref={demoRef} />
-            </div>
+            <HeroSmsDemo ref={demoRef} />
           </div>
         </div>
       </div>
