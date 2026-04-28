@@ -10,7 +10,7 @@ All colors MUST be HSL.
   :root {
     /* GetXM — playful B2B SaaS, cream canvas + saturated brand cards */
     /* Canvas / surfaces */
-    --background: 40 100% 97%; /* canvas #fffaf0 — cream-tinted white */
+    --background: 40 60% 99%; /* canvas — near-white with a faint cream tint */
     --foreground: 0 0% 4%; /* ink #0a0a0a */
 
     --card: 0 0% 100%;
@@ -22,10 +22,10 @@ All colors MUST be HSL.
     --primary: 0 0% 4%; /* near-black ink CTA */
     --primary-foreground: 40 100% 97%;
 
-    --secondary: 45 60% 94%; /* surface-soft #faf5e8 */
+    --secondary: 42 60% 97%; /* surface-soft — lighter cream */
     --secondary-foreground: 0 0% 4%;
 
-    --muted: 45 45% 92%; /* surface-card #f5f0e0 */
+    --muted: 44 45% 96%; /* surface-card — lighter cream */
     --muted-foreground: 0 0% 42%; /* #6a6a6a */
 
     --accent: 350 100% 65%; /* brand pink #ff4d8b for inline accents */
@@ -40,10 +40,10 @@ All colors MUST be HSL.
 
     --radius: 1.5rem; /* 24px — feature card xl */
 
-    /* Cream surface variants */
-    --surface-soft: 45 60% 94%; /* #faf5e8 footer / cta */
-    --surface-card: 45 45% 92%; /* #f5f0e0 cream cards */
-    --surface-strong: 44 31% 88%; /* #ebe6d6 */
+    /* Cream surface variants — softened toward white */
+    --surface-soft: 42 60% 97%; /* footer / cta */
+    --surface-card: 44 45% 96%; /* cream cards */
+    --surface-strong: 44 35% 93%;
 
     /* Saturated brand-card palette (cycled pink → teal → lavender → peach → ochre) */
     --brand-pink: 339 100% 65%; /* #ff4d8b */
