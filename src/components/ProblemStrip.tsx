@@ -3,25 +3,25 @@ import { CalendarX, DoorClosed, EyeOff, Waves } from "lucide-react";
 
 const items = [
   {
-    tone: "card-warm",
+    tone: "brand-pink",
     icon: CalendarX,
     title: "Bookinger kan gå tabt",
     body: "En varm henvendelse kan ende hos en anden klinik, hvis patienten ikke får svar, mens behovet stadig er aktuelt.",
   },
   {
-    tone: "card-sage",
+    tone: "brand-teal",
     icon: Waves,
     title: "Receptionen får mere pres",
     body: "Patienter, der ikke kommer igennem, ringer ofte igen. Det giver flere afbrydelser, flere løse ender og mindre ro i hverdagen.",
   },
   {
-    tone: "card-mist",
+    tone: "brand-lavender",
     icon: DoorClosed,
     title: "Klinikken virker mindre tilgængelig",
     body: "Lang ventetid og ubesvarede opkald giver patienten en dårlig start, selv når årsagen bare er travlhed.",
   },
   {
-    tone: "card-warm",
+    tone: "brand-peach",
     icon: EyeOff,
     title: "Overblikket forsvinder",
     body: "Uden opfølgning ved I ikke, hvem der ringede, hvad de ville, eller hvor mange henvendelser der aldrig blev samlet op.",
@@ -29,9 +29,10 @@ const items = [
 ] as const;
 
 const toneClasses: Record<(typeof items)[number]["tone"], string> = {
-  "card-warm": "bg-card-warm text-card-warm-foreground",
-  "card-sage": "bg-card-sage text-card-sage-foreground",
-  "card-mist": "bg-card-mist text-card-mist-foreground",
+  "brand-pink": "bg-brand-pink text-brand-pink-foreground",
+  "brand-teal": "bg-brand-teal text-brand-teal-foreground",
+  "brand-lavender": "bg-brand-lavender text-brand-lavender-foreground",
+  "brand-peach": "bg-brand-peach text-brand-peach-foreground",
 };
 
 const ROTATE_MS = 4000;
@@ -56,14 +57,14 @@ const ProblemStrip = () => {
   }, [isPaused]);
 
   return (
-    <section className="border-y border-border bg-secondary/40">
+    <section className="border-y border-border bg-surface-soft">
       <div className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="caption-uppercase text-muted-foreground">
               Det skjulte pres på klinikkens hverdag
             </p>
-            <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
+            <h2 className="display-lg mt-4 max-w-3xl text-foreground">
               Hvert ubesvaret opkald starter en kædereaktion
             </h2>
             <div className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">

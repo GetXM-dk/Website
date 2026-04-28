@@ -11,21 +11,21 @@ const Pricing = () => {
   return (
     <section id="pricing" className="container py-20 md:py-28">
       <div className="mx-auto max-w-md">
-        <div className="relative overflow-hidden rounded-3xl bg-foreground p-8 text-background shadow-lift md:p-10">
-          {/* coral glow */}
+        <div className="relative overflow-hidden rounded-3xl bg-brand-teal p-8 text-brand-teal-foreground md:p-10">
+          {/* peach glow */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-accent/30 blur-3xl"
+            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-peach/30 blur-3xl"
           />
 
           <div className="relative">
-            <p className="text-xs font-medium uppercase tracking-wide text-accent">
+            <p className="caption-uppercase text-brand-peach">
               Pris
             </p>
 
             <div className="mt-4 flex items-baseline gap-1.5">
               <span className="text-base opacity-70">kr</span>
-              <span className="text-7xl font-semibold tracking-tight">349</span>
+              <span className="display-xl">349</span>
               <span className="text-base opacity-70">DKK / md</span>
             </div>
             <p className="mt-1 text-sm opacity-60">eksklusiv moms</p>
@@ -33,7 +33,7 @@ const Pricing = () => {
             <Button
               asChild
               size="lg"
-              className="mt-6 w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90"
+              className="mt-6 w-full rounded-full bg-brand-peach text-brand-peach-foreground hover:bg-brand-peach/90"
             >
               <a href="mailto:hej@getxm.dk?subject=Kom%20i%20gang%20med%20GetXM">
                 Kom i gang
@@ -46,13 +46,13 @@ const Pricing = () => {
                   key={label}
                   className="flex items-start gap-2.5 text-sm"
                 >
-                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-brand-peach" />
                   <span>{label}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 border-t border-background/15 pt-6 text-center">
+            <div className="mt-8 border-t border-brand-teal-foreground/15 pt-6 text-center">
               <p className="text-sm">Ønsker du en årlig aftale?</p>
               <p className="mt-1 text-sm opacity-70">
                 Ring{" "}

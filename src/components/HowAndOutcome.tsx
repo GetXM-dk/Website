@@ -29,19 +29,19 @@ const outcomes = [
     icon: Heart,
     title: "Patienten føler sig set",
     body: "Patienten bliver ikke mødt af tavshed, men får en venlig opfølgning med det samme.",
-    tone: "bg-card-warm text-card-warm-foreground",
+    tone: "bg-brand-peach text-brand-peach-foreground",
   },
   {
     icon: Users,
     title: "Færre tabte henvendelser",
     body: "Opkald, I ellers ikke når, bliver samlet op og gjort nemme at følge op på.",
-    tone: "bg-card-sage text-card-sage-foreground",
+    tone: "bg-brand-lavender text-brand-lavender-foreground",
   },
   {
     icon: Inbox,
     title: "Ro i receptionen",
     body: "I kan behandle patienter og håndtere dagen uden at jagte ubesvarede opkald.",
-    tone: "bg-card-mist text-card-mist-foreground",
+    tone: "bg-brand-ochre text-brand-ochre-foreground",
   },
 ];
 
@@ -49,15 +49,15 @@ const HowAndOutcome = () => {
   return (
     <section id="how" className="container py-20 md:py-28">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+        <h2 className="display-lg">
           Sådan virker det — og hvad I får ud af det
         </h2>
       </div>
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {/* Left: large white card with 3 steps */}
-        <div className="rounded-3xl bg-card p-8 shadow-soft md:p-10">
-          <h3 className="text-xl font-semibold tracking-tight md:text-2xl">
+        {/* Left: cream surface card with 3 steps */}
+        <div className="rounded-3xl bg-surface-card p-8 md:p-10">
+          <h3 className="display-sm">
             Sådan virker det
           </h3>
           <ol className="mt-8 space-y-8">
