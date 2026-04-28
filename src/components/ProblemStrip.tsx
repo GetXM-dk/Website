@@ -1,39 +1,31 @@
 import { useEffect, useRef, useState } from "react";
-import { CalendarX, DoorClosed, EyeOff, Waves } from "lucide-react";
+import problemBookings from "@/assets/problem-bookings.png";
+import problemReception from "@/assets/problem-reception.png";
+import problemAvailability from "@/assets/problem-availability.png";
+import problemOverview from "@/assets/problem-overview.png";
 
 const items = [
   {
-    tone: "brand-pink",
-    icon: CalendarX,
-    title: "Bookinger kan gå tabt",
+    image: problemBookings,
+    title: "Tabt omsætning",
     body: "En varm henvendelse kan ende hos en anden klinik, hvis patienten ikke får svar, mens behovet stadig er aktuelt.",
   },
   {
-    tone: "brand-teal",
-    icon: Waves,
+    image: problemReception,
     title: "Receptionen får mere pres",
     body: "Patienter, der ikke kommer igennem, ringer ofte igen. Det giver flere afbrydelser, flere løse ender og mindre ro i hverdagen.",
   },
   {
-    tone: "brand-lavender",
-    icon: DoorClosed,
+    image: problemAvailability,
     title: "Klinikken virker mindre tilgængelig",
     body: "Lang ventetid og ubesvarede opkald giver patienten en dårlig start, selv når årsagen bare er travlhed.",
   },
   {
-    tone: "brand-peach",
-    icon: EyeOff,
+    image: problemOverview,
     title: "Overblikket forsvinder",
     body: "Uden opfølgning ved I ikke, hvem der ringede, hvad de ville, eller hvor mange henvendelser der aldrig blev samlet op.",
   },
 ] as const;
-
-const toneClasses: Record<(typeof items)[number]["tone"], string> = {
-  "brand-pink": "bg-brand-pink text-brand-pink-foreground",
-  "brand-teal": "bg-brand-teal text-brand-teal-foreground",
-  "brand-lavender": "bg-brand-lavender text-brand-lavender-foreground",
-  "brand-peach": "bg-brand-peach text-brand-peach-foreground",
-};
 
 const ROTATE_MS = 4000;
 
@@ -68,14 +60,7 @@ const ProblemStrip = () => {
               Hvert ubesvaret opkald starter en kædereaktion
             </h2>
             <div className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              <p className="font-medium text-foreground">
-                Patienten lægger på.
-                <br />
-                Ringer igen senere.
-                <br />
-                Eller vælger en anden vej.
-              </p>
-              <p className="mt-6">
+              <p>
                 Når ingen følger op, mister I ikke bare opkaldet. I mister også overblikket: Hvem ringede,
                 hvad var behovet, og hvor hurtigt skulle I reagere?
               </p>
@@ -92,36 +77,39 @@ const ProblemStrip = () => {
             onFocusCapture={() => setIsPaused(true)}
             onBlurCapture={() => setIsPaused(false)}
           >
-            {items.map(({ tone, icon: Icon, title, body }, index) => {
+            {items.map(({ image, title, body }, index) => {
               const isActive = index === activeIndex;
               return (
                 <article
                   key={title}
                   onMouseEnter={() => setActiveIndex(index)}
-                  className={`rounded-3xl p-7 shadow-soft transition-all duration-500 ease-out md:p-8 ${toneClasses[tone]} ${
+                  className={`rounded-3xl border bg-card p-5 transition-all duration-500 ease-out md:p-6 ${
                     isActive
-                      ? "scale-[1.02] opacity-100 shadow-xl"
-                      : "scale-100 opacity-70 hover:opacity-90"
+                      ? "scale-[1.02] border-foreground/15 opacity-100 shadow-lift"
+                      : "scale-100 border-border opacity-70 hover:opacity-90"
                   }`}
                 >
                   <div className="flex items-start gap-5">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-background/60 backdrop-blur-sm">
-                      <Icon className="h-5 w-5" />
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-surface-soft md:h-24 md:w-24">
+                      <img
+                        src={image}
+                        alt=""
+                        loading="lazy"
+                        width={512}
+                        height={512}
+                        className="h-16 w-16 object-contain md:h-20 md:w-20"
+                      />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
-                      <p
-                        className={`mt-2 text-sm leading-relaxed transition-opacity duration-500 md:text-base ${
-                          isActive ? "opacity-90" : "opacity-75"
-                        }`}
-                      >
+                    <div className="flex-1 pt-1">
+                      <h3 className="text-lg font-semibold tracking-tight text-foreground md:text-xl">{title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
                         {body}
                       </p>
                     </div>
                   </div>
                   {/* Progress bar — kun synlig på det aktive kort */}
                   <div
-                    className={`mt-5 h-0.5 w-full overflow-hidden rounded-full bg-foreground/10 transition-opacity duration-300 ${
+                    className={`mt-5 h-0.5 w-full overflow-hidden rounded-full bg-foreground/5 transition-opacity duration-300 ${
                       isActive && !isPaused ? "opacity-100" : "opacity-0"
                     }`}
                   >
