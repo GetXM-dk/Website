@@ -51,25 +51,25 @@ const ProblemStrip = () => {
   return (
     <section className="border-y border-border bg-surface-soft">
       <div className="container py-20 md:py-28">
-        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="caption-uppercase text-muted-foreground">
-              Det skjulte pres på klinikkens hverdag
+        <div className="mx-auto max-w-3xl">
+          <p className="caption-uppercase text-muted-foreground">
+            Det skjulte pres på klinikkens hverdag
+          </p>
+          <h2 className="display-lg mt-4 text-foreground">
+            Hvert ubesvaret opkald starter en kædereaktion
+          </h2>
+          <div className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p>
+              Når ingen følger op, mister I ikke bare opkaldet. I mister også overblikket: Hvem ringede,
+              hvad var behovet, og hvor hurtigt skulle I reagere?
             </p>
-            <h2 className="display-lg mt-4 max-w-3xl text-foreground">
-              Hvert ubesvaret opkald starter en kædereaktion
-            </h2>
-            <div className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              <p>
-                Når ingen følger op, mister I ikke bare opkaldet. I mister også overblikket: Hvem ringede,
-                hvad var behovet, og hvor hurtigt skulle I reagere?
-              </p>
-              <p className="mt-4">
-                Det er her, et ubesvaret opkald bliver til mere end et ubesvaret opkald.
-              </p>
-            </div>
+            <p className="mt-4">
+              Det er her, et ubesvaret opkald bliver til mere end et ubesvaret opkald.
+            </p>
           </div>
+        </div>
 
+        <div className="mx-auto mt-14 max-w-3xl">
           <div
             className="flex flex-col gap-4"
             onMouseEnter={() => setIsPaused(true)}
