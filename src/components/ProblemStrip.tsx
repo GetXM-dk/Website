@@ -10,11 +10,7 @@ const items = [
     title: "Indtrykket skabes før samtalen",
     body: "Tilgængelighed skaber tryghed. Et ubesvaret opkald kan få klinikken til at virke svær at få fat i, selv når årsagen bare er en travl formiddag.",
   },
-  {
-    image: problemReception,
-    title: "Patienten søger videre",
-    body: "Når patienten ikke får kontakt, bliver næste skridt ofte at lede efter en anden mulighed. Særligt hvis de bare ville høre en pris, stille et hurtigt spørgsmål eller finde en ledig tid.",
-  },
+
   {
     image: problemAvailability,
     title: "Et nummer mangler kontekst",
@@ -24,6 +20,11 @@ const items = [
     image: problemOverview,
     title: "Receptionen får dobbeltarbejde",
     body: "Det ubesvarede opkald forsvinder ikke altid. Ofte kommer det igen senere — bare på et dårligere tidspunkt, hvor receptionen allerede er i gang med noget andet.",
+  },
+  {
+    image: problemReception,
+    title: "Patienten søger videre",
+    body: "Når patienten ikke får kontakt, bliver næste skridt ofte at lede efter en anden mulighed. Særligt hvis de bare ville høre en pris, stille et hurtigt spørgsmål eller finde en ledig tid.",
   },
 ] as const;
 
