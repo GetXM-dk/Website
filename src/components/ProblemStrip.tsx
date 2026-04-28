@@ -1,31 +1,39 @@
 import { useEffect, useRef, useState } from "react";
-import problemBookings from "@/assets/problem-bookings.png";
-import problemReception from "@/assets/problem-reception.png";
-import problemAvailability from "@/assets/problem-availability.png";
-import problemOverview from "@/assets/problem-overview.png";
+import { CalendarX, DoorClosed, EyeOff, Waves } from "lucide-react";
 
 const items = [
   {
-    image: problemBookings,
-    title: "Tabt omsætning",
+    tone: "brand-pink",
+    icon: CalendarX,
+    title: "Bookinger kan gå tabt",
     body: "En varm henvendelse kan ende hos en anden klinik, hvis patienten ikke får svar, mens behovet stadig er aktuelt.",
   },
   {
-    image: problemReception,
+    tone: "brand-teal",
+    icon: Waves,
     title: "Receptionen får mere pres",
     body: "Patienter, der ikke kommer igennem, ringer ofte igen. Det giver flere afbrydelser, flere løse ender og mindre ro i hverdagen.",
   },
   {
-    image: problemAvailability,
+    tone: "brand-lavender",
+    icon: DoorClosed,
     title: "Klinikken virker mindre tilgængelig",
     body: "Lang ventetid og ubesvarede opkald giver patienten en dårlig start, selv når årsagen bare er travlhed.",
   },
   {
-    image: problemOverview,
+    tone: "brand-peach",
+    icon: EyeOff,
     title: "Overblikket forsvinder",
     body: "Uden opfølgning ved I ikke, hvem der ringede, hvad de ville, eller hvor mange henvendelser der aldrig blev samlet op.",
   },
 ] as const;
+
+const toneClasses: Record<(typeof items)[number]["tone"], string> = {
+  "brand-pink": "bg-brand-pink text-brand-pink-foreground",
+  "brand-teal": "bg-brand-teal text-brand-teal-foreground",
+  "brand-lavender": "bg-brand-lavender text-brand-lavender-foreground",
+  "brand-peach": "bg-brand-peach text-brand-peach-foreground",
+};
 
 const ROTATE_MS = 4000;
 
@@ -51,25 +59,21 @@ const ProblemStrip = () => {
   return (
     <section className="border-y border-border bg-surface-soft">
       <div className="container py-20 md:py-28">
-        <div className="mx-auto max-w-3xl">
-          <p className="caption-uppercase text-muted-foreground">
-            Det skjulte pres på klinikkens hverdag
-          </p>
-          <h2 className="display-lg mt-4 text-foreground">
-            Hvert ubesvaret opkald starter en kædereaktion
-          </h2>
-          <div className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
-            <p>
-              Når ingen følger op, mister I ikke bare opkaldet. I mister også overblikket: Hvem ringede,
-              hvad var behovet, og hvor hurtigt skulle I reagere?
-            </p>
-            <p className="mt-4">
-              Det er her, et ubesvaret opkald bliver til mere end et ubesvaret opkald.
-            </p>
+        <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div className="lg:sticky lg:top-24 lg:self-start grid place-items-center">
+            <p className="caption-uppercase text-muted-foreground">Det skjulte pres på klinikkens hverdag</p>
+            <h2 className="display-lg mt-4 max-w-3xl text-foreground">
+              Hvert ubesvaret opkald starter en kædereaktion
+            </h2>
+            <div className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p className="mt-6">
+                Når ingen følger op, mister I ikke bare opkaldet. I mister også overblikket: Hvem ringede, hvad var
+                behovet, og hvor hurtigt skulle I reagere?
+              </p>
+              <p className="mt-4">Det er her, et ubesvaret opkald bliver til mere end et ubesvaret opkald.</p>
+            </div>
           </div>
-        </div>
 
-        <div className="mx-auto mt-14 max-w-3xl">
           <div
             className="flex flex-col gap-4"
             onMouseEnter={() => setIsPaused(true)}
@@ -77,35 +81,44 @@ const ProblemStrip = () => {
             onFocusCapture={() => setIsPaused(true)}
             onBlurCapture={() => setIsPaused(false)}
           >
-            {items.map(({ image, title, body }, index) => {
+            {items.map(({ tone, icon: Icon, title, body }, index) => {
               const isActive = index === activeIndex;
               return (
                 <article
                   key={title}
                   onMouseEnter={() => setActiveIndex(index)}
-                  className={`rounded-3xl border bg-card p-5 transition-all duration-500 ease-out md:p-6 ${
-                    isActive
-                      ? "scale-[1.02] border-foreground/15 opacity-100 shadow-lift"
-                      : "scale-100 border-border opacity-70 hover:opacity-90"
+                  className={`rounded-3xl p-7 shadow-soft transition-all duration-500 ease-out md:p-8 ${toneClasses[tone]} ${
+                    isActive ? "scale-[1.02] opacity-100 shadow-xl" : "scale-100 opacity-70 hover:opacity-90"
                   }`}
                 >
                   <div className="flex items-start gap-5">
-                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-surface-soft md:h-24 md:w-24">
-                      <img
-                        src={image}
-                        alt=""
-                        loading="lazy"
-                        width={512}
-                        height={512}
-                        className="h-16 w-16 object-contain md:h-20 md:w-20"
-                      />
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-background/60 backdrop-blur-sm">
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <div className="flex-1 pt-1">
-                      <h3 className="text-lg font-semibold tracking-tight text-foreground md:text-xl">{title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
+                      <p
+                        className={`mt-2 text-sm leading-relaxed transition-opacity duration-500 md:text-base ${
+                          isActive ? "opacity-90" : "opacity-75"
+                        }`}
+                      >
                         {body}
                       </p>
                     </div>
+                  </div>
+                  {/* Progress bar — kun synlig på det aktive kort */}
+                  <div
+                    className={`mt-5 h-0.5 w-full overflow-hidden rounded-full bg-foreground/10 transition-opacity duration-300 ${
+                      isActive && !isPaused ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <div
+                      key={`${activeIndex}-${isPaused}`}
+                      className="h-full w-full origin-left bg-foreground/40"
+                      style={{
+                        animation: isActive && !isPaused ? `problem-progress ${ROTATE_MS}ms linear forwards` : "none",
+                      }}
+                    />
                   </div>
                 </article>
               );
@@ -113,6 +126,12 @@ const ProblemStrip = () => {
           </div>
         </div>
       </div>
+      <style>{`
+        @keyframes problem-progress {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
+      `}</style>
     </section>
   );
 };
