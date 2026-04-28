@@ -52,20 +52,14 @@ const ProblemStrip = () => {
     <section className="border-y border-border bg-surface-soft">
       <div className="container py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="caption-uppercase text-muted-foreground">
-            Det skjulte pres på klinikkens hverdag
-          </p>
-          <h2 className="display-lg mt-4 text-foreground">
-            Hvert ubesvaret opkald starter en kædereaktion
-          </h2>
+          <p className="caption-uppercase text-muted-foreground">Det skjulte pres på klinikkens hverdag</p>
+          <h2 className="display-lg mt-4 text-foreground">Hvert ubesvaret opkald starter en kædereaktion</h2>
           <div className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
-              Når ingen følger op, mister I ikke bare opkaldet. I mister også overblikket: Hvem ringede,
-              hvad var behovet, og hvor hurtigt skulle I reagere?
+              Når ingen følger op, mister I ikke bare opkaldet. I mister også overblikket: Hvem ringede, hvad var
+              behovet, og hvor hurtigt skulle I reagere?
             </p>
-            <p className="mt-4">
-              Det er her, et ubesvaret opkald bliver til mere end et ubesvaret opkald.
-            </p>
+            <p className="mt-4">Det er her, et ubesvaret opkald bliver til mere end et ubesvaret opkald.</p>
           </div>
         </div>
 
@@ -90,7 +84,7 @@ const ProblemStrip = () => {
                   }`}
                 >
                   <div className="flex items-start gap-5">
-                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-surface-soft md:h-24 md:w-24">
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl md:h-24 md:w-24">
                       <img
                         src={image}
                         alt=""
@@ -102,9 +96,7 @@ const ProblemStrip = () => {
                     </div>
                     <div className="flex-1 pt-1">
                       <h3 className="text-lg font-semibold tracking-tight text-foreground md:text-xl">{title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
-                        {body}
-                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">{body}</p>
                     </div>
                   </div>
                 </article>
