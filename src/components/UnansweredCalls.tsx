@@ -21,7 +21,7 @@ const blocks = [
 const UnansweredCalls = () => {
   return (
     <section style={{ backgroundColor: "#0B3D3C" }}>
-      <div className="container py-16 md:py-24">
+      <div className="container py-16 md:py-32">
         <div className="grid gap-6 md:grid-cols-2 md:gap-8">
           {blocks.map(({ image, title, body, background, border }) => (
             <div
@@ -41,9 +41,7 @@ const UnansweredCalls = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-foreground md:text-2xl">{title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                  {body}
-                </p>
+                <p className="mt-3 text-base leading-relaxed text-muted-foreground">{body}</p>
               </div>
             </div>
           ))}
