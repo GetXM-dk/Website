@@ -57,10 +57,8 @@ const ProblemStrip = () => {
           <div className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
               Stilheden snyder, når telefonen ringer ud. Det er ikke bare et ubesvaret opkald. Det er et behov, I ikke
-              kender. <p>Måske var det en ny booking, der nu går videre.</p>{" "}
-              <p> Måske en aflysning, der kunne have frigivet tid til en anden patient.</p>{" "}
-              <p>Måske et spørgsmål, der kommer tilbage senere som en afbrydelse.</p> Når I ikke kender årsagen til
-              opkaldet, bliver det svært at prioritere.
+              kender Måske var det en booking, en aflysning eller et hurtigt spørgsmål. Når årsagen mangler, bliver det
+              svært at prioritere.
             </p>
             <p className="mt-4">
               Tilbage står klinikken med løse ender, men uden viden om, hvilken ende I skal trækkes i først.
