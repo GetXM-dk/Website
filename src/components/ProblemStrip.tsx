@@ -7,23 +7,23 @@ import problemOverview from "@/assets/problem-overview.png";
 const items = [
   {
     image: problemBookings,
-    title: "Tabt omsætning",
-    body: "En varm henvendelse kan ende hos en anden klinik, hvis patienten ikke får svar, mens behovet stadig er aktuelt.",
+    title: "Indtrykket skabes før samtalen",
+    body: "Tilgængelighed skaber tryghed. Et ubesvaret opkald kan få klinikken til at virke svær at få fat i, selv når årsagen bare er en travl formiddag.",
   },
   {
     image: problemReception,
-    title: "Receptionen får mere pres",
-    body: "Patienter, der ikke kommer igennem, ringer ofte igen. Det giver flere afbrydelser, flere løse ender og mindre ro i hverdagen.",
+    title: "Patienten søger videre",
+    body: "Når patienten ikke får kontakt, bliver næste skridt ofte at lede efter en anden mulighed. Særligt hvis de bare ville høre en pris, stille et hurtigt spørgsmål eller finde en ledig tid.",
   },
   {
     image: problemAvailability,
-    title: "Klinikken virker mindre tilgængelig",
-    body: "Lang ventetid og ubesvarede opkald giver patienten en dårlig start, selv når årsagen bare er travlhed.",
+    title: "Et nummer mangler kontekst",
+    body: "I opkaldslisten ligner alle opkald hinanden. Uden samtalen ved I ikke, om det handlede om booking, pris, afbud, spørgsmål eller noget, der hastede.",
   },
   {
     image: problemOverview,
-    title: "Overblikket forsvinder",
-    body: "Uden opfølgning ved I ikke, hvem der ringede, hvad de ville, eller hvor mange henvendelser der aldrig blev samlet op.",
+    title: "Receptionen får dobbeltarbejde",
+    body: "Det ubesvarede opkald forsvinder ikke altid. Ofte kommer det igen senere — bare på et dårligere tidspunkt, hvor receptionen allerede er i gang med noget andet.",
   },
 ] as const;
 
