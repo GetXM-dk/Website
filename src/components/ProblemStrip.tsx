@@ -107,35 +107,12 @@ const ProblemStrip = () => {
                       </p>
                     </div>
                   </div>
-                  {/* Progress bar — kun synlig på det aktive kort */}
-                  <div
-                    className={`mt-5 h-0.5 w-full overflow-hidden rounded-full bg-foreground/5 transition-opacity duration-300 ${
-                      isActive && !isPaused ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    <div
-                      key={`${activeIndex}-${isPaused}`}
-                      className="h-full w-full origin-left bg-foreground/40"
-                      style={{
-                        animation:
-                          isActive && !isPaused
-                            ? `problem-progress ${ROTATE_MS}ms linear forwards`
-                            : "none",
-                      }}
-                    />
-                  </div>
                 </article>
               );
             })}
           </div>
         </div>
       </div>
-      <style>{`
-        @keyframes problem-progress {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
-        }
-      `}</style>
     </section>
   );
 };
