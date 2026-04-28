@@ -167,11 +167,11 @@ All colors MUST be HSL.
   .display-xl {
     font-size: clamp(2.5rem, 6vw, 4.5rem); /* up to 72px */
     font-weight: 500;
-    line-height: 1.0;
+    line-height: 1;
     letter-spacing: -0.045em; /* ~ -2.5px at 72px */
   }
   .display-lg {
-    font-size: clamp(2.25rem, 5vw, 3.5rem); /* up to 56px */
+    font-size: clamp(2.35rem, 5.5vw, 3.75rem); /* up to 56px */
     font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.035em;
