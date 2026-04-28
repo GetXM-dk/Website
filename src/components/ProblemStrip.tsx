@@ -52,12 +52,15 @@ const ProblemStrip = () => {
     <section className="border-y border-border bg-surface-soft">
       <div className="container py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="caption-uppercase text-muted-foreground">Det skjulte pres på klinikkens hverdag</p>
-          <h2 className="display-lg mt-4 text-foreground">Hvert ubesvaret opkald starter en kædereaktion</h2>
+          <p className="text-muted-foreground">Den usynlige kædereaktion</p>
+          <h2 className="display-lg mt-4 text-foreground">Et ubesvaret opkald stopper sjældent ved telefonen</h2>
           <div className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
-              Når ingen følger op, mister I ikke bare opkaldet. I mister også overblikket: Hvem ringede, hvad var
-              behovet, og hvor hurtigt skulle I reagere?
+              Stilheden snyder, når telefonen ringer ud. Det er ikke bare et ubesvaret opkald. Det er et behov, I ikke
+              kender.Måske var det en ny booking, der nu går videre. Måske en aflysning, der kunne have frigivet tid til
+              en anden patient. Måske et spørgsmål, der kommer tilbage senere som en afbrydelse. Når I ikke kender
+              årsagen til opkaldet, bliver det svært at prioritere. Tilbage står klinikken med løse ender, men uden
+              viden om, hvilken ende der skal trækkes i først.
             </p>
             <p className="mt-4">Det er her, et ubesvaret opkald bliver til mere end et ubesvaret opkald.</p>
           </div>
