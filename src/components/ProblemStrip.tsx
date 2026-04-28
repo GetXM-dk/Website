@@ -59,10 +59,11 @@ const ProblemStrip = () => {
               Stilheden snyder, når telefonen ringer ud. Det er ikke bare et ubesvaret opkald. Det er et behov, I ikke
               kender.Måske var det en ny booking, der nu går videre. Måske en aflysning, der kunne have frigivet tid til
               en anden patient. Måske et spørgsmål, der kommer tilbage senere som en afbrydelse. Når I ikke kender
-              årsagen til opkaldet, bliver det svært at prioritere. Tilbage står klinikken med løse ender, men uden
-              viden om, hvilken ende der skal trækkes i først.
+              årsagen til opkaldet, bliver det svært at prioritere.
             </p>
-            <p className="mt-4">Det er her, et ubesvaret opkald bliver til mere end et ubesvaret opkald.</p>
+            <p className="mt-4">
+              Tilbage står klinikken med løse ender, men uden viden om, hvilken ende der skal trækkes i først.
+            </p>
           </div>
         </div>
 
