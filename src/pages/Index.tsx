@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import UnansweredCalls from "@/components/UnansweredCalls";
 import ProblemStrip from "@/components/ProblemStrip";
 import HowAndOutcome from "@/components/HowAndOutcome";
 import LostCallsBento from "@/components/LostCallsBento";
@@ -16,6 +17,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <UnansweredCalls />
         <ProblemStrip />
         <HowAndOutcome />
         <LostCallsBento />
