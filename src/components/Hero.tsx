@@ -11,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="top" className="relative overflow-hidden bg-background">
+    <section id="top" className="relative overflow-hidden">
       {/* Soft cream-on-cream brand glows for depth without breaking the canvas */}
       <div
         aria-hidden
