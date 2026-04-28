@@ -9,7 +9,6 @@ import Pricing from "@/components/Pricing";
 import BookDemo from "@/components/BookDemo";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
@@ -17,9 +16,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <SectionDivider tone="warm" />
         <ProblemStrip />
-        <SectionDivider tone="sage" flip />
         <HowAndOutcome />
         <LostCallsBento />
         <ResultsBento />
