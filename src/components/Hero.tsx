@@ -29,9 +29,7 @@ const Hero = () => {
               <Zap className="h-3.5 w-3.5 text-brand-pink" fill="currentColor" />
               Lynhurtig og automatisk opfølgning på ubesvarede opkald
             </span>
-            <h1 className="display-xl mt-6 text-foreground">
-              God behandling starter, før patienten kommer ind ad døren.
-            </h1>
+            <h1 className="display-xl mt-6 text-foreground">God behandling starter, før patienten kommer ind</h1>
             <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
               Når I ikke kan tage telefonen, sender GetXM automatisk en SMS til patienten. Patienten får hjælp videre,
               henvendelsen bliver noteret, og I får de relevante oplysninger samlet på mail{" "}
