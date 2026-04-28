@@ -163,7 +163,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
               </>
             )}
           </form>
-          <p className="mt-2 text-center text-[8px] text-muted-foreground">Baseret på demo data</p>
+          <p className="mt-2 text-center text-[9px] text-muted-foreground">Baseret på demo data</p>
         </div>
       </PhoneMockup>
     </div>
