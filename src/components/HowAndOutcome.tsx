@@ -1,20 +1,26 @@
 import { Heart, Users, Inbox } from "lucide-react";
+import PhoneRingingIllustration from "@/components/illustrations/PhoneRingingIllustration";
+import SmsBubbleIllustration from "@/components/illustrations/SmsBubbleIllustration";
+import MailNoteIllustration from "@/components/illustrations/MailNoteIllustration";
 
 const steps = [
   {
     n: "01",
     title: "Patienten ringer",
     body: "I når ikke telefonen, fordi I er optaget, holder pause eller har lukket.",
+    illustration: PhoneRingingIllustration,
   },
   {
     n: "02",
     title: "GetXM følger op",
     body: "Patienten får automatisk en SMS og kan svare direkte.",
+    illustration: SmsBubbleIllustration,
   },
   {
     n: "03",
     title: "I får besked",
     body: "Vi noterer hvad henvendelsen handler om og sender de relevante oplysninger til jer på mail.",
+    illustration: MailNoteIllustration,
   },
 ];
 
@@ -55,15 +61,16 @@ const HowAndOutcome = () => {
             Sådan virker det
           </h3>
           <ol className="mt-8 space-y-8">
-            {steps.map((s) => (
-              <li key={s.n} className="flex gap-5">
-                <span className="text-4xl font-semibold leading-none text-accent md:text-5xl">
-                  {s.n}
-                </span>
+            {steps.map(({ n, title, body, illustration: Illustration }) => (
+              <li key={n} className="flex items-start gap-5">
+                <Illustration className="h-16 w-16 shrink-0 md:h-20 md:w-20" />
                 <div className="pt-1">
-                  <h4 className="text-base font-semibold md:text-lg">{s.title}</h4>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+                    Trin {n}
+                  </span>
+                  <h4 className="mt-1 text-base font-semibold md:text-lg">{title}</h4>
                   <p className="mt-1.5 text-sm text-muted-foreground md:text-base">
-                    {s.body}
+                    {body}
                   </p>
                 </div>
               </li>
