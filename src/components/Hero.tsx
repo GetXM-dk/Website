@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="container relative py-16 md:py-24 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div className="text-left">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-card/80 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-muted-foreground">
               <Zap className="h-3.5 w-3.5 text-brand-pink" fill="currentColor" />
               Lynhurtig og automatisk opfølgning på ubesvarede opkald
             </span>
