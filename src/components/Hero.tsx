@@ -31,8 +31,8 @@ const Hero = () => {
               God behandling starter, før patienten kommer ind ad døren.
             </h1>
             <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-              Når I ikke kan tage telefonen, sender GetXM automatisk en SMS til patienten. Vi hjælper patienten videre,
-              noterer hvad henvendelsen handler om og sender de relevante oplysninger til jer på mail.{" "}
+              Når I ikke kan tage telefonen, sender GetXM automatisk en SMS til patienten. Patienten får hjælp videre,
+              henvendelsen bliver noteret, og I får de relevante oplysninger samlet på mail{" "}
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
