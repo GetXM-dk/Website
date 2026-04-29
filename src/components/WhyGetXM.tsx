@@ -48,7 +48,7 @@ const WhyGetXM = () => {
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
           {/* Left — sticky intro */}
           <div className="md:sticky md:top-24 md:self-start">
-            <p className="caption-uppercase text-muted-foreground">Derfor GetXM</p>
+            <p className="caption-uppercase text-accent">Derfor GetXM</p>
             <h2 className="display-lg mt-4 text-foreground">10 grunde til, at klinikker vælger GetXM</h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               GetXM hjælper jer med at svare hurtigere, samle bedre beskeder og aflaste receptionen — uden at skifte
