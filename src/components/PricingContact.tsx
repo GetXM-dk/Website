@@ -208,7 +208,7 @@ const PricingContact = () => {
             </ul>
 
             <div className="mt-8 space-y-3 border-t border-border pt-6 text-sm text-muted-foreground">
-              <p> 7 kr. pr. ekstra ubesvaret opkald - Opsigelse:Løbende måned + 1 måned - Ekskl. moms<</p>
+              <p> 7 kr. pr. ekstra ubesvaret opkald - Opsigelse:Løbende måned + 1 måned - Ekskl. moms</p>
             </div>
           </article>
         </div>
