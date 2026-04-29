@@ -8,9 +8,7 @@ const SolutionFlow = () => {
           {/* Left — text */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <p className="caption-uppercase text-accent">Når opkaldet glipper</p>
-            <h2 className="display-lg mt-4 text-foreground">
-              Når I ikke kan besvare opkaldet, får patienten stadig svar
-            </h2>
+            <h2 className="display-lg mt-4 text-foreground">GetXM samler op, når I må slippe telefonen</h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
                 Når telefonen ikke bliver taget, sender GetXM automatisk en SMS til patienten. Patienten kan svare
@@ -95,9 +93,7 @@ const FlowStep = ({ icon, step, label, title, body, tone = "default" }: FlowStep
         : "border-border/60 bg-background text-foreground";
 
   return (
-    <article
-      className={`flex h-full flex-col rounded-3xl border p-6 shadow-soft md:p-7 ${toneClasses}`}
-    >
+    <article className={`flex h-full flex-col rounded-3xl border p-6 shadow-soft md:p-7 ${toneClasses}`}>
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-background/60 text-foreground">
@@ -120,9 +116,7 @@ const FlowStep = ({ icon, step, label, title, body, tone = "default" }: FlowStep
 const Connector = ({ split = false }: { split?: boolean }) => (
   <div className="flex flex-col items-center" aria-hidden="true">
     <ArrowDown className="h-5 w-5 text-muted-foreground/60" />
-    {split ? (
-      <div className="mt-1 hidden h-px w-1/2 bg-border sm:block" />
-    ) : null}
+    {split ? <div className="mt-1 hidden h-px w-1/2 bg-border sm:block" /> : null}
   </div>
 );
 
