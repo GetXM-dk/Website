@@ -38,7 +38,7 @@ const UnansweredCalls = () => {
               {/* 2. Tekst-området */}
               <div className="flex flex-col flex-1 px-10 pb-16 md:px-16 md:pb-24">
                 {/* 3. min-h på h3 sikrer at brødteksten flugter, selvom titlen er på 1 eller 2 linjer */}
-                <h3 className="text-2xl font-bold text-[#0B3D3C] md:text-3xl leading-tight min-h-[4rem] md:min-h-[5rem]">
+                <h3 className="display-sm text-[#0B3D3C] min-h-[4rem] md:min-h-[5rem]">
                   {title}
                 </h3>
 
