@@ -67,9 +67,6 @@ const ProblemStrip = () => {
               </p>
               Tilbage står klinikken med løse ender, men uden viden om, hvilken ende I skal trække i først.
             </p>
-            <p className="mt-4">
-              Tilbage står klinikken med løse ender, men uden viden om, hvilken ende I skal trækkes i først.
-            </p>
           </div>
         </div>
 
