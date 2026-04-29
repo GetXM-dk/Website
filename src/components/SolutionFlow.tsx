@@ -10,11 +10,18 @@ const SolutionFlow = () => {
             <p className="caption-uppercase text-accent">Når opkaldet glipper</p>
             <h2 className="display-lg mt-4 text-foreground">GetXM samler op, når I må slippe telefonen</h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              <p>Når telefonen ikke bliver taget, sender GetXM automatisk en SMS til patienten.</p>
               <p>
-                Mange henvendelser kan afklares direkte. Når der er brug for jer, samler GetXM det vigtigste og sender
-                det på mail.
+                Når telefonen ikke bliver taget, sender GetXM automatisk en SMS til patienten. Patienten kan svare
+                direkte, forklare behovet eller bede om at blive ringet op.
               </p>
+              <p>
+                Mange henvendelser kan afklares direkte med svar om åbningstider, priser, booking, afbud eller praktisk
+                information. Når der er brug for jer, samler GetXM det vigtigste og sender det til klinikken på mail.
+              </p>
+            </div>
+            <div className="mt-8 space-y-2 border-l-2 border-accent/60 pl-4 text-base font-medium text-foreground md:text-lg">
+              <p>Enten får patienten hjælp med det samme.</p>
+              <p>Eller receptionen får en besked, der er klar til opfølgning.</p>
             </div>
           </div>
 
