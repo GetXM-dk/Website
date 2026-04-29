@@ -5,7 +5,7 @@ const reasons = [
   },
   {
     title: "50 opkald inkluderet",
-    body: "Hver måned er 50 ubesvarede opkald inkluderet i løsningen. Det gør prisen enkel at forstå og nem at regne med. 7 kr pr opkald udover",
+    body: "Hver måned er 50 ubesvarede opkald inkluderet i løsningen. Det gør prisen enkel at forstå og nem at regne med. Herefter 7 kr. pr. ekstra ubesvaret opkald.",
   },
   {
     title: "Opsig når du vil",
