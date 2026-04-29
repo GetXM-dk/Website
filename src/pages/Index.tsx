@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import UnansweredCalls from "@/components/UnansweredCalls";
 import ProblemStrip from "@/components/ProblemStrip";
-import SafetyNet from "@/components/SafetyNet";
 import WhyGetXM from "@/components/WhyGetXM";
 import LostCallsBento from "@/components/LostCallsBento";
 import ResultsBento from "@/components/ResultsBento";
@@ -20,7 +19,6 @@ const Index = () => {
         <Hero />
         <UnansweredCalls />
         <ProblemStrip />
-        <SafetyNet />
         <WhyGetXM />
         <LostCallsBento />
         <ResultsBento />
