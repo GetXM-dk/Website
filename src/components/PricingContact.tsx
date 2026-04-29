@@ -237,13 +237,6 @@ const PricingContact = () => {
                 <span className="font-semibold text-foreground">Opsigelse:</span> Løbende måned + 1 måned
               </p>
             </div>
-
-            <Button asChild size="lg" className="mt-8 w-full rounded-xl">
-              <a href="#kontakt">
-                Book en kort gennemgang
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
           </article>
         </div>
       </div>
