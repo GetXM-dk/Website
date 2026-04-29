@@ -15,9 +15,8 @@ const SolutionFlow = () => {
                 direkte, forklare behovet eller bede om at blive ringet op.
               </p>
               <p>
-                Mange henvendelser kan afklares direkte på SMS med svar om åbningstider, priser, booking, afbud eller
-                praktisk information. Når der er brug for jer, samler GetXM det vigtigste og sender det til klinikken på
-                mail.
+                Mange henvendelser kan afklares direkte med svar om åbningstider, priser, booking, afbud eller praktisk
+                information. Når der er brug for jer, samler GetXM det vigtigste og sender det til klinikken på mail.
               </p>
             </div>
             <div className="mt-8 space-y-2 border-l-2 border-accent/60 pl-4 text-base font-medium text-foreground md:text-lg">
