@@ -32,9 +32,6 @@ const Hero = () => {
                 Prøv demoen
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
-              <Button asChild size="lg" variant="ghost" className="rounded-xl px-7">
-                <a href="#how">Se hvordan det virker</a>
-              </Button>
             </div>
 
             <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
