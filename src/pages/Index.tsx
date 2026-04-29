@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import UnansweredCalls from "@/components/UnansweredCalls";
 import ProblemStrip from "@/components/ProblemStrip";
 import WhyGetXM from "@/components/WhyGetXM";
-import LostCallsBento from "@/components/LostCallsBento";
 import ResultsBento from "@/components/ResultsBento";
 import ComparisonTable from "@/components/ComparisonTable";
 import Pricing from "@/components/Pricing";
@@ -20,7 +19,6 @@ const Index = () => {
         <UnansweredCalls />
         <ProblemStrip />
         <WhyGetXM />
-        <LostCallsBento />
         <ResultsBento />
         <ComparisonTable />
         <Pricing />
