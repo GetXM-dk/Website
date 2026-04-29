@@ -191,12 +191,6 @@ const PricingContact = () => {
           </article>
 
           <article className="order-1 rounded-3xl border border-foreground/10 bg-card p-6 shadow-lift md:p-8 lg:order-2">
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <span className="rounded-full bg-brand-mint px-3 py-1 text-sm font-bold text-brand-mint-foreground">
-                Gratis opsætning
-              </span>
-            </div>
-
             <div className="mt-8">
               <p className="text-5xl font-semibold tracking-tight text-foreground md:text-6xl">
                 349
