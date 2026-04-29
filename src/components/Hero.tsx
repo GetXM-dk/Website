@@ -28,11 +28,18 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+              {/* 1. Primær knap - Nu uden pil */}
               <Button size="lg" className="rounded-xl px-7" onClick={handleTryDemo}>
                 Prøv demoen
-                <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
-              <Button size="lg" className="link" onClick={handleTryDemo}>
+
+              {/* 2. Sekundær knap - Nu mindre fremtrædende med outline og pil */}
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-xl px-7 border-border/60 text-muted-foreground hover:text-foreground"
+                onClick={handleTryDemo}
+              >
                 Prøv demoen
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
