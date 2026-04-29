@@ -53,7 +53,7 @@ const ProblemStrip = () => {
     <section className="border-y border-border bg-surface-soft">
       <div className="container py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
-          <p className="text-muted-foreground">Den usynlige kædereaktion</p>
+          <p className="caption-uppercase text-accent">Den usynlige kædereaktion</p>
           <h2 className="display-lg mt-4 text-foreground">
             Den gode behandling starter, før patienten kommer ind ad døren
           </h2>
