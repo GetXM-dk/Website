@@ -165,14 +165,14 @@ All colors MUST be HSL.
 
   /* Display headlines — Inter 500 with negative letter-spacing as Plain Black substitute */
   .display-xl {
-    font-size: clamp(2.5rem, 6vw, 4.5rem); /* up to 72px */
+    font-size: clamp(2.35rem, 5.5vw, 3.75rem); /* up to 60px */
     font-family: "Gloock", ui-serif, Georgia, serif;
     font-weight: 400;
     line-height: 1.05;
     letter-spacing: -0.02em;
   }
   .display-lg {
-    font-size: clamp(2.35rem, 5.5vw, 3.75rem); /* up to 56px */
+    font-size: clamp(1.875rem, 4vw, 2.5rem); /* up to 40px */
     font-family: "Gloock", ui-serif, Georgia, serif;
     font-weight: 400;
     line-height: 1.1;
