@@ -57,14 +57,16 @@ const ProblemStrip = () => {
           <h2 className="display-lg mt-4 text-foreground">
             Den gode behandling starter, før patienten kommer ind ad døren
           </h2>
-          <div className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
+          <div className="mt-8 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
               Stilheden snyder, når telefonen ringer ud. Det er ikke bare et ubesvaret opkald. Det er et behov, I ikke
               kender.
-              <p>
-                Måske var det en booking, en aflysning eller et hurtigt spørgsmål. Når årsagen mangler, bliver det svært
-                at prioritere.
-              </p>
+            </p>
+            <p>
+              Måske var det en booking, en aflysning eller et hurtigt spørgsmål. Når årsagen mangler, bliver det svært
+              at prioritere.
+            </p>
+            <p>
               Tilbage står klinikken med løse ender, men uden viden om, hvilken ende I skal trække i først.
             </p>
           </div>
