@@ -54,6 +54,8 @@ const included = [
   "Dansk support",
 ] as const;
 
+const contactEmail = "hej@getxm.dk";
+
 const PricingContact = () => {
   const [form, setForm] = useState<ContactForm>(initialForm);
   const [errors, setErrors] = useState<ContactErrors>({});
@@ -81,10 +83,17 @@ const PricingContact = () => {
 
     setErrors({});
     setForm(initialForm);
+    const { name, clinic, email, phone } = result.data;
+    const subject = encodeURIComponent(`Kort gennemgang af GetXM — ${clinic}`);
+    const body = encodeURIComponent(
+      [`Navn: ${name}`, `Klinik / firmanavn: ${clinic}`, `E-mail: ${email}`, `Telefon: ${phone}`].join("\n"),
+    );
+
     toast({
       title: "Tak — vi har modtaget jeres oplysninger",
-      description: "Vi kontakter jer for en kort gennemgang af GetXM.",
+      description: "Din mailklient åbner, så forespørgslen kan sendes sikkert.",
     });
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
   };
 
   return (
