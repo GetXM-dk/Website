@@ -33,6 +33,12 @@ const Hero = () => {
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
             </div>
+            <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+              <Button size="lg" className="rounded-xl px-7" onClick={handleTryDemo}>
+                Prøv demoen
+                <ArrowRight className="ml-1.5 h-4 w-4" />
+              </Button>
+            </div>
 
             <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
               {["Gratis opsætning", "Behold dit teleskab", "Kun 349,- pr. md"].map((item) => (
