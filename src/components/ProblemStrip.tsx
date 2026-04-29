@@ -6,13 +6,13 @@ import problemOverview from "@/assets/problem-overview.png";
 
 const items = [
   {
-    image: problemBookings,
+    image: problemAvailability,
     title: "Indtrykket skabes før samtalen",
     body: "Tilgængelighed skaber tryghed. Et ubesvaret opkald kan få klinikken til at virke svær at få fat i, selv når årsagen bare er en travl formiddag.",
   },
 
   {
-    image: problemAvailability,
+    image: problemBookings,
     title: "Et nummer mangler kontekst",
     body: "I opkaldslisten ligner alle opkald hinanden. Uden samtalen ved I ikke, om det handlede om booking, pris, afbud, spørgsmål eller noget, der hastede.",
   },
