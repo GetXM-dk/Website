@@ -2,7 +2,7 @@ import { PhoneOff, MessageSquare, Sparkles, Mail, ArrowDown } from "lucide-react
 
 const SolutionFlow = () => {
   return (
-    <section id="solution-flow" className="bg-surface-soft">
+    <section id="how" className="bg-surface-soft">
       <div className="container py-20 md:py-32">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
           {/* Left — text */}
