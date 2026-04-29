@@ -99,7 +99,7 @@ const PricingContact = () => {
             </div>
 
             <form className="mt-8 grid gap-4" onSubmit={handleSubmit} noValidate>
-              <div className="grid gap-2">
+              <div className="grid gap-2" sm:grid-cols-2">
                 <Label htmlFor="contact-name">Navn</Label>
                 <Input
                   id="contact-name"
@@ -118,7 +118,7 @@ const PricingContact = () => {
                 )}
               </div>
 
-              <div className="grid gap-2">
+              <div className="grid gap-2"sm:grid-cols-2">
                 <Label htmlFor="contact-clinic">Klinik / firmanavn</Label>
                 <Input
                   id="contact-clinic"
