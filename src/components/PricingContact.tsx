@@ -99,45 +99,49 @@ const PricingContact = () => {
             </div>
 
             <form className="mt-8 grid gap-4" onSubmit={handleSubmit} noValidate>
-              <div className="grid gap-2" sm:grid-cols-2">
-                <Label htmlFor="contact-name">Navn</Label>
-                <Input
-                  id="contact-name"
-                  name="name"
-                  autoComplete="name"
-                  value={form.name}
-                  maxLength={100}
-                  onChange={(event) => updateField("name", event.target.value)}
-                  aria-invalid={Boolean(errors.name)}
-                  aria-describedby={errors.name ? "contact-name-error" : undefined}
-                />
-                {errors.name && (
-                  <p id="contact-name-error" className="text-sm text-destructive">
-                    {errors.name}
-                  </p>
-                )}
+              {/* Navn og Klinik på samme række ved sm skærmstørrelse */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-2">
+                  <Label htmlFor="contact-name">Navn</Label>
+                  <Input
+                    id="contact-name"
+                    name="name"
+                    autoComplete="name"
+                    value={form.name}
+                    maxLength={100}
+                    onChange={(event) => updateField("name", event.target.value)}
+                    aria-invalid={Boolean(errors.name)}
+                    aria-describedby={errors.name ? "contact-name-error" : undefined}
+                  />
+                  {errors.name && (
+                    <p id="contact-name-error" className="text-sm text-destructive">
+                      {errors.name}
+                    </p>
+                  )}
+                </div>
+
+                <div className="grid gap-2">
+                  <Label htmlFor="contact-clinic">Klinik / firmanavn</Label>
+                  <Input
+                    id="contact-clinic"
+                    name="clinic"
+                    autoComplete="organization"
+                    value={form.clinic}
+                    maxLength={120}
+                    onChange={(event) => updateField("clinic", event.target.value)}
+                    aria-invalid={Boolean(errors.clinic)}
+                    aria-describedby={errors.clinic ? "contact-clinic-error" : undefined}
+                  />
+                  {errors.clinic && (
+                    <p id="contact-clinic-error" className="text-sm text-destructive">
+                      {errors.clinic}
+                    </p>
+                  )}
+                </div>
               </div>
 
-              <div className="grid gap-2"sm:grid-cols-2">
-                <Label htmlFor="contact-clinic">Klinik / firmanavn</Label>
-                <Input
-                  id="contact-clinic"
-                  name="clinic"
-                  autoComplete="organization"
-                  value={form.clinic}
-                  maxLength={120}
-                  onChange={(event) => updateField("clinic", event.target.value)}
-                  aria-invalid={Boolean(errors.clinic)}
-                  aria-describedby={errors.clinic ? "contact-clinic-error" : undefined}
-                />
-                {errors.clinic && (
-                  <p id="contact-clinic-error" className="text-sm text-destructive">
-                    {errors.clinic}
-                  </p>
-                )}
-              </div>
-
-              <div className="grid gap-2 sm:grid-cols-2">
+              {/* E-mail og Telefon på samme række */}
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div className="grid gap-2">
                   <Label htmlFor="contact-email">E-mail</Label>
                   <Input
