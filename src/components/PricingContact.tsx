@@ -185,7 +185,7 @@ const PricingContact = () => {
 
               <div className="pt-2">
                 <Button type="submit" size="lg" className="w-full h-12 text-lg rounded-xl">
-                  Book en kort gennemgang
+                  Book en demo
                   <ArrowRight className="h-5 w-5 ml-2" /> {/* Gjorde også pilen lidt større her */}
                 </Button>
               </div>
