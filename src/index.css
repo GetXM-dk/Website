@@ -166,27 +166,31 @@ All colors MUST be HSL.
   /* Display headlines — Inter 500 with negative letter-spacing as Plain Black substitute */
   .display-xl {
     font-size: clamp(2.5rem, 6vw, 4.5rem); /* up to 72px */
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -0.045em; /* ~ -2.5px at 72px */
+    font-family: "Gloock", ui-serif, Georgia, serif;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
   .display-lg {
     font-size: clamp(2.35rem, 5.5vw, 3.75rem); /* up to 56px */
-    font-weight: 500;
-    line-height: 1.05;
-    letter-spacing: -0.035em;
+    font-family: "Gloock", ui-serif, Georgia, serif;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
   }
   .display-md {
     font-size: clamp(1.875rem, 4vw, 2.5rem); /* up to 40px */
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
+    font-family: "Gloock", ui-serif, Georgia, serif;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
   .display-sm {
     font-size: clamp(1.5rem, 3vw, 2rem); /* up to 32px */
-    font-weight: 500;
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    font-family: "Gloock", ui-serif, Georgia, serif;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
   }
   .caption-uppercase {
     font-size: 0.75rem;
