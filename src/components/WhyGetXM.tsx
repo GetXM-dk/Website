@@ -20,12 +20,12 @@ const reasons = [
     body: "I skal ikke skifte teleudbyder eller købe nyt udstyr. GetXM lægger sig ovenpå det setup, I allerede bruger.",
   },
   {
-    title: "Ingen app for patienten",
-    body: "Patienten får en SMS og svarer direkte. Ingen app. Intet login. Ingen ny portal.",
+    title: "Intet nyt IT",
+    body: "Patienten får en SMS og svarer direkte. Ingen app. Intet login. Ingen ny portal eller IT implementering.",
   },
   {
-    title: "Simple spørgsmål klares på SMS",
-    body: "Åbningstider, priser, bookinglink og praktisk info kan sendes direkte til patienten. Det giver hurtigere svar — og færre små afbrydelser i receptionen.",
+    title: "Vi klarer 63% spørgsmål på SMS",
+    body: "Åbningstider, priser, bookinglink og praktisk info kan sendes direkte til patienten. Det giver hurtigere svar og færre små afbrydelser for jer.",
   },
   {
     title: "Besked, når der er brug for jer",
