@@ -12,7 +12,7 @@ const items = [
   },
 
   {
-    image: problemBookings,
+    image: problemReception,
     title: "Et nummer mangler kontekst",
     body: "I opkaldslisten ligner alle opkald hinanden. Uden samtalen ved I ikke, om det handlede om booking, pris, afbud, spørgsmål eller noget, der hastede.",
   },
@@ -22,7 +22,7 @@ const items = [
     body: "Det ubesvarede opkald forsvinder ikke altid. Ofte kommer det igen senere — bare på et dårligere tidspunkt, hvor receptionen allerede er i gang med noget andet.",
   },
   {
-    image: problemReception,
+    image: problemBookings,
     title: "Patienten søger videre",
     body: "Når patienten ikke får kontakt, bliver næste skridt ofte at lede efter en anden mulighed. Særligt hvis de bare ville høre en pris, stille et hurtigt spørgsmål eller finde en ledig tid.",
   },
