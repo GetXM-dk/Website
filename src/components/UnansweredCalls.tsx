@@ -25,22 +25,28 @@ const UnansweredCalls = () => {
       <div className="container mx-auto px-6 py-20 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           {blocks.map(({ image, title, body, background, border }) => (
-<div className="flex flex-col flex-1 px-10 pb-16 md:px-16 md:pb-24">
-  {/* 1. Justér min-h til en lavere værdi (f.eks. fra 5rem til 3rem eller 3.5rem) */}
-  <h3 className="display-sm text-[#0B3D3C] min-h-[3rem] md:min-h-[4rem] leading-tight">
-    {title}
-  </h3>
+            /* 1. HER MANGLEDE DIN WRAPPER-DIV */
+            <div
+              key={title}
+              className="flex flex-col h-full rounded-[2.5rem] border overflow-hidden"
+              style={{ backgroundColor: background, borderColor: border }}
+            >
+              {/* 2. BILLED-OMRÅDET (Husk at beholde denne for at titlerne flugter) */}
+              <div className="flex items-center justify-center h-[300px] md:h-[400px] px-10">
+                <img src={image} alt="" loading="lazy" className="max-h-[70%] w-auto object-contain" />
+              </div>
 
-  {/* 2. Skru ned for mt-4 til f.eks. mt-1 eller mt-2 */}
-  <p className="mt-2 text-base leading-relaxed text-gray-700 md:text-lg opacity-90">
-    {body}
-  </p>
-</div>
-            </div>
+              {/* 3. TEKST-OMRÅDET */}
+              <div className="flex flex-col flex-1 px-10 pb-16 md:px-16 md:pb-24">
+                <h3 className="display-sm text-[#0B3D3C] min-h-[3rem] md:min-h-[4rem] leading-tight">{title}</h3>
+
+                <p className="mt-2 text-base leading-relaxed text-gray-700 md:text-lg opacity-90">{body}</p>
+              </div>
+            </div> /* Lukker kortet */
           ))}
         </div>
       </div>
-    </section>
+    </section> /* Lukker sektionen */
   );
 };
 
