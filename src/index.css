@@ -166,31 +166,35 @@ All colors MUST be HSL.
   /* Display headlines — Inter 500 with negative letter-spacing as Plain Black substitute */
   .display-xl {
     font-size: clamp(2.35rem, 5.5vw, 3.75rem); /* up to 60px */
-    font-family: "Gloock", ui-serif, Georgia, serif;
-    font-weight: 400;
+    font-family: "Fraunces", ui-serif, Georgia, serif;
+    font-weight: 300;
+    font-optical-sizing: auto;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
   .display-lg {
     font-size: clamp(1.875rem, 4vw, 2.5rem); /* up to 40px */
-    font-family: "Gloock", ui-serif, Georgia, serif;
-    font-weight: 400;
+    font-family: "Fraunces", ui-serif, Georgia, serif;
+    font-weight: 300;
+    font-optical-sizing: auto;
     line-height: 1.1;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
   .display-md {
     font-size: clamp(1.875rem, 4vw, 2.5rem); /* up to 40px */
-    font-family: "Gloock", ui-serif, Georgia, serif;
+    font-family: "Fraunces", ui-serif, Georgia, serif;
     font-weight: 400;
+    font-optical-sizing: auto;
     line-height: 1.15;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
   .display-sm {
     font-size: clamp(1.5rem, 3vw, 2rem); /* up to 32px */
-    font-family: "Gloock", ui-serif, Georgia, serif;
+    font-family: "Fraunces", ui-serif, Georgia, serif;
     font-weight: 400;
+    font-optical-sizing: auto;
     line-height: 1.2;
-    letter-spacing: -0.005em;
+    letter-spacing: -0.01em;
   }
   .caption-uppercase {
     font-size: 0.75rem;
