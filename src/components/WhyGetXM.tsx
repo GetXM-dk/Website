@@ -4,8 +4,8 @@ const reasons = [
     body: "Vi hjælper jer i gang uden opstartsgebyr. Ingen tekniker på besøg. Ingen tung opsætning. Bare et sikkerhedsnet, der bliver koblet på jeres nuværende telefoni.",
   },
   {
-    title: "50 ubesvarede opkald inkluderet",
-    body: "Hver måned er 50 ubesvarede opkald inkluderet i løsningen. Det gør prisen enkel at forstå — og nem at regne med.",
+    title: "50 opkald inkluderet",
+    body: "Hver måned er 50 ubesvarede opkald inkluderet i løsningen. Det gør prisen enkel at forstå og nem at regne med. 7 kr pr opkald udover",
   },
   {
     title: "Opsig når du vil",
