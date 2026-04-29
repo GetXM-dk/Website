@@ -5,6 +5,7 @@ import ProblemStrip from "@/components/ProblemStrip";
 import SolutionFlow from "@/components/SolutionFlow";
 import WhyGetXM from "@/components/WhyGetXM";
 import ComparisonTable from "@/components/ComparisonTable";
+import PricingContact from "@/components/PricingContact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
@@ -19,6 +20,7 @@ const Index = () => {
         <SolutionFlow />
         <WhyGetXM />
         <ComparisonTable />
+        <PricingContact />
         <FAQ />
       </main>
       <Footer />
