@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-3 z-40 w-full px-3 md:top-4 md:px-6">
+      <div className="container mx-auto flex h-14 items-center justify-between gap-4 rounded-full border border-border/40 bg-background/70 pl-5 pr-2 shadow-soft backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 md:h-16 md:pl-7 md:pr-3">
         <a href="#top" className="text-lg font-semibold tracking-tight">
           GetXM
         </a>
