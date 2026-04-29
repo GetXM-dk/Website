@@ -35,7 +35,6 @@ const flowSteps = ["Kort gennemgang", "Gratis opsætning", "Klar uden nyt nummer
 const included = [
   "Gratis opsætning",
   "50 ubesvarede opkald inkluderet pr. måned",
-  "Mail til klinikken, når der er brug for opfølgning",
   "Behold nummer og teleselskab",
   "Dansk support",
 ] as const;
