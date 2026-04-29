@@ -29,8 +29,8 @@ const Hero = () => {
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               {/* 1. Primær knap - Nu uden pil */}
-              <Button size="lg" className="rounded-xl px-7" onClick={handleTryDemo}>
-                Prøv demoen
+              <Button asChild size="lg" className="rounded-xl px-7">
+                <a href="#pricing">Book en demo</a>
               </Button>
 
               {/* 2. Sekundær knap - Nu mindre fremtrædende med outline og pil */}
@@ -40,7 +40,7 @@ const Hero = () => {
                 className="rounded-xl px-7 border-border/60 text-muted-foreground hover:text-foreground"
                 onClick={handleTryDemo}
               >
-                Prøv demoen
+                Prøv selv
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
             </div>
