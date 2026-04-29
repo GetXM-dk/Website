@@ -167,7 +167,7 @@ All colors MUST be HSL.
   .display-xl {
     font-size: clamp(2.35rem, 5.5vw, 3.75rem); /* up to 60px */
     font-family: "Fraunces", ui-serif, Georgia, serif;
-    font-weight: 300;
+    font-weight: 700;
     font-optical-sizing: auto;
     line-height: 1.05;
     letter-spacing: -0.025em;
@@ -175,7 +175,7 @@ All colors MUST be HSL.
   .display-lg {
     font-size: clamp(1.875rem, 4vw, 2.5rem); /* up to 40px */
     font-family: "Fraunces", ui-serif, Georgia, serif;
-    font-weight: 300;
+    font-weight: 700;
     font-optical-sizing: auto;
     line-height: 1.1;
     letter-spacing: -0.02em;
