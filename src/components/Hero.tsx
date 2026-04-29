@@ -46,7 +46,7 @@ const Hero = () => {
             </div>
 
             <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              {["Gratis opsætning", "Behold dit teleskab", "Kun 349,- pr. md"].map((item) => (
+              {["Gratis opsætning", "Behold dit teleselskab", "Kun 349,- /md"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-brand-pink" />
                   <span>{item}</span>
