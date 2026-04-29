@@ -14,14 +14,14 @@ const Navbar = () => {
           <a href="#how" className="transition-colors hover:text-foreground">
             Sådan virker det
           </a>
-          <a href="#demo" className="transition-colors hover:text-foreground">
-            Demo
-          </a>
           <a href="#pricing" className="transition-colors hover:text-foreground">
             Pris
           </a>
           <a href="#faq" className="transition-colors hover:text-foreground">
             FAQ
+          </a>
+          <a href="#pricing" className="transition-colors hover:text-foreground">
+            Book demo
           </a>
         </nav>
 
