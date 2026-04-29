@@ -91,7 +91,7 @@ const PricingContact = () => {
             className="order-2 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8 lg:order-1"
           >
             <div className="max-w-xl">
-              <h2 className="display-sm text-foreground">Skal vi give jer et kald?</h2>
+              <h2 className="display-sm text-foreground">Book din GetXM-demo</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
                 Udfyld formularen, så kontakter vi jer for en kort gennemgang. Vi viser, hvordan GetXM følger op på
                 ubesvarede opkald, og hvordan løsningen kan bruges med jeres nuværende telefoni.
