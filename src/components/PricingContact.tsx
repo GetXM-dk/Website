@@ -218,12 +218,8 @@ const PricingContact = () => {
             </ul>
 
             <div className="mt-8 space-y-3 border-t border-border pt-6 text-sm text-muted-foreground">
-              <p>
-                <span className="font-semibold text-foreground">Ekstra forbrug:</span> 7 kr. pr. ekstra ubesvaret opkald
-              </p>
-              <p>
-                <span className="font-semibold text-foreground">Opsigelse:</span> Løbende måned + 1 måned
-              </p>
+              <p> 7 kr. pr. ekstra ubesvaret opkald</p>
+              <p>Opsigelse:Løbende måned + 1 måned</p>
             </div>
           </article>
         </div>
