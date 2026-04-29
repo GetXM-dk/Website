@@ -25,25 +25,17 @@ const UnansweredCalls = () => {
       <div className="container mx-auto px-6 py-20 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           {blocks.map(({ image, title, body, background, border }) => (
-            <div
-              key={title}
-              className="flex flex-col h-full rounded-[2.5rem] border overflow-hidden"
-              style={{ backgroundColor: background, borderColor: border }}
-            >
-              {/* 1. Fast højde på billed-containeren sikrer at titlen flugter */}
-              <div className="flex items-center justify-center h-[300px] md:h-[400px] px-10">
-                <img src={image} alt="" loading="lazy" className="max-h-[70%] w-auto object-contain" />
-              </div>
+<div className="flex flex-col flex-1 px-10 pb-16 md:px-16 md:pb-24">
+  {/* 1. Justér min-h til en lavere værdi (f.eks. fra 5rem til 3rem eller 3.5rem) */}
+  <h3 className="display-sm text-[#0B3D3C] min-h-[3rem] md:min-h-[4rem] leading-tight">
+    {title}
+  </h3>
 
-              {/* 2. Tekst-området */}
-              <div className="flex flex-col flex-1 px-10 pb-16 md:px-16 md:pb-24">
-                {/* 3. min-h på h3 sikrer at brødteksten flugter, selvom titlen er på 1 eller 2 linjer */}
-                <h3 className="display-sm text-[#0B3D3C] min-h-[4rem] md:min-h-[5rem]">
-                  {title}
-                </h3>
-
-                <p className="mt-4 text-base leading-relaxed text-gray-700 md:text-lg opacity-90">{body}</p>
-              </div>
+  {/* 2. Skru ned for mt-4 til f.eks. mt-1 eller mt-2 */}
+  <p className="mt-2 text-base leading-relaxed text-gray-700 md:text-lg opacity-90">
+    {body}
+  </p>
+</div>
             </div>
           ))}
         </div>
