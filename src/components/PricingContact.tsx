@@ -82,10 +82,11 @@ const PricingContact = () => {
   return (
     <section id="pricing" className="bg-background py-20 md:py-28">
       <div className="container">
-        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+        {/* 1. FJERNET lg:items-start for at lade boksene strække sig til samme højde */}
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
           <article
             id="kontakt"
-            className="order-2 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8 lg:order-1"
+            className="order-2 flex flex-col h-full rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8 lg:order-1"
           >
             <div className="max-w-xl">
               <h2 className="display-sm text-foreground">Book din GetXM-demo</h2>
@@ -95,7 +96,6 @@ const PricingContact = () => {
             </div>
 
             <form className="mt-8 grid gap-4" onSubmit={handleSubmit} noValidate>
-              {/* Navn og Klinik på samme række ved sm skærmstørrelse */}
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="grid gap-2">
                   <Label htmlFor="contact-name">Navn</Label>
@@ -104,18 +104,9 @@ const PricingContact = () => {
                     name="name"
                     autoComplete="name"
                     value={form.name}
-                    maxLength={100}
                     onChange={(event) => updateField("name", event.target.value)}
-                    aria-invalid={Boolean(errors.name)}
-                    aria-describedby={errors.name ? "contact-name-error" : undefined}
                   />
-                  {errors.name && (
-                    <p id="contact-name-error" className="text-sm text-destructive">
-                      {errors.name}
-                    </p>
-                  )}
                 </div>
-
                 <div className="grid gap-2">
                   <Label htmlFor="contact-clinic">Klinik / firmanavn</Label>
                   <Input
@@ -123,20 +114,11 @@ const PricingContact = () => {
                     name="clinic"
                     autoComplete="organization"
                     value={form.clinic}
-                    maxLength={120}
                     onChange={(event) => updateField("clinic", event.target.value)}
-                    aria-invalid={Boolean(errors.clinic)}
-                    aria-describedby={errors.clinic ? "contact-clinic-error" : undefined}
                   />
-                  {errors.clinic && (
-                    <p id="contact-clinic-error" className="text-sm text-destructive">
-                      {errors.clinic}
-                    </p>
-                  )}
                 </div>
               </div>
 
-              {/* E-mail og Telefon på samme række */}
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="grid gap-2">
                   <Label htmlFor="contact-email">E-mail</Label>
@@ -144,52 +126,39 @@ const PricingContact = () => {
                     id="contact-email"
                     name="email"
                     type="email"
-                    autoComplete="email"
                     value={form.email}
-                    maxLength={255}
                     onChange={(event) => updateField("email", event.target.value)}
-                    aria-invalid={Boolean(errors.email)}
-                    aria-describedby={errors.email ? "contact-email-error" : undefined}
                   />
-                  {errors.email && (
-                    <p id="contact-email-error" className="text-sm text-destructive">
-                      {errors.email}
-                    </p>
-                  )}
                 </div>
-
                 <div className="grid gap-2">
                   <Label htmlFor="contact-phone">Telefon</Label>
                   <Input
                     id="contact-phone"
                     name="phone"
                     type="tel"
-                    autoComplete="tel"
-                    inputMode="tel"
                     value={form.phone}
-                    maxLength={25}
                     onChange={(event) => updateField("phone", event.target.value)}
-                    aria-invalid={Boolean(errors.phone)}
-                    aria-describedby={errors.phone ? "contact-phone-error" : undefined}
                   />
-                  {errors.phone && (
-                    <p id="contact-phone-error" className="text-sm text-destructive">
-                      {errors.phone}
-                    </p>
-                  )}
                 </div>
               </div>
 
               <div className="pt-2">
                 <Button type="submit" size="lg" className="w-full h-12 text-lg rounded-xl">
                   Book en demo
-                  <ArrowRight className="h-5 w-5 ml-2" /> {/* Gjorde også pilen lidt større her */}
+                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </div>
             </form>
           </article>
 
-          <article className="order-1 rounded-3xl border border-foreground/10 bg-card p-6 shadow-lift md:p-8 lg:order-2">
+          {/* 2. PRIS-BOKS: Tilføjet h-full og dine specifikke farver */}
+          <article
+            className="order-1 flex flex-col h-full rounded-3xl border p-6 shadow-lift md:p-8 lg:order-2"
+            style={{
+              backgroundColor: "#F5FFFE",
+              borderColor: "#B1FFFF",
+            }}
+          >
             <div className="mt-8">
               <p className="text-5xl font-semibold tracking-tight text-foreground md:text-6xl">
                 349
@@ -197,14 +166,17 @@ const PricingContact = () => {
               </p>
             </div>
 
-            <ul className="mt-8 space-y-3">
-              {included.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            {/* flex-1 her sørger for at indholdet fylder pladsen ud */}
+            <div className="flex-1">
+              <ul className="mt-8 space-y-3">
+                {included.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground">
+                    <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div className="mt-8 space-y-3 border-t border-border pt-6 text-sm text-muted-foreground">
               <p> 7 kr. pr. ekstra ubesvaret opkald. Priser ekskl. moms</p>
