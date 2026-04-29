@@ -5,7 +5,7 @@ const SolutionFlow = () => {
     <section id="how" className="bg-surface-soft">
       <div className="container py-20 md:py-32">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
-          {/* Left — text */}
+          {/* Venstre side — tekst */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <p className="caption-uppercase text-accent">Når opkaldet glipper</p>
             <h2 className="display-lg mt-4 text-foreground">GetXM samler op, når I må slippe telefonen</h2>
@@ -25,9 +25,8 @@ const SolutionFlow = () => {
             </div>
           </div>
 
-          {/* Right — flow */}
+          {/* Højre side — flow */}
           <div className="flex flex-col items-stretch gap-5">
-            {/* Step 1 */}
             <FlowStep
               icon={<PhoneOff className="h-5 w-5" aria-hidden="true" />}
               step="01"
@@ -37,7 +36,6 @@ const SolutionFlow = () => {
 
             <Connector />
 
-            {/* Step 2 */}
             <FlowStep
               icon={<MessageSquare className="h-5 w-5" aria-hidden="true" />}
               step="02"
@@ -48,7 +46,7 @@ const SolutionFlow = () => {
 
             <Connector split />
 
-            {/* Step 3 — split outcomes */}
+            {/* De to sidste kasser med dine nye farver */}
             <div className="grid gap-5 sm:grid-cols-2">
               <FlowStep
                 icon={<Sparkles className="h-5 w-5" aria-hidden="true" />}
@@ -84,24 +82,35 @@ type FlowStepProps = {
 };
 
 const FlowStep = ({ icon, step, label, title, body, tone = "default" }: FlowStepProps) => {
-  const toneClasses =
+  // Her definerer vi de specifikke farver baseret på "tone"
+  const isCustomTone = tone === "mint" || tone === "peach";
+
+  const customStyles =
     tone === "mint"
-      ? "border-transparent bg-brand-mint text-brand-mint-foreground"
+      ? { backgroundColor: "#F5FFFE", borderColor: "#B1FFFF" }
       : tone === "peach"
-        ? "border-transparent bg-brand-peach text-brand-peach-foreground"
-        : "border-border/60 bg-background text-foreground";
+        ? { backgroundColor: "#FBF5FF", borderColor: "#EFD8FF" }
+        : {};
+
+  const toneClasses = isCustomTone
+    ? "text-foreground" // Brug standard tekstfarve til de lyse kasser
+    : "border-border/60 bg-background text-foreground";
 
   return (
-    <article className={`flex h-full flex-col rounded-3xl border p-6 shadow-soft md:p-7 ${toneClasses}`}>
+    <article
+      className={`flex h-full flex-col rounded-3xl border p-6 shadow-soft md:p-7 ${toneClasses}`}
+      style={customStyles}
+    >
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-background/60 text-foreground">
+          {/* Ikon-baggrunden gøres lidt mørkere eller hvid for læsbarhed på de lyse farver */}
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/80 shadow-sm text-foreground">
             {icon}
           </span>
           <span className="text-sm font-medium opacity-70">{step}</span>
         </div>
         {label ? (
-          <span className="rounded-full bg-background/60 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-foreground/70">
+          <span className="rounded-full bg-white/80 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-foreground/70 shadow-sm">
             {label}
           </span>
         ) : null}
