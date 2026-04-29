@@ -195,7 +195,6 @@ const PricingContact = () => {
               <p className="text-5xl font-semibold tracking-tight text-foreground md:text-6xl">
                 349
                 <span className="mt-2 text-xl font-semibold text-foreground">kr. /md.</span>
-                <p className="mt-1 text-sm text-muted-foreground">Ekskl. moms</p>
               </p>
             </div>
 
@@ -209,8 +208,7 @@ const PricingContact = () => {
             </ul>
 
             <div className="mt-8 space-y-3 border-t border-border pt-6 text-sm text-muted-foreground">
-              <p> 7 kr. pr. ekstra ubesvaret opkald</p>
-              <p>Opsigelse:Løbende måned + 1 måned</p>
+              <p> 7 kr. pr. ekstra ubesvaret opkald - Opsigelse:Løbende måned + 1 måned - Ekskl. moms<</p>
             </div>
           </article>
         </div>
