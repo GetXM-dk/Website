@@ -24,7 +24,7 @@ const reasons = [
     body: "Patienten får en SMS og svarer direkte. Ingen app. Intet login. Ingen ny portal eller IT implementering.",
   },
   {
-    title: "Vi klarer 63% spørgsmål på SMS",
+    title: "67% bliver afklaret over SMS",
     body: "Åbningstider, priser, bookinglink og praktisk info kan sendes direkte til patienten. Det giver hurtigere svar og færre små afbrydelser for jer.",
   },
   {
