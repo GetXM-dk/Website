@@ -90,8 +90,7 @@ const PricingContact = () => {
             <div className="max-w-xl">
               <h2 className="display-sm text-foreground">Book din GetXM-demo</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-                Udfyld formularen, så kontakter vi jer for en kort gennemgang. Vi viser, hvordan GetXM følger op på
-                ubesvarede opkald, og hvordan løsningen kan bruges med jeres nuværende telefoni.
+                Udfyld formularen, så kontakter vi jer for en 15 minutters gennemgang.
               </p>
             </div>
 
