@@ -99,17 +99,6 @@ const PricingContact = () => {
               </p>
             </div>
 
-            <ol className="mt-7 grid gap-3 sm:grid-cols-3">
-              {flowSteps.map((step, index) => (
-                <li key={step} className="flex items-center gap-3 text-sm font-semibold text-foreground sm:items-start">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                    {index + 1}
-                  </span>
-                  <span className="pt-1">{step}</span>
-                </li>
-              ))}
-            </ol>
-
             <form className="mt-8 grid gap-4" onSubmit={handleSubmit} noValidate>
               <div className="grid gap-2">
                 <Label htmlFor="contact-name">Navn</Label>
