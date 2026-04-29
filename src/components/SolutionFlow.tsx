@@ -26,45 +26,50 @@ const SolutionFlow = () => {
           </div>
 
           {/* Højre side — flow */}
-          <div className="flex flex-col items-stretch gap-5">
-            <FlowStep
-              icon={<PhoneOff className="h-5 w-5" aria-hidden="true" />}
-              step="01"
-              title="Ubesvaret opkald"
-              body="Telefonen bliver ikke taget, fordi I er optaget, i behandling eller har lukket."
-            />
+          {/* Right — flow */}
+<div className="flex flex-col items-stretch gap-5">
+  
+  {/* Step 1 & 2 på samme række */}
+  <div className="grid gap-5 sm:grid-cols-2">
+    <FlowStep
+      icon={<PhoneOff className="h-5 w-5" aria-hidden="true" />}
+      step="01"
+      title="Ubesvaret opkald"
+      body="Telefonen bliver ikke taget, fordi I er optaget, i behandling eller har lukket."
+    />
 
-            <Connector />
+    <FlowStep
+      icon={<MessageSquare className="h-5 w-5" aria-hidden="true" />}
+      step="02"
+      label="SMS"
+      title="Automatisk SMS"
+      body="GetXM skriver til patienten med det samme og spørger, hvad henvendelsen drejer sig om."
+    />
+  </div>
 
-            <FlowStep
-              icon={<MessageSquare className="h-5 w-5" aria-hidden="true" />}
-              step="02"
-              label="SMS"
-              title="Automatisk SMS"
-              body="GetXM skriver til patienten med det samme og spørger, hvad henvendelsen drejer sig om."
-            />
+  {/* Pil ned til næste række */}
+  <Connector />
 
-            <Connector split />
-
-            {/* De to sidste kasser med dine nye farver */}
-            <div className="grid gap-5 sm:grid-cols-2">
-              <FlowStep
-                icon={<Sparkles className="h-5 w-5" aria-hidden="true" />}
-                step="3A"
-                label="SMS"
-                title="Patienten får svar på SMS"
-                body="Ofte stillede spørgsmål kan klares med bookinglink, priser, åbningstider eller praktisk information."
-                tone="mint"
-              />
-              <FlowStep
-                icon={<Mail className="h-5 w-5" aria-hidden="true" />}
-                step="3B"
-                label="Mail"
-                title="Klinikken får besked"
-                body="Når der er brug for jer, får I en samlet mail med det vigtigste: hvem der kontaktede jer, hvad de har brug for, og hvad næste skridt er."
-                tone="peach"
-              />
-            </div>
+  {/* Step 3A & 3B på samme række */}
+  <div className="grid gap-5 sm:grid-cols-2">
+    <FlowStep
+      icon={<Sparkles className="h-5 w-5" aria-hidden="true" />}
+      step="3A"
+      label="SMS"
+      title="Patienten får svar på SMS"
+      body="Ofte stillede spørgsmål kan klares med bookinglink, priser, åbningstider eller praktisk information."
+      tone="mint"
+    />
+    <FlowStep
+      icon={<Mail className="h-5 w-5" aria-hidden="true" />}
+      step="3B"
+      label="Mail"
+      title="Klinikken får besked"
+      body="Når der er brug for jer, får I en samlet mail med det vigtigste: hvem der kontaktede jer, hvad de har brug for, og hvad næste skridt er."
+      tone="peach"
+    />
+  </div>
+</div>
           </div>
         </div>
       </div>
