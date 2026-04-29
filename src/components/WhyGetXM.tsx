@@ -32,8 +32,8 @@ const reasons = [
     body: "Hvis patienten ønsker opkald eller har brug for personlig opfølgning, får I det vigtigste samlet på mail: hvem det er, hvad det handler om, og hvad patienten ønsker nu.",
   },
   {
-    title: "Mindre gætværk i opkaldslisten",
-    body: "Et ubesvaret nummer fortæller ikke meget. GetXM hjælper jer med at se, om det handlede om booking, pris, afbud, spørgsmål eller callback.",
+    title: "Få mere ud af jeres annoncekroner",
+    body: "Når I betaler for at få telefonen til at ringe, må opkaldet ikke ende som ubesvaret. GetXM hjælper flere henvendelser videre, også når I ikke kan tage telefonen.",
   },
   {
     title: "Dansk løsning til danske klinikker",
@@ -49,9 +49,7 @@ const WhyGetXM = () => {
           {/* Left — sticky intro */}
           <div className="md:sticky md:top-24 md:self-start">
             <p className="caption-uppercase text-muted-foreground">Derfor GetXM</p>
-            <h2 className="display-lg mt-4 text-foreground">
-              10 grunde til, at klinikker vælger GetXM
-            </h2>
+            <h2 className="display-lg mt-4 text-foreground">10 grunde til, at klinikker vælger GetXM</h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               GetXM hjælper jer med at svare hurtigere, samle bedre beskeder og aflaste receptionen — uden at skifte
               nummer, teleselskab eller arbejdsgang.
@@ -65,12 +63,8 @@ const WhyGetXM = () => {
                 <span className="block text-sm font-medium text-muted-foreground">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-3 text-lg font-semibold text-foreground md:text-xl">
-                  {reason.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-                  {reason.body}
-                </p>
+                <h3 className="mt-3 text-lg font-semibold text-foreground md:text-xl">{reason.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">{reason.body}</p>
               </article>
             ))}
           </div>
