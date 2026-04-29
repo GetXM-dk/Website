@@ -217,7 +217,6 @@ const PricingContact = () => {
               </p>
 
               <p className="mt-1 text-sm text-muted-foreground">Ekskl. moms</p>
-              <p className="mt-5 text-base font-semibold text-foreground">Inkl. 50 ubesvarede opkald pr. måned</p>
             </div>
 
             <ul className="mt-8 space-y-3">
