@@ -32,6 +32,7 @@ const SolutionFlow = () => {
               <FlowStep
                 icon={<PhoneOff className="h-5 w-5" aria-hidden="true" />}
                 step="01"
+                label="Opkald"
                 title="Ubesvaret opkald"
                 body="Telefonen bliver ikke taget, fordi I er optaget eller har lukket."
               />
