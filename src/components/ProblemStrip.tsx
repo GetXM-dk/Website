@@ -54,7 +54,9 @@ const ProblemStrip = () => {
       <div className="container py-20 md:py-28">
         <div className="mx-auto max-w-3xl">
           <p className="text-muted-foreground">Den usynlige kædereaktion</p>
-          <h2 className="display-lg mt-4 text-foreground">Et ubesvaret opkald er ikke gratis</h2>
+          <h2 className="display-lg mt-4 text-foreground">
+            Den gode behandling starter, før patienten kommer ind ad døren
+          </h2>
           <div className="mt-8 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
               Stilheden snyder, når telefonen ringer ud. Det er ikke bare et ubesvaret opkald. Det er et behov, I ikke
