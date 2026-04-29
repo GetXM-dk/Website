@@ -197,7 +197,6 @@ const PricingContact = () => {
                   Book en kort gennemgang
                   <ArrowRight className="h-4 w-4" />
                 </Button>
-                <p className="mt-3 text-sm text-muted-foreground">Ingen onlinebetaling. Ingen lang binding.</p>
               </div>
             </form>
           </article>
