@@ -6,14 +6,14 @@ const blocks = [
   {
     image: unansweredImg,
     title: "Når I ikke kan svare",
-    body: "Telefonen ringer midt i en behandling, mellem to patienter eller efter lukketid. Patienten ringer, når behovet opstår — ikke når der er luft i kalenderen.",
+    body: "Telefonen ringer midt i en behandling, mellem to patienter eller efter lukketid. Patienten ringer, når behovet opstår, ikke når der er luft i kalenderen.",
     background: "#F5FFFE",
     border: "#B1FFFF",
   },
   {
     image: onlyNumberImg,
     title: "Så står kun et nummer tilbage",
-    body: "Et ubesvaret opkald fortæller ikke, hvad patienten havde brug for. Var det en booking, en pris, et afbud, et spørgsmål eller noget, der hastede? Uden samtalen mangler konteksten.",
+    body: "Et ubesvaret opkald fortæller ikke, hvad patienten havde brug for. Var det en booking, et afbud, et spørgsmål? Uden samtalen mangler konteksten.",
     background: "#FBF5FF",
     border: "#EFD8FF",
   },
