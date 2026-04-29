@@ -8,21 +8,9 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 
 const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, "Skriv dit navn")
-    .max(100, "Navn må højst være 100 tegn"),
-  clinic: z
-    .string()
-    .trim()
-    .min(2, "Skriv klinik eller firmanavn")
-    .max(120, "Kliniknavn må højst være 120 tegn"),
-  email: z
-    .string()
-    .trim()
-    .email("Skriv en gyldig e-mail")
-    .max(255, "E-mail må højst være 255 tegn"),
+  name: z.string().trim().min(2, "Skriv dit navn").max(100, "Navn må højst være 100 tegn"),
+  clinic: z.string().trim().min(2, "Skriv klinik eller firmanavn").max(120, "Kliniknavn må højst være 120 tegn"),
+  email: z.string().trim().email("Skriv en gyldig e-mail").max(255, "E-mail må højst være 255 tegn"),
   phone: z
     .string()
     .trim()
@@ -100,7 +88,10 @@ const PricingContact = () => {
     <section id="pricing" className="bg-background py-20 md:py-28">
       <div className="container">
         <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-          <article id="kontakt" className="order-2 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8 lg:order-1">
+          <article
+            id="kontakt"
+            className="order-2 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-8 lg:order-1"
+          >
             <div className="max-w-xl">
               <h2 className="display-sm text-foreground">Skal vi give jer et kald?</h2>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
@@ -133,7 +124,11 @@ const PricingContact = () => {
                   aria-invalid={Boolean(errors.name)}
                   aria-describedby={errors.name ? "contact-name-error" : undefined}
                 />
-                {errors.name && <p id="contact-name-error" className="text-sm text-destructive">{errors.name}</p>}
+                {errors.name && (
+                  <p id="contact-name-error" className="text-sm text-destructive">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               <div className="grid gap-2">
@@ -148,7 +143,11 @@ const PricingContact = () => {
                   aria-invalid={Boolean(errors.clinic)}
                   aria-describedby={errors.clinic ? "contact-clinic-error" : undefined}
                 />
-                {errors.clinic && <p id="contact-clinic-error" className="text-sm text-destructive">{errors.clinic}</p>}
+                {errors.clinic && (
+                  <p id="contact-clinic-error" className="text-sm text-destructive">
+                    {errors.clinic}
+                  </p>
+                )}
               </div>
 
               <div className="grid gap-2 sm:grid-cols-2">
@@ -165,7 +164,11 @@ const PricingContact = () => {
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={errors.email ? "contact-email-error" : undefined}
                   />
-                  {errors.email && <p id="contact-email-error" className="text-sm text-destructive">{errors.email}</p>}
+                  {errors.email && (
+                    <p id="contact-email-error" className="text-sm text-destructive">
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
 
                 <div className="grid gap-2">
@@ -182,7 +185,11 @@ const PricingContact = () => {
                     aria-invalid={Boolean(errors.phone)}
                     aria-describedby={errors.phone ? "contact-phone-error" : undefined}
                   />
-                  {errors.phone && <p id="contact-phone-error" className="text-sm text-destructive">{errors.phone}</p>}
+                  {errors.phone && (
+                    <p id="contact-phone-error" className="text-sm text-destructive">
+                      {errors.phone}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -204,8 +211,11 @@ const PricingContact = () => {
             </div>
 
             <div className="mt-8">
-              <p className="text-5xl font-semibold tracking-tight text-foreground md:text-6xl">349 kr.</p>
-              <p className="mt-2 text-xl font-semibold text-foreground">/ md.</p>
+              <p className="text-5xl font-semibold tracking-tight text-foreground md:text-6xl">
+                349
+                <span className="mt-2 text-xl font-semibold text-foreground">kr. /md.</span>
+              </p>
+
               <p className="mt-1 text-sm text-muted-foreground">Ekskl. moms</p>
               <p className="mt-5 text-base font-semibold text-foreground">Inkl. 50 ubesvarede opkald pr. måned</p>
             </div>
