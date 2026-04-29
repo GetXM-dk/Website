@@ -181,12 +181,12 @@ const PricingContact = () => {
                 </div>
               </div>
 
-<div className="pt-2">
-  <Button type="submit" size="lg" className="w-full rounded-xl">
-    Book en kort gennemgang
-    <ArrowRight className="h-4 w-4" />
-  </Button>
-</div>              </div>
+              <div className="pt-2">
+                <Button type="submit" size="lg" className="w-full rounded-xl">
+                  Book en kort gennemgang
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </div>
             </form>
           </article>
 
