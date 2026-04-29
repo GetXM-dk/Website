@@ -7,11 +7,19 @@ const Navbar = () => {
         <a href="#top" className="shrink-0 text-lg font-semibold tracking-tight">
           GetXM
         </a>
-        <nav className="hidden flex-1 items-center justify-start gap-7 text-sm font-bold text-foreground md:flex">
-          <a href="#how" className="transition-colors hover:text-foreground">Sådan virker det</a>
-          <a href="#demo" className="transition-colors hover:text-foreground">Demo</a>
-          <a href="#pricing" className="transition-colors hover:text-foreground">Pris</a>
-          <a href="#faq" className="transition-colors hover:text-foreground">FAQ</a>
+        <nav className="hidden flex-1 items-right justify-start gap-7 text-sm font-bold text-foreground md:flex">
+          <a href="#how" className="transition-colors hover:text-foreground">
+            Sådan virker det
+          </a>
+          <a href="#demo" className="transition-colors hover:text-foreground">
+            Demo
+          </a>
+          <a href="#pricing" className="transition-colors hover:text-foreground">
+            Pris
+          </a>
+          <a href="#faq" className="transition-colors hover:text-foreground">
+            FAQ
+          </a>
         </nav>
         <Button asChild className="h-10 shrink-0 rounded-full px-5">
           <a href="#pricing">Kom i gang</a>
