@@ -14,7 +14,7 @@ const Hero = () => {
     <section id="top" className="relative overflow-hidden hero-aurora">
       <div aria-hidden className="pointer-events-none absolute inset-0 grain-overlay" />
 
-      <div className="container relative py-16 md:py-24 lg:py-28">
+      <div className="container relative pb-16 pt-28 md:pb-24 md:pt-32 lg:pb-28 lg:pt-36">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div className="text-left">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1 text-xs font-large text-muted-foreground">
