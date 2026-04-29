@@ -4,7 +4,6 @@ import UnansweredCalls from "@/components/UnansweredCalls";
 import ProblemStrip from "@/components/ProblemStrip";
 import SolutionFlow from "@/components/SolutionFlow";
 import WhyGetXM from "@/components/WhyGetXM";
-import ResultsBento from "@/components/ResultsBento";
 import ComparisonTable from "@/components/ComparisonTable";
 import Pricing from "@/components/Pricing";
 import BookDemo from "@/components/BookDemo";
@@ -21,7 +20,6 @@ const Index = () => {
         <ProblemStrip />
         <SolutionFlow />
         <WhyGetXM />
-        <ResultsBento />
         <ComparisonTable />
         <Pricing />
         <BookDemo />
