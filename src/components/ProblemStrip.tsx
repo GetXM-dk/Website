@@ -7,23 +7,23 @@ import problemOverview from "@/assets/problem-overview.png";
 const items = [
   {
     image: problemAvailability,
-    title: "Indtrykket skabes før samtalen",
+    title: "Patienten får en dårlig start",
     body: "Tilgængelighed skaber tryghed. Et ubesvaret opkald kan få klinikken til at virke svær at få fat i, selv når årsagen bare er en travl formiddag.",
   },
 
   {
     image: problemOverview,
-    title: "Et nummer mangler kontekst",
+    title: "I ved ikke, hvad opkaldet handlede om",
     body: "I opkaldslisten ligner alle opkald hinanden. Uden samtalen ved I ikke, om det handlede om booking, pris, afbud, spørgsmål eller noget, der hastede.",
   },
   {
     image: problemReception,
-    title: "Receptionen får dobbeltarbejde",
+    title: "Telefonen ringer igen senere",
     body: "Det ubesvarede opkald forsvinder ikke altid. Ofte kommer det igen senere — bare på et dårligere tidspunkt, hvor receptionen allerede er i gang med noget andet.",
   },
   {
     image: problemBookings,
-    title: "Patienten søger videre",
+    title: "Patienten finder måske en anden klinik",
     body: "Når patienten ikke får kontakt, bliver næste skridt ofte at lede efter en anden mulighed. Særligt hvis de bare ville høre en pris, stille et hurtigt spørgsmål eller finde en ledig tid.",
   },
 ] as const;
