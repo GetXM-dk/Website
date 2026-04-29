@@ -21,37 +21,43 @@ const blocks = [
 
 const UnansweredCalls = () => {
   return (
-    <section style={{ backgroundColor: "#0B3D3C" }} className="w-full">
-      {/* 1. Containeren er centreret med mx-auto og har luft i top/bund */}
-      <div className="container mx-auto px-6 py-20 md:py-32">
-        {/* 2. Grid med moderat gap for at undgå at kasserne bliver for smalle */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-          {blocks.map(({ image, title, body, background, border }) => (
-            <div
-              key={title}
-              className="flex flex-col rounded-[2.5rem] border overflow-hidden"
-              style={{ backgroundColor: background, borderColor: border }}
-            >
-              {/* 3. Illustrationens område: Masser af luft over og under billedet */}
-              <div className="flex items-center justify-center pt-20 pb-16 md:pt-28 md:pb-20 px-10">
-                <img
-                  src={image}
-                  alt=""
-                  loading="lazy"
-                  className="h-auto w-full max-w-[240px] md:max-w-[280px] object-contain"
-                />
-              </div>
+<section style={{ backgroundColor: "#0B3D3C" }} className="w-full">
+  <div className="container mx-auto px-6 py-20 md:py-32">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+      {blocks.map(({ image, title, body, background, border }) => (
+        <div
+          key={title}
+          {/* h-full sikrer at kasserne er lige høje */}
+          className="flex flex-col h-full rounded-[2.5rem] border overflow-hidden"
+          style={{ backgroundColor: background, borderColor: border }}
+        >
+          {/* Her er den vigtige ændring: 
+             Vi giver billed-området en fast højde (f.eks. h-[300px] eller h-[400px]) 
+             så teksten nedenunder altid bliver "skubbet" ned til samme startlinje.
+          */}
+          <div className="flex items-center justify-center h-[320px] md:h-[400px] px-10">
+            <img
+              src={image}
+              alt=""
+              loading="lazy"
+              className="h-auto w-full max-w-[240px] md:max-w-[280px] object-contain"
+            />
+          </div>
 
-              {/* 4. Tekst-området: Luft i bunden og siderne */}
-              <div className="px-10 pb-16 md:px-16 md:pb-24">
-                <h3 className="text-2xl font-bold text-[#0B3D3C] md:text-3xl leading-tight">{title}</h3>
-                <p className="mt-4 text-base leading-relaxed text-gray-700 md:text-lg opacity-90">{body}</p>
-              </div>
-            </div>
-          ))}
+          {/* Tekst-området fylder resten af pladsen med flex-1 */}
+          <div className="flex-1 px-10 pb-16 md:px-16 md:pb-24">
+            <h3 className="text-2xl font-bold text-[#0B3D3C] md:text-3xl leading-tight">
+              {title}
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-gray-700 md:text-lg opacity-90">
+              {body}
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
   );
 };
 
