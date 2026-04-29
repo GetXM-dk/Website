@@ -30,8 +30,6 @@ const initialForm: ContactForm = {
   phone: "",
 };
 
-const flowSteps = ["Kort gennemgang", "Gratis opsætning", "Klar uden nyt nummer eller teleselskab"] as const;
-
 const included = [
   "Gratis opsætning",
   "50 ubesvarede opkald inkluderet pr. måned",
