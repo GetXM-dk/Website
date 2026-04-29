@@ -194,7 +194,7 @@ const PricingContact = () => {
             <div className="mt-8">
               <p className="text-5xl font-semibold tracking-tight text-foreground md:text-6xl">
                 349
-                <span className="mt-2 text-xl font-semibold text-foreground">kr. /md.</span>
+                <span className="mt-2 text-xl font-semibold text-foreground"> kr. /md.</span>
               </p>
             </div>
 
