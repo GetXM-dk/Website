@@ -23,8 +23,9 @@ const Hero = () => {
             </span>
             <h1 className="display-xl mt-6 text-foreground">Et ubesvaret opkald er ikke gratis.</h1>
             <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-              Når telefonen ringer ud, mister I mere end et opkald. Uden GetXM står I tilbage med et nummer - uden at
-              vide, hvem der ringede, hvad de ville, eller hvor vigtigt det var.{" "}
+              Et ubesvaret opkald er ikke gratis. Når I må slippe telefonen, samler GetXM op med en automatisk SMS.
+              Patienten kan forklare behovet, og klinikken får en klar besked om, hvem der ringede, hvad det handlede
+              om, og hvad der skal ske nu.{" "}
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
