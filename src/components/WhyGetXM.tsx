@@ -59,7 +59,7 @@ const WhyGetXM = () => {
             <img
               src={meditatingPerson}
               alt="Illustration af person der mediterer"
-              className="mt-10 w-full max-w-sm"
+              className="mt-10 w-full max-w-sm mx-auto block" // Tilføjet mx-auto og block
               loading="lazy"
             />
           </div>
