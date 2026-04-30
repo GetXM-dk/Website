@@ -1,3 +1,5 @@
+import meditatingPerson from "@/assets/meditating-person.png";
+
 const reasons = [
   {
     title: "Gratis opsætning",
@@ -54,6 +56,12 @@ const WhyGetXM = () => {
               GetXM hjælper jer med at svare hurtigere, samle bedre beskeder og aflaste receptionen — uden at skifte
               nummer, teleselskab eller arbejdsgang.
             </p>
+            <img
+              src={meditatingPerson}
+              alt="Illustration af person der mediterer"
+              className="mt-10 w-full max-w-sm"
+              loading="lazy"
+            />
           </div>
 
           {/* Right — scrollable reasons grid */}
