@@ -56,12 +56,15 @@ const WhyGetXM = () => {
               GetXM hjælper jer med at svare hurtigere, samle bedre beskeder og aflaste receptionen — uden at skifte
               nummer, teleselskab eller arbejdsgang.
             </p>
-            <img
-              src={meditatingPerson}
-              alt="Illustration af person der mediterer"
-              className="mt-10 w-full max-w-sm mx-auto block" // Tilføjet mx-auto og block
-              loading="lazy"
-            />
+            <div className="p-8 md:p-16 flex justify-center">
+              {/* p-8 på mobil, p-16 på større skærme giver masser af luft */}
+              <img
+                src={meditatingPerson}
+                alt="Illustration af person der mediterer"
+                className="w-full max-w-sm"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           {/* Right — scrollable reasons grid */}
