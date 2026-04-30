@@ -21,7 +21,7 @@ const reasons = [
   },
   {
     title: "Intet nyt IT",
-    body: "Patienten får en SMS og svarer direkte. Ingen app. Intet login. Ingen ny portal eller IT implementering.",
+    body: "Patienten får en SMS og svarer direkte. Ingen app. Intet login. Ingen ny portal. Ingen tung IT-implementering.",
   },
   {
     title: "67% bliver afklaret over SMS",
@@ -33,7 +33,7 @@ const reasons = [
   },
   {
     title: "Få mere ud af jeres annoncekroner",
-    body: "Når I betaler for at få telefonen til at ringe, må opkaldet ikke ende som ubesvaret. GetXM hjælper flere henvendelser videre, også når I ikke kan tage telefonen.",
+    body: "Når I betaler for at få telefonen til at ringe, skal opkaldet ikke ende som et ubesvaret nummer telefonen.",
   },
   {
     title: "Dansk løsning til danske klinikker",
