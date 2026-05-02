@@ -8,9 +8,8 @@ const items = [
   {
     image: problemAvailability,
     title: "Patienten får en dårlig start",
-    body: "Tilgængelighed skaber tryghed. Et ubesvaret opkald kan få klinikken til at virke svær at få fat i, selv når årsagen bare er en travl formiddag.",
+    body: "Tilgængelighed skaber tryghed. Når telefonen ikke bliver taget, kan patienten føle sig overset — også selvom årsagen bare er en travl formiddag.",
   },
-
   {
     image: problemOverview,
     title: "I ved ikke, hvad opkaldet handlede om",
@@ -59,15 +58,6 @@ const ProblemStrip = () => {
           </h2>
           <div className="mt-8 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
-              Stilheden snyder, når telefonen ringer ud. Det er ikke bare et ubesvaret opkald. Det er et behov, I ikke
-              kender.
-            </p>
-            <p>
-              Måske var det en booking, en aflysning eller et hurtigt spørgsmål. Når årsagen mangler, bliver det svært
-              at prioritere.
-            </p>
-            <p>
-              Tilbage står klinikken med løse ender, men uden viden om, hvilken ende I skal trække i først.
             </p>
           </div>
         </div>
@@ -86,11 +76,10 @@ const ProblemStrip = () => {
                 <article
                   key={title}
                   onMouseEnter={() => setActiveIndex(index)}
-                  className={`rounded-3xl border bg-card p-5 transition-all duration-500 ease-out md:p-6 ${
-                    isActive
+                  className={`rounded-3xl border bg-card p-5 transition-all duration-500 ease-out md:p-6 ${isActive
                       ? "scale-[1.02] border-foreground/15 opacity-100 shadow-lift"
                       : "scale-100 border-border opacity-70 hover:opacity-90"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-start gap-5">
                     <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl md:h-24 md:w-24">

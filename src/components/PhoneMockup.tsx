@@ -9,7 +9,7 @@ const PhoneMockup = ({ children }: PhoneMockupProps) => {
   return (
     <div className="relative mx-auto w-[300px] md:w-[340px]">
       {/* Outer body */}
-      <div className="relative rounded-[44px] border border-border bg-foreground p-3 shadow-lift">
+      <div className="relative rounded-[44px] border border-border bg-foreground p-2.5 shadow-lift">
         {/* Screen */}
         <div className="relative aspect-[9/19] overflow-hidden rounded-[34px] bg-background">
           {/* Notch */}

@@ -26,13 +26,17 @@ const faqs = [
     q: "Kan vi opsige når som helst?",
     a: "Ja. Der er ingen binding. I kan opsige løbende.",
   },
+  {
+    q: "Er GetXM telefonpasning?",
+    a: "Nej. GetXM tager ikke telefonen for jer. GetXM følger op med SMS, når opkaldet ikke bliver taget.",
+  },
 ];
 
 const FAQ = () => {
   return (
-    <section id="faq" className="bg-secondary/40 py-20 md:py-28">
+    <section id="faq" className="bg-white py-20 md:py-28">
       <div className="container mx-auto max-w-2xl">
-        <h2 className="text-center text-3xl font-semibold tracking-tight md:text-4xl">
+        <h2 className="display-md text-center text-foreground">
           Ofte stillede spørgsmål
         </h2>
         <Accordion type="single" collapsible className="mt-10">

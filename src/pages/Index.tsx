@@ -1,10 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import UnansweredCalls from "@/components/UnansweredCalls";
-import ProblemStrip from "@/components/ProblemStrip";
 import SolutionFlow from "@/components/SolutionFlow";
+import OnboardingFlow from "@/components/OnboardingFlow";
 import WhyGetXM from "@/components/WhyGetXM";
-import ComparisonTable from "@/components/ComparisonTable";
 import PricingContact from "@/components/PricingContact";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -16,10 +15,9 @@ const Index = () => {
       <main>
         <Hero />
         <UnansweredCalls />
-        <ProblemStrip />
         <SolutionFlow />
+        <OnboardingFlow />
         <WhyGetXM />
-        <ComparisonTable />
         <PricingContact />
         <FAQ />
       </main>

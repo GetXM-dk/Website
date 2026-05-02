@@ -2,26 +2,24 @@ import { PhoneOff, MessageSquare, Sparkles, Mail, ArrowDown } from "lucide-react
 
 const SolutionFlow = () => {
   return (
-    <section id="how" className="bg-surface-soft">
+    <section id="how" className="bg-white">
       <div className="container py-20 md:py-32">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
           {/* Venstre side — tekst */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <p className="caption-uppercase text-accent">Når opkaldet glipper</p>
+            <p className="caption-uppercase text-accent">Sådan virker det</p>
             <h2 className="display-lg mt-4 text-foreground">GetXM samler op, når I må slippe telefonen</h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
-                Når telefonen ikke bliver taget, sender GetXM automatisk en SMS til patienten. Patienten kan svare
-                direkte, forklare behovet eller bede om at blive ringet op.
+                Når telefonen ikke bliver taget, sender GetXM automatisk en SMS til patienten. Patienten kan forklare behovet, få svar på praktiske spørgsmål eller bede om at blive ringet op.
               </p>
               <p>
-                Mange henvendelser kan afklares direkte med svar om åbningstider, priser, booking, afbud eller praktisk
-                information. Når der er brug for jer, samler GetXM det vigtigste og sender det til klinikken på mail.
+                Når der er brug for jer, får I det vigtigste samlet på mail.
               </p>
             </div>
             <div className="mt-8 space-y-2 border-l-2 border-accent/60 pl-4 text-base font-medium text-foreground md:text-lg">
               <p>Enten får patienten hjælp med det samme.</p>
-              <p>Eller receptionen får en besked, der er klar til opfølgning.</p>
+              <p>Eller I får en besked, der er klar til opfølgning.</p>
             </div>
           </div>
 
@@ -41,7 +39,7 @@ const SolutionFlow = () => {
                 step="02"
                 label="SMS"
                 title="Automatisk SMS"
-                body="GetXM skriver til patienten med det samme og spørger om henvendelsen."
+                body="GetXM skriver til patienten med det samme og spørger, hvad henvendelsen drejer sig om."
               />
             </div>
 
@@ -55,14 +53,14 @@ const SolutionFlow = () => {
                 step="3A"
                 label="SMS"
                 title="Patienten får svar på SMS"
-                body="Ofte stillede spørgsmål klares med bookinglink, priser eller info."
+                body="Praktiske spørgsmål klares med bookinglink, priser, åbningstider eller info."
                 tone="mint"
               />
               <FlowStep
                 icon={<Mail className="h-5 w-5" aria-hidden="true" />}
                 step="3B"
                 label="Mail"
-                title="Klinikken får besked"
+                title="I får besked"
                 body="I får en samlet mail med hvem, hvad og næste skridt."
                 tone="peach"
               />
