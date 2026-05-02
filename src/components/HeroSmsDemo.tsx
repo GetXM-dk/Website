@@ -54,8 +54,8 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
     setSending(true);
     
     // Optimistically add user message
-    const newMessages = [...messages, { from: "patient", body: text }];
-    setMessages(newMessages);
+    const userMessage = { from: "patient" as const, body: text };
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
 
     try {
@@ -65,7 +65,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          messages: newMessages.map(m => ({
+          messages: [...messages, userMessage].map(m => ({
             role: m.from === "patient" ? "user" : "assistant",
             content: m.body
           }))
