@@ -195,9 +195,6 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
               <Send className="h-3 w-3" />
             </button>
           </form>
-          <p className="mt-2 text-center text-[8px] text-muted-foreground font-medium uppercase tracking-wider">
-            GetXM demo
-          </p>
         </div>
       </PhoneMockup>
     </div>
