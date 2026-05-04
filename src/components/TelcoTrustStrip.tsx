@@ -64,24 +64,19 @@ const TelcoTrustStrip = () => {
           {telcos.map((item) => (
             <div
               key={item.name}
-              className="h-10 md:h-12 flex items-center justify-center rounded-lg bg-background/60 border border-border/40 overflow-hidden"
+              className="h-10 md:h-12 flex items-center justify-center rounded-lg bg-background/60 border border-border/40 overflow-hidden px-2"
             >
-              <div 
-                style={{ maxHeight: `${item.scale * 100}%` }}
-                className="max-w-[75%] w-full h-full flex items-center justify-center opacity-50 grayscale contrast-125 transition-all duration-300 hover:opacity-90"
-              >
-                {typeof item.logo === "string" ? (
-                  <img
-                    src={item.logo}
-                    alt={`${item.name} logo`}
-                    className="w-auto h-full object-contain"
-                  />
-                ) : (
-                  <div className="w-auto h-full flex items-center justify-center">
-                    {item.logo}
-                  </div>
-                )}
-              </div>
+              {typeof item.logo === "string" ? (
+                <img
+                  src={item.logo}
+                  alt={`${item.name} logo`}
+                  className="max-h-5 md:max-h-6 max-w-full w-auto object-contain opacity-50 grayscale contrast-125 transition-all duration-300 hover:opacity-90"
+                />
+              ) : (
+                <div className="max-h-5 md:max-h-6 max-w-full w-auto flex items-center justify-center opacity-50 grayscale contrast-125 transition-all duration-300 hover:opacity-90 [&>svg]:max-h-5 md:[&>svg]:max-h-6 [&>svg]:w-auto">
+                  {item.logo}
+                </div>
+              )}
             </div>
           ))}
         </div>
