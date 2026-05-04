@@ -3,7 +3,7 @@ const TelcoText = ({ name }: { name: string }) => (
 );
 
 const telcos = [
-  { name: "TDC Erhverv" },
+  { name: "TDC" },
   { name: "YouSee" },
   { name: "Telenor" },
   { name: "3" },
