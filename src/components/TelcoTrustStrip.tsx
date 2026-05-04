@@ -36,7 +36,7 @@ const telcos = [
   },
   {
     name: "Telavox",
-    logo: "https://www.telavox.com/wp-content/uploads/2023/06/Telavox_Platform_Logo_Horizontal_Black.svg",
+    logo: "https://ik.imagekit.io/businesswith/tr:w-200,h-100,cm-pad_resize,dpr-2/logo/telavox-logo.png",
     scale: 1,
   },
 ];
