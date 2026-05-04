@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowDown, Zap } from "lucide-react";
 import HeroSmsDemo, { type HeroSmsDemoHandle } from "@/components/HeroSmsDemo";
+import TelcoTrustStrip from "@/components/TelcoTrustStrip";
 
 const Hero = () => {
   const demoRef = useRef<HeroSmsDemoHandle>(null);
@@ -60,6 +61,8 @@ const Hero = () => {
                 </li>
               ))}
             </ul>
+
+            <TelcoTrustStrip />
           </div>
         </div>
       </div>
