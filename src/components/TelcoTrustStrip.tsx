@@ -4,9 +4,10 @@ const telcos = [
   "Telia",
   "Telenor",
   "3",
-  "Dstny",
+  "Norlys",
   "ipnordic",
-  "GlobalConnect",
+  "Relatel",
+  "Telavox",
 ];
 
 const TelcoTrustStrip = () => {
