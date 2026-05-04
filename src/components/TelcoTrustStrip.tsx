@@ -4,6 +4,10 @@ const YouSeeLogo = () => (
   </svg>
 );
 
+const TDCLogo = () => (
+  <span className="font-bold tracking-tight text-[15px] md:text-[17px] leading-none">TDC Erhverv</span>
+);
+
 const telcos = [
   {
     name: "TDC Erhverv",
