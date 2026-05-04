@@ -42,6 +42,7 @@ const OnboardingFlow = () => {
                   src="/onboarding-session.jpg"
                   alt="Onboarding session"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

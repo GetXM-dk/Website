@@ -1,10 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import UnansweredCalls from "@/components/UnansweredCalls";
 import SolutionFlow from "@/components/SolutionFlow";
 import OnboardingFlow from "@/components/OnboardingFlow";
+import UnansweredCalls from "@/components/UnansweredCalls";
 import WhyGetXM from "@/components/WhyGetXM";
-import PricingContact from "@/components/PricingContact";
+import Pricing from "@/components/Pricing";
+import ClinicMatchTest from "@/components/ClinicMatchTest";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
@@ -14,11 +15,12 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <UnansweredCalls />
         <SolutionFlow />
         <OnboardingFlow />
+        <UnansweredCalls />
         <WhyGetXM />
-        <PricingContact />
+        <Pricing />
+        <ClinicMatchTest />
         <FAQ />
       </main>
       <Footer />

@@ -34,7 +34,7 @@ const reasons = [
   {
     number: "07",
     title: "Dansk løsning",
-    description: "Dansk support og danskudviklet system, der er bygget specifikt til klinikker og deres arbejdsgang."
+    description: "Dansk support og danskudviklet system, der er bygget specifikt til klinikker og jeres arbejdsgang."
   },
   {
     number: "08",
@@ -69,10 +69,11 @@ const WhyGetXM = () => {
             </p>
             <div className="mt-12 hidden md:block">
               <div className="rounded-2xl overflow-hidden shadow-sm aspect-[4/3]">
-                <img 
-                  src="/why-getxm.jpg" 
-                  alt="Klinik hverdag" 
+                <img
+                  src="/why-getxm.jpg"
+                  alt="Klinik hverdag"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>
