@@ -54,17 +54,17 @@ const TelcoTrustStrip = () => {
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
+        <div className="mt-8 grid grid-cols-4 md:grid-cols-8 gap-2 md:gap-3">
           {telcos.map((item) => (
             <div
               key={item.name}
-              className="h-16 md:h-20 flex items-center justify-center rounded-xl bg-background/60 border border-border/40"
+              className="h-10 md:h-12 flex items-center justify-center rounded-lg bg-background/60 border border-border/40"
             >
               <img
                 src={item.logo}
                 alt={`${item.name} logo`}
                 style={{ maxHeight: `${item.scale * 100}%` }}
-                className="max-w-[70%] w-auto object-contain opacity-50 grayscale contrast-125 transition-all duration-300 hover:opacity-90"
+                className="max-w-[75%] w-auto object-contain opacity-50 grayscale contrast-125 transition-all duration-300 hover:opacity-90"
               />
             </div>
           ))}
