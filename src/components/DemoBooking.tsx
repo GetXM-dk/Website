@@ -98,6 +98,19 @@ const DemoBooking = () => {
       <div className="container px-6">
         <div className="max-w-[580px] mx-auto">
 
+          {/* Section intro — always visible */}
+          <div className="text-center mb-10">
+            <span className="text-[10px] font-bold text-accent tracking-widest uppercase">
+              Book en demo
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] leading-[1.05] mt-4 mb-5">
+              Lad os finde ud af, om GetXM passer til jeres klinik
+            </h2>
+            <p className="text-muted-foreground text-base max-w-[460px] mx-auto">
+              Svar på 3 hurtige spørgsmål, så vi kan forberede en demo der matcher jeres hverdag. Tager under 30 sekunder.
+            </p>
+          </div>
+
           {/* Progress Indicator */}
           <div className="flex justify-center gap-2 mb-12">
             {[0, 1, 2, 3].map((s) => (
@@ -119,8 +132,8 @@ const DemoBooking = () => {
                     <ChevronLeft className="h-4 w-4" /> Tilbage
                   </button>
                 )}
-                <span className="text-[10px] font-bold text-accent tracking-widest uppercase ml-auto">
-                  KVALIFICERING
+                <span className="text-xs font-medium text-muted-foreground ml-auto">
+                  Trin {step + 1} af 4
                 </span>
               </div>
               
@@ -150,8 +163,8 @@ const DemoBooking = () => {
                 >
                   <ChevronLeft className="h-4 w-4" /> Tilbage
                 </button>
-                <span className="text-[10px] font-bold text-accent tracking-widest uppercase">
-                  SIDSTE TRIN
+                <span className="text-xs font-medium text-muted-foreground">
+                  Trin 4 af 4
                 </span>
               </div>
 
