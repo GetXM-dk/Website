@@ -34,7 +34,7 @@ const Hero = () => {
 
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <Button asChild size="lg" className="rounded-xl px-7">
+              <Button asChild size="lg" className="rounded-xl px-7 transition-all hover:bg-accent hover:text-accent-foreground">
                 <a href="#demo">Book en demo</a>
               </Button>
 

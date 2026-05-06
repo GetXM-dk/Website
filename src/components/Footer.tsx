@@ -30,6 +30,15 @@ const Footer = () => {
               >
                 hej@getxm.dk
               </a>
+              <div>
+                <a
+                  href="/#demo"
+                  className="group mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-foreground text-background px-6 py-3.5 text-sm font-semibold transition-all hover:bg-accent hover:text-accent-foreground"
+                >
+                  Book en demo
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -54,24 +63,6 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Demo CTA card */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 rounded-3xl border border-border/70 bg-background p-6 md:p-8">
-              <div>
-                <p className="font-display text-xl md:text-2xl tracking-tight text-foreground">
-                  Klar til at se GetXM i jeres klinik?
-                </p>
-                <p className="mt-1 text-[13px] text-muted-foreground">
-                  20 minutter. Ingen forpligtelser. Vi viser hvordan opsætningen ser ud hos jer.
-                </p>
-              </div>
-              <a
-                href="/#demo"
-                className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-foreground text-background px-5 py-3 text-sm font-semibold transition-all hover:bg-accent hover:text-accent-foreground"
-              >
-                Book en demo
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            </div>
           </div>
         </div>
 

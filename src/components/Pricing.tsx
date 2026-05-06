@@ -101,7 +101,7 @@ const Pricing = () => {
               <div className="space-y-4">
                 <Button
                   onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full h-16 text-xl font-bold bg-foreground hover:bg-black text-background rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all"
+                  className="w-full h-16 text-xl font-bold bg-foreground text-background rounded-2xl shadow-xl transition-all hover:bg-accent hover:text-accent-foreground hover:shadow-2xl hover:-translate-y-0.5"
                 >
                   Book en demo
                 </Button>
