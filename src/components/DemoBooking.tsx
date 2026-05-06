@@ -1,8 +1,7 @@
 import { FormEvent, useState } from "react";
 import { z } from "zod";
-import { Check, ChevronLeft, ArrowRight } from "lucide-react";
+import { ChevronLeft, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/hooks/use-toast";
 
 const contactSchema = z.object({
@@ -10,16 +9,16 @@ const contactSchema = z.object({
   lastName: z.string().trim().min(2, "Skriv dit efternavn"),
   email: z.string().trim().email("Skriv en gyldig firmamail"),
   phone: z.string().trim().min(8, "Skriv et gyldigt telefonnummer"),
-  consent: z.boolean().refine(val => val === true, "Du skal give samtykke for at fortsætte"),
 });
 
 type ContactForm = z.infer<typeof contactSchema>;
 
 const DemoBooking = () => {
   const [step, setStep] = useState(0); // 0-2: Questions, 3: Contact
+  const [isPreparing, setIsPreparing] = useState(false);
   const [answers, setAnswers] = useState({
     clinicType: "",
-    clinicSize: "",
+    phoneHandling: "",
     missedCalls: "",
   });
   const [form, setForm] = useState<ContactForm>({
@@ -27,31 +26,57 @@ const DemoBooking = () => {
     lastName: "",
     email: "",
     phone: "",
-    consent: false,
   });
 
   const questions = [
     {
       id: "clinicType",
       title: "Hvilken type klinik er I?",
-      options: ["Tandlæge", "Fysioterapi", "Lægehuse", "Dyreklinik", "Speciallæge", "Andet"],
+      options: [
+        "Tandlæge",
+        "Fysioterapi",
+        "Skønhed / Kosmetik",
+        "Kiropraktor / Osteopat",
+        "Dyreklinik",
+        "Andet"
+      ],
     },
     {
-      id: "clinicSize",
-      title: "Hvor mange ansatte er I?",
-      options: ["1-3 ansatte", "4-10 ansatte", "11-20 ansatte", "20+ ansatte"],
+      id: "phoneHandling",
+      title: "Hvem tager sig primært af telefonen i dag?",
+      options: [
+        "Vi har en receptionist",
+        "Behandlerne selv",
+        "Vi deles om det",
+        "Andet"
+      ],
     },
     {
       id: "missedCalls",
-      title: "Hvor mange ubesvarede opkald har I ca. om dagen?",
-      options: ["0-5 opkald", "5-15 opkald", "15-30 opkald", "30+ opkald"],
+      title: "Hvor ofte oplever I, at telefonen ringer, mens I er optaget?",
+      options: [
+        "Sjældent – vi føler, vi når det meste",
+        "Indimellem – især i spidsbelastninger",
+        "Ofte – vi kan mærke, at vi ikke når dem alle",
+        "Vi tæller ikke – vi prioriterer patienterne i stolen"
+      ],
     },
   ];
 
   const handleOptionSelect = (option: string) => {
     const currentQuestion = questions[step];
-    setAnswers({ ...answers, [currentQuestion.id]: option });
-    setStep(step + 1);
+    const newAnswers = { ...answers, [currentQuestion.id]: option };
+    setAnswers(newAnswers);
+    
+    if (step === 2) {
+      setIsPreparing(true);
+      setTimeout(() => {
+        setIsPreparing(false);
+        setStep(3);
+      }, 800);
+    } else {
+      setStep(step + 1);
+    }
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -68,7 +93,7 @@ const DemoBooking = () => {
     }
 
     const { firstName, lastName, email, phone } = result.data;
-    const { clinicType, clinicSize, missedCalls } = answers;
+    const { clinicType, phoneHandling, missedCalls } = answers;
     
     const subject = encodeURIComponent(`Ny demo-booking — ${firstName} ${lastName} (${clinicType})`);
     const body = encodeURIComponent(
@@ -77,24 +102,24 @@ const DemoBooking = () => {
         `E-mail: ${email}`,
         `Telefon: ${phone}`,
         `--- Kvalificering ---`,
-        `Type: ${clinicType}`,
-        `Størrelse: ${clinicSize}`,
-        `Ubesvarede opkald/dag: ${missedCalls}`
+        `Klinik-type: ${clinicType}`,
+        `Hvem tager telefonen: ${phoneHandling}`,
+        `Oplevelse af ubesvarede: ${missedCalls}`
       ].join("\n"),
     );
 
     toast({
       title: "Tak — vi har modtaget jeres oplysninger",
-      description: "Vi kontakter jer hurtigst muligt.",
+      description: "Vi kigger på jeres tal med det samme og kontakter jer for at aftale jeres 15-minutters demo.",
     });
     window.location.href = `mailto:hej@getxm.dk?subject=${subject}&body=${body}`;
   };
 
-  const inputClasses = "w-full h-12 bg-transparent border-b border-[#1A1A1A]/20 focus:border-accent transition-colors outline-none px-0 text-base placeholder:text-muted-foreground/30";
-  const labelClasses = "text-xs font-semibold text-[#1A1A1A] uppercase tracking-wider block mb-1";
+  const inputClasses = "w-full h-14 bg-white border border-[#1A1A1A]/20 rounded-xl focus:border-foreground focus:ring-1 focus:ring-foreground transition-all outline-none px-5 text-base placeholder:text-muted-foreground/30";
+  const labelClasses = "text-sm font-semibold text-[#1A1A1A] mb-2 block";
 
   return (
-    <section id="demo" className="bg-[#F5F3EF] py-24 md:py-40 min-h-[700px] flex items-center">
+    <section id="demo" className="bg-[#F5F3EF] py-24 md:py-40 min-h-[750px] flex items-center">
       <div className="container px-6">
         <div className="max-w-[580px] mx-auto">
 
@@ -104,10 +129,10 @@ const DemoBooking = () => {
               Book en demo
             </span>
             <h2 className="text-3xl md:text-5xl font-display text-[#1A1A1A] leading-[1.05] mt-4 mb-5">
-              Lad os finde ud af, om GetXM passer til jeres klinik
+              Se hvordan GetXM kan hjælpe jeres klinik på 48 timer
             </h2>
             <p className="text-muted-foreground text-base max-w-[460px] mx-auto">
-              Svar på 3 hurtige spørgsmål, så vi kan forberede en demo der matcher jeres hverdag. Tager under 30 sekunder.
+              Svar på et par spørgsmål, så vi kan skræddersy en demo til jer. Det tager kun et øjeblik.
             </p>
           </div>
 
@@ -121,7 +146,14 @@ const DemoBooking = () => {
             ))}
           </div>
 
-          {step < 3 ? (
+          {isPreparing ? (
+            <div className="flex flex-col items-center justify-center py-20 animate-in fade-in duration-500">
+              <Loader2 className="h-10 w-10 text-accent animate-spin mb-6" />
+              <p className="text-lg font-display text-[#1A1A1A] animate-pulse">
+                Forbereder jeres personlige demo...
+              </p>
+            </div>
+          ) : step < 3 ? (
             <div className="animate-in fade-in slide-in-from-right-4 duration-500">
               <div className="flex items-center justify-between mb-8">
                 {step > 0 && (
@@ -218,12 +250,12 @@ const DemoBooking = () => {
                   </div>
                   <div className="flex flex-col">
                     <label htmlFor="phone" className={labelClasses}>Telefonnummer</label>
-                    <div className="flex items-center gap-3 border-b border-[#1A1A1A]/20 focus-within:border-accent transition-colors">
-                      <span className="text-[#1A1A1A]/40 pb-1 text-sm font-medium">+45</span>
+                    <div className="flex items-center gap-3 bg-white border border-[#1A1A1A]/20 rounded-xl focus-within:border-foreground focus-within:ring-1 focus-within:ring-foreground transition-all px-5">
+                      <span className="text-[#1A1A1A]/40 text-sm font-medium border-r border-[#1A1A1A]/10 pr-3">+45</span>
                       <input
                         id="phone"
                         type="tel"
-                        className="flex-1 h-12 bg-transparent outline-none text-base"
+                        className="flex-1 h-14 bg-transparent outline-none text-base"
                         value={form.phone}
                         onChange={e => setForm({ ...form, phone: e.target.value })}
                         autoComplete="tel"
@@ -233,19 +265,7 @@ const DemoBooking = () => {
                   </div>
                 </div>
 
-                <div className="space-y-8 pt-4">
-                  <div className="flex items-start gap-3">
-                    <Checkbox
-                      id="consent"
-                      className="mt-1 border-2"
-                      checked={form.consent}
-                      onCheckedChange={(checked) => setForm({ ...form, consent: !!checked })}
-                    />
-                    <label htmlFor="consent" className="text-[11px] text-muted-foreground/60 leading-tight cursor-pointer">
-                      Jeg giver mit samtykke til at blive kontaktet vedrørende demo-bookingen i henhold til GetXM's privatlivspolitik.
-                    </label>
-                  </div>
-
+                <div className="pt-4">
                   <Button
                     type="submit"
                     className="w-full h-16 text-xl font-bold bg-foreground text-background rounded-xl transition-all shadow-xl hover:bg-accent hover:text-accent-foreground hover:shadow-2xl hover:-translate-y-0.5"
