@@ -1,79 +1,88 @@
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground text-background">
-      <div className="container px-6 pt-20 pb-10 md:pt-28 md:pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-16 md:pb-20 border-b border-background/10">
-          <div className="lg:col-span-7">
-            <Link to="/" className="inline-block text-3xl font-bold font-display tracking-tight">
+    <footer className="border-t border-border/60 bg-secondary/40">
+      <div className="container px-6 pt-20 pb-12 md:pt-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24">
+          {/* Left: brand + address (Pleo style) */}
+          <div className="flex flex-col gap-10">
+            <Link to="/" className="text-3xl font-bold font-display tracking-tight text-foreground">
               GetXM
             </Link>
-            <p className="mt-6 max-w-xl font-display text-3xl md:text-4xl leading-[1.1] tracking-tight">
-              Ingen patientopkald skal gå tabt.
-            </p>
-            <p className="mt-5 max-w-lg text-[14px] leading-relaxed text-background/65">
-              Intelligent SMS-opfølgning på ubesvarede opkald — som et sikkerhedsnet
-              ovenpå jeres eksisterende telefoni. Ingen installation, intet skift af udbyder.
-            </p>
 
-            <a
-              href="/#demo"
-              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-background text-foreground px-5 py-3 text-sm font-semibold transition-all hover:bg-accent hover:text-accent-foreground"
-            >
-              Book en demo
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            <div className="space-y-6 text-[13px] leading-relaxed text-muted-foreground">
+              <div>
+                <p className="font-semibold text-foreground mb-1">Adler Jung</p>
+                <p>CVR 34451648</p>
+              </div>
+              <div>
+                <p>Emdrupvej 28A</p>
+                <p>2100 København Ø</p>
+                <p>Danmark</p>
+              </div>
+              <a
+                href="mailto:hej@getxm.dk"
+                className="inline-block text-foreground hover:text-accent transition-colors underline underline-offset-4"
+              >
+                hej@getxm.dk
+              </a>
+            </div>
           </div>
 
-          <div className="lg:col-span-5 grid grid-cols-2 gap-8">
-            <div>
-              <h4 className="caption-uppercase text-background/50 mb-5">Sider</h4>
-              <ul className="space-y-3 text-[14px]">
-                <li><a href="/#demo" className="hover:text-accent transition-colors">Book demo</a></li>
-                <li><Link to="/handelsbetingelser" className="hover:text-accent transition-colors">Handelsbetingelser</Link></li>
-                <li><Link to="/privatlivspolitik" className="hover:text-accent transition-colors">Privatlivspolitik</Link></li>
-              </ul>
+          {/* Right: SEO copy + demo CTA */}
+          <div className="flex flex-col gap-10">
+            <div className="max-w-2xl space-y-5 text-[13px] leading-relaxed text-muted-foreground">
+              <p>
+                GetXM er en dansk softwareløsning udviklet af Adler Jung. Vi hjælper klinikker og virksomheder
+                med at automatisere opfølgningen på ubesvarede opkald via intelligent SMS-teknologi. Vores mål
+                er at sikre, at ingen henvendelse går tabt, og at patienter får svar med det samme, uanset hvor
+                travlt der er i receptionen.
+              </p>
+              <p>
+                Systemet er bygget til at fungere som et sikkert sikkerhedsnet ovenpå eksisterende telefoni,
+                uden krav om tekniske installationer eller skifte af teleselskab. Alle data håndteres fortroligt
+                og sikkert.
+              </p>
+              <p>
+                GetXM er udviklet til tandlæger, læger, fysioterapeuter, klinikker og mindre virksomheder, der
+                ønsker færre tabte henvendelser, bedre patientservice og en mere effektiv hverdag i receptionen
+                — uden at ændre eksisterende arbejdsgange eller telefonsystem.
+              </p>
             </div>
 
-            <div>
-              <h4 className="caption-uppercase text-background/50 mb-5">Kontakt</h4>
-              <ul className="space-y-3 text-[14px] text-background/80">
-                <li>
-                  <a
-                    href="mailto:hej@getxm.dk"
-                    className="inline-flex items-center gap-2 hover:text-accent transition-colors"
-                  >
-                    <Mail className="h-4 w-4" />
-                    hej@getxm.dk
-                  </a>
-                </li>
-                <li className="flex items-start gap-2">
-                  <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                  <span>
-                    Emdrupvej 28A<br />
-                    2100 København Ø<br />
-                    Danmark
-                  </span>
-                </li>
-              </ul>
+            {/* Demo CTA card */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 rounded-3xl border border-border/70 bg-background p-6 md:p-8">
+              <div>
+                <p className="font-display text-xl md:text-2xl tracking-tight text-foreground">
+                  Klar til at se GetXM i jeres klinik?
+                </p>
+                <p className="mt-1 text-[13px] text-muted-foreground">
+                  20 minutter. Ingen forpligtelser. Vi viser hvordan opsætningen ser ud hos jer.
+                </p>
+              </div>
+              <a
+                href="/#demo"
+                className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-foreground text-background px-5 py-3 text-sm font-semibold transition-all hover:bg-accent hover:text-accent-foreground"
+              >
+                Book en demo
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[12px] text-background/55">
+        {/* Bottom row */}
+        <div className="mt-16 pt-8 border-t border-border/60 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[12px] text-muted-foreground">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span>© {year} Adler Jung</span>
-            <span className="hidden md:inline text-background/25">·</span>
-            <span>CVR 34451648</span>
-            <span className="hidden md:inline text-background/25">·</span>
-            <span>Lavet i Danmark</span>
+            <span>© {year} Adler Jung. Alle rettigheder forbeholdes.</span>
           </div>
-          <div className="text-background/45">
-            GetXM er et produkt af Adler Jung.
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-medium text-foreground/70">
+            <Link to="/handelsbetingelser" className="hover:text-foreground transition-colors">Handelsbetingelser</Link>
+            <Link to="/privatlivspolitik" className="hover:text-foreground transition-colors">Privatlivspolitik</Link>
           </div>
         </div>
       </div>
