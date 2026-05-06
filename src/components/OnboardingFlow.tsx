@@ -3,18 +3,18 @@ import React from 'react';
 const steps = [
   {
     number: "01",
-    title: "Kort introduktion",
-    description: "Vi viser løsningen og aftaler, hvilke oplysninger GetXM skal bruge: telefonnummer, åbningstider, bookinglink og de spørgsmål, I ofte får."
+    title: "15 minutters introduktion",
+    description: "Vi viser jer løsningen og aftaler, hvilke oplysninger GetXM skal bruge: åbningstider, bookinglink og de svar, jeres patienter oftest har brug for."
   },
   {
     number: "02",
-    title: "Vi sætter systemet op",
-    description: "Vi indsamler information fra jeres hjemmeside og fra jer til at tilpasse beskeder, praktiske svar og opfølgningsmail."
+    title: "Vi bygger jeres setup",
+    description: "Vi gør arbejdet for jer. Vi indsamler info fra jeres hjemmeside og skræddersyr jeres SMS-beskeder, automatiske svar og opfølgningsmails, så alt er klar."
   },
   {
     number: "03",
-    title: "I aktiverer viderestilling",
-    description: "Når alt er klar, viderestiller I ubesvarede opkald til GetXM. Derefter følger systemet automatisk op med SMS."
+    title: "Stop de tabte opkald",
+    description: "I aktiverer blot viderestilling, når vi har sat systemet op for jer. Fra det sekund bliver jeres ubesvarede opkald håndteret automatisk, så I aldrig mister en potentiel booking"
   }
 ];
 

@@ -32,19 +32,24 @@ const SolutionFlow = () => {
                 step="01"
                 label="Opkald"
                 title="Ubesvaret opkald"
-                body="Telefonen bliver ikke taget, fordi I er optaget eller har lukket."
+                body="Telefonen bliver ikke taget, fordi I er optaget eller har lukket klinikken."
               />
               <FlowStep
                 icon={<MessageSquare className="h-5 w-5" aria-hidden="true" />}
                 step="02"
                 label="SMS"
                 title="Automatisk SMS"
-                body="GetXM skriver til patienten med det samme og spørger, hvad henvendelsen drejer sig om."
+                body="GetXM skriver straks til patienten og spørger, hvad henvendelsen drejer sig om."
               />
             </div>
 
-            {/* FORBINDELSE: Én pil der peger ned til næste række */}
-            <Connector split />
+            {/* MELLEMTEKST & FORBINDELSE */}
+            <div className="py-4 text-center">
+              <p className="text-sm font-semibold uppercase tracking-widest text-accent/80 mb-2">
+                Herfra får patienten hjælp på én af to måder:
+              </p>
+              <Connector split />
+            </div>
 
             {/* RÆKKE 2: Step 3A og 3B ved siden af hinanden */}
             <div className="grid gap-5 sm:grid-cols-2">
@@ -53,15 +58,15 @@ const SolutionFlow = () => {
                 step="3A"
                 label="SMS"
                 title="Patienten får svar på SMS"
-                body="Praktiske spørgsmål klares med bookinglink, priser, åbningstider eller info."
+                body="Praktiske spørgsmål om bookinglink, priser eller info klares automatisk. Det giver patienten svar med det samme og sparer klinikken for arbejdet."
                 tone="mint"
               />
               <FlowStep
                 icon={<Mail className="h-5 w-5" aria-hidden="true" />}
                 step="3B"
                 label="Mail"
-                title="I får besked"
-                body="I får en samlet mail med hvem, hvad og næste skridt."
+                title="Fuld overblik i indbakken"
+                body="Når vi ikke kan afklare sagen over SMS, samler vi informationen om patientens behov i en mail til jer. I får direkte besked om, hvem der ringede, og hvad de har brug for, så I hurtigt kan ringe tilbage."
                 tone="peach"
               />
             </div>

@@ -16,8 +16,7 @@ const UnansweredCalls = () => {
             Den gode behandling starter, <br /> før patienten kommer ind ad døren
           </h2>
           <p className="mt-6 text-base text-muted-foreground md:text-lg max-w-2xl">
-            Det er ikke altid muligt at tage telefonen midt i en behandling eller i en travl reception. Forskellen er, hvad der sker bagefter.
-          </p>
+            Forskellen på en tabt mulighed og en ny booking ligger i opfølgningen          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -29,30 +28,30 @@ const UnansweredCalls = () => {
                 <li className="space-y-2">
                   <div className="flex items-center gap-2">
                     <X className="h-5 w-5 text-muted-foreground/60 shrink-0" />
-                    <p className="font-semibold text-foreground text-lg">Opkaldet ringer ud</p>
+                    <p className="font-semibold text-foreground text-lg">Patienten ringer videre</p>
                   </div>
-                  <p className="text-muted-foreground pl-7">Patienten får ikke svar og må selv finde næste skridt.</p>
+                  <p className="text-muted-foreground pl-7">Hvis telefonen ikke bliver taget, finder patienten hurtigt en anden klinik.</p>
                 </li>
                 <li className="space-y-2">
                   <div className="flex items-center gap-2">
                     <X className="h-5 w-5 text-muted-foreground/60 shrink-0" />
-                    <p className="font-semibold text-foreground text-lg">Henvendelsen bliver usynlig</p>
+                    <p className="font-semibold text-foreground text-lg">Usynlige henvendelser</p>
                   </div>
-                  <p className="text-muted-foreground pl-7">I ved ikke, om det var en booking, et afbud eller et spørgsmål, der krævede svar.</p>
+                  <p className="text-muted-foreground pl-7">I ved aldrig, om det ubesvarede opkald var en aflysning, et spørgsmål eller en ny stor booking.</p>
                 </li>
                 <li className="space-y-2">
                   <div className="flex items-center gap-2">
                     <X className="h-5 w-5 text-muted-foreground/60 shrink-0" />
-                    <p className="font-semibold text-foreground text-lg">Arbejdet lander senere</p>
+                    <p className="font-semibold text-foreground text-lg">Afbrydelser senere</p>
                   </div>
-                  <p className="text-muted-foreground pl-7">Små spørgsmål og opfølgning lander senere som ekstra arbejde og afbrydelser.</p>
+                  <p className="text-muted-foreground pl-7">Småting, der kunne være klaret på SMS, hober sig op som ekstraarbejde sidst på dagen.</p>
                 </li>
                 <li className="space-y-2">
                   <div className="flex items-center gap-2">
                     <X className="h-5 w-5 text-muted-foreground/60 shrink-0" />
-                    <p className="font-semibold text-foreground text-lg">Annoncebudgettet går til spilde</p>
+                    <p className="font-semibold text-foreground text-lg">Spildt budget</p>
                   </div>
-                  <p className="text-muted-foreground pl-7">I betaler for at blive fundet online, men mister kunden i det sekund, telefonen ringer forgæves.</p>
+                  <p className="text-muted-foreground pl-7">I betaler for at blive fundet online, men mister kunden i det sekund, opkaldet ikke bliver besvaret.</p>
                 </li>
               </ul>
             </div>
@@ -69,30 +68,30 @@ const UnansweredCalls = () => {
                 <li className="space-y-2">
                   <div className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-brand-pink shrink-0" />
-                    <p className="font-semibold text-foreground text-lg">Patienten får hjælp med det samme</p>
+                    <p className="font-semibold text-foreground text-lg">Patienten får hjælp</p>
                   </div>
-                  <p className="text-muted-foreground pl-7">I stedet for stilhed får patienten en direkte vej videre.</p>
+                  <p className="text-muted-foreground pl-7">I stedet for bare at lade den ringe ud, får patienten en direkte vej til booking eller svar.</p>
                 </li>
                 <li className="space-y-2">
                   <div className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-brand-pink shrink-0" />
-                    <p className="font-semibold text-foreground text-lg">Mange spørgsmål klares automatisk</p>
+                    <p className="font-semibold text-foreground text-lg">67% afklares automatisk</p>
                   </div>
-                  <p className="text-muted-foreground pl-7">Priser, åbningstider, bookinglink og praktisk info kan sendes direkte til patienten.</p>
+                  <p className="text-muted-foreground pl-7">De fleste spørgsmål om priser, åbningstider eller tidsbestilling klares via SMS, uden I skal løfte røret.</p>
                 </li>
                 <li className="space-y-2">
                   <div className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-brand-pink shrink-0" />
-                    <p className="font-semibold text-foreground text-lg">I får besked, når der skal følges op</p>
+                    <p className="font-semibold text-foreground text-lg">Ro til de vigtige opgaver</p>
                   </div>
-                  <p className="text-muted-foreground pl-7">I får det vigtigste samlet i én besked, så I nemt kan prioritere jeres tid.</p>
+                  <p className="text-muted-foreground pl-7">I får en samlet besked på mail, når der faktisk er brug for jeres hjælp. Det giver arbejdsro.</p>
                 </li>
                 <li className="space-y-2">
                   <div className="flex items-center gap-2">
                     <Check className="h-5 w-5 text-brand-pink shrink-0" />
-                    <p className="font-semibold text-foreground text-lg">Flere kunder for de samme annoncekroner</p>
+                    <p className="font-semibold text-foreground text-lg">Få mere ud af jeres annoncer</p>
                   </div>
-                  <p className="text-muted-foreground pl-7">Vi sikrer, at de opkald jeres annoncer skaber, faktisk bliver til dialog og bookinger.</p>
+                  <p className="text-muted-foreground pl-7">Vi sikrer, at de opkald jeres annoncering skaber, rent faktisk bliver til bookinger i kalenderen.</p>
                 </li>
               </ul>
             </div>

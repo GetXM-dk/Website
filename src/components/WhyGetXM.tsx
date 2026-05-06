@@ -3,53 +3,33 @@ import React from 'react';
 const reasons = [
   {
     number: "01",
-    title: "67% bliver afklaret over SMS",
-    description: "Åbningstider, priser og bookinglink sendes direkte. Det giver hurtigere svar og færre afbrydelser for jer."
+    title: "Mindre støj, mere arbejdsro",
+    description: "Hele 67 % af alle henvendelser (booking, priser og info) afklares automatisk via SMS, så I får færre afbrydelser i hverdagen."
   },
   {
     number: "02",
-    title: "Patienten får hjælp med det samme",
-    description: "Praktiske spørgsmål klares automatisk via SMS, så patienten ikke skal vente på et opkald for simple svar."
+    title: "Patienten får svar med det samme",
+    description: "Patienten bliver mødt af hjælp fremfor tavshed, hvilket giver en bedre oplevelse og hurtigere afklaring."
   },
   {
     number: "03",
-    title: "Besked når der er brug for jer",
-    description: "Når der er brug for personlig opfølgning, får I det vigtigste samlet i en mail, der er lige til at gå til."
+    title: "Overblik direkte i indbakken",
+    description: "I får kun besked, når en sag kræver jeres personlige opfølgning. Vi sender navn, nummer og info samlet i én mail."
   },
   {
     number: "04",
-    title: "Annoncer får en chance mere",
+    title: "Få mere ud af jeres annoncer",
     description: "Vi samler op på de henvendelser, I allerede har betalt for via Google eller Facebook, men ikke når at besvare."
   },
   {
     number: "05",
-    title: "Intet nyt IT",
-    description: "GetXM kører som et sikkerhedsnet ovenpå jeres nuværende telefoni. Ingen nye skærme eller tung IT-installation."
+    title: "Behold jeres nuværende setup",
+    description: "I skal hverken skifte nummer eller teleselskab. GetXM kører som et sikkerhedsnet ovenpå jeres eksisterende telefoni."
   },
   {
     number: "06",
-    title: "Behold nummer og teleselskab",
-    description: "I skal hverken skifte nummer eller udbyder. Vi kobler os blot på jeres eksisterende setup."
-  },
-  {
-    number: "07",
-    title: "Dansk løsning",
-    description: "Dansk support og danskudviklet system, der er bygget specifikt til klinikker og jeres arbejdsgang."
-  },
-  {
-    number: "08",
-    title: "Gratis opsætning",
-    description: "Vi hjælper jer i gang uden opstartsgebyr eller krav om teknikerbesøg. Det er hurtigt og enkelt."
-  },
-  {
-    number: "09",
-    title: "Opsig når du vil",
-    description: "Vi tror på løsningen, ikke på binding. I kan derfor opsige løbende, hvis jeres behov ændrer sig."
-  },
-  {
-    number: "10",
-    title: "50 opkald inkluderet",
-    description: "De første 50 ubesvarede opkald pr. måned er altid inkluderet i prisen. Det gør det nemt at regne med."
+    title: "Enkelt og risikofrit",
+    description: "Kom i gang med gratis opsætning, dansk support og ingen binding. De første 50 opkald hver måned er inkluderet i prisen."
   }
 ];
 
@@ -62,10 +42,10 @@ const WhyGetXM = () => {
           <div className="md:sticky md:top-24 md:self-start">
             <p className="caption-uppercase text-accent font-semibold">DERFOR GETXM</p>
             <h2 className="display-lg mt-4 text-foreground leading-tight font-display">
-              10 grunde til, at vælge GetXM
+              6 grunde til, at vælge GetXM
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Hurtigere svar, færre afbrydelser og bedre opfølgning på de opkald, I ikke når — uden nyt nummer, nyt teleselskab eller ny arbejdsgang.
+              Telefonpasning hjælper jer med at tage telefonen. GetXM hjælper jer med at følge op på de opkald, I ikke når — så færre henvendelser ender som tabte muligheder.
             </p>
             <div className="mt-12 hidden md:block">
               <div className="rounded-2xl overflow-hidden shadow-sm aspect-[4/3]">

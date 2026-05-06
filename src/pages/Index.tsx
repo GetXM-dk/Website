@@ -7,6 +7,7 @@ import WhyGetXM from "@/components/WhyGetXM";
 import Pricing from "@/components/Pricing";
 import ClinicMatchTest from "@/components/ClinicMatchTest";
 import FAQ from "@/components/FAQ";
+import DemoBooking from "@/components/DemoBooking";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -15,13 +16,14 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <UnansweredCalls />
         <SolutionFlow />
         <OnboardingFlow />
-        <UnansweredCalls />
         <WhyGetXM />
         <Pricing />
         <ClinicMatchTest />
         <FAQ />
+        <DemoBooking />
       </main>
       <Footer />
     </div>

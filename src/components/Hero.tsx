@@ -29,18 +29,19 @@ const Hero = () => {
             </span>
             <h1 className="display-2xl mt-6 text-foreground max-w-3xl">Et ubesvaret opkald er ikke gratis</h1>
             <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-              Få styr på de opkald, I ikke når, uden at skifte teleselskab eller arbejdsgang. GetXM følger op med SMS, hjælper patienten videre og giver jer besked, så I ved, om der skal følges op.
+              GetXM følger op på ubesvarede opkald over SMS og afklarer automatisk op til 67% af henvendelserne. Patienten får svar med det samme. I får ro til arbejdet. Ingen ringer forgæves.
             </p>
+
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <Button asChild size="lg" className="rounded-xl px-7">
-                <a href="#pricing">Book en demo</a>
+                <a href="#demo">Book en demo</a>
               </Button>
 
               <Button
                 variant="ghost"
                 size="lg"
-                className="rounded-xl px-7 text-muted-foreground hover:text-foreground"
+                className="rounded-xl px-7 text-muted-foreground hover:bg-black/5 hover:text-foreground transition-all"
                 onClick={handleTryDemo}
               >
                 Prøv selv

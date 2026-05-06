@@ -20,10 +20,13 @@ const Navbar = () => {
           <a href="#faq" className="transition-colors hover:text-foreground">
             FAQ
           </a>
+          <a href="#demo" className="transition-colors hover:text-foreground">
+            Demo
+          </a>
         </nav>
 
         <Button asChild className="h-10 shrink-0 rounded-full px-5">
-          <a href="#pricing">Book demo</a>
+          <a href="#demo">Book demo</a>
         </Button>
       </div>
     </header>
