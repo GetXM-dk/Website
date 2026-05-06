@@ -5,7 +5,6 @@ import OnboardingFlow from "@/components/OnboardingFlow";
 import UnansweredCalls from "@/components/UnansweredCalls";
 import WhyGetXM from "@/components/WhyGetXM";
 import Pricing from "@/components/Pricing";
-import ClinicMatchTest from "@/components/ClinicMatchTest";
 import FAQ from "@/components/FAQ";
 import DemoBooking from "@/components/DemoBooking";
 import Footer from "@/components/Footer";
@@ -21,7 +20,6 @@ const Index = () => {
         <OnboardingFlow />
         <WhyGetXM />
         <Pricing />
-        <ClinicMatchTest />
         <FAQ />
         <DemoBooking />
       </main>

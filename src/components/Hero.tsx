@@ -54,10 +54,10 @@ const Hero = () => {
           <div id="hero-demo" className="mt-24 w-full flex flex-col items-center">
             <HeroSmsDemo ref={demoRef} />
 
-            <ul className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm md:text-base text-muted-foreground">
+            <ul className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-xs md:text-sm text-muted-foreground">
               {["Gratis opsætning", "Behold jeres teleselskab", "Kun 349,- /md"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
-                  <Check className="h-5 w-5 text-brand-pink" />
+                  <Check className="h-4 w-4 text-brand-pink" />
                   <span className="font-medium">{item}</span>
                 </li>
               ))}

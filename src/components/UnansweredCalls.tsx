@@ -16,7 +16,7 @@ const UnansweredCalls = () => {
             Den gode behandling starter, <br /> før patienten kommer ind ad døren
           </h2>
           <p className="mt-6 text-base text-muted-foreground md:text-lg max-w-2xl">
-            Forskellen på en tabt mulighed og en ny booking ligger i opfølgningen          </p>
+            At blive hørt er den første del af behandlingen. Med GetXM føler jeres patienter sig prioriteret og værdsat fra det sekund, de ringer.          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
