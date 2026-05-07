@@ -16,6 +16,7 @@ type ContactForm = z.infer<typeof contactSchema>;
 const DemoBooking = () => {
   const [step, setStep] = useState(0); // 0-2: Questions, 3: Contact
   const [isPreparing, setIsPreparing] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [answers, setAnswers] = useState({
     clinicType: "",
     phoneHandling: "",
@@ -27,6 +28,10 @@ const DemoBooking = () => {
     email: "",
     phone: "",
   });
+  const configuredApiUrl = import.meta.env.VITE_API_URL?.trim().replace(/\/$/, "");
+  const leadEndpoint = configuredApiUrl
+    ? `${configuredApiUrl}/api/v1/website-demo/lead`
+    : "/api/v1/website-demo/lead";
 
   const questions = [
     {
@@ -79,7 +84,7 @@ const DemoBooking = () => {
     }
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const result = contactSchema.safeParse(form);
 
@@ -94,25 +99,49 @@ const DemoBooking = () => {
 
     const { firstName, lastName, email, phone } = result.data;
     const { clinicType, phoneHandling, missedCalls } = answers;
-    
-    const subject = encodeURIComponent(`Ny demo-booking — ${firstName} ${lastName} (${clinicType})`);
-    const body = encodeURIComponent(
-      [
-        `Navn: ${firstName} ${lastName}`,
-        `E-mail: ${email}`,
-        `Telefon: ${phone}`,
-        `--- Kvalificering ---`,
-        `Klinik-type: ${clinicType}`,
-        `Hvem tager telefonen: ${phoneHandling}`,
-        `Oplevelse af ubesvarede: ${missedCalls}`
-      ].join("\n"),
-    );
 
-    toast({
-      title: "Tak — vi har modtaget jeres oplysninger",
-      description: "Vi kigger på jeres tal med det samme og kontakter jer for at aftale jeres 15-minutters demo.",
-    });
-    window.location.href = `mailto:hej@getxm.dk?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(leadEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          source: "demo-booking",
+          first_name: firstName,
+          last_name: lastName,
+          email,
+          phone,
+          company_name: clinicType,
+          notes: [
+            `Klinik-type: ${clinicType}`,
+            `Hvem tager telefonen: ${phoneHandling}`,
+            `Oplevelse af ubesvarede: ${missedCalls}`,
+          ],
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Lead submission failed");
+      }
+
+      toast({
+        title: "Tak — vi har modtaget jeres oplysninger",
+        description: "Vi kontakter jer for at aftale jeres 15-minutters demo.",
+      });
+      setForm({ firstName: "", lastName: "", email: "", phone: "" });
+      setAnswers({ clinicType: "", phoneHandling: "", missedCalls: "" });
+      setStep(0);
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Kunne ikke sende formularen",
+        description: "Prøv igen om et øjeblik, eller skriv til hej@getxm.dk.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClasses = "w-full h-14 bg-white border border-[#1A1A1A]/20 rounded-xl focus:border-foreground focus:ring-1 focus:ring-foreground transition-all outline-none px-5 text-base placeholder:text-muted-foreground/30";
@@ -219,6 +248,7 @@ const DemoBooking = () => {
                       value={form.firstName}
                       onChange={e => setForm({ ...form, firstName: e.target.value })}
                       autoComplete="given-name"
+                      disabled={isSubmitting}
                       required
                     />
                   </div>
@@ -230,6 +260,7 @@ const DemoBooking = () => {
                       value={form.lastName}
                       onChange={e => setForm({ ...form, lastName: e.target.value })}
                       autoComplete="family-name"
+                      disabled={isSubmitting}
                       required
                     />
                   </div>
@@ -245,6 +276,7 @@ const DemoBooking = () => {
                       value={form.email}
                       onChange={e => setForm({ ...form, email: e.target.value })}
                       autoComplete="email"
+                      disabled={isSubmitting}
                       required
                     />
                   </div>
@@ -259,6 +291,7 @@ const DemoBooking = () => {
                         value={form.phone}
                         onChange={e => setForm({ ...form, phone: e.target.value })}
                         autoComplete="tel"
+                        disabled={isSubmitting}
                         required
                       />
                     </div>
@@ -268,9 +301,10 @@ const DemoBooking = () => {
                 <div className="pt-4">
                   <Button
                     type="submit"
+                    disabled={isSubmitting}
                     className="w-full h-16 text-xl font-bold bg-foreground text-background rounded-xl transition-all shadow-xl hover:bg-accent hover:text-accent-foreground hover:shadow-2xl hover:-translate-y-0.5"
                   >
-                    Book en demo
+                    {isSubmitting ? "Sender..." : "Book en demo"}
                   </Button>
                 </div>
               </form>

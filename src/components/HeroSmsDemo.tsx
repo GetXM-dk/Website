@@ -18,8 +18,13 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const requestAbortRef = useRef<AbortController | null>(null);
+  const sessionVersionRef = useRef(0);
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const configuredApiUrl = import.meta.env.VITE_API_URL?.trim().replace(/\/$/, "");
+  const chatEndpoint = configuredApiUrl
+    ? `${configuredApiUrl}/api/v1/website-demo/chat`
+    : "/api/v1/website-demo/chat";
 
   useImperativeHandle(ref, () => ({
     focusInput: () => {
@@ -46,26 +51,38 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, sending]);
 
+  useEffect(() => {
+    return () => {
+      requestAbortRef.current?.abort();
+    };
+  }, []);
+
   const send = async () => {
     const text = input.trim();
     if (!text || sending) return;
     
     setError(null);
     setSending(true);
+    const currentSessionVersion = sessionVersionRef.current;
     
     // Optimistically add user message
     const userMessage = { from: "patient" as const, body: text };
-    setMessages((prev) => [...prev, userMessage]);
+    const nextMessages = [...messages, userMessage];
+    setMessages(nextMessages);
     setInput("");
+    requestAbortRef.current?.abort();
+    const controller = new AbortController();
+    requestAbortRef.current = controller;
 
     try {
-      const response = await fetch(`${API_URL}/api/v1/website-demo/chat`, {
+      const response = await fetch(chatEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        signal: controller.signal,
         body: JSON.stringify({
-          messages: [...messages, userMessage].map(m => ({
+          messages: nextMessages.map(m => ({
             role: m.from === "patient" ? "user" : "assistant",
             content: m.body
           }))
@@ -82,9 +99,16 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
         throw new Error(data.error || "AI fejlede");
       }
 
+      if (currentSessionVersion !== sessionVersionRef.current || controller.signal.aborted) {
+        return;
+      }
+
       setMessages((m) => [...m, { from: "getxm", body: data.answer }]);
       setHasReplied(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
+      if (controller.signal.aborted) {
+        return;
+      }
       console.error("Demo Chat Error:", err);
       setError("Forbindelsesfejl. Tjek om backenden kører.");
       setMessages((m) => [
@@ -92,11 +116,19 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
         { from: "getxm", body: "Beklager, jeg har lidt tekniske problemer lige nu. Prøv igen om et øjeblik." }
       ]);
     } finally {
-      setSending(false);
+      if (requestAbortRef.current === controller) {
+        requestAbortRef.current = null;
+      }
+      if (currentSessionVersion === sessionVersionRef.current) {
+        setSending(false);
+      }
     }
   };
 
   const reset = () => {
+    requestAbortRef.current?.abort();
+    requestAbortRef.current = null;
+    sessionVersionRef.current += 1;
     setMessages([
       { 
         from: "getxm", 
@@ -106,6 +138,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
     setHasReplied(false);
     setError(null);
     setInput("");
+    setSending(false);
   };
 
   return (
