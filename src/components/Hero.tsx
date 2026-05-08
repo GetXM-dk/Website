@@ -20,20 +20,21 @@ const Hero = () => {
 
   return (
     <section id="top" className="relative overflow-hidden bg-white">
-      <div className="container relative pb-16 pt-28 md:pb-24 md:pt-32 lg:pb-28 lg:pt-36">
+      <div className="container relative pb-10 pt-24 md:pb-24 md:pt-32 lg:pb-28 lg:pt-36">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           <div className="flex flex-col items-center">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1 text-xs font-large text-muted-foreground">
               <Zap className="h-5.5 w-3.5 text-brand-pink" fill="currentColor" />
-              Lynhurtig og automatisk opfølgning på ubesvarede opkald
+              <span className="md:hidden">Lynhurtig opfølgning på ubesvarede opkald</span>
+              <span className="hidden md:inline">Lynhurtig og automatisk opfølgning på ubesvarede opkald</span>
             </span>
             <h1 className="display-2xl mt-6 text-foreground max-w-3xl">Et ubesvaret opkald er ikke gratis</h1>
-            <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
+            <p className="mt-4 max-w-2xl text-sm text-muted-foreground md:mt-6 md:text-lg">
               GetXM følger op på ubesvarede opkald over SMS og afklarer automatisk op til 67% af henvendelserne. Patienten får svar med det samme. I får ro til arbejdet. Ingen ringer forgæves.
             </p>
 
 
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center md:mt-8">
               <Button asChild size="lg" className="rounded-xl px-7 transition-all hover:bg-accent hover:text-accent-foreground">
                 <a href="#demo">Book en demo</a>
               </Button>
@@ -41,7 +42,7 @@ const Hero = () => {
               <Button
                 variant="ghost"
                 size="lg"
-                className="rounded-xl px-7 text-muted-foreground hover:bg-black/5 hover:text-foreground transition-all"
+                className="hidden rounded-xl px-7 text-muted-foreground hover:bg-black/5 hover:text-foreground transition-all md:inline-flex"
                 onClick={handleTryDemo}
               >
                 Prøv selv
@@ -51,10 +52,10 @@ const Hero = () => {
           </div>
 
           {/* Phone mockup centered below with features under it */}
-          <div id="hero-demo" className="mt-24 w-full flex flex-col items-center">
+          <div id="hero-demo" className="mt-10 w-full flex flex-col items-center md:mt-24">
             <HeroSmsDemo ref={demoRef} />
 
-            <ul className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-xs md:text-sm text-muted-foreground">
+            <ul className="mt-8 hidden flex-wrap justify-center items-center gap-x-8 gap-y-4 text-xs md:mt-12 md:flex md:text-sm text-muted-foreground">
               {["Gratis opsætning", "Behold jeres teleselskab", "Kun 349,- /md"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-brand-pink" />
@@ -63,7 +64,9 @@ const Hero = () => {
               ))}
             </ul>
 
-            <TelcoTrustStrip />
+            <div className="hidden md:block">
+              <TelcoTrustStrip />
+            </div>
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ const OnboardingFlow = () => {
 
           {/* Header Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20 md:mb-32">
-            <div className="max-w-xl text-right md:text-left">
+            <div className="max-w-xl text-left">
               <p className="caption-uppercase text-brand-pink mb-4">VI GØR DET NEMT AT KOMME I GANG</p>
               <h2 className="display-lg text-foreground leading-[1.1] font-display">
                 Fra introduktionsmøde til <br className="hidden md:block" /> live på 48 timer

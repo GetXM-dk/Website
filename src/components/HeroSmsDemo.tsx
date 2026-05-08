@@ -1,17 +1,39 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
-import PhoneMockup from "@/components/PhoneMockup";
-import { Send, RotateCcw, MessageCircle, AlertCircle, X } from "lucide-react";
-import { getPublicApiBaseUrl } from "@/lib/public-api";
 
-type Msg = { from: "getxm" | "patient"; body: string };
+import DemoChatSurface from "@/components/DemoChatSurface";
+import { MobileDemoSheet } from "@/components/MobileDemoSheet";
+import PhoneMockup from "@/components/PhoneMockup";
+import { MessageCircle } from "lucide-react";
+import type { DemoChatMessage } from "@/components/demo-chat-types";
+import { getPublicApiBaseUrl } from "@/lib/public-api";
 
 export type HeroSmsDemoHandle = {
   focusInput: () => void;
 };
 
+const createMessageId = () => {
+  if (typeof globalThis.crypto?.randomUUID === "function") {
+    return globalThis.crypto.randomUUID();
+  }
+
+  return `demo-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+};
+
+const createDemoMessage = (from: DemoChatMessage["from"], body: string): DemoChatMessage => ({
+  id: createMessageId(),
+  from,
+  body,
+});
+
+const getInitialDemoMessages = (): DemoChatMessage[] => [
+  createDemoMessage(
+    "getxm",
+    "Hej 👋 Vi kan desværre ikke besvare dit opkald lige nu. Skriv gerne her, så hjælper jeg dig videre. Hvad drejer din henvendelse sig om?"
+  ),
+];
 
 const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
-  const [messages, setMessages] = useState<Msg[]>([]);
+  const [messages, setMessages] = useState<DemoChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [hasReplied, setHasReplied] = useState(false);
@@ -45,12 +67,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
 
   // Initial welcome message
   useEffect(() => {
-    setMessages([
-      { 
-        from: "getxm", 
-        body: "Hej 👋 Vi kan desværre ikke besvare dit opkald lige nu. Skriv gerne her, så hjælper jeg dig videre. Hvad drejer din henvendelse sig om?" 
-      }
-    ]);
+    setMessages(getInitialDemoMessages());
   }, []);
 
   useEffect(() => {
@@ -95,7 +112,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
     const currentSessionVersion = sessionVersionRef.current;
     
     // Optimistically add user message
-    const userMessage = { from: "patient" as const, body: text };
+    const userMessage = createDemoMessage("patient", text);
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setInput("");
@@ -132,7 +149,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
         return;
       }
 
-      setMessages((m) => [...m, { from: "getxm", body: data.answer }]);
+      setMessages((m) => [...m, createDemoMessage("getxm", data.answer)]);
       setHasReplied(true);
     } catch (err: unknown) {
       if (controller.signal.aborted) {
@@ -142,7 +159,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
       setError("Forbindelsesfejl. Tjek om backenden kører.");
       setMessages((m) => [
         ...m, 
-        { from: "getxm", body: "Beklager, jeg har lidt tekniske problemer lige nu. Prøv igen om et øjeblik." }
+        createDemoMessage("getxm", "Beklager, jeg har lidt tekniske problemer lige nu. Prøv igen om et øjeblik.")
       ]);
     } finally {
       if (requestAbortRef.current === controller) {
@@ -158,12 +175,7 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
     requestAbortRef.current?.abort();
     requestAbortRef.current = null;
     sessionVersionRef.current += 1;
-    setMessages([
-      { 
-        from: "getxm", 
-        body: "Hej 👋 Vi kan desværre ikke besvare dit opkald lige nu. Skriv gerne her, så hjælper jeg dig videre. Hvad drejer din henvendelse sig om?" 
-      }
-    ]);
+    setMessages(getInitialDemoMessages());
     setHasReplied(false);
     setError(null);
     setInput("");
@@ -174,109 +186,6 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
     setIsMobileFullscreenOpen(false);
     setHighlight(false);
   };
-
-  const renderChatSurface = (isFullscreenMobile: boolean) => (
-    <div className={`flex h-full flex-col ${isFullscreenMobile ? "bg-white px-4 pb-5 pt-4" : ""}`}>
-      <div className="flex items-center justify-between border-b border-border pb-3">
-        <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background">
-            <MessageCircle className="h-3.5 w-3.5" />
-          </div>
-          <div className="min-w-0">
-            <p className="truncate text-xs font-semibold">Tandklinikken Søndergade</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-2">
-          {messages.length > 1 && (
-            <button
-              onClick={reset}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Start forfra"
-            >
-              <RotateCcw className="h-3.5 w-3.5" />
-            </button>
-          )}
-          {isFullscreenMobile && (
-            <button
-              onClick={closeMobileFullscreen}
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-black/[0.04] text-foreground transition-colors hover:bg-black/[0.08]"
-              aria-label="Luk demo"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div ref={scrollRef} className="mt-3 flex flex-1 flex-col gap-2.5 overflow-y-auto pr-1">
-        {messages.map((m, i) => {
-          const isPatient = m.from === "patient";
-          return (
-            <div
-              key={i}
-              className={`max-w-[80%] rounded-[18px] px-4 py-2.5 text-[14px] leading-[1.3] shadow-sm text-left ${
-                isPatient
-                  ? "self-end rounded-tr-[5px] bg-[#007AFF] text-white font-normal"
-                  : "self-start rounded-tl-[5px] bg-[#E9E9EB] text-[#000000] font-normal"
-              }`}
-              style={{
-                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-              }}
-            >
-              {m.body}
-            </div>
-          );
-        })}
-        {sending && (
-          <div className="self-start rounded-[18px] rounded-tl-[5px] bg-[#E9E9EB] px-4 py-2.5 text-[#000000] shadow-sm">
-            <span className="inline-flex gap-1.5 pt-1">
-              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93] [animation-delay:-0.2s]" />
-              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93] [animation-delay:-0.1s]" />
-              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93]" />
-            </span>
-          </div>
-        )}
-        {error && (
-          <div className="flex items-center gap-1.5 px-1 py-1 text-[10px] text-destructive">
-            <AlertCircle className="h-3.5 w-3.5" />
-            <span>{error}</span>
-          </div>
-        )}
-      </div>
-
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          send();
-        }}
-        className={`demo-input-glow mt-3 flex items-center gap-2 rounded-full border border-white/80 bg-card px-3 py-1.5 transition-all ${
-          highlight ? "demo-input-active" : "demo-input-idle"
-        } focus-within:outline-none`}
-      >
-        <input
-          ref={inputRef}
-          value={input}
-          onFocus={() => {
-            if (isMobileViewport) {
-              setIsMobileFullscreenOpen(true);
-            }
-          }}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Skriv dit spørgsmål her"
-          className="relative z-10 flex-1 bg-transparent text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none"
-          disabled={sending}
-        />
-        <button
-          type="submit"
-          aria-label="Send"
-          disabled={!input.trim() || sending}
-          className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[hsl(211_100%_52%)] text-white transition-opacity disabled:opacity-40"
-        >
-          <Send className="h-3 w-3" />
-        </button>
-      </form>
-    </div>
-  );
 
   return (
     <div className="relative overflow-x-clip">
@@ -291,33 +200,62 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
             setIsMobileFullscreenOpen(true);
             window.setTimeout(() => inputRef.current?.focus(), 80);
           }}
-          className="mx-auto flex w-full max-w-[22rem] items-center justify-between rounded-[28px] border border-black/10 bg-white px-5 py-4 text-left shadow-soft"
+          className="mx-auto flex w-full max-w-[22rem] items-center gap-4 rounded-[28px] border border-black/10 bg-white px-5 py-4 text-left shadow-soft"
         >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#007AFF] text-white shadow-sm">
+            <MessageCircle className="h-4 w-4" />
+          </div>
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-              Prøv SMS-demoen
+              Se SMS-flowet
             </p>
-            <p className="mt-1 text-sm text-foreground">Åbn samtalen og skriv som en patient</p>
-          </div>
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#007AFF] text-white shadow-sm">
-            <MessageCircle className="h-4 w-4" />
+            <p className="mt-1 text-sm text-foreground">Prøv som patient</p>
           </div>
         </button>
       </div>
 
       <div className="hidden md:block">
         <PhoneMockup>
-          {renderChatSurface(false)}
+          <DemoChatSurface
+            error={error}
+            highlight={highlight}
+            input={input}
+            inputRef={inputRef}
+            isFullscreenMobile={false}
+            isMobileViewport={isMobileViewport}
+            messages={messages}
+            onCloseMobile={closeMobileFullscreen}
+            onInputChange={setInput}
+            onInputFocus={() => setIsMobileFullscreenOpen(true)}
+            onReset={reset}
+            onSubmit={send}
+            scrollRef={scrollRef}
+            sending={sending}
+          />
         </PhoneMockup>
       </div>
 
-      {isMobileViewport && isMobileFullscreenOpen && (
-        <div className="fixed inset-0 z-50 overflow-x-hidden bg-white">
-          <div className="mx-auto flex h-full w-full max-w-md min-w-0 flex-col">
-            {renderChatSurface(true)}
-          </div>
-        </div>
-      )}
+      <MobileDemoSheet
+        open={isMobileViewport && isMobileFullscreenOpen}
+        onClose={closeMobileFullscreen}
+      >
+        <DemoChatSurface
+          error={error}
+          highlight={highlight}
+          input={input}
+          inputRef={inputRef}
+          isFullscreenMobile
+          isMobileViewport={isMobileViewport}
+          messages={messages}
+          onCloseMobile={closeMobileFullscreen}
+          onInputChange={setInput}
+          onInputFocus={() => setIsMobileFullscreenOpen(true)}
+          onReset={reset}
+          onSubmit={send}
+          scrollRef={scrollRef}
+          sending={sending}
+        />
+      </MobileDemoSheet>
     </div>
   );
 });
