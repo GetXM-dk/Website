@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import PhoneMockup from "@/components/PhoneMockup";
 import { Send, RotateCcw, MessageCircle, AlertCircle } from "lucide-react";
+import { getPublicApiBaseUrl } from "@/lib/public-api";
 
 type Msg = { from: "getxm" | "patient"; body: string };
 
@@ -21,9 +22,9 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
   const requestAbortRef = useRef<AbortController | null>(null);
   const sessionVersionRef = useRef(0);
 
-  const configuredApiUrl = import.meta.env.VITE_API_URL?.trim().replace(/\/$/, "");
-  const chatEndpoint = configuredApiUrl
-    ? `${configuredApiUrl}/api/v1/website-demo/chat`
+  const apiBaseUrl = getPublicApiBaseUrl();
+  const chatEndpoint = apiBaseUrl
+    ? `${apiBaseUrl}/api/v1/website-demo/chat`
     : "/api/v1/website-demo/chat";
 
   useImperativeHandle(ref, () => ({

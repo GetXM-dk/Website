@@ -3,6 +3,7 @@ import { z } from "zod";
 import { ChevronLeft, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import { getPublicApiBaseUrl } from "@/lib/public-api";
 
 const contactSchema = z.object({
   firstName: z.string().trim().min(2, "Skriv dit fornavn"),
@@ -28,9 +29,9 @@ const DemoBooking = () => {
     email: "",
     phone: "",
   });
-  const configuredApiUrl = import.meta.env.VITE_API_URL?.trim().replace(/\/$/, "");
-  const leadEndpoint = configuredApiUrl
-    ? `${configuredApiUrl}/api/v1/website-demo/lead`
+  const apiBaseUrl = getPublicApiBaseUrl();
+  const leadEndpoint = apiBaseUrl
+    ? `${apiBaseUrl}/api/v1/website-demo/lead`
     : "/api/v1/website-demo/lead";
 
   const questions = [
