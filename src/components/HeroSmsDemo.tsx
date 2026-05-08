@@ -279,8 +279,11 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
   );
 
   return (
-    <div className="relative">
-      <div aria-hidden className="absolute -inset-10 -z-10 rounded-[60px] bg-accent/20 blur-3xl" />
+    <div className="relative overflow-x-clip">
+      <div
+        aria-hidden
+        className="absolute left-1/2 top-1/2 -z-10 h-[22rem] w-[22rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl md:h-[28rem] md:w-[28rem]"
+      />
       <div className="md:hidden">
         <button
           type="button"
@@ -309,8 +312,8 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
       </div>
 
       {isMobileViewport && isMobileFullscreenOpen && (
-        <div className="fixed inset-0 z-50 bg-white">
-          <div className="mx-auto flex h-full max-w-md flex-col">
+        <div className="fixed inset-0 z-50 overflow-x-hidden bg-white">
+          <div className="mx-auto flex h-full w-full max-w-md min-w-0 flex-col">
             {renderChatSurface(true)}
           </div>
         </div>
