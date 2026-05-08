@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local launch notes / legacy static-hosting artifacts
+LAUNCH_CHECKLIST.md
+public/.htaccess
