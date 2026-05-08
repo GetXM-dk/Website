@@ -260,18 +260,6 @@ All colors MUST be HSL.
   animation: input-glow 1.4s ease-out 2;
 }
 
-@keyframes appleGlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes demoSheetUp {
   0% {
     transform: translateY(100%);
@@ -290,26 +278,25 @@ All colors MUST be HSL.
 .demo-input-shell {
   border-radius: 9999px;
   background: white;
-  border: 1px solid rgba(236, 72, 153, 0.16);
+  border: 1px solid rgba(15, 23, 42, 0.10);
   box-shadow:
-    0 8px 18px rgba(15, 23, 42, 0.055),
-    0 0 0 1px rgba(236, 72, 153, 0.035);
+    0 8px 20px rgba(15, 23, 42, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.85) inset;
   transition:
     border-color 220ms ease,
-    box-shadow 220ms ease,
-    transform 220ms ease;
+    box-shadow 220ms ease;
 }
 
 .demo-input-idle {
-  border-color: rgba(236, 72, 153, 0.14);
+  border-color: rgba(15, 23, 42, 0.10);
 }
 
 .demo-input-active,
 .demo-input-shell:focus-within {
-  border-color: rgba(236, 72, 153, 0.38);
+  border-color: rgba(15, 23, 42, 0.18);
   box-shadow:
-    0 10px 24px rgba(15, 23, 42, 0.07),
-    0 0 0 3px rgba(236, 72, 153, 0.08);
+    0 12px 28px rgba(15, 23, 42, 0.08),
+    0 0 0 2px rgba(15, 23, 42, 0.05);
 }
 
 .font-sms {
