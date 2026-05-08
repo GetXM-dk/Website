@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import PhoneMockup from "@/components/PhoneMockup";
-import { Send, RotateCcw, MessageCircle, AlertCircle } from "lucide-react";
+import { Send, RotateCcw, MessageCircle, AlertCircle, X } from "lucide-react";
 import { getPublicApiBaseUrl } from "@/lib/public-api";
 
 type Msg = { from: "getxm" | "patient"; body: string };
@@ -17,6 +17,8 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
   const [hasReplied, setHasReplied] = useState(false);
   const [highlight, setHighlight] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
+  const [isMobileFullscreenOpen, setIsMobileFullscreenOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const requestAbortRef = useRef<AbortController | null>(null);
@@ -29,6 +31,9 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
 
   useImperativeHandle(ref, () => ({
     focusInput: () => {
+      if (isMobileViewport) {
+        setIsMobileFullscreenOpen(true);
+      }
       if (hasReplied || error) {
         reset();
       }
@@ -56,6 +61,29 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
     return () => {
       requestAbortRef.current?.abort();
     };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const syncViewport = (matches: boolean) => {
+      setIsMobileViewport(matches);
+      if (!matches) {
+        setIsMobileFullscreenOpen(false);
+      }
+    };
+
+    syncViewport(mediaQuery.matches);
+    const handleChange = (event: MediaQueryListEvent) => syncViewport(event.matches);
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
   }, []);
 
   const send = async () => {
@@ -142,95 +170,151 @@ const HeroSmsDemo = forwardRef<HeroSmsDemoHandle>((_props, ref) => {
     setSending(false);
   };
 
+  const closeMobileFullscreen = () => {
+    setIsMobileFullscreenOpen(false);
+    setHighlight(false);
+  };
+
+  const renderChatSurface = (isFullscreenMobile: boolean) => (
+    <div className={`flex h-full flex-col ${isFullscreenMobile ? "bg-white px-4 pb-5 pt-4" : ""}`}>
+      <div className="flex items-center justify-between border-b border-border pb-3">
+        <div className="flex items-center gap-2">
+          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background">
+            <MessageCircle className="h-3.5 w-3.5" />
+          </div>
+          <div className="min-w-0">
+            <p className="truncate text-xs font-semibold">Tandklinikken Søndergade</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          {messages.length > 1 && (
+            <button
+              onClick={reset}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Start forfra"
+            >
+              <RotateCcw className="h-3.5 w-3.5" />
+            </button>
+          )}
+          {isFullscreenMobile && (
+            <button
+              onClick={closeMobileFullscreen}
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-black/[0.04] text-foreground transition-colors hover:bg-black/[0.08]"
+              aria-label="Luk demo"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div ref={scrollRef} className="mt-3 flex flex-1 flex-col gap-2.5 overflow-y-auto pr-1">
+        {messages.map((m, i) => {
+          const isPatient = m.from === "patient";
+          return (
+            <div
+              key={i}
+              className={`max-w-[80%] rounded-[18px] px-4 py-2.5 text-[14px] leading-[1.3] shadow-sm text-left ${
+                isPatient
+                  ? "self-end rounded-tr-[5px] bg-[#007AFF] text-white font-normal"
+                  : "self-start rounded-tl-[5px] bg-[#E9E9EB] text-[#000000] font-normal"
+              }`}
+              style={{
+                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+              }}
+            >
+              {m.body}
+            </div>
+          );
+        })}
+        {sending && (
+          <div className="self-start rounded-[18px] rounded-tl-[5px] bg-[#E9E9EB] px-4 py-2.5 text-[#000000] shadow-sm">
+            <span className="inline-flex gap-1.5 pt-1">
+              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93] [animation-delay:-0.2s]" />
+              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93] [animation-delay:-0.1s]" />
+              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93]" />
+            </span>
+          </div>
+        )}
+        {error && (
+          <div className="flex items-center gap-1.5 px-1 py-1 text-[10px] text-destructive">
+            <AlertCircle className="h-3.5 w-3.5" />
+            <span>{error}</span>
+          </div>
+        )}
+      </div>
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          send();
+        }}
+        className={`demo-input-glow mt-3 flex items-center gap-2 rounded-full border border-white/80 bg-card px-3 py-1.5 transition-all ${
+          highlight ? "demo-input-active" : "demo-input-idle"
+        } focus-within:outline-none`}
+      >
+        <input
+          ref={inputRef}
+          value={input}
+          onFocus={() => {
+            if (isMobileViewport) {
+              setIsMobileFullscreenOpen(true);
+            }
+          }}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Skriv dit spørgsmål her"
+          className="relative z-10 flex-1 bg-transparent text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none"
+          disabled={sending}
+        />
+        <button
+          type="submit"
+          aria-label="Send"
+          disabled={!input.trim() || sending}
+          className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[hsl(211_100%_52%)] text-white transition-opacity disabled:opacity-40"
+        >
+          <Send className="h-3 w-3" />
+        </button>
+      </form>
+    </div>
+  );
+
   return (
     <div className="relative">
       <div aria-hidden className="absolute -inset-10 -z-10 rounded-[60px] bg-accent/20 blur-3xl" />
-      <PhoneMockup>
-        <div className="flex h-full flex-col">
-          <div className="flex items-center justify-between border-b border-border pb-3">
-            <div className="flex items-center gap-2">
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-foreground text-background">
-                <MessageCircle className="h-3.5 w-3.5" />
-              </div>
-              <div className="min-w-0">
-                <p className="truncate text-xs font-semibold">Tandklinikken Søndergade</p>
-              </div>
-            </div>
-            {messages.length > 1 && (
-              <button 
-                onClick={reset}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Start forfra"
-              >
-                <RotateCcw className="h-3.5 w-3.5" />
-              </button>
-            )}
+      <div className="md:hidden">
+        <button
+          type="button"
+          onClick={() => {
+            setIsMobileFullscreenOpen(true);
+            window.setTimeout(() => inputRef.current?.focus(), 80);
+          }}
+          className="mx-auto flex w-full max-w-[22rem] items-center justify-between rounded-[28px] border border-black/10 bg-white px-5 py-4 text-left shadow-soft"
+        >
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+              Prøv SMS-demoen
+            </p>
+            <p className="mt-1 text-sm text-foreground">Åbn samtalen og skriv som en patient</p>
           </div>
-
-          <div ref={scrollRef} className="mt-3 flex flex-1 flex-col gap-2.5 overflow-y-auto pr-1">
-            {messages.map((m, i) => {
-              const isPatient = m.from === "patient";
-              return (
-                <div
-                  key={i}
-                  className={`max-w-[80%] rounded-[18px] px-4 py-2.5 text-[14px] leading-[1.3] shadow-sm text-left ${
-                    isPatient
-                      ? "self-end rounded-tr-[5px] bg-[#007AFF] text-white font-normal"
-                      : "self-start rounded-tl-[5px] bg-[#E9E9EB] text-[#000000] font-normal"
-                  }`}
-                  style={{
-                    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
-                  }}
-                >
-                  {m.body}
-                </div>
-              );
-            })}
-            {sending && (
-              <div className="self-start rounded-[18px] rounded-tl-[5px] bg-[#E9E9EB] px-4 py-2.5 text-[#000000] shadow-sm">
-                <span className="inline-flex gap-1.5 pt-1">
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93] [animation-delay:-0.2s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93] [animation-delay:-0.1s]" />
-                  <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-[#8E8E93]" />
-                </span>
-              </div>
-            )}
-            {error && (
-              <div className="flex items-center gap-1.5 px-1 py-1 text-[10px] text-destructive">
-                <AlertCircle className="h-3.5 w-3.5" />
-                <span>{error}</span>
-              </div>
-            )}
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#007AFF] text-white shadow-sm">
+            <MessageCircle className="h-4 w-4" />
           </div>
+        </button>
+      </div>
 
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              send();
-            }}
-            className={`mt-3 flex items-center gap-2 rounded-full border border-accent/30 bg-card px-3 py-1.5 transition-all ${
-              highlight ? "demo-input-active" : "demo-input-idle"
-            } focus-within:outline-none`}
-          >
-            <input
-              ref={inputRef}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Skriv dit spørgsmål her"
-              className="flex-1 bg-transparent text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none"
-              disabled={sending}
-            />
-            <button
-              type="submit"
-              aria-label="Send"
-              disabled={!input.trim() || sending}
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-[hsl(211_100%_52%)] text-white transition-opacity disabled:opacity-40"
-            >
-              <Send className="h-3 w-3" />
-            </button>
-          </form>
+      <div className="hidden md:block">
+        <PhoneMockup>
+          {renderChatSurface(false)}
+        </PhoneMockup>
+      </div>
+
+      {isMobileViewport && isMobileFullscreenOpen && (
+        <div className="fixed inset-0 z-50 bg-white">
+          <div className="mx-auto flex h-full max-w-md flex-col">
+            {renderChatSurface(true)}
+          </div>
         </div>
-      </PhoneMockup>
+      )}
     </div>
   );
 });
