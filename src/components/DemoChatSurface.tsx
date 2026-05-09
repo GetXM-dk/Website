@@ -129,7 +129,7 @@ const DemoChatSurface = ({
           className={`w-full max-w-full rounded-full transition-all ${
             isFullscreenMobile
               ? ""
-              : `demo-input-shell mt-3 ${highlight ? "demo-input-active" : "demo-input-idle"}`
+              : `demo-input-shell mx-1 mb-1 mt-3 ${highlight ? "demo-input-active" : "demo-input-idle"}`
           }`}
         >
           <div
