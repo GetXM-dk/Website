@@ -284,7 +284,8 @@ All colors MUST be HSL.
     0 1px 0 rgba(255, 255, 255, 0.85) inset;
   transition:
     border-color 220ms ease,
-    box-shadow 220ms ease;
+    box-shadow 220ms ease,
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .demo-input-idle {
@@ -293,10 +294,25 @@ All colors MUST be HSL.
 
 .demo-input-active,
 .demo-input-shell:focus-within {
-  border-color: rgba(15, 23, 42, 0.18);
-  box-shadow:
-    0 12px 28px rgba(15, 23, 42, 0.08),
-    0 0 0 2px rgba(15, 23, 42, 0.05);
+  border-color: hsl(var(--accent) / 0.55);
+}
+
+.demo-input-active {
+  transform: scale(1.02);
+  animation: demoInputPulse 1.3s ease-in-out 2;
+}
+
+@keyframes demoInputPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 3px hsl(var(--accent) / 0.20),
+      0 8px 24px hsl(var(--accent) / 0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px hsl(var(--accent) / 0.40),
+      0 12px 36px hsl(var(--accent) / 0.45);
+  }
 }
 
 .font-sms {
