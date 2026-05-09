@@ -298,20 +298,19 @@ All colors MUST be HSL.
 }
 
 .demo-input-active {
-  transform: scale(1.02);
   animation: demoInputPulse 1.3s ease-in-out 2;
 }
 
 @keyframes demoInputPulse {
   0%, 100% {
     box-shadow:
-      0 0 0 3px hsl(var(--accent) / 0.20),
-      0 8px 24px hsl(var(--accent) / 0.25);
+      0 0 0 1.5px hsl(var(--accent) / 0.45),
+      inset 0 0 0 1px hsl(var(--accent) / 0.25);
   }
   50% {
     box-shadow:
-      0 0 0 6px hsl(var(--accent) / 0.40),
-      0 12px 36px hsl(var(--accent) / 0.45);
+      0 0 0 2.5px hsl(var(--accent) / 0.70),
+      inset 0 0 0 1px hsl(var(--accent) / 0.45);
   }
 }
 
