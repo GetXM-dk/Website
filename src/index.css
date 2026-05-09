@@ -284,6 +284,7 @@ All colors MUST be HSL.
     0 1px 0 rgba(255, 255, 255, 0.85) inset;
   transition:
     border-color 220ms ease,
+    background-color 220ms ease,
     box-shadow 220ms ease,
     transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -294,23 +295,23 @@ All colors MUST be HSL.
 
 .demo-input-active,
 .demo-input-shell:focus-within {
-  border-color: hsl(var(--accent) / 0.55);
+  border-color: hsl(var(--accent));
+  border-width: 1.5px;
+  background: hsl(var(--accent) / 0.06);
 }
 
 .demo-input-active {
-  animation: demoInputPulse 1.3s ease-in-out 2;
+  animation: demoInputAppear 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes demoInputPulse {
-  0%, 100% {
-    box-shadow:
-      0 0 0 1.5px hsl(var(--accent) / 0.45),
-      inset 0 0 0 1px hsl(var(--accent) / 0.25);
+@keyframes demoInputAppear {
+  0% {
+    border-color: rgba(15, 23, 42, 0.10);
+    background: white;
   }
-  50% {
-    box-shadow:
-      0 0 0 2.5px hsl(var(--accent) / 0.70),
-      inset 0 0 0 1px hsl(var(--accent) / 0.45);
+  100% {
+    border-color: hsl(var(--accent));
+    background: hsl(var(--accent) / 0.06);
   }
 }
 

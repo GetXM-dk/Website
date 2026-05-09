@@ -1,32 +1,19 @@
 ## Mål
+Fjern den pulserende glow-ring på demo-inputfeltet, der virker svag og bliver beskåret af telefon-skærmens kant. Erstat den med en tydeligere "Accent outline"-stil: ren pink kant + let accent-tonet baggrund, så feltet ser klart highlightet ud uden at gå udenfor sine egne kanter.
 
-Når brugeren klikker "Prøv selv" i hero, skal input-feltet i telefonen tydeligt fange øjet — uden at virke larmende. Den nuværende effekt ændrer kun box-shadow med ~5% opacity, hvilket er næsten usynligt på hvid baggrund.
+## Ændringer
 
-## Hvad ændres
+### `src/index.css` — `.demo-input-active` og keyframes
+- Fjern `animation: demoInputPulse` og hele `@keyframes demoInputPulse`-blokken (ingen glow-ring længere).
+- Opdater `.demo-input-active` til:
+  - `border-color: hsl(var(--accent))` (fuld styrke, ikke 0.55) — 1.5px tyk via `border-width: 1.5px`.
+  - `background: hsl(var(--accent) / 0.06)` — meget let pink baggrundstone, så feltet skiller sig ud uden støj.
+  - Behold den eksisterende `box-shadow` (drop-shadow) — ingen ekstra ring udenpå.
+- Tilføj en kort, blid intro-animation (`demoInputAppear` 320ms) som fader baggrund + kantfarve ind én gang, i stedet for vedvarende pulse.
+- `.demo-input-shell:focus-within` matcher samme outline-stil for konsistens når brugeren klikker.
 
-Kun CSS i `src/index.css` (klasserne `.demo-input-shell`, `.demo-input-active`, `.demo-input-idle`). Ingen ændringer i komponenter eller logik. Highlight udløses fortsat 2,6s via `highlight`-state i `HeroSmsDemo.tsx`.
-
-## Ny effekt
-
-1. **Farvet glow-ring** i brand-accent (brand-pink) i stedet for grå skygge — to lag:
-   - Indre ring: `0 0 0 3px hsl(var(--accent) / 0.25)`
-   - Ydre blød glow: `0 8px 32px hsl(var(--accent) / 0.35)`
-2. **Border** skifter til `hsl(var(--accent) / 0.5)` så kanten matcher glowen.
-3. **Subtil pulse-animation** (1,3s, 2 iterationer) der ånder ringen mellem 0.2 og 0.4 opacity — fanger blikket uden at distrahere.
-4. **Let scale-up** (1.0 → 1.02) ved aktivering med smooth cubic-bezier transition for et "pop"-feel.
-5. **Idle/focus-within** beholdes neutralt som nu, så feltet ikke konstant glower når brugeren skriver.
-
-## Visuel reference
-
-```text
-Idle:     [ ───── input ───── ]   (tynd grå kant)
-
-Active:   ((( [ ───── input ───── ] )))   ← pink glow + pulse
-```
-
-## Teknisk
-
-- Tilføj `@keyframes demoInputPulse` i `src/index.css`.
-- Opdater `.demo-input-active` med ny box-shadow, border-color, transform og animation.
-- Behold `transition` på `.demo-input-shell` så afslutningen af highlighten også er glat.
-- Bruger eksisterende `--accent` HSL token — ingen nye tokens.
+### Resultat
+- Tydelig pink kontur der signalerer "skriv her", uden glow der bliver clippet.
+- Let accent-baggrund giver visuel vægt uden at virke larmende.
+- Ingen pulserende bevægelse — mere premium og rolig.
+- Ingen layout-ændringer i `DemoChatSurface.tsx` nødvendige; den eksisterende `mx-1 mb-1 mt-3` bevares som sikkerhedsmargin.
