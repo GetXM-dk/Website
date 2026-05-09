@@ -126,9 +126,9 @@ const DemoChatSurface = ({
             if (!input.trim() || sending) return;
             onSubmit();
           }}
-          className={`w-full max-w-full rounded-full transition-all ${
+          className={`max-w-full rounded-full transition-all ${
             isFullscreenMobile
-              ? ""
+              ? "w-full"
               : `demo-input-shell mx-1 mb-1 mt-3 ${highlight ? "demo-input-active" : "demo-input-idle"}`
           }`}
         >
