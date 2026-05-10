@@ -48,6 +48,8 @@ export const LeadFormStep = ({ form, setForm, isSubmitting, handleSubmit }: Lead
         <div className="space-y-2">
           <label className="text-sm font-semibold text-[#151515]">Telefon</label>
           <input
+            type="tel"
+            inputMode="numeric"
             value={form.phone}
             onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))}
             placeholder="12 34 56 78"
