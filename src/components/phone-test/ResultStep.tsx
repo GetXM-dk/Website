@@ -141,7 +141,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
                     </span>
                   </div>
                   <div className="space-y-3">
-                    <h4 className="font-display text-[26px] md:text-[32px] font-bold leading-tight text-[#151515]">
+                    <h4 className="font-display text-[20px] md:text-[22px] font-bold leading-tight text-[#151515]">
                       {row.data!.title}
                     </h4>
                     <p className="text-[16px] md:text-[18px] leading-[1.6] text-[#151515]/70 max-w-[62ch]">
