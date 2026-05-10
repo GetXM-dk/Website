@@ -20,15 +20,15 @@ export const questions: Question[] = [
     options: [
       { 
         label: "Reception / kliniksekretær", 
-        insight: "Det er et stærkt udgangspunkt at have en dedikeret person til telefonen." 
+        insight: "Stærkt udgangspunkt. Men hullet opstår stadig, når receptionen er optaget eller har lukket." 
       },
       { 
         label: "Behandlerne selv", 
-        insight: "Behandlere, der selv tager telefonen, oplever ofte et markant pres på deres arbejdsro." 
+        insight: "Når behandleren tager telefonen, mister patienten foran jer opmærksomhed — også hvis opkaldet kun varer kort tid." 
       },
       { 
         label: "Vi skiftes", 
-        insight: "Når ansvaret deles, kan det være sværere at sikre en ensartet opfølgning." 
+        insight: "Når telefonen deles mellem flere, kan det blive uklart, hvem der følger op på de opkald, der ikke blev taget." 
       },
     ],
   },
@@ -37,16 +37,22 @@ export const questions: Question[] = [
     label: "Hvor ofte",
     title: "Hvor ofte må I afbryde arbejdet for at tage telefonen?",
     options: [
-      { label: "Sjældent — vi føler, vi når det meste" },
+      { 
+        label: "Sjældent — vi føler, vi når det meste",
+        insight: "Godt tegn. De fleste opkald bliver nok håndteret — men de få, der glipper, kan stadig være vigtige."
+      },
       { 
         label: "Indimellem — især i travle perioder", 
-        insight: "Selv få afbrydelser i travle perioder kan skabe flaskehalse i patientflowet." 
+        insight: "Få afbrydelser kan virke harmløse, men de rammer ofte, når klinikken i forvejen er presset." 
       },
       { 
         label: "Ofte — vi kan mærke, at vi ikke når alle", 
-        insight: "Mange klinikker undervurderer, hvor meget tid der reelt går tabt ved hyppige afbrydelser." 
+        insight: "Hyppige afbrydelser koster ikke kun tid. De koster fokus — og fokus er svært at genvinde midt i en behandling." 
       },
-      { label: "Vi ved det ikke — vi prioriterer patienten foran os" },
+      { 
+        label: "Vi ved det ikke — vi prioriterer patienten foran os",
+        insight: "Når I ikke ved, hvor mange opkald I mister, ved I heller ikke, om det var spørgsmål, afbud eller nye bookinger."
+      },
     ],
   },
   {
@@ -54,13 +60,22 @@ export const questions: Question[] = [
     label: "Uden for åbningstid",
     title: "Hvad sker der, hvis en patient ringer uden for åbningstid?",
     options: [
-      { label: "De kan lægge en besked" },
+      { 
+        label: "De kan lægge en besked",
+        insight: "En besked redder noget. Men opgaven flytter stadig tilbage til jer senere på dagen."
+      },
       { 
         label: "De må prøve igen i vores telefontid", 
-        insight: "Når patienter selv skal ringe tilbage, risikerer I, at de i mellemtiden kontakter en anden klinik." 
+        insight: "Når patienten selv skal prøve igen, ligger opfølgningen hos patienten — ikke hos klinikken." 
       },
-      { label: "De bliver henvist til online booking" },
-      { label: "Andet" },
+      { 
+        label: "De bliver henvist til online booking",
+        insight: "Godt setup. Men patienter ringer ofte, når de har brug for afklaring — ikke kun et link."
+      },
+      { 
+        label: "Andet",
+        insight: "Når næste skridt ikke er tydeligt, kan selv interesserede patienter falde fra."
+      },
     ],
   },
   {
@@ -70,12 +85,24 @@ export const questions: Question[] = [
     options: [
       { 
         label: "Nye patienter ikke kommer igennem", 
-        insight: "Nye patienter er ofte mest følsomme over for ubesvarede opkald." 
+        insight: "Nye patienter har lav tålmodighed. Hvis de ikke får svar første gang, er næste klinik ofte kun ét klik væk." 
       },
-      { label: "Ubesvarede opkald ikke bliver fulgt op" },
-      { label: "Dårlig første oplevelse for patienten" },
-      { label: "Telefonen afbryder behandlinger" },
-      { label: "Simple spørgsmål tager for meget tid" },
+      { 
+        label: "Ubesvarede opkald ikke bliver fulgt op",
+        insight: "Det farlige ved et ubesvaret opkald er ikke kun, at det blev misset. Det er, at I ikke ved, hvad I missede."
+      },
+      { 
+        label: "Dårlig første oplevelse for patienten",
+        insight: "Første indtryk starter før behandlingen. For mange patienter starter det i telefonen."
+      },
+      { 
+        label: "Telefonen afbryder behandlinger",
+        insight: "Når telefonen ringer midt i en behandling, konkurrerer to patienter om jeres opmærksomhed."
+      },
+      { 
+        label: "Simple spørgsmål tager for meget tid",
+        insight: "Praktiske spørgsmål føles små enkeltvis. Samlet kan de stjæle meget tid fra klinikken."
+      },
     ],
   },
 ];
@@ -95,7 +122,7 @@ const whoAnswersPoints: Record<string, number> = {
 };
 
 const frequencyPoints: Record<string, number> = {
-  "Sjældent — vi føler, vi når det meste": 0,
+  "Sjældent — vi føler, we når det meste": 0,
   "Indimellem — især i travle perioder": 2,
   "Ofte — vi kan mærke, at vi ikke når alle": 4,
   "Vi ved det ikke — vi prioriterer patienten foran os": 4,

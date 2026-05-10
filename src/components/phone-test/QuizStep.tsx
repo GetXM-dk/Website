@@ -1,3 +1,4 @@
+import { ArrowRight, Lightbulb } from "lucide-react";
 import { Question } from "./types";
 
 interface QuizStepProps {
@@ -6,7 +7,9 @@ interface QuizStepProps {
   currentSelection: string;
   isNavigating: boolean;
   currentInsight: string | null;
+  showNextButton: boolean;
   handleAnswer: (value: string) => void;
+  handleNext: () => void;
 }
 
 export const QuizStep = ({
@@ -15,21 +18,44 @@ export const QuizStep = ({
   currentSelection,
   isNavigating,
   currentInsight,
+  showNextButton,
   handleAnswer,
+  handleNext,
 }: QuizStepProps) => {
   const maxWords = Math.max(...currentQuestion.options.map((o) => o.label.split(" ").length));
   const useTwoCols = maxWords <= 3 && currentQuestion.id !== "whoAnswers";
 
   return (
-    <div className="flex flex-col min-h-[580px]">
+    <div className="flex flex-col min-h-[520px] md:min-h-[580px]">
       {isNavigating && currentInsight ? (
-        <div className="flex flex-1 flex-col items-center justify-center space-y-8 animate-in fade-in zoom-in-95 duration-500 py-10 px-4">
-          <div className="h-16 w-16 rounded-full bg-accent/10 flex items-center justify-center">
-            <span className="text-2xl">💡</span>
+        <div className="flex flex-1 flex-col items-center justify-center space-y-10 animate-in fade-in zoom-in-95 duration-500 py-10 px-4 text-center">
+          <div className="space-y-4">
+            <div className="flex justify-center">
+              <div className="h-10 w-10 rounded-full bg-[#151515]/5 flex items-center justify-center">
+                <Lightbulb className="h-5 w-5 text-[#151515]/40" />
+              </div>
+            </div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#151515]/50">
+              Vi vurderer jeres svar
+            </p>
           </div>
-          <p className="text-2xl md:text-3xl font-display font-bold text-center leading-tight text-[#151515] max-w-[18ch]">
+
+          <p className="text-2xl md:text-3xl font-display font-bold leading-[1.15] text-[#151515] max-w-[24ch] mx-auto">
             {currentInsight}
           </p>
+
+          <div className="min-h-[64px] flex items-center justify-center">
+            {showNextButton && (
+              <button
+                type="button"
+                onClick={handleNext}
+                className="group flex items-center gap-2 rounded-full bg-[#151515] px-8 py-3 text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 animate-in fade-in slide-in-from-bottom-2 duration-300"
+              >
+                Næste
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+            )}
+          </div>
         </div>
       ) : (
         <>
@@ -39,7 +65,7 @@ export const QuizStep = ({
                 <h1 className="text-3xl font-display leading-tight text-[#151515] md:text-4xl">
                   Ved du, hvad et ubesvaret opkald koster din klinik?
                 </h1>
-                <p className="text-base leading-relaxed text-muted-foreground">
+                <p className="text-base leading-relaxed text-[#151515]/60">
                   Svar på 4 korte spørgsmål og få svaret på under 1 minut.
                 </p>
               </div>
@@ -68,7 +94,7 @@ export const QuizStep = ({
                   className={`w-full rounded-[20px] border px-5 py-4 text-left transition-all ${
                     selected
                       ? "border-foreground bg-[#151515] text-white shadow-[0_16px_40px_rgba(15,23,42,0.14)]"
-                      : "border-black/8 bg-[#FBF8F3] hover:border-accent hover:bg-white disabled:opacity-50 disabled:hover:border-black/8 disabled:hover:bg-[#FBF8F3]"
+                      : "border-black/8 bg-[#FBF8F3] hover:border-[#151515] hover:bg-white disabled:opacity-50 disabled:hover:border-black/8 disabled:hover:bg-[#FBF8F3]"
                   }`}
                 >
                   <span className="block text-lg font-semibold">{option.label}</span>

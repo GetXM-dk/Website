@@ -81,6 +81,20 @@ const PhoneTestLanding = () => {
   const currentQuestion = questions[step - 1];
   const currentSelection = currentQuestion ? answers[currentQuestion.id] : "";
 
+  const [showNextButton, setShowNextButton] = useState(false);
+  const navigationTimeoutRef = useMemo(() => ({ current: null as number | null }), []);
+
+  const handleNext = () => {
+    if (navigationTimeoutRef.current) {
+      window.clearTimeout(navigationTimeoutRef.current);
+      navigationTimeoutRef.current = null;
+    }
+    setStep((current) => current + 1);
+    setIsNavigating(false);
+    setCurrentInsight(null);
+    setShowNextButton(false);
+  };
+
   const handleAnswer = (value: string) => {
     if (!currentQuestion || isNavigating) return;
 
@@ -92,19 +106,32 @@ const PhoneTestLanding = () => {
     
     if (hasInsight) {
       setCurrentInsight(selectedOption.insight!);
+      
+      // Show button after short delay
+      window.setTimeout(() => {
+        setShowNextButton(true);
+      }, 800);
+
+      // Auto-advance after 4 seconds
+      navigationTimeoutRef.current = window.setTimeout(() => {
+        handleNext();
+      }, 4000);
+    } else {
+      // Immediate move if no insight
+      window.setTimeout(() => {
+        setStep((current) => current + 1);
+        setIsNavigating(false);
+      }, 400);
     }
-
-    const delay = hasInsight ? 2600 : 500;
-
-    window.setTimeout(() => {
-      setStep((current) => current + 1);
-      setIsNavigating(false);
-      setCurrentInsight(null);
-    }, delay);
   };
 
   const handleBack = () => {
     if (step <= 0 || isNavigating) return;
+    
+    if (navigationTimeoutRef.current) {
+      window.clearTimeout(navigationTimeoutRef.current);
+      navigationTimeoutRef.current = null;
+    }
     
     // Spring loading-skærmen (step 6) over, hvis vi går tilbage fra kontaktformularen
     if (step === 7) {
@@ -220,7 +247,9 @@ const PhoneTestLanding = () => {
                   currentSelection={currentSelection}
                   isNavigating={isNavigating}
                   currentInsight={currentInsight}
+                  showNextButton={showNextButton}
                   handleAnswer={handleAnswer}
+                  handleNext={handleNext}
                 />
               )}
 
