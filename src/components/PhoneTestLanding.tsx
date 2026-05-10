@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, useRef, type FormEvent } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
@@ -87,9 +87,19 @@ const PhoneTestLanding = () => {
     }, 150);
   };
 
-  // Scroll to top on every step or insight change
+  const prevStepRef = useRef(step);
+  const prevInsightRef = useRef(currentInsight);
+
+  // Scroll to top ONLY when step or insight actually changes
   useEffect(() => {
-    scrollToTopStable();
+    const stepChanged = prevStepRef.current !== step;
+    const insightChanged = prevInsightRef.current !== currentInsight;
+
+    if (stepChanged || insightChanged) {
+      scrollToTopStable();
+      prevStepRef.current = step;
+      prevInsightRef.current = currentInsight;
+    }
   }, [step, currentInsight]);
 
   const currentQuestion = questions[step - 1];
