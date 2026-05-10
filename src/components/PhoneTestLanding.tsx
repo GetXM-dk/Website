@@ -77,9 +77,13 @@ const PhoneTestLanding = () => {
       navigationTimeoutRef.current = null;
     }
     setStep((current) => current + 1);
-    setIsNavigating(false);
     setCurrentInsight(null);
     setShowNextButton(false);
+    
+    // Safety delay to prevent "click-through" to the next screen
+    window.setTimeout(() => {
+      setIsNavigating(false);
+    }, 300);
   };
 
   const handleAnswer = (value: string) => {
