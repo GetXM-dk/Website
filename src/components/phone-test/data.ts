@@ -19,8 +19,7 @@ export const questions: Question[] = [
     title: "Hvem tager som regel telefonen hos jer?",
     options: [
       { 
-        label: "Reception / kliniksekretær", 
-        insight: "Selv den bedste reception har blinde vinkler|Men der opstår stadig huller, når telefonen er optaget, der er pause, eller klinikken har lukket.|" 
+        label: "Reception / kliniksekretær"
       },
       { 
         label: "Behandlerne selv", 
@@ -28,7 +27,7 @@ export const questions: Question[] = [
       },
       { 
         label: "Vi skiftes", 
-        insight: "Delt ansvar skaber huller|Når flere deler telefonen, bliver opfølgningen ofte uklar: hvem så opkaldet, hvem ringer tilbage, og hvornår?|" 
+        insight: "Når alle ejer telefonen, ejer ingen opfølgningen|Delt ansvar fungerer i rolige perioder. I travle perioder falder opkald mellem to stole.|" 
       },
     ],
   },
@@ -38,12 +37,10 @@ export const questions: Question[] = [
     title: "Hvor ofte må I afbryde arbejdet for at tage telefonen?",
     options: [
       { 
-        label: "Sjældent — vi føler, vi når det meste",
-        insight: "Godt tegn|De fleste opkald bliver nok håndteret — men de få, der glipper, kan stadig være vigtige: ny booking, afbud eller akut behov.|"
+        label: "Sjældent — vi føler, vi når det meste"
       },
       { 
-        label: "Indimellem — især i travle perioder", 
-        insight: "Afbrydelser rammer sjældent godt|Få afbrydelser virker harmløse, men de rammer ofte, når klinikken i forvejen er presset.|" 
+        label: "Indimellem — især i travle perioder"
       },
       { 
         label: "Ofte — vi kan mærke, at vi ikke når alle", 
@@ -70,11 +67,10 @@ export const questions: Question[] = [
       },
       { 
         label: "De bliver henvist til online booking",
-        insight: "Adgang er ikke afklaring|Online booking hjælper dem, der er klar til at booke. Men patienter ringer ofte, fordi de har spørgsmål først.|"
+        insight: "Booking løser booking — ikke tvivl|Patienter ringer ofte, fordi de har et spørgsmål, de skal have afklaret først. Et bookinglink svarer ikke på spørgsmål.|"
       },
       { 
-        label: "Andet",
-        insight: "Uklarhed koster handling|Når næste skridt ikke er tydeligt, kan selv interesserede patienter falde fra.|"
+        label: "Andet"
       },
     ],
   },
@@ -96,12 +92,11 @@ export const questions: Question[] = [
         insight: "De fleste klager ikke|96% af utilfredse kunder klager ikke — de forsvinder bare.|Kilde: Harvard Business Review — customer experience research"
       },
       { 
-        label: "Telefonen afbryder behandlinger",
-        insight: "To patienter konkurrerer|Når telefonen ringer midt i en behandling, konkurrerer patienten foran jer med patienten i røret.|"
+        label: "Telefonen afbryder behandlinger"
       },
       { 
         label: "Simple spørgsmål tager for meget tid",
-        insight: "Små spørgsmål bliver til støj|Praktiske spørgsmål virker små hver for sig. Samlet kan de stjæle tid, skabe afbrydelser og fylde unødigt i hverdagen.|"
+        insight: "Gentagelser er skjult støj|Spørgsmål om priser, åbningstider og booking føles små enkeltvis. Men de fylder samme plads i receptionen som vigtige opkald.|"
       },
     ],
   },
@@ -124,8 +119,8 @@ const whoAnswersPoints: Record<string, number> = {
 const frequencyPoints: Record<string, number> = {
   "Sjældent — vi føler, we når det meste": 0,
   "Indimellem — især i travle perioder": 2,
-  "Ofte — vi kan mærke, at vi ikke når alle": 4,
-  "Vi ved det ikke — vi prioriterer patienten foran os": 4,
+  "Ofte — vi kan mærke, at we ikke når alle": 4,
+  "Vi ved det ikke — we prioriterer patienten foran os": 4,
 };
 
 const followupPoints: Record<string, number> = {
