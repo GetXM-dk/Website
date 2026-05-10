@@ -229,26 +229,26 @@ const PhoneTestLanding = () => {
         </header>
       )}
 
-      <main className={`flex-1 flex flex-col justify-start pb-8 md:pb-16 ${
-        isFocusedStep ? 'px-0 md:px-4 pt-12 md:pt-24' : 'px-4 pt-4 md:pt-16'
+      <main className={`flex-1 flex flex-col justify-start ${
+        isFocusedStep ? 'px-0 md:px-4 pt-0 md:pt-24 pb-0 md:pb-16' : 'px-4 pt-4 md:pt-16 pb-8 md:pb-16'
       }`}>
-        <div className="container px-0 md:px-4 mx-auto">
+        <div className={`mx-auto w-full ${isFocusedStep ? 'max-w-none md:max-w-[760px] flex-1 flex flex-col' : 'max-w-[760px]'}`}>
           {step === 8 && submitSuccess ? (
-            <div className="mx-auto max-w-[760px]">
+            <div className="mx-auto max-w-[760px] w-full px-4">
               <ResultStep answers={answers} />
             </div>
           ) : (
-            <div className="mx-auto max-w-[760px]">
+            <div className={`w-full ${isFocusedStep ? 'flex-1 flex flex-col' : ''}`}>
               <div className={`transition-all duration-500 overflow-hidden ${
                 isFocusedStep 
-                  ? 'rounded-none md:rounded-[32px] border-none md:border md:border-black/8 shadow-none md:shadow-[0_24px_70px_rgba(15,23,42,0.06)]' 
+                  ? 'rounded-none md:rounded-[32px] border-none md:border md:border-black/8 shadow-none md:shadow-[0_24px_70px_rgba(15,23,42,0.06)] flex-1' 
                   : 'rounded-[32px] border border-black/8 shadow-[0_24px_70px_rgba(15,23,42,0.06)]'
               } ${
                 (isNavigating && currentInsight) || step === 6 
                   ? 'bg-[#151515] text-white' 
                   : 'bg-white'
               }`}>
-                <div className={`${isFocusedStep ? 'px-6 py-8 md:px-12 md:py-12' : 'px-5 py-8 md:px-12 md:py-12'}`}>
+                <div className={`${isFocusedStep ? 'px-6 pt-16 pb-12 md:px-12 md:py-12' : 'px-5 py-8 md:px-12 md:py-12'}`}>
                   {step >= 1 && step <= 5 && (
                     <QuizStep
                       step={step}
