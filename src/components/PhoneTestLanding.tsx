@@ -74,18 +74,6 @@ const PhoneTestLanding = () => {
   const scrollToTopStable = () => {
     window.scrollTo(0, 0);
     document.documentElement.scrollTo(0, 0);
-    
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTo(0, 0);
-      });
-    });
-    
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTo(0, 0);
-    }, 150);
   };
 
   const currentQuestion = questions[step - 1];
