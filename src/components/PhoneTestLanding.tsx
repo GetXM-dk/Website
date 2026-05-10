@@ -200,32 +200,34 @@ const PhoneTestLanding = () => {
 
   return (
     <div className="min-h-[100svh] md:min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
-      <header 
-        className="relative z-50 bg-[#F5F3EF]"
-        style={{ paddingTop: 'calc(var(--visual-viewport-top, 0px) + 24px)' } as any}
-      >
-        <div className="container relative px-6 h-16 flex items-center justify-between mx-auto max-w-[1200px]">
-          <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
-            GetXM
-          </Link>
+      {step !== 7 && (
+        <header 
+          className="relative z-50 bg-[#F5F3EF]"
+          style={{ paddingTop: 'calc(var(--visual-viewport-top, 0px) + 24px)' } as any}
+        >
+          <div className="container relative px-6 h-16 flex items-center justify-between mx-auto max-w-[1200px]">
+            <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
+              GetXM
+            </Link>
 
-          {step > 1 && step <= 5 && !currentInsight && (
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#151515]/40">
-              Trin {step} af 5
-            </span>
-          )}
-        </div>
-        {step >= 1 && step <= 5 && (
-          <div className="h-1 w-full bg-black/5">
-            <div 
-              className="h-full bg-[#151515] transition-all duration-500 ease-in-out" 
-              style={{ width: `${getProgressPercentage(step)}%` }}
-            />
+            {step > 1 && step <= 5 && !currentInsight && (
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#151515]/40">
+                Trin {step} af 5
+              </span>
+            )}
           </div>
-        )}
-      </header>
+          {step >= 1 && step <= 5 && (
+            <div className="h-1 w-full bg-black/5">
+              <div 
+                className="h-full bg-[#151515] transition-all duration-500 ease-in-out" 
+                style={{ width: `${getProgressPercentage(step)}%` }}
+              />
+            </div>
+          )}
+        </header>
+      )}
 
-      <main className="flex-1 flex flex-col justify-start px-4 pt-4 pb-8 md:pt-16 md:pb-16">
+      <main className={`flex-1 flex flex-col justify-start px-4 pb-8 md:pb-16 ${step === 7 ? 'pt-12 md:pt-24' : 'pt-4 md:pt-16'}`}>
         <div className="container px-0 md:px-4 mx-auto">
           {step === 8 && submitSuccess ? (
             <div className="mx-auto max-w-[760px]">
@@ -282,16 +284,18 @@ const PhoneTestLanding = () => {
         </div>
       </main>
 
-      <footer className="py-12 text-center bg-[#F5F3EF]">
-        <div className="flex justify-center gap-8 text-[13px] font-medium text-[#151515]/30">
-          <a href="#" className="hover:text-[#151515] transition-colors">Privatlivspolitik</a>
-          <a href="#" className="hover:text-[#151515] transition-colors">Handelsbetingelser</a>
-          <a href="#" className="hover:text-[#151515] transition-colors">Kontakt</a>
-        </div>
-        <p className="mt-4 text-[11px] text-[#151515]/20 font-medium tracking-wide">
-          &copy; {new Date().getFullYear()} GETXM &middot; OPTIMERING AF KLINIKDRIFT
-        </p>
-      </footer>
+      {step !== 7 && (
+        <footer className="py-12 text-center bg-[#F5F3EF]">
+          <div className="flex justify-center gap-8 text-[13px] font-medium text-[#151515]/30">
+            <a href="#" className="hover:text-[#151515] transition-colors">Privatlivspolitik</a>
+            <a href="#" className="hover:text-[#151515] transition-colors">Handelsbetingelser</a>
+            <a href="#" className="hover:text-[#151515] transition-colors">Kontakt</a>
+          </div>
+          <p className="mt-4 text-[11px] text-[#151515]/20 font-medium tracking-wide">
+            &copy; {new Date().getFullYear()} GETXM &middot; OPTIMERING AF KLINIKDRIFT
+          </p>
+        </footer>
+      )}
     </div>
   );
 };
