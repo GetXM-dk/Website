@@ -43,12 +43,19 @@ const PhoneTestLanding = () => {
   const leadEndpoint = apiBaseUrl
     ? `${apiBaseUrl}/api/v1/website-demo/lead`
     : "/api/v1/website-demo/lead";
-  const isLocalPreview =
-    typeof window !== "undefined" &&
-    !apiBaseUrl &&
-    (window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1" ||
-      window.location.hostname === "::1");
+  const isPreviewHost = (() => {
+    if (typeof window === "undefined") return false;
+    const { hostname } = window.location;
+    return (
+      hostname === "localhost" ||
+      hostname === "127.0.0.1" ||
+      hostname === "::1" ||
+      hostname.endsWith(".lovableproject.com") ||
+      hostname.endsWith(".lovable.app") ||
+      hostname.endsWith(".lovable.dev")
+    );
+  })();
+  const isLocalPreview = isPreviewHost;
 
   const score = useMemo(() => getRiskScore(answers), [answers]);
   const riskBand = useMemo(() => getRiskBand(score), [score]);
