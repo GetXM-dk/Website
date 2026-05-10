@@ -203,14 +203,12 @@ const PhoneTestLanding = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
-      <header className="sticky top-0 z-50 bg-[#F5F3EF] pt-4">
-        <div className="container relative px-6 pb-4 mx-auto max-w-[1200px]">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
-              GetXM
-            </Link>
-          </div>
+    <div className="min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
+      <header className="sticky top-0 z-50 bg-[#F5F3EF] pt-[env(safe-area-inset-top)]">
+        <div className="container relative px-6 h-16 flex items-center mx-auto max-w-[1200px]">
+          <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
+            GetXM
+          </Link>
         </div>
         {step >= 1 && step <= 5 && (
           <div className="h-1 w-full bg-black/5">
