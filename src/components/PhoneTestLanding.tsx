@@ -65,19 +65,29 @@ const PhoneTestLanding = () => {
     };
   }, [step]);
 
-  const scrollToTop = () => {
+  const scrollToTopStable = () => {
+    // 1. Reset immediately
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTo(0, 0);
+    
+    // 2. Reset again after the browser has recalculated viewport
     requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTo(0, 0);
+      });
+    });
+    
+    // 3. iOS Safari fallback when address bar is visible
+    setTimeout(() => {
       window.scrollTo(0, 0);
       document.documentElement.scrollTo(0, 0);
-      if ('scrollTo' in document.body) {
-        (document.body as any).scrollTo(0, 0);
-      }
-    });
+    }, 120);
   };
 
   // Scroll to top on every step, insight or state change
   useEffect(() => {
-    scrollToTop();
+    scrollToTopStable();
   }, [step, currentInsight, isNavigating, submitSuccess]);
 
   const currentQuestion = questions[step - 1];
@@ -204,7 +214,7 @@ const PhoneTestLanding = () => {
 
   return (
     <div className="min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
-      <header className="sticky top-0 z-50 bg-[#F5F3EF] pt-[env(safe-area-inset-top)]">
+      <header className="relative z-50 bg-[#F5F3EF] pt-[env(safe-area-inset-top)]">
         <div className="container relative px-6 h-16 flex items-center mx-auto max-w-[1200px]">
           <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
             GetXM
