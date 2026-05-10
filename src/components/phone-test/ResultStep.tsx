@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { QuizAnswers } from "./types";
 import {
   diagnosticMapping,
@@ -39,6 +40,15 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
   const rawPosition = (score / 11) * 100;
   const dotPosition = Math.min(96, Math.max(4, rawPosition));
 
+  const [animatedPosition, setAnimatedPosition] = useState(4);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimatedPosition(dotPosition);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [dotPosition]);
+
   const rows = [
     { category: "Telefonhåndtering", data: diagnosticMapping.whoAnswers[answers.whoAnswers ?? ""] },
     { category: "Afbrydelser", data: diagnosticMapping.frequency[answers.frequency ?? ""] },
@@ -73,9 +83,9 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
             }}
           >
             <div
-              className="absolute top-1/2 h-5.5 w-5.5 rounded-full border-[3px] border-white shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-all duration-1000 ease-out"
+              className="absolute top-1/2 h-[22px] w-[22px] rounded-full border-[3px] border-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-[1500ms] ease-out"
               style={{
-                left: `${dotPosition}%`,
+                left: `${animatedPosition}%`,
                 backgroundColor: "#151515",
                 transform: "translate(-50%, -50%)",
               }}
@@ -83,6 +93,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
           </div>
           <p className="text-[15px] leading-relaxed text-[#151515]/70 pt-1">
             {bandSentence(band)}
+          </p>
           </p>
         </div>
       </section>
