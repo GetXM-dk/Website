@@ -22,9 +22,6 @@ export const QuizStep = ({
   handleAnswer,
   handleNext,
 }: QuizStepProps) => {
-  const maxWords = Math.max(...currentQuestion.options.map((o) => o.label.split(" ").length));
-  const useTwoCols = maxWords <= 3 && currentQuestion.id !== "whoAnswers";
-
   // Split insight into headline, body, and source
   const parts = currentInsight?.split("|") ?? [];
   const insightHeadline = parts[0] || null;
@@ -92,9 +89,10 @@ export const QuizStep = ({
             </h2>
           </div>
 
-          <div className={`grid gap-2.5 ${useTwoCols ? "sm:grid-cols-2" : "grid-cols-1"}`}>
-            {currentQuestion.options.map((option) => {
+          <div className="flex flex-col border-t border-black/10">
+            {currentQuestion.options.map((option, index) => {
               const selected = currentSelection === option.label;
+              const letter = String.fromCharCode(65 + index);
 
               return (
                 <button
@@ -102,18 +100,32 @@ export const QuizStep = ({
                   type="button"
                   disabled={isNavigating}
                   onClick={() => handleAnswer(option.label)}
-                  className={`group relative w-full overflow-hidden rounded-2xl border px-5 py-3.5 text-left transition-all duration-300 ${
+                  className={`group flex items-center justify-between w-full border-b border-black/10 py-5 text-left transition-all duration-300 px-2 ${
                     selected
-                      ? "border-[#151515] bg-[#151515] text-white shadow-[0_12px_30px_rgba(0,0,0,0.1)]"
-                      : "border-black/5 bg-[#FBF8F3] hover:border-black/20 hover:bg-white hover:-translate-y-0.5 active:translate-y-0"
+                      ? "bg-[#151515]/[0.03]"
+                      : "hover:bg-[#151515]/[0.02]"
                   }`}
                 >
-                  {/* Subtle left accent on hover */}
-                  {!selected && (
-                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#151515] opacity-0 transition-opacity group-hover:opacity-100" />
-                  )}
+                  <div className="flex items-center gap-6">
+                    <span className={`text-sm font-bold transition-colors ${
+                      selected ? "text-[#151515]" : "text-[#151515]/30"
+                    }`}>
+                      {letter}
+                    </span>
+                    <span className={`text-base md:text-lg font-semibold transition-colors ${
+                      selected ? "text-[#151515]" : "text-[#151515]/80 group-hover:text-[#151515]"
+                    }`}>
+                      {option.label}
+                    </span>
+                  </div>
                   
-                  <span className="relative block text-base font-semibold md:text-lg">{option.label}</span>
+                  <div className={`transition-all duration-300 transform ${
+                    selected 
+                      ? "translate-x-0 opacity-100" 
+                      : "translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+                  }`}>
+                    <ArrowRight className={`h-5 w-5 ${selected ? "text-[#151515]" : "text-[#151515]/40"}`} />
+                  </div>
                 </button>
               );
             })}
