@@ -19,7 +19,8 @@ export const LeadFormStep = ({ form, setForm, isSubmitting, handleSubmit }: Lead
           Jeres resultat er klar
         </p>
         <h2 className="text-3xl font-display leading-tight text-[#151515] md:text-4xl">
-          Indtast dine oplysninger for at se, hvad ubesvarede opkald koster jer.
+          <span className="hidden md:inline">Indtast dine oplysninger for at se, hvad ubesvarede opkald koster jer.</span>
+          <span className="md:hidden">Indtast dine oplysninger for at se resultatet.</span>
         </h2>
       </div>
 
