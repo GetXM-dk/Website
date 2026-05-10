@@ -21,16 +21,6 @@ const levelAccent = (level: DiagnosticLevel) => {
   }
 };
 
-const levelLabel = (level: DiagnosticLevel) => {
-  switch (level) {
-    case "red":
-      return "Koster meget";
-    case "yellow":
-      return "Koster noget";
-    case "green":
-      return "Fungerer allerede";
-  }
-};
 
 const bandSentence = (band: "low" | "medium" | "high") => {
   switch (band) {
@@ -141,12 +131,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
                       {row.category}
                     </span>
                   </div>
-                  <span
-                    className="self-start inline-flex items-center text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border"
-                    style={{ color: accent, borderColor: `${accent}55` }}
-                  >
-                    {levelLabel(level)}
-                  </span>
+                  </div>
                 </div>
                 <div className="space-y-2.5">
                   <h4 className="font-display text-[20px] md:text-[22px] font-bold leading-snug text-[#151515]">
