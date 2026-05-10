@@ -198,9 +198,11 @@ const PhoneTestLanding = () => {
     }
   };
 
+  const isFocusedStep = step === 1 || step === 7;
+
   return (
     <div className="min-h-[100svh] md:min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
-      {step !== 7 && (
+      {!isFocusedStep && (
         <header 
           className="relative z-50 bg-[#F5F3EF]"
           style={{ paddingTop: 'calc(var(--visual-viewport-top, 0px) + 24px)' } as any}
@@ -227,7 +229,7 @@ const PhoneTestLanding = () => {
         </header>
       )}
 
-      <main className={`flex-1 flex flex-col justify-start px-4 pb-8 md:pb-16 ${step === 7 ? 'pt-12 md:pt-24' : 'pt-4 md:pt-16'}`}>
+      <main className={`flex-1 flex flex-col justify-start px-4 pb-8 md:pb-16 ${isFocusedStep ? 'pt-12 md:pt-24' : 'pt-4 md:pt-16'}`}>
         <div className="container px-0 md:px-4 mx-auto">
           {step === 8 && submitSuccess ? (
             <div className="mx-auto max-w-[760px]">
@@ -284,7 +286,7 @@ const PhoneTestLanding = () => {
         </div>
       </main>
 
-      {step !== 7 && (
+      {!isFocusedStep && (
         <footer className="py-12 text-center bg-[#F5F3EF]">
           <div className="flex justify-center gap-8 text-[13px] font-medium text-[#151515]/30">
             <a href="#" className="hover:text-[#151515] transition-colors">Privatlivspolitik</a>
