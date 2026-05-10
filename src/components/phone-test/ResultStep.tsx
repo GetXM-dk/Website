@@ -57,10 +57,10 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
   const scaleColor = score <= 3 ? "#10B981" : score <= 7 ? "#F59E0B" : "#EF4444";
 
   const cards = [
+    { category: "Jeres største problem", data: diagnosticMapping.painPoint[answers.painPoint ?? ""] },
     { category: "Telefonhåndtering", data: diagnosticMapping.whoAnswers[answers.whoAnswers ?? ""] },
     { category: "Afbrydelser", data: diagnosticMapping.frequency[answers.frequency ?? ""] },
     { category: "Uden for åbningstid", data: diagnosticMapping.followup[answers.followup ?? ""] },
-    { category: "Jeres største problem", data: diagnosticMapping.painPoint[answers.painPoint ?? ""] },
   ].filter(c => c.data);
 
   return (

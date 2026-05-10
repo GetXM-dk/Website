@@ -99,61 +99,61 @@ export interface DiagnosticCardData {
 export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCardData, "category">>> = {
   whoAnswers: {
     "Reception / kliniksekretær": {
-      title: "Telefonen har en fast ejer",
-      text: "Når telefonen ligger hos receptionen, har I et stærkere udgangspunkt. Det reducerer risikoen for, at opkald forstyrrer behandlingerne.",
+      title: "Klar ejer af telefonen",
+      text: "Telefonen har allerede en fast plads hos jer. Hullet opstår især, når receptionen er optaget, lukket eller ikke når at følge op.",
       level: "green",
     },
     "Vi skiftes": {
       title: "Klarhed over hvem der følger op",
-      text: "Når flere skiftes til at tage telefonen, kan ansvar og opfølgning blive uklart i travle perioder.",
+      text: "Når flere skiftes til at tage telefonen, kan ansvaret blive uklart, især når der er travlt.",
       level: "yellow",
     },
     "Behandlerne selv": {
-      title: "Ro, fokus og tid med patienten",
-      text: "Når behandlerne selv tager telefonen, tager opkald tid og opmærksomhed fra patienten foran jer.",
+      title: "Tid væk fra behandlingen",
+      text: "Når behandlerne selv tager telefonen, flytter opkald tid og opmærksomhed væk fra patienten foran jer.",
       level: "red",
     },
   },
   frequency: {
     "Sjældent — vi føler, vi når det meste": {
-      title: "Arbejdsro i hverdagen",
-      text: "Telefonen ser ikke ud til at være en stor daglig afbrydelse hos jer.",
+      title: "Et flow der fungerer i hverdagen",
+      text: "I oplever ikke telefonen som en stor daglig afbrydelse. Hullet ligger især i de opkald, der kommer, når ingen kan svare.",
       level: "green",
     },
     "Indimellem — især i travle perioder": {
-      title: "Flow i travle perioder",
-      text: "Når der er pres på, kan opkald bryde jeres flow og skabe ekstra opfølgning senere.",
+      title: "Brud i arbejdsrytmen",
+      text: "Når der er pres på, kan telefonen bryde rytmen og skabe ekstra opfølgning senere.",
       level: "yellow",
     },
     "Ofte — vi kan mærke, at vi ikke når alle": {
-      title: "Ro, flow og behandlingsfokus",
-      text: "Når I ofte må afbryde arbejdet, mister I flow og skal bruge energi på at komme tilbage til behandlingen.",
+      title: "En arbejdsdag styret af telefonen",
+      text: "Når I ofte må afbryde arbejdet, bliver telefonen en løbende kilde til skift i fokus og tabt tempo.",
       level: "red",
     },
     "Vi ved det ikke — vi prioriterer patienten foran os": {
-      title: "Overblik over de opkald I ikke når",
-      text: "Når patienten foran jer prioriteres, kan ubesvarede opkald forsvinde uden klar opfølgning.",
+      title: "Manglende overblik over mistede opkald",
+      text: "Når patienten foran jer prioriteres, kan opkald, I ikke når, forsvinde uden klar opfølgning.",
       level: "red",
     },
   },
   followup: {
     "De bliver henvist til online booking": {
-      title: "En tydelig vej videre for patienten",
+      title: "En vej videre — men ikke for alle",
       text: "Online booking hjælper patienten videre, men fanger ikke nødvendigvis spørgsmål, afbud eller patienter, der har brug for hjælp først.",
       level: "green",
     },
     "De kan lægge en besked": {
-      title: "Tid senere på dagen",
+      title: "Opfølgning der venter på jer",
       text: "En besked hjælper, men I skal stadig samle op senere og finde ud af, hvad patienten havde brug for.",
       level: "yellow",
     },
     "De må prøve igen i vores telefontid": {
-      title: "Patienthenvendelser der aldrig bliver fulgt op",
+      title: "Patienthenvendelser der kan gå tabt",
       text: "Når patienten selv skal prøve igen, er der risiko for, at henvendelsen aldrig bliver til en booking.",
       level: "red",
     },
     "Andet": {
-      title: "Et tydeligt næste skridt for patienten",
+      title: "Et næste skridt der kan være uklart",
       text: "Hvis patienten ikke får en klar vej videre, kan henvendelsen let blive tabt.",
       level: "yellow",
     },
