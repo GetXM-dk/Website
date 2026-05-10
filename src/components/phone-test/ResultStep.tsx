@@ -105,10 +105,10 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
       <section className="space-y-6">
         <div className="space-y-1">
           <h3 className="text-2xl font-display font-bold text-[#151515]">
-            Hvor koster det jer?
+            Hvad koster det jer?
           </h3>
           <p className="text-sm text-muted-foreground">
-            Top 4 områder baseret på jeres svar
+            Top 4 konsekvenser baseret på jeres svar.
           </p>
         </div>
 
