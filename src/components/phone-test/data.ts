@@ -18,9 +18,18 @@ export const questions: Question[] = [
     label: "Hvem tager telefonen",
     title: "Hvem tager som regel telefonen hos jer?",
     options: [
-      { label: "Reception / kliniksekretær" },
-      { label: "Behandlerne selv" },
-      { label: "Vi skiftes" },
+      { 
+        label: "Reception / kliniksekretær", 
+        insight: "Det er et stærkt udgangspunkt at have en dedikeret person til telefonen." 
+      },
+      { 
+        label: "Behandlerne selv", 
+        insight: "Behandlere, der selv tager telefonen, oplever ofte et markant pres på deres arbejdsro." 
+      },
+      { 
+        label: "Vi skiftes", 
+        insight: "Når ansvaret deles, kan det være sværere at sikre en ensartet opfølgning." 
+      },
     ],
   },
   {
@@ -29,8 +38,14 @@ export const questions: Question[] = [
     title: "Hvor ofte må I afbryde arbejdet for at tage telefonen?",
     options: [
       { label: "Sjældent — vi føler, vi når det meste" },
-      { label: "Indimellem — især i travle perioder" },
-      { label: "Ofte — vi kan mærke, at vi ikke når alle" },
+      { 
+        label: "Indimellem — især i travle perioder", 
+        insight: "Selv få afbrydelser i travle perioder kan skabe flaskehalse i patientflowet." 
+      },
+      { 
+        label: "Ofte — vi kan mærke, at vi ikke når alle", 
+        insight: "Mange klinikker undervurderer, hvor meget tid der reelt går tabt ved hyppige afbrydelser." 
+      },
       { label: "Vi ved det ikke — vi prioriterer patienten foran os" },
     ],
   },
@@ -40,7 +55,10 @@ export const questions: Question[] = [
     title: "Hvad sker der, hvis en patient ringer uden for åbningstid?",
     options: [
       { label: "De kan lægge en besked" },
-      { label: "De må prøve igen i vores telefontid" },
+      { 
+        label: "De må prøve igen i vores telefontid", 
+        insight: "Når patienter selv skal ringe tilbage, risikerer I, at de i mellemtiden kontakter en anden klinik." 
+      },
       { label: "De bliver henvist til online booking" },
       { label: "Andet" },
     ],
@@ -50,7 +68,10 @@ export const questions: Question[] = [
     label: "Udfordring",
     title: "Hvad vil I helst undgå?",
     options: [
-      { label: "Nye patienter ikke kommer igennem" },
+      { 
+        label: "Nye patienter ikke kommer igennem", 
+        insight: "Nye patienter er ofte mest følsomme over for ubesvarede opkald." 
+      },
       { label: "Ubesvarede opkald ikke bliver fulgt op" },
       { label: "Dårlig første oplevelse for patienten" },
       { label: "Telefonen afbryder behandlinger" },
