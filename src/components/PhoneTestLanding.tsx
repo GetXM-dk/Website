@@ -217,7 +217,7 @@ const PhoneTestLanding = () => {
                   : 'bg-white'
               }`}>
                 {/* Internal Step Indicator - only for quiz questions */}
-                {step >= 1 && step <= 5 && !isNavigating && (
+                {step >= 1 && step <= 5 && !currentInsight && (
                   <div className="px-8 pt-8 md:px-12 md:pt-12 flex justify-between items-center">
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#151515]/40">
                       Trin {step} af 5
