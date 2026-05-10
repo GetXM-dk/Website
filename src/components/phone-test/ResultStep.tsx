@@ -66,14 +66,14 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
             <span>Meget</span>
           </div>
           <div
-            className="relative h-1.5 w-full rounded-full"
+            className="relative h-3.5 w-full rounded-full"
             style={{
               background:
                 "linear-gradient(to right, rgba(47,133,90,0.35) 0%, rgba(183,121,31,0.35) 50%, rgba(192,57,43,0.45) 100%)",
             }}
           >
             <div
-              className="absolute top-1/2 h-3.5 w-3.5 rounded-full border-[3px] border-white shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-all duration-1000 ease-out"
+              className="absolute top-1/2 h-5.5 w-5.5 rounded-full border-[3px] border-white shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-all duration-1000 ease-out"
               style={{
                 left: `${dotPosition}%`,
                 backgroundColor: "#151515",
