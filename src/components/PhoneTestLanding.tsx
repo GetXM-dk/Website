@@ -67,7 +67,12 @@ const PhoneTestLanding = () => {
 
   // Scroll to top on every step, insight or state change
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    // Small delay ensures the DOM has settled before scrolling
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTo(0, 0);
+    }, 10);
+    return () => clearTimeout(timer);
   }, [step, currentInsight, isNavigating, submitSuccess]);
 
   const currentQuestion = questions[step - 1];
