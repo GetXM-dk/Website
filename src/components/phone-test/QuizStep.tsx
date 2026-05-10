@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Question } from "./types";
 
 interface QuizStepProps {
@@ -22,16 +23,29 @@ export const QuizStep = ({
   handleAnswer,
   handleNext,
 }: QuizStepProps) => {
+  const [progress, setProgress] = useState(0);
+
   // Split insight into headline, body, and source
   const parts = currentInsight?.split("|") ?? [];
   const insightHeadline = parts[0] || null;
   const insightBody = parts[1] || (parts.length === 1 ? parts[0] : null);
   const insightSource = parts[2] || null;
 
+  // Reset and start progress bar when insight appears
+  useEffect(() => {
+    if (isNavigating && currentInsight) {
+      setProgress(0);
+      const timer = setTimeout(() => setProgress(100), 50);
+      return () => clearTimeout(timer);
+    } else {
+      setProgress(0);
+    }
+  }, [isNavigating, currentInsight]);
+
   return (
     <div className="flex flex-col min-h-[460px]">
       {isNavigating && currentInsight ? (
-        <div className="flex flex-1 flex-col items-center justify-center space-y-12 animate-in fade-in zoom-in-95 duration-500 text-center">
+        <div className="relative flex flex-1 flex-col items-center justify-center space-y-12 animate-in fade-in zoom-in-95 duration-500 text-center">
           <div className="space-y-6 mx-auto max-w-[40ch]">
             {insightHeadline && (
               <h3 className="text-2xl md:text-3xl font-display font-bold leading-[1.15] text-[#F5F3EF]">
@@ -62,6 +76,14 @@ export const QuizStep = ({
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
             )}
+          </div>
+
+          {/* Progress bar at the bottom of the card content area */}
+          <div className="absolute -bottom-8 -left-5 -right-5 md:-bottom-12 md:-left-12 md:-right-12 h-1.5 bg-white/10 overflow-hidden">
+            <div 
+              className="h-full bg-white transition-all duration-[8000ms] ease-linear"
+              style={{ width: `${progress}%` }}
+            />
           </div>
         </div>
       ) : (
