@@ -20,11 +20,11 @@ export const questions: Question[] = [
     options: [
       { 
         label: "Reception / kliniksekretær", 
-        insight: "Stærkt udgangspunkt|Men selv en god reception har huller, når telefonen er optaget, der er pause, eller klinikken har lukket.|" 
+        insight: "Selv den bedste reception har blinde vinkler|Men der opstår stadig huller, når telefonen er optaget, der er pause, eller klinikken har lukket.|" 
       },
       { 
         label: "Behandlerne selv", 
-        insight: "Afbrydelser koster fokus|Afbrudt arbejde øger stress, frustration, arbejdsbelastning og tidspres — også når afbrydelsen er kort.|Kilde: University of California, Irvine — Gloria Mark, “The Cost of Interrupted Work”" 
+        insight: "Afbrydelser koster fokus|Det er ikke kun selve opkaldet, der koster. Det er tiden bagefter, hvor fokus skal tilbage.|Kilde: University of California, Irvine — Gloria Mark" 
       },
       { 
         label: "Vi skiftes", 
@@ -39,15 +39,15 @@ export const questions: Question[] = [
     options: [
       { 
         label: "Sjældent — vi føler, vi når det meste",
-        insight: "Godt tegn|De fleste opkald bliver nok håndteret — men de få, der glipper, kan stadig være vigtige: ny booking, afbud eller en patient med akut behov.|"
+        insight: "Godt tegn|De fleste opkald bliver nok håndteret — men de få, der glipper, kan stadig være vigtige: ny booking, afbud eller akut behov.|"
       },
       { 
         label: "Indimellem — især i travle perioder", 
-        insight: "Afbrydelser rammer sjældent godt|Få afbrydelser kan virke harmløse, men de rammer ofte, når klinikken i forvejen er presset.|" 
+        insight: "Afbrydelser rammer sjældent godt|Få afbrydelser virker harmløse, men de rammer ofte, når klinikken i forvejen er presset.|" 
       },
       { 
         label: "Ofte — vi kan mærke, at vi ikke når alle", 
-        insight: "Det koster mere end minutter|Efter bare 20 minutters afbrudt arbejde rapporterede deltagere markant mere stress, frustration, arbejdsbelastning, indsats og tidspres.|Kilde: University of California, Irvine — Gloria Mark, “The Cost of Interrupted Work”" 
+        insight: "2 minutters opkald kan koste 23 minutters fokus|Det tager i gennemsnit omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark" 
       },
       { 
         label: "Vi ved det ikke — vi prioriterer patienten foran os",
@@ -66,11 +66,11 @@ export const questions: Question[] = [
       },
       { 
         label: "De må prøve igen i vores telefontid", 
-        insight: "Hurtig opfølgning betyder noget|Virksomheder, der reagerer på nye henvendelser inden for 5 minutter, har markant større chance for kontakt end dem, der venter 30 minutter.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”" 
+        insight: "5 minutter betyder noget|Nye henvendelser, der følges op inden for 5 minutter, er langt mere tilbøjelige til at blive til en booking end dem, der venter 30 minutter eller mere.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”" 
       },
       { 
         label: "De bliver henvist til online booking",
-        insight: "Adgang betyder valg|71% nævner adgang som en vigtig faktor, når de vælger ny behandler — fx tider, bekvemmelighed, kundeservice og kontaktkanaler.|Kilde: Accenture — Healthcare Experience Research"
+        insight: "Adgang er ikke afklaring|Online booking hjælper dem, der er klar til at booke. Men patienter ringer ofte, fordi de har spørgsmål først.|"
       },
       { 
         label: "Andet",
@@ -85,7 +85,7 @@ export const questions: Question[] = [
     options: [
       { 
         label: "Nye patienter ikke kommer igennem", 
-        insight: "Nye patienter vælger hurtigt videre|71% nævner adgang som en vigtig faktor, når de vælger ny behandler. Hvis det er svært at komme igennem, starter relationen skævt.|Kilde: Accenture — Healthcare Experience Research" 
+        insight: "Adgang betyder valg|71% nævner adgang som en vigtig faktor, når de vælger ny behandler. Hvis det er svært at komme igennem, starter relationen skævt.|Kilde: Accenture — Healthcare Experience Research" 
       },
       { 
         label: "Ubesvarede opkald ikke bliver fulgt op",
@@ -93,7 +93,7 @@ export const questions: Question[] = [
       },
       { 
         label: "Dårlig første oplevelse for patienten",
-        insight: "Dårlig kommunikation koster patienter|63% af patienter siger, at de vil skifte behandler på grund af dårlig kommunikation.|Kilde: Artera — Trends in Patient Engagement Report 2025"
+        insight: "De fleste klager ikke|96% af utilfredse kunder klager ikke — de forsvinder bare.|Kilde: Harvard Business Review — customer experience research"
       },
       { 
         label: "Telefonen afbryder behandlinger",

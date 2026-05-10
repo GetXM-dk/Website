@@ -34,17 +34,16 @@ export const QuizStep = ({
   return (
     <div className="flex flex-col min-h-[520px] md:min-h-[580px]">
       {isNavigating && currentInsight ? (
-        <div className="flex flex-1 flex-col items-center justify-center space-y-10 animate-in fade-in zoom-in-95 duration-500 py-10 px-4 text-center">
-
-
-          <div className="space-y-4 mx-auto max-w-[32ch]">
+        <div className="flex flex-1 flex-col items-center justify-center space-y-12 animate-in fade-in zoom-in-95 duration-500 py-10 px-4 text-center">
+          <div className="space-y-6 mx-auto max-w-[40ch]">
             {headline && (
-              <h3 className="text-sm md:text-base font-bold text-[#151515]/60 uppercase tracking-wide">
+              <h3 className="text-2xl md:text-3xl font-display font-bold leading-[1.15] text-[#151515]">
                 {headline}
               </h3>
             )}
-            <div className="space-y-3">
-              <p className="text-2xl md:text-3xl font-display font-bold leading-[1.15] text-[#151515]">
+            
+            <div className="space-y-4">
+              <p className="text-base md:text-lg leading-relaxed text-[#151515]/75">
                 {body}
               </p>
               {source && (
