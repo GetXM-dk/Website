@@ -83,7 +83,13 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
             <span>Lidt</span>
             <span>Meget</span>
           </div>
-          <div className="relative h-2 w-full rounded-full bg-black/5 mt-10 mb-4">
+          <div
+            className="relative h-2 w-full rounded-full mt-10 mb-4"
+            style={{
+              background:
+                "linear-gradient(to right, #10B981 0%, #F59E0B 50%, #EF4444 100%)",
+            }}
+          >
             <div 
               className="absolute top-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-4 border-white shadow-md transition-all duration-1000 ease-out"
               style={{ 
@@ -92,12 +98,6 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
                 transform: `translate(-50%, -50%)`
               }}
             />
-            <div className="absolute inset-0 rounded-full overflow-hidden">
-               <div 
-                className="h-full transition-all duration-1000 ease-out opacity-20"
-                style={{ width: `${dotPosition}%`, backgroundColor: scaleColor }}
-               />
-            </div>
           </div>
         </div>
       </section>
