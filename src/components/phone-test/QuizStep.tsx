@@ -65,27 +65,30 @@ export const QuizStep = ({
             </div>
           </div>
 
-          <div className="min-h-[80px] w-full flex flex-col items-center justify-center gap-6">
-            {showNextButton && (
-              <div className="w-full max-w-[280px] space-y-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#F5F3EF] px-8 py-3.5 text-sm font-bold text-[#151515] transition-all hover:scale-[1.02] active:scale-95"
-                >
-                  Næste
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
-                
-                {/* Progress bar centered under the button */}
-                <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
-                  <div 
-                    className="h-full bg-white transition-all duration-[8000ms] ease-linear"
-                    style={{ width: `${progress}%` }}
-                  />
-                </div>
+          <div className="w-full flex flex-col items-center justify-center">
+            <div className="w-full max-w-[280px] space-y-4">
+              {/* Button area with fixed height to avoid jumps */}
+              <div className="min-h-[52px] flex items-center justify-center">
+                {showNextButton && (
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    className="group flex w-full items-center justify-center gap-2 rounded-full bg-[#F5F3EF] px-8 py-3.5 text-sm font-bold text-[#151515] transition-all hover:scale-[1.02] active:scale-95 animate-in fade-in slide-in-from-bottom-2 duration-500"
+                  >
+                    Næste
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                )}
               </div>
-            )}
+              
+              {/* Progress bar - starts immediately when insight appears */}
+              <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
+                <div 
+                  className="h-full bg-white transition-all duration-[8000ms] ease-linear"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       ) : (
