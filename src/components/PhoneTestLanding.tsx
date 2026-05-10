@@ -220,10 +220,16 @@ const PhoneTestLanding = () => {
         className="relative z-50 bg-[#F5F3EF]"
         style={{ paddingTop: 'calc(var(--visual-viewport-top, 0px) + 24px)' } as any}
       >
-        <div className="container relative px-6 h-16 flex items-center mx-auto max-w-[1200px]">
+        <div className="container relative px-6 h-16 flex items-center justify-between mx-auto max-w-[1200px]">
           <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
             GetXM
           </Link>
+
+          {step > 1 && step <= 5 && !currentInsight && (
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#151515]/40">
+              Trin {step} af 5
+            </span>
+          )}
         </div>
         {step >= 1 && step <= 5 && (
           <div className="h-1 w-full bg-black/5">
@@ -248,15 +254,6 @@ const PhoneTestLanding = () => {
                   ? 'bg-[#151515] text-white' 
                   : 'bg-white'
               }`}>
-                {/* Internal Step Indicator - only for quiz questions */}
-                {step > 1 && step <= 5 && !currentInsight && (
-                  <div className="px-8 pt-8 md:px-12 md:pt-12 flex justify-between items-center">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#151515]/40">
-                      Trin {step} af 5
-                    </span>
-                  </div>
-                )}
-
                 <div className="px-5 py-8 md:px-12 md:py-12">
                   {step >= 1 && step <= 5 && (
                     <QuizStep
