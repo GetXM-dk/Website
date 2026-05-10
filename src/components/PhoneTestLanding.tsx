@@ -112,10 +112,10 @@ const PhoneTestLanding = () => {
         setShowNextButton(true);
       }, 800);
 
-      // Auto-advance after 4 seconds
+      // Auto-advance after 5 seconds
       navigationTimeoutRef.current = window.setTimeout(() => {
         handleNext();
-      }, 4000);
+      }, 5000);
     } else {
       // Immediate move if no insight
       window.setTimeout(() => {
