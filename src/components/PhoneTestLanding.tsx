@@ -62,6 +62,7 @@ const PhoneTestLanding = () => {
 
     const timeout = window.setTimeout(() => {
       setStep(7);
+      scrollToTopStable();
     }, 2500);
 
     return () => {
@@ -87,21 +88,6 @@ const PhoneTestLanding = () => {
     }, 150);
   };
 
-  const prevStepRef = useRef(step);
-  const prevInsightRef = useRef(currentInsight);
-
-  // Scroll to top ONLY when step or insight actually changes
-  useEffect(() => {
-    const stepChanged = prevStepRef.current !== step;
-    const insightChanged = prevInsightRef.current !== currentInsight;
-
-    if (stepChanged || insightChanged) {
-      scrollToTopStable();
-      prevStepRef.current = step;
-      prevInsightRef.current = currentInsight;
-    }
-  }, [step, currentInsight]);
-
   const currentQuestion = questions[step - 1];
   const currentSelection = currentQuestion ? answers[currentQuestion.id] : "";
 
@@ -116,6 +102,7 @@ const PhoneTestLanding = () => {
     setStep((current) => current + 1);
     setCurrentInsight(null);
     setShowNextButton(false);
+    scrollToTopStable();
     
     // Safety delay to prevent "click-through" to the next screen
     window.setTimeout(() => {
@@ -134,6 +121,7 @@ const PhoneTestLanding = () => {
     
     if (hasInsight) {
       setCurrentInsight(selectedOption.insight!);
+      scrollToTopStable();
       
       // Show button after short delay
       window.setTimeout(() => {
@@ -149,6 +137,7 @@ const PhoneTestLanding = () => {
       window.setTimeout(() => {
         setStep((current) => current + 1);
         setIsNavigating(false);
+        scrollToTopStable();
       }, 400);
     }
   };
@@ -164,10 +153,12 @@ const PhoneTestLanding = () => {
     // Spring loading-skærmen (step 6) over, hvis vi går tilbage fra kontaktformularen
     if (step === 7) {
       setStep(5);
+      scrollToTopStable();
       return;
     }
     
     setStep((current) => current - 1);
+    scrollToTopStable();
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -221,6 +212,7 @@ const PhoneTestLanding = () => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
       setStep(8);
+      scrollToTopStable();
     }
   };
 
