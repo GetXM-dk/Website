@@ -62,7 +62,6 @@ const PhoneTestLanding = () => {
 
     const timeout = window.setTimeout(() => {
       setStep(7);
-      scrollToTopStable();
     }, 2500);
 
     return () => {
@@ -90,7 +89,6 @@ const PhoneTestLanding = () => {
     setStep((current) => current + 1);
     setCurrentInsight(null);
     setShowNextButton(false);
-    scrollToTopStable();
     
     // Safety delay to prevent "click-through" to the next screen
     window.setTimeout(() => {
@@ -109,7 +107,6 @@ const PhoneTestLanding = () => {
     
     if (hasInsight) {
       setCurrentInsight(selectedOption.insight!);
-      scrollToTopStable();
       
       // Show button after short delay
       window.setTimeout(() => {
@@ -125,7 +122,6 @@ const PhoneTestLanding = () => {
       window.setTimeout(() => {
         setStep((current) => current + 1);
         setIsNavigating(false);
-        scrollToTopStable();
       }, 400);
     }
   };
@@ -141,12 +137,10 @@ const PhoneTestLanding = () => {
     // Spring loading-skærmen (step 6) over, hvis vi går tilbage fra kontaktformularen
     if (step === 7) {
       setStep(5);
-      scrollToTopStable();
       return;
     }
     
     setStep((current) => current - 1);
-    scrollToTopStable();
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
