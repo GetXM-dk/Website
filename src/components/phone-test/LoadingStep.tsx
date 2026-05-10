@@ -32,12 +32,7 @@ export const LoadingStep = ({ loadingIndex }: LoadingStepProps) => {
           })}
         </div>
 
-        <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 px-5 py-5 text-sm text-white/80">
-          <p className="font-medium text-white">
-            Behold jeres nummer · Behold teleselskab · Gratis opsætning
-          </p>
-          <p className="mt-1.5 text-white/55">Kan bruges med de fleste danske teleselskaber</p>
-        </div>
+
       </div>
     </div>
   );
