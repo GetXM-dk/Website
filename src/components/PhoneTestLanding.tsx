@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useRef, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
@@ -17,8 +17,6 @@ import { QuizStep } from "./phone-test/QuizStep";
 import { LoadingStep } from "./phone-test/LoadingStep";
 import { LeadFormStep } from "./phone-test/LeadFormStep";
 import { ResultStep } from "./phone-test/ResultStep";
-
-import { useVisualViewportOffset } from "./phone-test/useVisualViewportOffset";
 
 const getProgressPercentage = (step: number) => {
   switch (step) {
@@ -41,8 +39,6 @@ const PhoneTestLanding = () => {
   const [isNavigating, setIsNavigating] = useState(false);
   const [currentInsight, setCurrentInsight] = useState<string | null>(null);
 
-  // Cleanly handle iOS Safari viewport issues
-  useVisualViewportOffset();
 
   const apiBaseUrl = getPublicApiBaseUrl();
   const leadEndpoint = apiBaseUrl
@@ -70,10 +66,6 @@ const PhoneTestLanding = () => {
     };
   }, [step]);
 
-  const scrollToTopStable = () => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTo(0, 0);
-  };
 
   const currentQuestion = questions[step - 1];
   const currentSelection = currentQuestion ? answers[currentQuestion.id] : "";
@@ -194,7 +186,6 @@ const PhoneTestLanding = () => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
       setStep(8);
-      scrollToTopStable();
     }
   };
 
