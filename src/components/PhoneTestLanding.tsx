@@ -229,7 +229,9 @@ const PhoneTestLanding = () => {
         </header>
       )}
 
-      <main className={`flex-1 flex flex-col justify-start px-4 pb-8 md:pb-16 ${isFocusedStep ? 'pt-12 md:pt-24' : 'pt-4 md:pt-16'}`}>
+      <main className={`flex-1 flex flex-col justify-start pb-8 md:pb-16 ${
+        isFocusedStep ? 'px-0 md:px-4 pt-12 md:pt-24' : 'px-4 pt-4 md:pt-16'
+      }`}>
         <div className="container px-0 md:px-4 mx-auto">
           {step === 8 && submitSuccess ? (
             <div className="mx-auto max-w-[760px]">
@@ -237,12 +239,16 @@ const PhoneTestLanding = () => {
             </div>
           ) : (
             <div className="mx-auto max-w-[760px]">
-              <div className={`rounded-[32px] border border-black/8 shadow-[0_24px_70px_rgba(15,23,42,0.06)] transition-all duration-500 overflow-hidden ${
+              <div className={`transition-all duration-500 overflow-hidden ${
+                isFocusedStep 
+                  ? 'rounded-none md:rounded-[32px] border-none md:border md:border-black/8 shadow-none md:shadow-[0_24px_70px_rgba(15,23,42,0.06)]' 
+                  : 'rounded-[32px] border border-black/8 shadow-[0_24px_70px_rgba(15,23,42,0.06)]'
+              } ${
                 (isNavigating && currentInsight) || step === 6 
                   ? 'bg-[#151515] text-white' 
                   : 'bg-white'
               }`}>
-                <div className="px-5 py-8 md:px-12 md:py-12">
+                <div className={`${isFocusedStep ? 'px-6 py-8 md:px-12 md:py-12' : 'px-5 py-8 md:px-12 md:py-12'}`}>
                   {step >= 1 && step <= 5 && (
                     <QuizStep
                       step={step}
