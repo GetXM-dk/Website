@@ -94,7 +94,6 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
           <p className="text-[15px] leading-relaxed text-[#151515]/70 pt-1">
             {bandSentence(band)}
           </p>
-          </p>
         </div>
       </section>
 
