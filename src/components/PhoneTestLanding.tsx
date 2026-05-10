@@ -213,7 +213,7 @@ const PhoneTestLanding = () => {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
+    <div className="min-h-[100svh] md:min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
       <header className="relative z-50 bg-[#F5F3EF] pt-[env(safe-area-inset-top)]">
         <div className="container relative px-6 h-16 flex items-center mx-auto max-w-[1200px]">
           <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
@@ -230,7 +230,7 @@ const PhoneTestLanding = () => {
         )}
       </header>
 
-      <main className="flex-1 flex flex-col justify-start py-8 md:py-16">
+      <main className="flex-1 flex flex-col justify-start px-4 pt-12 pb-8 md:pt-16 md:pb-16">
         <div className="container px-4 mx-auto">
           {step === 8 && submitSuccess ? (
             <div className="mx-auto max-w-[760px]">
