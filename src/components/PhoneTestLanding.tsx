@@ -43,19 +43,6 @@ const PhoneTestLanding = () => {
   const leadEndpoint = apiBaseUrl
     ? `${apiBaseUrl}/api/v1/website-demo/lead`
     : "/api/v1/website-demo/lead";
-  const isPreviewHost = (() => {
-    if (typeof window === "undefined") return false;
-    const { hostname } = window.location;
-    return (
-      hostname === "localhost" ||
-      hostname === "127.0.0.1" ||
-      hostname === "::1" ||
-      hostname.endsWith(".lovableproject.com") ||
-      hostname.endsWith(".lovable.app") ||
-      hostname.endsWith(".lovable.dev")
-    );
-  })();
-  const isLocalPreview = isPreviewHost;
 
   const score = useMemo(() => getRiskScore(answers), [answers]);
   const riskBand = useMemo(() => getRiskBand(score), [score]);
@@ -197,35 +184,17 @@ const PhoneTestLanding = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F3EF] text-[#1A1A1A]">
+    <div className="min-h-screen bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
       <header className="sticky top-0 z-50 bg-[#F5F3EF] pt-4">
-        <div className="container relative px-6 pb-4">
+        <div className="container relative px-6 pb-4 mx-auto max-w-[1200px]">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              {step > 1 && step < 8 && step !== 6 && (
-                <button
-                  type="button"
-                  onClick={handleBack}
-                  disabled={isNavigating}
-                  className="text-muted-foreground transition-colors hover:text-foreground disabled:opacity-50"
-                >
-                  <ArrowLeft className="h-5 w-5" />
-                </button>
-              )}
-              <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
-                GetXM
-              </Link>
-            </div>
-            
-            {step >= 1 && step <= 5 && (
-              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                Trin {step} af 5
-              </span>
-            )}
+            <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
+              GetXM
+            </Link>
           </div>
         </div>
-        {(step >= 1 && step <= 5) && (
-          <div className="h-1 w-full bg-black/10">
+        {step >= 1 && step <= 5 && (
+          <div className="h-1 w-full bg-black/5">
             <div 
               className="h-full bg-[#151515] transition-all duration-500 ease-in-out" 
               style={{ width: `${getProgressPercentage(step)}%` }}
@@ -234,51 +203,81 @@ const PhoneTestLanding = () => {
         )}
       </header>
 
-      <main className="container px-6 py-10 md:py-14">
-        <div className={`mx-auto w-full transition-all duration-500 ${step === 8 ? "max-w-[720px]" : "max-w-[640px]"}`}>
-          {step === 8 ? (
-            submitSuccess && <ResultStep answers={answers} />
+      <main className="flex-1 flex flex-col justify-center py-8 md:py-16">
+        <div className="container px-4 mx-auto">
+          {step === 8 && submitSuccess ? (
+            <div className="mx-auto max-w-[760px]">
+              <ResultStep answers={answers} />
+            </div>
           ) : (
-            <section className={`rounded-[32px] border border-black/8 shadow-[0_24px_70px_rgba(15,23,42,0.08)] transition-colors duration-500 ${step === 6 ? 'bg-[#151515] text-white px-5 py-6 md:px-8 md:py-8' : 'bg-white px-5 py-6 md:px-8 md:py-8'}`}>
-              {step >= 1 && step <= 5 && currentQuestion && (
-                <QuizStep
-                  step={step}
-                  currentQuestion={currentQuestion}
-                  currentSelection={currentSelection}
-                  isNavigating={isNavigating}
-                  currentInsight={currentInsight}
-                  showNextButton={showNextButton}
-                  handleAnswer={handleAnswer}
-                  handleNext={handleNext}
-                />
-              )}
+            <div className="mx-auto max-w-[760px]">
+              <div className={`rounded-[32px] border border-black/8 shadow-[0_24px_70px_rgba(15,23,42,0.06)] transition-all duration-500 overflow-hidden ${
+                (isNavigating && currentInsight) || step === 6 
+                  ? 'bg-[#151515] text-white' 
+                  : 'bg-white'
+              }`}>
+                {/* Internal Step Indicator - only for quiz questions */}
+                {step >= 1 && step <= 5 && !isNavigating && (
+                  <div className="px-8 pt-8 md:px-12 md:pt-12 flex justify-between items-center">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#151515]/40">
+                      Trin {step} af 5
+                    </span>
+                  </div>
+                )}
 
-              {step === 6 && <LoadingStep loadingIndex={loadingIndex} />}
+                <div className="px-5 py-8 md:px-12 md:py-12">
+                  {step >= 1 && step <= 5 && (
+                    <QuizStep
+                      step={step}
+                      currentQuestion={currentQuestion}
+                      currentSelection={currentSelection}
+                      isNavigating={isNavigating}
+                      currentInsight={currentInsight}
+                      showNextButton={showNextButton}
+                      handleAnswer={handleAnswer}
+                      handleNext={handleNext}
+                    />
+                  )}
 
-              {step === 7 && (
-                <LeadFormStep
-                  form={form}
-                  setForm={setForm}
-                  isSubmitting={isSubmitting}
-                  handleSubmit={handleSubmit}
-                />
+                  {step === 6 && <LoadingStep loadingIndex={loadingIndex} />}
+
+                  {step === 7 && (
+                    <LeadFormStep
+                      form={form}
+                      setForm={setForm}
+                      isSubmitting={isSubmitting}
+                      handleSubmit={handleSubmit}
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* Back button */}
+              {step > 1 && step <= 5 && !isNavigating && (
+                <div className="flex justify-center mt-8">
+                  <button
+                    onClick={handleBack}
+                    className="flex items-center gap-2 text-sm font-medium text-[#151515]/40 hover:text-[#151515] transition-colors"
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                    Gå tilbage
+                  </button>
+                </div>
               )}
-            </section>
+            </div>
           )}
         </div>
       </main>
 
-      <footer className="border-t border-black/6 bg-white/70">
-        <div className="container flex flex-col gap-3 px-6 py-6 text-sm text-muted-foreground md:flex-row md:items-center md:justify-center">
-          <div className="flex flex-wrap items-center gap-5">
-            <Link to="/handelsbetingelser" className="hover:text-foreground">
-              Handelsbetingelser
-            </Link>
-            <Link to="/privatlivspolitik" className="hover:text-foreground">
-              Privatlivspolitik
-            </Link>
-          </div>
+      <footer className="py-12 text-center bg-[#F5F3EF]">
+        <div className="flex justify-center gap-8 text-[13px] font-medium text-[#151515]/30">
+          <a href="#" className="hover:text-[#151515] transition-colors">Privatlivspolitik</a>
+          <a href="#" className="hover:text-[#151515] transition-colors">Handelsbetingelser</a>
+          <a href="#" className="hover:text-[#151515] transition-colors">Kontakt</a>
         </div>
+        <p className="mt-4 text-[11px] text-[#151515]/20 font-medium tracking-wide">
+          &copy; {new Date().getFullYear()} GETXM &middot; OPTIMERING AF KLINIKDRIFT
+        </p>
       </footer>
     </div>
   );

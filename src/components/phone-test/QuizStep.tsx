@@ -1,4 +1,4 @@
-import { ArrowRight, Lightbulb } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Question } from "./types";
 
 interface QuizStepProps {
@@ -27,28 +27,28 @@ export const QuizStep = ({
 
   // Split insight into headline, body, and source
   const parts = currentInsight?.split("|") ?? [];
-  const headline = parts[0] || null;
-  const body = parts[1] || (parts.length === 1 ? parts[0] : null);
-  const source = parts[2] || null;
+  const insightHeadline = parts[0] || null;
+  const insightBody = parts[1] || (parts.length === 1 ? parts[0] : null);
+  const insightSource = parts[2] || null;
 
   return (
-    <div className="flex flex-col min-h-[520px] md:min-h-[580px]">
+    <div className="flex flex-col min-h-[460px]">
       {isNavigating && currentInsight ? (
-        <div className="flex flex-1 flex-col items-center justify-center space-y-12 animate-in fade-in zoom-in-95 duration-500 py-10 px-4 text-center">
+        <div className="flex flex-1 flex-col items-center justify-center space-y-12 animate-in fade-in zoom-in-95 duration-500 text-center">
           <div className="space-y-6 mx-auto max-w-[40ch]">
-            {headline && (
-              <h3 className="text-2xl md:text-3xl font-display font-bold leading-[1.15] text-[#151515]">
-                {headline}
+            {insightHeadline && (
+              <h3 className="text-2xl md:text-3xl font-display font-bold leading-[1.15] text-[#F5F3EF]">
+                {insightHeadline}
               </h3>
             )}
             
             <div className="space-y-4">
-              <p className="text-base md:text-lg leading-relaxed text-[#151515]/75">
-                {body}
+              <p className="text-base md:text-lg leading-relaxed text-[#F5F3EF]/75">
+                {insightBody}
               </p>
-              {source && (
-                <p className="text-[11px] leading-normal text-[#151515]/40 italic">
-                  {source}
+              {insightSource && (
+                <p className="text-[11px] leading-normal text-[#F5F3EF]/40 italic">
+                  {insightSource}
                 </p>
               )}
             </div>
@@ -59,7 +59,7 @@ export const QuizStep = ({
               <button
                 type="button"
                 onClick={handleNext}
-                className="group flex items-center gap-2 rounded-full bg-[#151515] px-8 py-3 text-sm font-bold text-white transition-all hover:scale-105 active:scale-95 animate-in fade-in slide-in-from-bottom-2 duration-300"
+                className="group flex items-center gap-2 rounded-full bg-[#F5F3EF] px-8 py-3 text-sm font-bold text-[#151515] transition-all hover:scale-105 active:scale-95 animate-in fade-in slide-in-from-bottom-2 duration-300"
               >
                 Næste
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -69,29 +69,30 @@ export const QuizStep = ({
         </div>
       ) : (
         <>
-          {step === 1 ? (
-            <div className="space-y-6 mb-6">
-              <div className="space-y-4 pb-8 border-b border-black/5">
-                <h1 className="text-3xl font-display leading-tight text-[#151515] md:text-4xl">
+          {step === 1 && (
+            <div className="space-y-6 mb-10">
+              <div className="space-y-4">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#151515]/40">
+                  Telefon-testen
+                </span>
+                <h1 className="text-3xl font-display font-bold leading-[1.1] text-[#151515] md:text-4xl lg:text-5xl">
                   Ved du, hvad et ubesvaret opkald koster din klinik?
                 </h1>
-                <p className="text-base leading-relaxed text-[#151515]/60">
+                <p className="text-base md:text-lg text-[#151515]/50">
                   Svar på 4 korte spørgsmål og få svaret på under 1 minut.
                 </p>
               </div>
-              <h2 className="text-xl font-display leading-tight text-[#151515] md:text-2xl">
-                {currentQuestion.title}
-              </h2>
-            </div>
-          ) : (
-            <div className="space-y-4 mb-6">
-              <h2 className="text-3xl font-display leading-tight text-[#151515] md:text-4xl">
-                {currentQuestion.title}
-              </h2>
+              <div className="h-px w-full bg-black/5" />
             </div>
           )}
 
-          <div className={`mt-4 mb-auto grid gap-3 ${useTwoCols ? "sm:grid-cols-2" : "grid-cols-1"}`}>
+          <div className="space-y-6 mb-8">
+            <h2 className="text-2xl font-display font-bold leading-tight text-[#151515] md:text-3xl">
+              {step}. {currentQuestion.title}
+            </h2>
+          </div>
+
+          <div className={`grid gap-2.5 ${useTwoCols ? "sm:grid-cols-2" : "grid-cols-1"}`}>
             {currentQuestion.options.map((option) => {
               const selected = currentSelection === option.label;
 
@@ -101,13 +102,18 @@ export const QuizStep = ({
                   type="button"
                   disabled={isNavigating}
                   onClick={() => handleAnswer(option.label)}
-                  className={`w-full rounded-[20px] border px-5 py-4 text-left transition-all ${
+                  className={`group relative w-full overflow-hidden rounded-2xl border px-5 py-3.5 text-left transition-all duration-300 ${
                     selected
-                      ? "border-foreground bg-[#151515] text-white shadow-[0_16px_40px_rgba(15,23,42,0.14)]"
-                      : "border-black/8 bg-[#FBF8F3] hover:border-[#151515] hover:bg-white disabled:opacity-50 disabled:hover:border-black/8 disabled:hover:bg-[#FBF8F3]"
+                      ? "border-[#151515] bg-[#151515] text-white shadow-[0_12px_30px_rgba(0,0,0,0.1)]"
+                      : "border-black/5 bg-[#FBF8F3] hover:border-black/20 hover:bg-white hover:-translate-y-0.5 active:translate-y-0"
                   }`}
                 >
-                  <span className="block text-lg font-semibold">{option.label}</span>
+                  {/* Subtle left accent on hover */}
+                  {!selected && (
+                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#151515] opacity-0 transition-opacity group-hover:opacity-100" />
+                  )}
+                  
+                  <span className="relative block text-base font-semibold md:text-lg">{option.label}</span>
                 </button>
               );
             })}
