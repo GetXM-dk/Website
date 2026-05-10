@@ -80,22 +80,18 @@ export const questions: Question[] = [
     title: "Hvad vil I helst undgå?",
     options: [
       { 
-        label: "Nye patienter ikke kommer igennem", 
+        label: "Nye patienter, der ringer forgæves", 
         insight: "Adgang betyder valg|71% nævner adgang som en vigtig faktor, når de vælger ny behandler. Hvis det er svært at komme igennem, starter relationen skævt.|Kilde: Accenture — Healthcare Experience Research" 
       },
       { 
-        label: "Ubesvarede opkald ikke bliver fulgt op",
+        label: "Ubesvarede opkald uden opfølgning",
         insight: "Det dyre er usikkerheden|Det farlige ved et ubesvaret opkald er ikke kun, at det blev misset. Det er, at I ikke ved, hvad I missede.|"
       },
       { 
-        label: "Dårlig første oplevelse for patienten",
-        insight: "De fleste klager ikke|96% af utilfredse kunder klager ikke — de forsvinder bare.|Kilde: Harvard Business Review — customer experience research"
+        label: "Afbrydelser midt i behandlinger"
       },
       { 
-        label: "Telefonen afbryder behandlinger"
-      },
-      { 
-        label: "Simple spørgsmål tager for meget tid",
+        label: "Simple spørgsmål, der stjæler tid",
         insight: "Gentagelser er skjult støj|Spørgsmål om priser, åbningstider og booking føles små enkeltvis. Men de fylder samme plads i receptionen som vigtige opkald.|"
       },
     ],
@@ -202,27 +198,22 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
     },
   },
   painPoint: {
-    "Nye patienter ikke kommer igennem": {
+    "Nye patienter, der ringer forgæves": {
       title: "Nye patienthenvendelser",
       text: "Hvis en ny patient ikke får svar første gang, kan interessen hurtigt gå videre til en anden klinik.",
       level: "red",
     },
-    "Ubesvarede opkald ikke bliver fulgt op": {
+    "Ubesvarede opkald uden opfølgning": {
       title: "Overblik over vigtige henvendelser",
       text: "Når et opkald ikke bliver taget, ved I ikke, om det var en ny booking, et afbud, et spørgsmål eller noget vigtigt.",
       level: "red",
     },
-    "Dårlig første oplevelse for patienten": {
-      title: "Et stærkt førstehåndsindtryk",
-      text: "Den gode behandling starter før patienten kommer ind ad døren. Hvis kontakten starter med tavshed, svækker det oplevelsen.",
-      level: "red",
-    },
-    "Telefonen afbryder behandlinger": {
+    "Afbrydelser midt i behandlinger": {
       title: "Ro i behandlingen",
       text: "Når telefonen ringer midt i behandlingen, bliver patienten foran jer sat op mod patienten i røret.",
       level: "red",
     },
-    "Simple spørgsmål tager for meget tid": {
+    "Simple spørgsmål, der stjæler tid": {
       title: "Tid brugt på gentagelser",
       text: "Booking, priser og åbningstider bør ikke tage tid fra behandlinger eller reception igen og igen.",
       level: "red",
