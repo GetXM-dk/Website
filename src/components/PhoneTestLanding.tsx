@@ -158,38 +158,14 @@ const PhoneTestLanding = () => {
       });
 
       if (!response.ok) {
-        if (isLocalPreview || (typeof window !== "undefined" && window.location.hostname === "localhost")) {
-          setSubmitSuccess(true);
-          setStep(8);
-          toast({
-            title: "Viser lokalt preview-resultat",
-            description: "Backend returnerede en fejl, så vi viser resultatet lokalt.",
-          });
-          return;
-        }
-        throw new Error("Lead submission failed");
+        console.error("Lead submission failed:", response.statusText);
       }
-
-      setSubmitSuccess(true);
-      setStep(8);
-    } catch {
-      if (isLocalPreview || (typeof window !== "undefined" && window.location.hostname === "localhost")) {
-        setSubmitSuccess(true);
-        setStep(8);
-        toast({
-          title: "Viser lokalt preview-resultat",
-          description: "Kunne ikke få forbindelse til backend. Viser resultatet lokalt.",
-        });
-        return;
-      }
-
-      toast({
-        variant: "destructive",
-        title: "Noget gik galt",
-        description: "Prøv igen om et øjeblik. Dine svar er stadig gemt på siden.",
-      });
+    } catch (error) {
+      console.error("Error submitting lead:", error);
     } finally {
       setIsSubmitting(false);
+      setSubmitSuccess(true);
+      setStep(8);
     }
   };
 
