@@ -74,7 +74,8 @@ export const QuizStep = ({
             <div className="space-y-6 mb-10">
               <div className="space-y-4">
                 <h1 className="text-3xl font-display font-bold leading-[1.1] text-[#151515] md:text-4xl lg:text-5xl">
-                  Ved du, hvad et ubesvaret opkald koster din klinik?
+                  <span className="hidden md:inline">Ved du, hvad et ubesvaret opkald koster din klinik?</span>
+                  <span className="md:hidden">Hvad koster et ubesvaret opkald din klinik?</span>
                 </h1>
                 <p className="text-base md:text-lg text-[#151515]/50">
                   Svar på 4 korte spørgsmål og få svaret på under 1 minut.
