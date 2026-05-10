@@ -18,6 +18,8 @@ import { LoadingStep } from "./phone-test/LoadingStep";
 import { LeadFormStep } from "./phone-test/LeadFormStep";
 import { ResultStep } from "./phone-test/ResultStep";
 
+import { useVisualViewportOffset } from "./phone-test/useVisualViewportOffset";
+
 const getProgressPercentage = (step: number) => {
   switch (step) {
     case 1: return 12;
@@ -38,6 +40,9 @@ const PhoneTestLanding = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const [currentInsight, setCurrentInsight] = useState<string | null>(null);
+
+  // Cleanly handle iOS Safari viewport issues
+  useVisualViewportOffset();
 
   const apiBaseUrl = getPublicApiBaseUrl();
   const leadEndpoint = apiBaseUrl
@@ -65,39 +70,10 @@ const PhoneTestLanding = () => {
     };
   }, [step]);
 
-  useEffect(() => {
-    const setVisualViewportOffset = () => {
-      const offsetTop = window.visualViewport?.offsetTop ?? 0;
-      document.documentElement.style.setProperty(
-        "--visual-viewport-top",
-        `${offsetTop}px`
-      );
-    };
-    
-    setVisualViewportOffset();
-    
-    const vv = window.visualViewport;
-    if (vv) {
-      vv.addEventListener("resize", setVisualViewportOffset);
-      vv.addEventListener("scroll", setVisualViewportOffset);
-    }
-    window.addEventListener("orientationchange", setVisualViewportOffset);
-    
-    return () => {
-      if (vv) {
-        vv.removeEventListener("resize", setVisualViewportOffset);
-        vv.removeEventListener("scroll", setVisualViewportOffset);
-      }
-      window.removeEventListener("orientationchange", setVisualViewportOffset);
-    };
-  }, []);
-
   const scrollToTopStable = () => {
-    // Immediate reset
     window.scrollTo(0, 0);
     document.documentElement.scrollTo(0, 0);
     
-    // RAF reset
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         window.scrollTo(0, 0);
@@ -105,7 +81,6 @@ const PhoneTestLanding = () => {
       });
     });
     
-    // iOS Safari fallback
     setTimeout(() => {
       window.scrollTo(0, 0);
       document.documentElement.scrollTo(0, 0);
