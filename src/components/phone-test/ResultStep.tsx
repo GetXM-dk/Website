@@ -14,9 +14,9 @@ interface ResultStepProps {
 const levelAccent = (level: DiagnosticLevel) => {
   switch (level) {
     case "red":
-      return "#C0392B";
+      return "#FF2A2A";
     case "yellow":
-      return "#B7791F";
+      return "#FFA32A";
     case "green":
       return "#2F855A";
   }
@@ -128,25 +128,23 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
               return (
                 <div
                   key={idx}
-                  className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 md:gap-10 py-7 md:py-8 border-b border-black/10"
+                  className="py-8 md:py-10 border-b border-black/10 last:border-b-0 space-y-4"
                 >
-                  <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-2.5">
-                      <span
-                        className="inline-block h-2 w-2 rounded-full"
-                        style={{ backgroundColor: accent }}
-                        aria-hidden
-                      />
-                      <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#151515]/60">
-                        {row.category}
-                      </span>
-                    </div>
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="inline-block h-3 w-3 rounded-full shrink-0"
+                      style={{ backgroundColor: accent }}
+                      aria-hidden
+                    />
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#151515]/50">
+                      {row.category}
+                    </span>
                   </div>
-                  <div className="space-y-2.5">
-                    <h4 className="font-display text-[20px] md:text-[22px] font-bold leading-snug text-[#151515]">
+                  <div className="space-y-3">
+                    <h4 className="font-display text-[26px] md:text-[32px] font-bold leading-tight text-[#151515]">
                       {row.data!.title}
                     </h4>
-                    <p className="text-[15px] md:text-base leading-[1.6] text-[#151515]/75 max-w-[62ch]">
+                    <p className="text-[16px] md:text-[18px] leading-[1.6] text-[#151515]/70 max-w-[62ch]">
                       {row.data!.text}
                     </p>
                   </div>
