@@ -40,11 +40,12 @@ export const questions: Question[] = [
         label: "Sjældent — vi føler, vi når det meste"
       },
       { 
-        label: "Indimellem — især i travle perioder"
+        label: "Indimellem — især i travle perioder",
+        insight: "2 minutters opkald kan koste 23 minutters fokus|Forskning peger på, at det i gennemsnit tager omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark"
       },
       { 
         label: "Ofte — vi kan mærke, at vi ikke når alle", 
-        insight: "2 minutters opkald kan koste 23 minutters fokus|Det tager i gennemsnit omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark" 
+        insight: "2 minutters opkald kan koste 23 minutters fokus|Forskning peger på, at det i gennemsnit tager omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark" 
       },
       { 
         label: "Vi ved det ikke — vi prioriterer patienten foran os",
@@ -59,7 +60,7 @@ export const questions: Question[] = [
     options: [
       { 
         label: "De kan lægge en besked",
-        insight: "Telefonsvarer er ikke opfølgning|En besked redder noget. Men arbejdet forsvinder ikke — det flytter sig bare til senere på dagen.|"
+        insight: "Telefonsvarer is ikke opfølgning|En besked redder noget. Men arbejdet forsvinder ikke — det flytter sig bare til senere på dagen.|"
       },
       { 
         label: "De må prøve igen i vores telefontid", 
@@ -119,7 +120,7 @@ const whoAnswersPoints: Record<string, number> = {
 const frequencyPoints: Record<string, number> = {
   "Sjældent — vi føler, we når det meste": 0,
   "Indimellem — især i travle perioder": 2,
-  "Ofte — vi kan mærke, at we ikke når alle": 4,
+  "Ofte — we kan mærke, at we ikke når alle": 4,
   "Vi ved det ikke — we prioriterer patienten foran os": 4,
 };
 
