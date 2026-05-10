@@ -131,7 +131,6 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
                       {row.category}
                     </span>
                   </div>
-                  </div>
                 </div>
                 <div className="space-y-2.5">
                   <h4 className="font-display text-[20px] md:text-[22px] font-bold leading-snug text-[#151515]">
