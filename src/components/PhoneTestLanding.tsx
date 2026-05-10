@@ -248,7 +248,7 @@ const PhoneTestLanding = () => {
                   ? 'bg-[#151515] text-white' 
                   : 'bg-white'
               }`}>
-                <div className={`${isFocusedStep ? 'px-6 pt-16 pb-12 md:px-12 md:py-12' : 'px-5 py-8 md:px-12 md:py-12'}`}>
+                <div className={`${isFocusedStep ? 'px-6 pt-10 pb-12 md:px-12 md:py-12' : 'px-5 py-8 md:px-12 md:py-12'}`}>
                   {step >= 1 && step <= 5 && (
                     <QuizStep
                       step={step}
