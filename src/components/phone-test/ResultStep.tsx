@@ -89,11 +89,11 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
 
       {/* 2 — Q5 hero */}
       {painPointCard && (
-        <section className="rounded-3xl bg-white border border-black/5 p-8 md:p-12 shadow-[0_1px_0_rgba(0,0,0,0.02),0_20px_40px_-24px_rgba(0,0,0,0.10)]">
+        <section className="py-2">
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#151515]/50 mb-5">
             Jeres største udfordring
           </p>
-          <h3 className="font-display text-[26px] md:text-3xl font-bold leading-[1.15] text-[#151515] max-w-[22ch]">
+          <h3 className="font-display text-[28px] md:text-4xl font-bold leading-[1.15] text-[#151515] max-w-[22ch]">
             {painPointCard.title}
           </h3>
           <p className="mt-5 text-[17px] md:text-[18px] leading-[1.6] text-[#151515]/75 max-w-[60ch]">
@@ -108,7 +108,6 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
           <h3 className="font-display text-2xl md:text-3xl font-bold text-[#151515]">
             Det koster jer især her
           </h3>
-          <p className="text-sm text-[#151515]/55">Baseret på jeres svar</p>
         </div>
 
         <div className="border-t border-black/10">
