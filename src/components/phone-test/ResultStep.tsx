@@ -57,11 +57,12 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
   const scaleColor = score <= 3 ? "#10B981" : score <= 7 ? "#F59E0B" : "#EF4444";
 
   const cards = [
-    { category: "Jeres største problem", data: diagnosticMapping.painPoint[answers.painPoint ?? ""] },
     { category: "Telefonhåndtering", data: diagnosticMapping.whoAnswers[answers.whoAnswers ?? ""] },
     { category: "Afbrydelser", data: diagnosticMapping.frequency[answers.frequency ?? ""] },
     { category: "Uden for åbningstid", data: diagnosticMapping.followup[answers.followup ?? ""] },
   ].filter(c => c.data);
+
+  const painPointCard = diagnosticMapping.painPoint[answers.painPoint ?? ""];
 
   return (
     <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-both">
@@ -78,6 +79,10 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
 
         {/* Scale */}
         <div className="mx-auto max-w-md px-4">
+          <div className="flex justify-between text-[11px] font-bold uppercase tracking-wider text-muted-foreground/60 mb-3">
+            <span>Lidt</span>
+            <span>Meget</span>
+          </div>
           <div className="relative h-2 w-full rounded-full bg-black/5 mt-10 mb-4">
             <div 
               className="absolute top-1/2 -translate-y-1/2 h-4 w-4 rounded-full border-4 border-white shadow-md transition-all duration-1000 ease-out"
@@ -94,12 +99,32 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
                />
             </div>
           </div>
-          <div className="flex justify-between text-[11px] font-bold uppercase tracking-wider text-muted-foreground/60">
-            <span>Lidt</span>
-            <span>Meget</span>
-          </div>
         </div>
       </section>
+
+      {/* Pain point highlight */}
+      {painPointCard && (
+        <section className="mx-auto max-w-2xl">
+          {(() => {
+            const colors = getLevelColors(painPointCard.level);
+            return (
+              <div className={`flex flex-col gap-4 rounded-2xl border ${colors.border} ${colors.bg} p-5 md:p-6`}>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
+                    <LevelIcon level={painPointCard.level} className={`h-6 w-6 ${painPointCard.level === 'green' ? 'text-[#10B981]' : painPointCard.level === 'yellow' ? 'text-[#F59E0B]' : 'text-[#EF4444]'}`} />
+                  </div>
+                  <h4 className={`font-display text-lg font-bold ${colors.text}`}>
+                    {painPointCard.title}
+                  </h4>
+                </div>
+                <p className={`text-base leading-relaxed ${colors.text} opacity-80`}>
+                  {painPointCard.text}
+                </p>
+              </div>
+            );
+          })()}
+        </section>
+      )}
 
       {/* Breakdown Section */}
       <section className="space-y-6">
