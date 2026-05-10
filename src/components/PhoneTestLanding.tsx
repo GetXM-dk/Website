@@ -94,7 +94,7 @@ const PhoneTestLanding = () => {
       setCurrentInsight(selectedOption.insight!);
     }
 
-    const delay = hasInsight ? 1800 : 500;
+    const delay = hasInsight ? 2600 : 500;
 
     window.setTimeout(() => {
       setStep((current) => current + 1);
