@@ -87,10 +87,10 @@ const PhoneTestLanding = () => {
     }, 150);
   };
 
-  // Scroll to top on every step, insight or state change
+  // Scroll to top on every step or insight change
   useEffect(() => {
     scrollToTopStable();
-  }, [step, currentInsight, isNavigating, submitSuccess]);
+  }, [step, currentInsight]);
 
   const currentQuestion = questions[step - 1];
   const currentSelection = currentQuestion ? answers[currentQuestion.id] : "";
