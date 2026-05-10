@@ -65,12 +65,39 @@ const PhoneTestLanding = () => {
     };
   }, [step]);
 
+  useEffect(() => {
+    const setVisualViewportOffset = () => {
+      const offsetTop = window.visualViewport?.offsetTop ?? 0;
+      document.documentElement.style.setProperty(
+        "--visual-viewport-top",
+        `${offsetTop}px`
+      );
+    };
+    
+    setVisualViewportOffset();
+    
+    const vv = window.visualViewport;
+    if (vv) {
+      vv.addEventListener("resize", setVisualViewportOffset);
+      vv.addEventListener("scroll", setVisualViewportOffset);
+    }
+    window.addEventListener("orientationchange", setVisualViewportOffset);
+    
+    return () => {
+      if (vv) {
+        vv.removeEventListener("resize", setVisualViewportOffset);
+        vv.removeEventListener("scroll", setVisualViewportOffset);
+      }
+      window.removeEventListener("orientationchange", setVisualViewportOffset);
+    };
+  }, []);
+
   const scrollToTopStable = () => {
-    // 1. Reset immediately
+    // Immediate reset
     window.scrollTo(0, 0);
     document.documentElement.scrollTo(0, 0);
     
-    // 2. Reset again after the browser has recalculated viewport
+    // RAF reset
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         window.scrollTo(0, 0);
@@ -78,11 +105,11 @@ const PhoneTestLanding = () => {
       });
     });
     
-    // 3. iOS Safari fallback when address bar is visible
+    // iOS Safari fallback
     setTimeout(() => {
       window.scrollTo(0, 0);
       document.documentElement.scrollTo(0, 0);
-    }, 120);
+    }, 150);
   };
 
   // Scroll to top on every step, insight or state change
@@ -213,8 +240,11 @@ const PhoneTestLanding = () => {
   };
 
   return (
-    <div className="min-h-[100svh] md:min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
-      <header className="relative z-50 bg-[#F5F3EF] pt-[env(safe-area-inset-top)]">
+    <div 
+      className="min-h-[100svh] md:min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans"
+      style={{ paddingTop: 'calc(var(--visual-viewport-top, 0px) + 24px)' } as any}
+    >
+      <header className="relative z-50 bg-[#F5F3EF]">
         <div className="container relative px-6 h-16 flex items-center mx-auto max-w-[1200px]">
           <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
             GetXM
