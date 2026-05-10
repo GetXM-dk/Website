@@ -20,15 +20,15 @@ export const questions: Question[] = [
     options: [
       { 
         label: "Reception / kliniksekretær", 
-        insight: "Stærkt udgangspunkt.|Men hullet opstår stadig, når receptionen er optaget eller har lukket." 
+        insight: "Stærkt udgangspunkt|Men selv en god reception har huller, når telefonen er optaget, der er pause, eller klinikken har lukket.|" 
       },
       { 
         label: "Behandlerne selv", 
-        insight: "Behandleren i røret.|Når behandleren tager telefonen, mister patienten foran jer opmærksomhed — også hvis opkaldet kun varer kort tid." 
+        insight: "Afbrydelser koster fokus|Afbrudt arbejde øger stress, frustration, arbejdsbelastning og tidspres — også når afbrydelsen er kort.|Kilde: University of California, Irvine — Gloria Mark, “The Cost of Interrupted Work”" 
       },
       { 
         label: "Vi skiftes", 
-        insight: "Delt ansvar for opkald.|Når telefonen deles mellem flere, kan det blive uklart, hvem der følger op på de opkald, der ikke blev taget." 
+        insight: "Delt ansvar skaber huller|Når flere deler telefonen, bliver opfølgningen ofte uklar: hvem så opkaldet, hvem ringer tilbage, og hvornår?|" 
       },
     ],
   },
@@ -39,19 +39,19 @@ export const questions: Question[] = [
     options: [
       { 
         label: "Sjældent — vi føler, vi når det meste",
-        insight: "Godt tegn.|De fleste opkald bliver nok håndteret — men de få, der glipper, kan stadig være vigtige."
+        insight: "Godt tegn|De fleste opkald bliver nok håndteret — men de få, der glipper, kan stadig være vigtige: ny booking, afbud eller en patient med akut behov.|"
       },
       { 
         label: "Indimellem — især i travle perioder", 
-        insight: "Uforudsete afbrydelser.|Få afbrydelser kan virke harmløse, men de rammer ofte, når klinikken i forvejen er presset." 
+        insight: "Afbrydelser rammer sjældent godt|Få afbrydelser kan virke harmløse, men de rammer ofte, når klinikken i forvejen er presset.|" 
       },
       { 
         label: "Ofte — vi kan mærke, at vi ikke når alle", 
-        insight: "Hyppige afbrydelser.|Hyppige afbrydelser koster ikke kun tid. De koster fokus — og fokus er svært at genvinde midt i en behandling." 
+        insight: "Det koster mere end minutter|Efter bare 20 minutters afbrudt arbejde rapporterede deltagere markant mere stress, frustration, arbejdsbelastning, indsats og tidspres.|Kilde: University of California, Irvine — Gloria Mark, “The Cost of Interrupted Work”" 
       },
       { 
         label: "Vi ved det ikke — vi prioriterer patienten foran os",
-        insight: "Det skjulte tab.|Når I ikke ved, hvor mange opkald I mister, ved I heller ikke, om det var spørgsmål, afbud eller nye bookinger."
+        insight: "Det usynlige kan ikke prioriteres|Hvis I ikke ved, hvor mange opkald I mister, ved I heller ikke, om det var spørgsmål, afbud eller nye bookinger.|"
       },
     ],
   },
@@ -62,19 +62,19 @@ export const questions: Question[] = [
     options: [
       { 
         label: "De kan lægge en besked",
-        insight: "En besked redder noget.|Men opgaven flytter stadig tilbage til jer senere på dagen."
+        insight: "Telefonsvarer er ikke opfølgning|En besked redder noget. Men arbejdet forsvinder ikke — det flytter sig bare til senere på dagen.|"
       },
       { 
         label: "De må prøve igen i vores telefontid", 
-        insight: "Opfølgningen placeres hos patienten.|Når patienten selv skal prøve igen, ligger opfølgningen hos patienten — ikke hos klinikken." 
+        insight: "Hurtig opfølgning betyder noget|Virksomheder, der reagerer på nye henvendelser inden for 5 minutter, har markant større chance for kontakt end dem, der venter 30 minutter.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”" 
       },
       { 
         label: "De bliver henvist til online booking",
-        insight: "Godt setup.|Men patienter ringer ofte, når de har brug for afklaring — ikke kun et link."
+        insight: "Adgang betyder valg|71% nævner adgang som en vigtig faktor, når de vælger ny behandler — fx tider, bekvemmelighed, kundeservice og kontaktkanaler.|Kilde: Accenture — Healthcare Experience Research"
       },
       { 
         label: "Andet",
-        insight: "Utydeligt næste skridt.|Når næste skridt ikke er tydeligt, kan selv interesserede patienter falde fra."
+        insight: "Uklarhed koster handling|Når næste skridt ikke er tydeligt, kan selv interesserede patienter falde fra.|"
       },
     ],
   },
@@ -85,23 +85,23 @@ export const questions: Question[] = [
     options: [
       { 
         label: "Nye patienter ikke kommer igennem", 
-        insight: "Patienter har lav tålmodighed.|Hvis de ikke får svar første gang, er næste klinik ofte kun ét klik væk." 
+        insight: "Nye patienter vælger hurtigt videre|71% nævner adgang som en vigtig faktor, når de vælger ny behandler. Hvis det er svært at komme igennem, starter relationen skævt.|Kilde: Accenture — Healthcare Experience Research" 
       },
       { 
         label: "Ubesvarede opkald ikke bliver fulgt op",
-        insight: "Det farlige ved et ubesvaret opkald.|Det er ikke kun, at det blev misset. Det er, at I ikke ved, hvad I missede."
+        insight: "Det dyre er usikkerheden|Det farlige ved et ubesvaret opkald er ikke kun, at det blev misset. Det er, at I ikke ved, hvad I missede.|"
       },
       { 
         label: "Dårlig første oplevelse for patienten",
-        insight: "Første indtryk starter i telefonen.|Første indtryk starter før behandlingen. For mange patienter starter det i telefonen."
+        insight: "Dårlig kommunikation koster patienter|63% af patienter siger, at de vil skifte behandler på grund af dårlig kommunikation.|Kilde: Artera — Trends in Patient Engagement Report 2025"
       },
       { 
         label: "Telefonen afbryder behandlinger",
-        insight: "Konkurrence om opmærksomhed.|Når telefonen ringer midt i en behandling, konkurrerer to patienter om jeres opmærksomhed."
+        insight: "To patienter konkurrerer|Når telefonen ringer midt i en behandling, konkurrerer patienten foran jer med patienten i røret.|"
       },
       { 
         label: "Simple spørgsmål tager for meget tid",
-        insight: "Mange bække små.|Praktiske spørgsmål føles små enkeltvis. Samlet kan de stjæle meget tid fra klinikken."
+        insight: "Små spørgsmål bliver til støj|Praktiske spørgsmål virker små hver for sig. Samlet kan de stjæle tid, skabe afbrydelser og fylde unødigt i hverdagen.|"
       },
     ],
   },
@@ -187,7 +187,7 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   followup: {
     "De bliver henvist til online booking": {
       title: "En vej videre — men ikke for alle",
-      text: "Online booking hjælper mange videre, men fanger ikke nødvendigvis spørgsmål, afbud eller patienter, der har brug for hjælp først.",
+      text: "Online booking hjælper many videre, men fanger ikke nødvendigvis spørgsmål, afbud eller patienter, der har brug for hjælp først.",
       level: "green",
     },
     "De kan lægge en besked": {
