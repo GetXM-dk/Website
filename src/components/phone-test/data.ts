@@ -56,19 +56,18 @@ export const questions: Question[] = [
   {
     id: "followup",
     label: "Uden for åbningstid",
-    title: "Hvad sker der, hvis en patient ringer uden for åbningstid?",
+    title: "Hvad sker der, hvis telefonen ringer uden for åbningstid?",
     options: [
       { 
         label: "De kan lægge en besked",
         insight: "Telefonsvarer er ikke opfølgning|En besked redder noget. Men arbejdet forsvinder ikke — det flytter sig bare til senere på dagen.|"
       },
       { 
-        label: "De må prøve igen i vores telefontid", 
+        label: "De må prøve igen i telefontiden", 
         insight: "5 minutter betyder noget|Nye henvendelser, der følges op inden for 5 minutter, er langt mere tilbøjelige til at blive til en booking end dem, der venter 30 minutter eller mere.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”" 
       },
       { 
-        label: "De bliver henvist til online booking",
-        insight: "Booking løser booking — ikke tvivl|Patienter ringer ofte, fordi de har et spørgsmål, de skal have afklaret først. Et bookinglink svarer ikke på spørgsmål.|"
+        label: "De får praktisk info på telefonsvareren"
       },
       { 
         label: "Andet"
@@ -126,8 +125,8 @@ const frequencyPoints: Record<string, number> = {
 
 const followupPoints: Record<string, number> = {
   "De kan lægge en besked": 2,
-  "De må prøve igen i vores telefontid": 3,
-  "De bliver henvist til online booking": 1,
+  "De må prøve igen i telefontiden": 3,
+  "De får praktisk info på telefonsvareren": 2,
   "Andet": 2,
 };
 
@@ -181,9 +180,9 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
     },
   },
   followup: {
-    "De bliver henvist til online booking": {
+    "De får praktisk info på telefonsvareren": {
       title: "En vej videre — men ikke for alle",
-      text: "Online booking hjælper many videre, men fanger ikke nødvendigvis spørgsmål, afbud eller patienter, der har brug for hjælp først.",
+      text: "Praktisk info hjælper mange videre, men fanger ikke nødvendigvis spørgsmål, afbud eller patienter, der har brug for hjælp først.",
       level: "green",
     },
     "De kan lægge en besked": {
@@ -191,7 +190,7 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
       text: "En besked hjælper, men I skal stadig samle op senere og finde ud af, hvad patienten havde brug for.",
       level: "yellow",
     },
-    "De må prøve igen i vores telefontid": {
+    "De må prøve igen i telefontiden": {
       title: "Patienthenvendelser der kan gå tabt",
       text: "Når patienten selv skal prøve igen, er der risiko for, at henvendelsen aldrig bliver til en booking.",
       level: "red",
