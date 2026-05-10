@@ -65,14 +65,19 @@ const PhoneTestLanding = () => {
     };
   }, [step]);
 
-  // Scroll to top on every step, insight or state change
-  useEffect(() => {
-    // Small delay ensures the DOM has settled before scrolling
-    const timer = setTimeout(() => {
+  const scrollToTop = () => {
+    requestAnimationFrame(() => {
       window.scrollTo(0, 0);
       document.documentElement.scrollTo(0, 0);
-    }, 10);
-    return () => clearTimeout(timer);
+      if ('scrollTo' in document.body) {
+        (document.body as any).scrollTo(0, 0);
+      }
+    });
+  };
+
+  // Scroll to top on every step, insight or state change
+  useEffect(() => {
+    scrollToTop();
   }, [step, currentInsight, isNavigating, submitSuccess]);
 
   const currentQuestion = questions[step - 1];
