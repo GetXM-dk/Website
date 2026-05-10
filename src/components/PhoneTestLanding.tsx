@@ -235,8 +235,8 @@ const PhoneTestLanding = () => {
         )}
       </header>
 
-      <main className="flex-1 flex flex-col justify-start px-4 pt-12 pb-8 md:pt-16 md:pb-16">
-        <div className="container px-4 mx-auto">
+      <main className="flex-1 flex flex-col justify-start px-4 pt-4 pb-8 md:pt-16 md:pb-16">
+        <div className="container px-0 md:px-4 mx-auto">
           {step === 8 && submitSuccess ? (
             <div className="mx-auto max-w-[760px]">
               <ResultStep answers={answers} />
