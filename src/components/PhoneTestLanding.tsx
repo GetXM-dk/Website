@@ -217,7 +217,7 @@ const PhoneTestLanding = () => {
         )}
       </header>
 
-      <main className="flex-1 flex flex-col justify-center py-8 md:py-16">
+      <main className="flex-1 flex flex-col justify-start py-8 md:py-16">
         <div className="container px-4 mx-auto">
           {step === 8 && submitSuccess ? (
             <div className="mx-auto max-w-[760px]">
