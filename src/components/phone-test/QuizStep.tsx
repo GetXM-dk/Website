@@ -73,9 +73,6 @@ export const QuizStep = ({
           {step === 1 && (
             <div className="space-y-6 mb-10">
               <div className="space-y-4">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#151515]/40">
-                  Telefon-testen
-                </span>
                 <h1 className="text-3xl font-display font-bold leading-[1.1] text-[#151515] md:text-4xl lg:text-5xl">
                   Ved du, hvad et ubesvaret opkald koster din klinik?
                 </h1>
