@@ -215,11 +215,11 @@ const PhoneTestLanding = () => {
   };
 
   return (
-    <div 
-      className="min-h-[100svh] md:min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans"
-      style={{ paddingTop: 'calc(var(--visual-viewport-top, 0px) + 24px)' } as any}
-    >
-      <header className="relative z-50 bg-[#F5F3EF]">
+    <div className="min-h-[100svh] md:min-h-[100dvh] bg-[#F5F3EF] text-[#1A1A1A] flex flex-col font-sans">
+      <header 
+        className="relative z-50 bg-[#F5F3EF]"
+        style={{ paddingTop: 'calc(var(--visual-viewport-top, 0px) + 24px)' } as any}
+      >
         <div className="container relative px-6 h-16 flex items-center mx-auto max-w-[1200px]">
           <Link to="/" className="font-display text-xl font-bold tracking-tight text-[#1A1A1A]">
             GetXM
