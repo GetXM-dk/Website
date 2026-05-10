@@ -93,7 +93,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#151515]/50 mb-5">
             Jeres største udfordring
           </p>
-          <h3 className="font-display text-[28px] md:text-4xl font-bold leading-[1.15] text-[#151515]">
+          <h3 className="font-display text-2xl md:text-3xl font-bold leading-[1.15] text-[#151515]">
             {painPointCard.title}
           </h3>
           <p className="mt-5 text-[17px] md:text-[18px] leading-[1.6] text-[#151515]/75 max-w-[60ch]">
