@@ -1,40 +1,80 @@
-## Ændringer på resultatsiden (`/telefon-test`)
+## Mål
 
-Rene tekstændringer — ingen logik ændres.
+Resultatsiden (`/telefon-test`) skal føles som en premium diagnostisk rapport — ikke en alarm-/fejlliste. Q5 løftes som hero-insight, Q2–Q4 bliver roligere kort, og outroet bliver mørkt og markant med en estimat-fokuseret CTA.
 
-### 1. Section-header i `src/components/phone-test/ResultStep.tsx`
+Alle ændringer er rene UI/tekst-ændringer i frontend. Score-logik røres ikke.
 
-- "Hvor koster det jer?" → **"Hvad koster det jer?"**
-- "Top 4 områder baseret på jeres svar" → **"Top 4 konsekvenser baseret på jeres svar."**
+## Filer der ændres
 
-### 2. Card-titler og brødtekst i `src/components/phone-test/data.ts`
+- `src/components/phone-test/ResultStep.tsx` (hovedparten)
+- `src/components/phone-test/data.ts` (kun mindre tekstjusteringer på et par strings — ingen logik)
 
-Opdater `diagnosticMapping` så `title` udtrykker hvad det koster (gevinsten/konsekvensen) i stedet for problemet, og brødtekst justeres til de nye formuleringer.
+## 1. Top-sektion (scale)
 
-**Card 1 — Telefonhåndtering (`whoAnswers`)**
-- Reception/kliniksekretær (grøn): titel = "Telefonen har en fast ejer" · tekst = "Når telefonen ligger hos receptionen, har I et stærkere udgangspunkt. Det reducerer risikoen for, at opkald forstyrrer behandlingerne."
-- Vi skiftes (gul): titel = "Klarhed over hvem der følger op" · tekst = uændret
-- Behandlerne selv (rød): titel = "Ro, fokus og tid med patienten" · tekst = "Når behandlerne selv tager telefonen, tager opkald tid og opmærksomhed fra patienten foran jer."
+- Behold eyebrow `JERES RESULTAT ER KLAR` og headline `Hvad koster et mistet opkald jer?`.
+- Pak scalen ind i et roligt premium-kort (off-white baggrund, blød border, lille shadow, generøs padding) i stedet for at den svæver løst.
+- Behold gradient-bar (grøn → gul → rød) og dot-position.
+- `Lidt` / `Meget` labels bliver stående over baren.
+- Tilføj en kort støttesætning under baren, fx:
+  > Jeres svar peger på, at mistede opkald især kan koste jer overblik, opfølgning og tid.
+- Score bruger fortsat kun Q2 + Q3 + Q4 (uændret). Bånd: 0–3 grøn, 4–7 gul, 8–11 rød.
 
-**Card 2 — Afbrydelser (`frequency`)**
-- Sjældent (grøn): titel = "Arbejdsro i hverdagen" · tekst = uændret
-- Indimellem (gul): titel = "Flow i travle perioder" · tekst = "Når der er pres på, kan opkald bryde jeres flow og skabe ekstra opfølgning senere."
-- Ofte (rød): titel = "Ro, flow og behandlingsfokus" · tekst = "Når I ofte må afbryde arbejdet, mister I flow og skal bruge energi på at komme tilbage til behandlingen."
-- Vi ved det ikke (rød): titel = "Overblik over de opkald I ikke når" · tekst = uændret
+## 2. Hero insight-kort (Q5)
 
-**Card 3 — Uden for åbningstid (`followup`)**
-- Online booking (grøn): titel = "En tydelig vej videre for patienten" · tekst = "Online booking hjælper patienten videre, men fanger ikke nødvendigvis spørgsmål, afbud eller patienter, der har brug for hjælp først."
-- Lægge besked (gul): titel = "Tid senere på dagen" · tekst = uændret
-- Prøve igen i telefontid (rød): titel = "Patienthenvendelser der aldrig bliver fulgt op" · tekst = uændret
-- Andet (gul): titel = "Et tydeligt næste skridt for patienten" · tekst = "Hvis patienten ikke får en klar vej videre, kan henvendelsen let blive tabt."
+Direkte under scale-kortet, visuelt tungere end de sekundære kort.
 
-**Card 4 — Jeres største problem (`painPoint`)**
-- Nye patienter ikke kommer igennem: titel = "Nye patienthenvendelser" · tekst = uændret
-- Ubesvarede opkald ikke bliver fulgt op: titel = "Overblik over vigtige henvendelser" · tekst = "Når et opkald ikke bliver taget, ved I ikke, om det var en ny booking, et afbud, et spørgsmål eller noget vigtigt."
-- Dårlig første oplevelse: titel = "Et stærkt førstehåndsindtryk" · tekst = uændret
-- Telefonen afbryder behandlinger: titel = "Ro i behandlingen" · tekst = uændret
-- Simple spørgsmål tager for meget tid: titel = "Tid brugt på gentagelser" · tekst = uændret
+- Label: `JERES STØRSTE UDFORDRING` (lille uppercase eyebrow).
+- Titel + brødtekst hentes fra `diagnosticMapping.painPoint` (eksisterende tekster matcher allerede specifikationen).
+- Stil:
+  - Stort kort, mere padding end de sekundære kort.
+  - Off-white/lys baggrund med en tynd farvet venstre-accent (4px) i niveauets farve — ikke fyldt rødt panel.
+  - Ikon i lille farvet cirkel.
+  - Brødtekst i mørk neutral (`text-[#151515]/80`), ikke rød.
+  - Fjern "alert"-følelsen.
 
-### Filer der ændres
-- `src/components/phone-test/data.ts`
-- `src/components/phone-test/ResultStep.tsx`
+## 3. Sekundær diagnose-sektion
+
+- Heading ændres til: **De steder, det koster jer mest**
+- Subtitle: **Baseret på jeres svar**
+- Render Q2 (Telefonhåndtering), Q3 (Afbrydelser), Q4 (Uden for åbningstid) i den rækkefølge.
+- Layout: `grid md:grid-cols-3 gap-4` på desktop, stacked på mobil.
+- Kort-stil (alle 3, uanset niveau):
+  - Hvid/off-white baggrund, neutral border (`border-black/5`), blød shadow.
+  - Niveau vises som:
+    - Lille farvet badge øverst med label-tekst (grøn=`Fungerer allerede`, gul=`Koster noget`, rød=`Koster meget`).
+    - Tynd farvet top- eller venstre-border i niveau-farven.
+    - Ikon i farvet cirkel.
+  - Kategori-eyebrow (`Telefonhåndtering` osv.) bevares.
+  - Titel i mørk display-font.
+  - Brødtekst i neutral mørk (`text-[#151515]/75`) — ikke farvet.
+- Tekst-indhold matcher allerede specifikationen i `data.ts`; jeg tjekker hver streng og retter kun små afvigelser (fx Q4 grøn: "hjælper patienten videre" → "hjælper mange videre").
+
+## 4. Outro-kort
+
+- Mørk høj-kontrast baggrund (`bg-[#151515]`, lys tekst).
+- Titel: **Næste skridt**
+- Body:
+  > Vi sender jer resultatet og kontakter jer med en kort gennemgang. På mødet kan vi også beregne et estimat i kroner og øre, hvis I vil se, hvad mistede opkald kan betyde for jeres omsætning.
+- CTA: Da der ikke findes et faktisk bookingflow i projektet, bruges en sekundær link-stil CTA:
+  > Se hvordan estimatet beregnes
+  - Implementeres som tekst-link/ghost knap på det mørke kort (ikke en stor primær knap).
+  - Ingen onClick-handler endnu (placeholder `href="#"` eller scroll-til-sektion senere).
+- Fjern den nuværende `Se hvordan GetXM virker`-knap.
+
+## 5. Tekniske noter
+
+- Tilføj en helper i `ResultStep.tsx`, fx `getLevelLabel(level)` og `getLevelAccent(level)` for badge-tekst og accent-farve, så de sekundære kort ikke længere bruger `getLevelColors` (som farver hele kortet). Behold `getLevelColors` til hero-kortet hvis nyttigt, ellers inline.
+- Q5-kortet rendrer fortsat kun hvis `painPointCard` findes.
+- Ingen ændringer i `getRiskScore`, `questions`, eller scoring-maps.
+
+## 6. Acceptkriterier-tjek
+
+- Q5 først, visuelt distinkt ✓
+- Q5 påvirker ikke score ✓ (kode uændret)
+- Scale = Q2+Q3+Q4 ✓
+- Sekundære kort er rolige, ikke fulde alert-bokse ✓
+- Niveauer synlige men subtile (badge + accent) ✓
+- Brødtekst neutral/mørk ✓
+- Heading: "De steder, det koster jer mest" ✓
+- Outro mørkt og markant ✓
+- CTA estimat-fokuseret, ingen "Book mødet" ✓

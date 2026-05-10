@@ -139,7 +139,7 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   followup: {
     "De bliver henvist til online booking": {
       title: "En vej videre — men ikke for alle",
-      text: "Online booking hjælper patienten videre, men fanger ikke nødvendigvis spørgsmål, afbud eller patienter, der har brug for hjælp først.",
+      text: "Online booking hjælper mange videre, men fanger ikke nødvendigvis spørgsmål, afbud eller patienter, der har brug for hjælp først.",
       level: "green",
     },
     "De kan lægge en besked": {
