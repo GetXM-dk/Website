@@ -53,7 +53,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
     { category: "Telefonhåndtering", data: diagnosticMapping.whoAnswers[answers.whoAnswers ?? ""] },
     { category: "Afbrydelser", data: diagnosticMapping.frequency[answers.frequency ?? ""] },
     { category: "Uden for åbningstid", data: diagnosticMapping.followup[answers.followup ?? ""] },
-  ].filter((r) => r.data);
+  ].filter((r) => r.data && r.data.level !== "green");
 
   const painPointCard = diagnosticMapping.painPoint[answers.painPoint ?? ""];
 
@@ -113,47 +113,49 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
       )}
 
       {/* 3 — Secondary diagnostics */}
-      <section className="space-y-8">
-        <div className="space-y-1.5">
-          <h3 className="font-display text-2xl md:text-3xl font-bold text-[#151515]">
-            Det koster jer især her
-          </h3>
-        </div>
+      {rows.length > 0 && (
+        <section className="space-y-8">
+          <div className="space-y-1.5">
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-[#151515]">
+              Det koster jer især her
+            </h3>
+          </div>
 
-        <div className="border-t border-black/10">
-          {rows.map((row, idx) => {
-            const level = row.data!.level;
-            const accent = levelAccent(level);
-            return (
-              <div
-                key={idx}
-                className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 md:gap-10 py-7 md:py-8 border-b border-black/10"
-              >
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className="inline-block h-2 w-2 rounded-full"
-                      style={{ backgroundColor: accent }}
-                      aria-hidden
-                    />
-                    <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#151515]/60">
-                      {row.category}
-                    </span>
+          <div className="border-t border-black/10">
+            {rows.map((row, idx) => {
+              const level = row.data!.level;
+              const accent = levelAccent(level);
+              return (
+                <div
+                  key={idx}
+                  className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 md:gap-10 py-7 md:py-8 border-b border-black/10"
+                >
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <span
+                        className="inline-block h-2 w-2 rounded-full"
+                        style={{ backgroundColor: accent }}
+                        aria-hidden
+                      />
+                      <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#151515]/60">
+                        {row.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="space-y-2.5">
+                    <h4 className="font-display text-[20px] md:text-[22px] font-bold leading-snug text-[#151515]">
+                      {row.data!.title}
+                    </h4>
+                    <p className="text-[15px] md:text-base leading-[1.6] text-[#151515]/75 max-w-[62ch]">
+                      {row.data!.text}
+                    </p>
                   </div>
                 </div>
-                <div className="space-y-2.5">
-                  <h4 className="font-display text-[20px] md:text-[22px] font-bold leading-snug text-[#151515]">
-                    {row.data!.title}
-                  </h4>
-                  <p className="text-[15px] md:text-base leading-[1.6] text-[#151515]/75 max-w-[62ch]">
-                    {row.data!.text}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* 4 — Næste skridt */}
       <section className="rounded-3xl bg-[#151515] p-8 md:p-12 space-y-4">
