@@ -15,12 +15,12 @@ export const LeadFormStep = ({ form, setForm, isSubmitting, handleSubmit }: Lead
   return (
     <div className="min-h-[620px]">
       <div className="space-y-3 text-center">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent md:block hidden">
           Jeres resultat er klar
         </p>
         <h2 className="text-3xl font-display leading-tight text-[#151515] md:text-4xl">
           <span className="hidden md:inline">Indtast dine oplysninger for at se, hvad ubesvarede opkald koster jer.</span>
-          <span className="md:hidden">Indtast dine oplysninger for at se resultatet.</span>
+          <span className="md:hidden">Indtast dine oplysninger for at se resultatet 🥳</span>
         </h2>
       </div>
 
