@@ -25,10 +25,15 @@ export const QuizStep = ({
   const maxWords = Math.max(...currentQuestion.options.map((o) => o.label.split(" ").length));
   const useTwoCols = maxWords <= 3 && currentQuestion.id !== "whoAnswers";
 
+  // Split insight into title and body if possible
+  const [insightTitle, insightBody] = currentInsight?.includes("|") 
+    ? currentInsight.split("|") 
+    : [null, currentInsight];
+
   return (
     <div className="flex flex-col min-h-[520px] md:min-h-[580px]">
       {isNavigating && currentInsight ? (
-        <div className="flex flex-1 flex-col items-center justify-center space-y-10 animate-in fade-in zoom-in-95 duration-500 py-10 px-4 text-center">
+        <div className="flex flex-1 flex-col items-center justify-center space-y-8 animate-in fade-in zoom-in-95 duration-500 py-10 px-4 text-center">
           <div className="space-y-4">
             <div className="flex justify-center">
               <div className="h-10 w-10 rounded-full bg-[#151515]/5 flex items-center justify-center">
@@ -40,9 +45,16 @@ export const QuizStep = ({
             </p>
           </div>
 
-          <p className="text-2xl md:text-3xl font-display font-bold leading-[1.15] text-[#151515] max-w-[24ch] mx-auto">
-            {currentInsight}
-          </p>
+          <div className="space-y-3 mx-auto max-w-[28ch]">
+            {insightTitle && (
+              <h3 className="text-sm md:text-base font-bold text-[#151515]/60 uppercase tracking-wide">
+                {insightTitle}
+              </h3>
+            )}
+            <p className="text-2xl md:text-3xl font-display font-bold leading-[1.15] text-[#151515]">
+              {insightBody}
+            </p>
+          </div>
 
           <div className="min-h-[64px] flex items-center justify-center">
             {showNextButton && (
