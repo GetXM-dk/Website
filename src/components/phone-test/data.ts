@@ -100,7 +100,7 @@ export const questions: Question[] = [
     options: [
       {
         label: OPTION_LABELS.followup.VOICEMAIL,
-        insight: "Telefonsvarer er ikke opfølgning|En besked redder noget. Men arbejdet forsvinder ikke — det flytter sig bare til senere på dagen.|"
+        insight: "69% lægger ikke en besked|Telefonsvarer, virker kun for de få, der faktisk bliver hængende.|Kilde: Moneypenny — Small Business Call Report"
       },
       {
         label: OPTION_LABELS.followup.TRY_AGAIN,
