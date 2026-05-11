@@ -103,7 +103,7 @@ export const questions: Question[] = [
       },
       {
         label: OPTION_LABELS.followup.TRY_AGAIN,
-        insight: "Prøv igen betyder ofte prøv en anden|Patienten har brug for svar nu. Hvis næste skridt er at prøve igen senere, er det lettere at ringe videre til en anden klinik.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”"
+        insight: "Prøv igen, betyder prøv en anden|Patienten har brug for svar nu. Hvis næste skridt er at prøve igen senere, er det lettere at ringe videre til en anden klinik.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”"
       },
       {
         label: OPTION_LABELS.followup.INFO
@@ -228,26 +228,26 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   followup: {
     [OPTION_LABELS.followup.INFO]: {
       costLabel: "Uden for åbningstid",
-      title: "Info løser kun det simple",
-      text: "Åbningstider og praktiske beskeder hjælper nogle videre. Aber afbud, spørgsmål og nye patienter kræver ofte et tydeligt næste skridt.",
+      title: "Potentielle nye patienter",
+      text: "Praktisk info hjælper nogle videre. Men en ny patient, der ikke får kontakt, kan hurtigt ringe videre til en anden klinik.",
       level: "green",
     },
     [OPTION_LABELS.followup.VOICEMAIL]: {
-      costLabel: "Opfølgning",
-      title: "Telefonsvarer redder ikke alt",
-      text: "Nogle patienter lægger en besked. Andre lægger på. Og opfølgningen lander stadig hos jer senere.",
+      costLabel: "Uden for åbningstid",
+      title: "Potentielle nye patienter",
+      text: "Nogle lægger en besked. Andre lægger på. En ny patient, der ikke får kontakt, kan hurtigt ringe videre til en anden klinik.",
       level: "yellow",
     },
     [OPTION_LABELS.followup.TRY_AGAIN]: {
       costLabel: "Uden for åbningstid",
-      title: "Patienten får arbejdet tilbage",
-      text: "Når patienten selv skal ringe igen, bliver næste skridt deres ansvar — og henvendelsen kan hurtigt gå kold.",
+      title: "Potentielle nye patienter",
+      text: "Når patienten selv skal prøve igen senere, bliver næste skridt deres ansvar. Mange ringer videre til en anden klinik.",
       level: "red",
     },
     [OPTION_LABELS.followup.OTHER]: {
       costLabel: "Uden for åbningstid",
-      title: "Næste skridt forsvinder",
-      text: "Hvis patienten ikke ved, hvad der sker efter opkaldet, forsvinder henvendelsen let, før I når at samle op.",
+      title: "Potentielle nye patienter",
+      text: "Hvis patienten ikke får en klar vej videre, kan henvendelsen forsvinde, før I når at samle op.",
       level: "yellow",
     },
   },
@@ -266,12 +266,12 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
     },
     [OPTION_LABELS.painPoint.INTERRUPTIONS]: {
       costLabel: PRIMARY_COST_LABEL,
-      title: "Brudt patientoplevelse",
+      title: "Dårlig patientoplevelse",
       text: "Når telefonen ringer midt i behandlingen, bliver patienten foran jer sat på pause for patienten i røret.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.SIMPLE_QUESTIONS]: {
-      costLabel: "Største omkostning",
+      costLabel: PRIMARY_COST_LABEL,
       title: "Tid, der kunne bruges bedre",
       text: "Spørgsmål om priser, booking og åbningstider virker små hver for sig, men de fylder hurtigt i hverdagen.",
       level: "red",
