@@ -5,7 +5,7 @@ import {
   getRiskScore,
   getRiskBand,
   DiagnosticLevel,
-  resultSummary,
+  SCORE_EXPLANATION,
 } from "./data";
 
 interface ResultStepProps {
@@ -23,12 +23,8 @@ const levelAccent = (level: DiagnosticLevel) => {
   }
 };
 
-
-const bandSentence = (band: "low" | "medium" | "high") => {
-  return resultSummary[band];
-};
-
 export const ResultStep = ({ answers }: ResultStepProps) => {
+  const [isExplanationOpen, setIsExplanationOpen] = useState(false);
   const score = getRiskScore(answers);
   const band = getRiskBand(score);
   const rawPosition = (score / 11) * 100;
@@ -86,9 +82,28 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
               }}
             />
           </div>
-          <p className="text-[15px] leading-relaxed text-[#151515]/70 pt-1">
-            {bandSentence(band)}
-          </p>
+          <div className="pt-2">
+            <button
+              onClick={() => setIsExplanationOpen(!isExplanationOpen)}
+              className="flex items-center gap-2 text-[13px] font-medium text-[#151515]/60 hover:text-[#151515] transition-colors group"
+            >
+              <span>{SCORE_EXPLANATION.title}</span>
+              <svg 
+                className={`w-4 h-4 transition-transform duration-300 ${isExplanationOpen ? 'rotate-180' : ''}`} 
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            
+            <div className={`grid transition-all duration-300 ease-in-out ${isExplanationOpen ? 'grid-rows-[1fr] mt-4 opacity-100' : 'grid-rows-[0fr] mt-0 opacity-0'}`}>
+              <div className="overflow-hidden">
+                <p className="text-[14px] leading-[1.6] text-[#151515]/70 max-w-xl">
+                  {SCORE_EXPLANATION.description}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
