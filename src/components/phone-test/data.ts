@@ -169,7 +169,7 @@ const followupPoints: Record<string, number> = {
 export type DiagnosticLevel = "green" | "yellow" | "red";
 
 export interface DiagnosticCardData {
-  category: string;
+  costLabel: string;
   title: string;
   text: string;
   level: DiagnosticLevel;
@@ -178,16 +178,19 @@ export interface DiagnosticCardData {
 export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCardData, "category">>> = {
   whoAnswers: {
     [OPTION_LABELS.whoAnswers.RECEPTION]: {
+      costLabel: "Telefonhåndtering",
       title: "Telefonen har en ejer",
       text: "I har en klar struktur for telefonen. Det er et stærkt udgangspunkt — især når hverdagen bliver travl.",
       level: "green",
     },
     [OPTION_LABELS.whoAnswers.ROTATING]: {
+      costLabel: "Telefonhåndtering",
       title: "Opfølgningen falder mellem to stole",
       text: "Når telefonen går på skift, bliver det nemt uklart, hvem der samler op på de opkald, I ikke når.",
       level: "yellow",
     },
     [OPTION_LABELS.whoAnswers.PRACTITIONERS]: {
+      costLabel: "Telefonhåndtering",
       title: "Behandlerne bliver reception",
       text: "Når behandlerne selv tager telefonen, flytter opkald ind i behandlingsrummet.",
       level: "red",
@@ -195,21 +198,25 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   },
   frequency: {
     [OPTION_LABELS.frequency.RARELY]: {
-      title: "Telefonen er under kontrol",
+      costLabel: "Afbrydelser",
+      title: "Telefonen is under kontrol",
       text: "I har godt styr på telefonen i åbningstiden. De typiske huller ligger udenom: efter lukketid, i travle perioder, ved ferie og sygdom.",
       level: "green",
     },
     [OPTION_LABELS.frequency.SOMETIMES]: {
+      costLabel: "Afbrydelser",
       title: "Travlhed skaber efterslæb",
       text: "Når telefonen ringer på de forkerte tidspunkter, bliver små opkald hurtigt til ekstra arbejde senere.",
       level: "yellow",
     },
     [OPTION_LABELS.frequency.OFTEN]: {
+      costLabel: "Arbejdsro og fokus",
       title: "Telefonen tager for meget plads",
-      text: "Når telefonen afbryder jer flere gange om dagen, koster det ro, tempo og tid til patienterne.",
+      text: "Når telefonen afbryder jer flere gange om dagen, koster det arbejdsro, fokus og nærvær med patienterne.",
       level: "red",
     },
     [OPTION_LABELS.frequency.UNKNOWN]: {
+      costLabel: "Afbrydelser",
       title: "I ved ikke, hvad I mister",
       text: "Uden overblik ved I ikke, om de opkald I ikke når, er spørgsmål, afbud eller nye bookinger.",
       level: "red",
@@ -217,21 +224,25 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   },
   followup: {
     [OPTION_LABELS.followup.INFO]: {
+      costLabel: "Uden for åbningstid",
       title: "Info løser kun det simple",
       text: "Åbningstider og praktiske beskeder hjælper nogle videre. Aber afbud, spørgsmål og nye patienter kræver ofte et tydeligt næste skridt.",
       level: "green",
     },
     [OPTION_LABELS.followup.VOICEMAIL]: {
-      title: "Telefonsvarer skubber arbejdet videre",
-      text: "Patienten kan lægge en besked, men opgaven lander stadig hos jer, når I får tid til at lytte og følge op.",
+      costLabel: "Opfølgning",
+      title: "Telefonsvarer redder ikke alt",
+      text: "Nogle patienter lægger en besked. Andre lægger på. Og opfølgningen lander stadig hos jer senere.",
       level: "yellow",
     },
     [OPTION_LABELS.followup.TRY_AGAIN]: {
+      costLabel: "Uden for åbningstid",
       title: "Patienten får arbejdet tilbage",
       text: "Når patienten selv skal ringe igen, bliver næste skridt deres ansvar — og henvendelsen kan hurtigt gå kold.",
       level: "red",
     },
     [OPTION_LABELS.followup.OTHER]: {
+      costLabel: "Uden for åbningstid",
       title: "Næste skridt forsvinder",
       text: "Hvis patienten ikke ved, hvad der sker efter opkaldet, forsvinder henvendelsen let, før I når at samle op.",
       level: "yellow",
@@ -239,21 +250,25 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   },
   painPoint: {
     [OPTION_LABELS.painPoint.NEW_PATIENTS]: {
+      costLabel: "Største omkostning",
       title: "Omsætning",
-      text: "Når en ny patient ikke får svar første gang, flytter interessen hurtigt til en anden klinik.",
+      text: "Den gode behandling starter, før patienten kommer ind ad døren. Hvis opkaldet ikke bliver taget, kan klinikken hurtigt føles utilgængelig.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.UNFOLLOWED]: {
+      costLabel: "Overblik",
       title: "Overblik",
       text: "Et ubesvaret opkald kan være en booking, et afbud, et spørgsmål eller noget vigtigt. Uden opfølgning ved I det ikke.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.INTERRUPTIONS]: {
+      costLabel: "Patientoplevelse",
       title: "Patientoplevelse",
       text: "Når telefonen ringer midt i behandlingen, bliver patienten foran jer sat på pause for patienten i røret.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.SIMPLE_QUESTIONS]: {
+      costLabel: "Arbejdstid",
       title: "Arbejdstid",
       text: "Spørgsmål om priser, booking og åbningstider virker små hver for sig, men de fylder hurtigt i hverdagen.",
       level: "red",

@@ -44,9 +44,9 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
   }, [dotPosition]);
 
   const rows = [
-    { category: "Telefonhåndtering", data: diagnosticMapping.whoAnswers[answers.whoAnswers ?? ""] },
-    { category: "Afbrydelser", data: diagnosticMapping.frequency[answers.frequency ?? ""] },
-    { category: "Uden for åbningstid", data: diagnosticMapping.followup[answers.followup ?? ""] },
+    { data: diagnosticMapping.whoAnswers[answers.whoAnswers ?? ""] },
+    { data: diagnosticMapping.frequency[answers.frequency ?? ""] },
+    { data: diagnosticMapping.followup[answers.followup ?? ""] },
   ].filter((r) => r.data && r.data.level !== "green");
 
   const painPointCard = diagnosticMapping.painPoint[answers.painPoint ?? ""];
@@ -132,7 +132,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
                       aria-hidden
                     />
                     <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#151515]/50">
-                      {row.category}
+                      {row.data!.costLabel}
                     </span>
                   </div>
                   <div className="space-y-3">
