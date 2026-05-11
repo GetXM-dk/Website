@@ -34,6 +34,12 @@ export const OPTION_LABELS = {
   }
 };
 
+export const RISK_MESSAGES = {
+  low: "Jeres setup ser ud til at fange det meste — men der er stadig opkald, der kan glide igennem.",
+  medium: "Mistede opkald koster jer noget i hverdagen — især overblik og opfølgning.",
+  high: "Mistede opkald ser ud til at koste jer markant i tid, opfølgning og nye bookinger.",
+};
+
 export const questions: Question[] = [
   {
     id: "clinicType",

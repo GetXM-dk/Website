@@ -5,6 +5,7 @@ import {
   getRiskScore,
   getRiskBand,
   DiagnosticLevel,
+  RISK_MESSAGES,
 } from "./data";
 
 interface ResultStepProps {
@@ -24,14 +25,7 @@ const levelAccent = (level: DiagnosticLevel) => {
 
 
 const bandSentence = (band: "low" | "medium" | "high") => {
-  switch (band) {
-    case "low":
-      return "Jeres setup ser ud til at fange det meste — men der er stadig opkald, der kan glide igennem.";
-    case "medium":
-      return "Mistede opkald koster jer noget i hverdagen — især overblik og opfølgning.";
-    case "high":
-      return "Mistede opkald ser ud til at koste jer markant i tid, opfølgning og nye bookinger.";
-  }
+  return RISK_MESSAGES[band];
 };
 
 export const ResultStep = ({ answers }: ResultStepProps) => {
