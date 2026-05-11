@@ -35,8 +35,8 @@ export const OPTION_LABELS = {
 };
 
 export const resultSummary = {
-  low: "I har godt styr på telefonen i hverdagen. Men der er stadig huller: uden for åbningstid, i travlhed, ved ferie og sygdom.",
-  medium: "Mistede opkald koster jer overblik og opfølgning. Hullerne opstår især uden for åbningstid, i travlhed, ved ferie og sygdom.",
+  low: "I har godt styr på telefonen, men der er stadig huller: uden for åbningstid, ved ferie og sygdom.",
+  medium: "Mistede opkald koster jer overblik og opfølgning. Hullerne opstår især uden for åbningstid, ved ferie og sygdom.",
   high: "Mistede opkald koster jer tid, ro og nye henvendelser. Hullerne rammer især uden for åbningstid, i travlhed, ved ferie og sygdom.",
 };
 

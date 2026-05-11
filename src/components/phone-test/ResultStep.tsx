@@ -96,7 +96,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
       {painPointCard && (
         <section className="py-2">
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#151515]/50 mb-5">
-            Jeres største udfordring
+            STØRSTE OMKOSTNING
           </p>
           <h3 className="font-display text-2xl md:text-3xl font-bold leading-[1.15] text-[#151515]">
             {painPointCard.title}
