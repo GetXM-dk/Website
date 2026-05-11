@@ -66,8 +66,8 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
 
         <div className="max-w-2xl space-y-4">
           <div className="flex justify-between text-[11px] font-bold uppercase tracking-[0.18em] text-[#151515]/50">
-            <span>Lidt</span>
-            <span>Meget</span>
+            <span>LAV OMKOSTNING</span>
+            <span>HØJ OMKOSTNING</span>
           </div>
           <div
             className="relative h-3.5 w-full rounded-full"
