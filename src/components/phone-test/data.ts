@@ -121,7 +121,7 @@ export const questions: Question[] = [
     options: [
       {
         label: OPTION_LABELS.painPoint.NEW_PATIENTS,
-        insight: "Adgang betyder valg|71% nævner adgang som en vigtig faktor, når de vælger ny behandler. Hvis det er svært at komme igennem, starter relationen skævt.|Kilde: Accenture — Healthcare Experience Research"
+        insight: "Tilgængelighed betyder alt|71% nævner tilgængelighed som en vigtig faktor, når de vælger ny behandler. Hvis telefonen ikke bliver taget, kan klinikken hurtigt føles svær at få fat i.|Kilde: Accenture — Healthcare Experience Research"
       },
       {
         label: OPTION_LABELS.painPoint.UNFOLLOWED,
