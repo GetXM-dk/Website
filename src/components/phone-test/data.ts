@@ -147,23 +147,25 @@ export const loadingLines = [
 
 const whoAnswersPoints: Record<string, number> = {
   [OPTION_LABELS.whoAnswers.RECEPTION]: 0,
-  [OPTION_LABELS.whoAnswers.PRACTITIONERS]: 4,
-  [OPTION_LABELS.whoAnswers.ROTATING]: 3,
+  [OPTION_LABELS.whoAnswers.PRACTITIONERS]: 6,
+  [OPTION_LABELS.whoAnswers.ROTATING]: 4,
 };
 
 const frequencyPoints: Record<string, number> = {
   [OPTION_LABELS.frequency.RARELY]: 0,
-  [OPTION_LABELS.frequency.SOMETIMES]: 2,
-  [OPTION_LABELS.frequency.OFTEN]: 4,
-  [OPTION_LABELS.frequency.UNKNOWN]: 4,
+  [OPTION_LABELS.frequency.SOMETIMES]: 4,
+  [OPTION_LABELS.frequency.OFTEN]: 6,
+  [OPTION_LABELS.frequency.UNKNOWN]: 6,
 };
 
 const followupPoints: Record<string, number> = {
-  [OPTION_LABELS.followup.VOICEMAIL]: 2,
-  [OPTION_LABELS.followup.TRY_AGAIN]: 3,
-  [OPTION_LABELS.followup.INFO]: 2,
-  [OPTION_LABELS.followup.OTHER]: 2,
+  [OPTION_LABELS.followup.VOICEMAIL]: 3,
+  [OPTION_LABELS.followup.TRY_AGAIN]: 5,
+  [OPTION_LABELS.followup.INFO]: 3,
+  [OPTION_LABELS.followup.OTHER]: 3,
 };
+
+export const MAX_SCORE = 17;
 
 export type DiagnosticLevel = "green" | "yellow" | "red";
 
@@ -304,6 +306,6 @@ export const getRiskScore = (answers: Partial<QuizAnswers>) => {
 
 export const getRiskBand = (score: number): "low" | "medium" | "high" => {
   if (score <= 3) return "low";
-  if (score <= 7) return "medium";
+  if (score <= 9) return "medium";
   return "high";
 };

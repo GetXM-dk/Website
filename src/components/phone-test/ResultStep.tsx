@@ -6,6 +6,7 @@ import {
   getRiskBand,
   DiagnosticLevel,
   SCORE_EXPLANATION,
+  MAX_SCORE,
 } from "./data";
 
 interface ResultStepProps {
@@ -27,7 +28,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
   const [isExplanationOpen, setIsExplanationOpen] = useState(false);
   const score = getRiskScore(answers);
   const band = getRiskBand(score);
-  const rawPosition = (score / 11) * 100;
+  const rawPosition = (score / MAX_SCORE) * 100;
   const dotPosition = Math.min(96, Math.max(4, rawPosition));
 
   const [animatedPosition, setAnimatedPosition] = useState(4);
