@@ -5,7 +5,7 @@ import {
   getRiskScore,
   getRiskBand,
   DiagnosticLevel,
-  RISK_MESSAGES,
+  resultSummary,
 } from "./data";
 
 interface ResultStepProps {
@@ -25,7 +25,7 @@ const levelAccent = (level: DiagnosticLevel) => {
 
 
 const bandSentence = (band: "low" | "medium" | "high") => {
-  return RISK_MESSAGES[band];
+  return resultSummary[band];
 };
 
 export const ResultStep = ({ answers }: ResultStepProps) => {

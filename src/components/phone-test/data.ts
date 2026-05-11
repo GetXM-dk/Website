@@ -34,10 +34,10 @@ export const OPTION_LABELS = {
   }
 };
 
-export const RISK_MESSAGES = {
-  low: "Jeres setup ser ud til at fange det meste — men der er stadig opkald, der kan glide igennem.",
-  medium: "Mistede opkald koster jer noget i hverdagen — især overblik og opfølgning.",
-  high: "Mistede opkald ser ud til at koste jer markant i tid, opfølgning og nye bookinger.",
+export const resultSummary = {
+  low: "I har godt styr på telefonen i hverdagen. Men der er stadig huller: uden for åbningstid, i travlhed, ved ferie og sygdom.",
+  medium: "Mistede opkald koster jer overblik og opfølgning. Hullerne opstår især uden for åbningstid, i travlhed, ved ferie og sygdom.",
+  high: "Mistede opkald koster jer tid, ro og nye henvendelser. Hullerne rammer især uden for åbningstid, i travlhed, ved ferie og sygdom.",
 };
 
 export const questions: Question[] = [
