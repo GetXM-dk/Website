@@ -83,11 +83,12 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
             }}
           >
             <div
-              className="absolute top-1/2 h-[22px] w-[22px] rounded-full border-[3px] border-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all duration-[1500ms] ease-out"
-              style={{
+              className="absolute top-1/2 h-[22px] w-[22px] rounded-full border-[3px] border-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all ease-out"
+              style={{ 
                 left: `${animatedPosition}%`,
                 backgroundColor: "#151515",
                 transform: "translate(-50%, -50%)",
+                transitionDuration: '1500ms'
               }}
             />
           </div>
