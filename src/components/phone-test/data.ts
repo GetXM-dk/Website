@@ -37,18 +37,18 @@ export const questions: Question[] = [
     title: "Hvor ofte forstyrrer telefonen arbejdet i klinikken?",
     options: [
       {
-        label: "Sjældent | vi bliver næsten aldrig afbrudt"
+        label: "Sjældent, vi bliver næsten aldrig afbrudt"
       },
       {
-        label: "Indimellem | især i travle perioder",
+        label: "Indimellem, især i travle perioder",
+        insight: "2 minutters opkald kan koste 23 minutters fokus|Det er ikke kun selve opkaldet, der koster. Det er tiden bagefter, hvor fokus skal tilbage.|Kilde: University of California, Irvine — Gloria Mark"
+      },
+      {
+        label: "Ofte, telefonen tager fokus flere gange om dagen",
         insight: "2 minutters opkald kan koste 23 minutters fokus|Forskning peger på, at det i gennemsnit tager omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark"
       },
       {
-        label: "Ofte | telefonen tager fokus flere gange om dagen",
-        insight: "2 minutters opkald kan koste 23 minutters fokus|Forskning peger på, at det i gennemsnit tager omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark"
-      },
-      {
-        label: "Vi ved det ikke | vi tager den, når vi kan",
+        label: "Vi ved det ikke, vi tager den, når vi kan",
         insight: "Det usynlige kan ikke prioriteres|Hvis I ikke ved, hvor mange opkald I mister, ved I heller ikke, om det var spørgsmål, afbud eller nye bookinger.|"
       },
     ],
@@ -155,22 +155,22 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
     },
   },
   frequency: {
-    "Sjældent | vi bliver næsten aldrig afbrudt": {
+    "Sjældent, vi bliver næsten aldrig afbrudt": {
       title: "Et flow der fungerer i hverdagen",
       text: "I oplever ikke telefonen som en stor daglig afbrydelse. Hullet ligger især i de opkald, der kommer, når ingen kan svare.",
       level: "green",
     },
-    "Indimellem | især i travle perioder": {
+    "Indimellem, især i travle perioder": {
       title: "Brud i arbejdsrytmen",
       text: "Når der er pres på, kan telefonen bryde rytmen og skabe ekstra opfølgning senere.",
       level: "yellow",
     },
-    "Ofte | telefonen tager fokus flere gange om dagen": {
+    "Ofte, telefonen tager fokus flere gange om dagen": {
       title: "En arbejdsdag styret af telefonen",
       text: "Når I ofte må afbryde arbejdet, bliver telefonen en løbende kilde til skift i fokus og tabt tempo.",
       level: "red",
     },
-    "Vi ved det ikke | vi tager den, når vi kan": {
+    "Vi ved det ikke, vi tager den, når vi kan": {
       title: "Manglende overblik over mistede opkald",
       text: "Når patienten foran jer prioriteres, kan opkald, I ikke når, forsvinde uden klar opfølgning.",
       level: "red",
