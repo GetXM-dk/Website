@@ -251,25 +251,25 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   painPoint: {
     [OPTION_LABELS.painPoint.NEW_PATIENTS]: {
       costLabel: "Største omkostning",
-      title: "Omsætning",
+      title: "Tabt omsætning",
       text: "Den gode behandling starter, før patienten kommer ind ad døren. Hvis opkaldet ikke bliver taget, kan klinikken hurtigt føles utilgængelig.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.UNFOLLOWED]: {
-      costLabel: "Overblik",
-      title: "Overblik",
+      costLabel: "Største omkostning",
+      title: "Mistet overblik",
       text: "Et ubesvaret opkald kan være en booking, et afbud, et spørgsmål eller noget vigtigt. Uden opfølgning ved I det ikke.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.INTERRUPTIONS]: {
-      costLabel: "Patientoplevelse",
-      title: "Patientoplevelse",
+      costLabel: "Største omkostning",
+      title: "Brudt patientoplevelse",
       text: "Når telefonen ringer midt i behandlingen, bliver patienten foran jer sat på pause for patienten i røret.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.SIMPLE_QUESTIONS]: {
-      costLabel: "Arbejdstid",
-      title: "Arbejdstid",
+      costLabel: "Største omkostning",
+      title: "Tid, der kunne bruges bedre",
       text: "Spørgsmål om priser, booking og åbningstider virker små hver for sig, men de fylder hurtigt i hverdagen.",
       level: "red",
     },
