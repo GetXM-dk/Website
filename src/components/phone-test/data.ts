@@ -233,23 +233,23 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   },
   painPoint: {
     [OPTION_LABELS.painPoint.NEW_PATIENTS]: {
-      title: "Nye patienter går hurtigt videre",
-      text: "Hvis en ny patient ikke får svar første gang, kan interessen hurtigt gå videre til en anden klinik.",
+      title: "Omsætning",
+      text: "Når en ny patient ikke får svar første gang, flytter interessen hurtigt til en anden klinik.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.UNFOLLOWED]: {
-      title: "Det dyre er det, I ikke ser",
-      text: "Et ubesvaret opkald kan være en booking, et afbud, et spørgsmål eller noget vigtigt.",
+      title: "Overblik",
+      text: "Et ubesvaret opkald kan være en booking, et afbud, et spørgsmål eller noget vigtigt. Uden opfølgning ved I det ikke.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.INTERRUPTIONS]: {
-      title: "Roen ryger først",
-      text: "Når telefonen ringer midt i behandlingen, bliver én patient afbrudt af en anden.",
+      title: "Patientoplevelse",
+      text: "Når telefonen ringer midt i behandlingen, bliver patienten foran jer sat på pause for patienten i røret.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.SIMPLE_QUESTIONS]: {
-      title: "Små spørgsmål fylder stort",
-      text: "Priser, booking og åbningstider virker småt. Men gentagelser stjæler tid.",
+      title: "Arbejdstid",
+      text: "Spørgsmål om priser, booking og åbningstider virker små hver for sig, men de fylder hurtigt i hverdagen.",
       level: "red",
     },
   },
