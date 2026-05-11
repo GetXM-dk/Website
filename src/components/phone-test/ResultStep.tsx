@@ -75,7 +75,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
           >
             <div
               className="absolute top-1/2 h-[22px] w-[22px] rounded-full border-[3px] border-white shadow-[0_4px_12px_rgba(0,0,0,0.15)] transition-all ease-out"
-              style={{ 
+              style={{
                 left: `${animatedPosition}%`,
                 backgroundColor: "#151515",
                 transform: "translate(-50%, -50%)",
@@ -89,14 +89,14 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
               className="flex items-center gap-2 text-[13px] font-medium text-[#151515]/60 hover:text-[#151515] transition-colors group"
             >
               <span>{SCORE_EXPLANATION.title}</span>
-              <svg 
-                className={`w-4 h-4 transition-transform duration-300 ${isExplanationOpen ? 'rotate-180' : ''}`} 
+              <svg
+                className={`w-4 h-4 transition-transform duration-300 ${isExplanationOpen ? 'rotate-180' : ''}`}
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
               >
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
-            
+
             <div className={`grid transition-all duration-300 ease-in-out ${isExplanationOpen ? 'grid-rows-[1fr] mt-4 opacity-100' : 'grid-rows-[0fr] mt-0 opacity-0'}`}>
               <div className="overflow-hidden">
                 <p className="text-[14px] leading-[1.6] text-[#151515]/70 max-w-2xl">
@@ -107,6 +107,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
           </div>
         </div>
       </section>
+      <hr className="border-black/10" />
 
       {/* 2 — Q5 hero */}
       {painPointCard && (
@@ -124,6 +125,8 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
       )}
 
       {/* 3 — Secondary diagnostics */}
+      <hr className="border-black/10" />
+
       {rows.length > 0 && (
         <section className="space-y-8">
           <div className="space-y-1.5">
@@ -132,7 +135,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
             </h3>
           </div>
 
-          <div className="border-t border-black/10">
+          <div>
             {rows.map((row, idx) => {
               const level = row.data!.level;
               const accent = levelAccent(level);

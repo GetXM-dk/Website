@@ -103,7 +103,7 @@ export const questions: Question[] = [
       },
       {
         label: OPTION_LABELS.followup.TRY_AGAIN,
-        insight: "5 minutter betyder noget|Nye henvendelser, der følges op inden for 5 minutter, er langt mere tilbøjelige til at blive til en booking end dem, der venter 30 minutter eller mere.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”"
+        insight: "Prøv igen betyder ofte prøv en anden|Patienten har brug for svar nu. Hvis næste skridt er at prøve igen senere, er det lettere at ringe videre til en anden klinik.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”"
       },
       {
         label: OPTION_LABELS.followup.INFO
