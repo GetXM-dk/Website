@@ -99,7 +99,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
             
             <div className={`grid transition-all duration-300 ease-in-out ${isExplanationOpen ? 'grid-rows-[1fr] mt-4 opacity-100' : 'grid-rows-[0fr] mt-0 opacity-0'}`}>
               <div className="overflow-hidden">
-                <p className="text-[14px] leading-[1.6] text-[#151515]/70 max-w-xl">
+                <p className="text-[14px] leading-[1.6] text-[#151515]/70 max-w-2xl">
                   {SCORE_EXPLANATION.description}
                 </p>
               </div>
