@@ -132,7 +132,7 @@ export const questions: Question[] = [
       },
       {
         label: OPTION_LABELS.painPoint.SIMPLE_QUESTIONS,
-        insight: "Gentagelser är skjult støj|Spørgsmål om priser, åbningstider og booking føles små enkeltvis. Men de fylder samme plads i receptionen som vigtige opkald.|"
+        insight: "Små spørgsmål afbryder store opgaver|Pris, åbningstid og booking kan ofte klares på få sekunder — hvis patienten får det rigtige svar med det samme. Ellers ender det som endnu en afbrydelse hos jer.|"
       },
     ],
   },
