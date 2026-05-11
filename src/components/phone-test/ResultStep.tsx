@@ -128,7 +128,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
         <section className="space-y-8">
           <div className="space-y-1.5">
             <h3 className="font-display text-2xl md:text-3xl font-bold text-[#151515]">
-              Hvor GetXM kan hjælpe jer
+              DET KOSTER OGSÅ HER
             </h3>
           </div>
 
