@@ -49,7 +49,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
   const painPointCard = diagnosticMapping.painPoint[answers.painPoint ?? ""];
 
   return (
-    <div className="space-y-14 md:space-y-16 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-both">
+    <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-both">
       {/* 1 — Headline + impact scale */}
       <section className="space-y-10">
         <div className="space-y-4">
@@ -107,7 +107,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
           </div>
         </div>
       </section>
-      <hr className="border-black/10" />
+      <hr className="border-black/10 my-2" />
 
       {/* 2 — Q5 hero */}
       {painPointCard && (
@@ -125,15 +125,10 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
       )}
 
       {/* 3 — Secondary diagnostics */}
-      <hr className="border-black/10" />
+      <hr className="border-black/10 my-2" />
 
       {rows.length > 0 && (
         <section className="space-y-8">
-          <div className="space-y-1.5">
-            <h3 className="font-display text-xl md:text-2xl font-bold text-[#151515]">
-              DET KOSTER OGSÅ HER
-            </h3>
-          </div>
 
           <div>
             {rows.map((row, idx) => {

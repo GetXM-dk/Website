@@ -188,13 +188,13 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
     },
     [OPTION_LABELS.whoAnswers.ROTATING]: {
       costLabel: "Telefonhåndtering",
-      title: "Opfølgningen falder mellem to stole",
+      title: "Struktur i opfølgningen",
       text: "Når telefonen går på skift, bliver det nemt uklart, hvem der samler op på de opkald, I ikke når.",
       level: "yellow",
     },
     [OPTION_LABELS.whoAnswers.PRACTITIONERS]: {
       costLabel: "Telefonhåndtering",
-      title: "Behandlerne bliver reception",
+      title: "Fokus fra behandlingen",
       text: "Når behandlerne selv tager telefonen, flytter opkald ind i behandlingsrummet.",
       level: "red",
     },
@@ -208,13 +208,13 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
     },
     [OPTION_LABELS.frequency.SOMETIMES]: {
       costLabel: "Afbrydelser",
-      title: "Travlhed skaber efterslæb",
+      title: "Arbejdsro og nærvær",
       text: "Når telefonen ringer på de forkerte tidspunkter, bliver små opkald hurtigt til ekstra arbejde senere.",
       level: "yellow",
     },
     [OPTION_LABELS.frequency.OFTEN]: {
       costLabel: "Arbejdsro og fokus",
-      title: "Telefonen tager for meget plads",
+      title: "Arbejdsro og nærvær",
       text: "Når telefonen afbryder jer flere gange om dagen, koster det arbejdsro, fokus og nærvær med patienterne.",
       level: "red",
     },
