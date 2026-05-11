@@ -127,7 +127,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
       {rows.length > 0 && (
         <section className="space-y-8">
           <div className="space-y-1.5">
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-[#151515]">
+            <h3 className="font-display text-xl md:text-2xl font-bold text-[#151515]">
               DET KOSTER OGSÅ HER
             </h3>
           </div>
