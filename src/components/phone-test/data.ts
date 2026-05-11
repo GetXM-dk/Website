@@ -36,7 +36,7 @@ export const OPTION_LABELS = {
 
 export const SCORE_EXPLANATION = {
   title: "Sådan har vi beregnet scoren",
-  description: "Scoren vurderer risikoen for, at opkald ikke bliver håndteret rettidigt. Den bygger på tre faktorer: hvem der tager telefonen, hvor ofte telefonen afbryder arbejdet, og hvad der sker med opkald uden for åbningstid. Jo større risiko for forsinket opfølgning, uklart ansvar eller tabte henvendelser, jo højere score."
+  description: "Scoren vurderer risikoen for, at opkald ikke bliver håndteret rettidigt. Den bygger på tre faktorer: hvem der tager telefonen, hvor ofte telefonen afbryder arbejdet, og hvad der sker med opkald uden for åbningstid. Jo større risiko for forsinket opfølgning, uklart ansvar eller tabte henvendelser, jo højere er prisen for et mistet opkald og dermed højere score."
 };
 
 export const questions: Question[] = [
