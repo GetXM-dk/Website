@@ -18,16 +18,16 @@ export const questions: Question[] = [
     label: "Hvem tager telefonen",
     title: "Hvem tager som regel telefonen hos jer?",
     options: [
-      { 
+      {
         label: "Reception / kliniksekretær"
       },
-      { 
-        label: "Behandlerne selv", 
-        insight: "Afbrydelser koster fokus|Det er ikke kun selve opkaldet, der koster. Det er tiden bagefter, hvor fokus skal tilbage.|Kilde: University of California, Irvine — Gloria Mark" 
+      {
+        label: "Behandlerne selv",
+        insight: "Afbrydelser koster fokus|Det er ikke kun selve opkaldet, der koster. Det er tiden bagefter, hvor fokus skal tilbage.|Kilde: University of California, Irvine — Gloria Mark"
       },
-      { 
-        label: "Vi skiftes", 
-        insight: "Når alle ejer telefonen, ejer ingen opfølgningen|Delt ansvar fungerer i rolige perioder. I travle perioder falder opkald mellem to stole.|" 
+      {
+        label: "Vi skiftes",
+        insight: "Når alle ejer telefonen, ejer ingen opfølgningen|Delt ansvar fungerer i rolige perioder. I travle perioder falder opkald mellem to stole.|"
       },
     ],
   },
@@ -36,18 +36,18 @@ export const questions: Question[] = [
     label: "Hvor ofte",
     title: "Hvor ofte forstyrrer telefonen arbejdet i klinikken?",
     options: [
-      { 
+      {
         label: "Sjældent | vi bliver næsten aldrig afbrudt"
       },
-      { 
+      {
         label: "Indimellem | især i travle perioder",
         insight: "2 minutters opkald kan koste 23 minutters fokus|Forskning peger på, at det i gennemsnit tager omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark"
       },
-      { 
-        label: "Ofte | telefonen tager fokus flere gange om dagen", 
-        insight: "2 minutters opkald kan koste 23 minutters fokus|Forskning peger på, at det i gennemsnit tager omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark" 
+      {
+        label: "Ofte | telefonen tager fokus flere gange om dagen",
+        insight: "2 minutters opkald kan koste 23 minutters fokus|Forskning peger på, at det i gennemsnit tager omkring 23 minutter at vende tilbage til en afbrudt opgave.|Kilde: University of California, Irvine — Gloria Mark"
       },
-      { 
+      {
         label: "Vi ved det ikke | vi tager den, når vi kan",
         insight: "Det usynlige kan ikke prioriteres|Hvis I ikke ved, hvor mange opkald I mister, ved I heller ikke, om det var spørgsmål, afbud eller nye bookinger.|"
       },
@@ -58,18 +58,18 @@ export const questions: Question[] = [
     label: "Uden for åbningstid",
     title: "Hvad sker der, hvis telefonen ringer uden for åbningstid?",
     options: [
-      { 
+      {
         label: "De kan lægge en besked",
         insight: "Telefonsvarer er ikke opfølgning|En besked redder noget. Men arbejdet forsvinder ikke — det flytter sig bare til senere på dagen.|"
       },
-      { 
-        label: "De må prøve igen i telefontiden", 
-        insight: "5 minutter betyder noget|Nye henvendelser, der følges op inden for 5 minutter, er langt mere tilbøjelige til at blive til en booking end dem, der venter 30 minutter eller mere.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”" 
+      {
+        label: "De må prøve igen i telefontiden",
+        insight: "5 minutter betyder noget|Nye henvendelser, der følges op inden for 5 minutter, er langt mere tilbøjelige til at blive til en booking end dem, der venter 30 minutter eller mere.|Kilde: Harvard Business Review — “The Short Life of Online Sales Leads”"
       },
-      { 
+      {
         label: "De får praktisk info på telefonsvareren"
       },
-      { 
+      {
         label: "Andet"
       },
     ],
@@ -79,18 +79,18 @@ export const questions: Question[] = [
     label: "Udfordring",
     title: "Hvad vil I helst undgå?",
     options: [
-      { 
-        label: "Nye patienter, der ringer forgæves", 
-        insight: "Adgang betyder valg|71% nævner adgang som en vigtig faktor, når de vælger ny behandler. Hvis det er svært at komme igennem, starter relationen skævt.|Kilde: Accenture — Healthcare Experience Research" 
+      {
+        label: "Nye patienter, der ringer forgæves",
+        insight: "Adgang betyder valg|71% nævner adgang som en vigtig faktor, når de vælger ny behandler. Hvis det er svært at komme igennem, starter relationen skævt.|Kilde: Accenture — Healthcare Experience Research"
       },
-      { 
+      {
         label: "Ubesvarede opkald uden opfølgning",
         insight: "Det dyre er usikkerheden|Det farlige ved et ubesvaret opkald er ikke kun, at det blev misset. Det er, at I ikke ved, hvad I missede.|"
       },
-      { 
+      {
         label: "Afbrydelser midt i behandlinger"
       },
-      { 
+      {
         label: "Simple spørgsmål, der stjæler tid",
         insight: "Gentagelser er skjult støj|Spørgsmål om priser, åbningstider og booking føles små enkeltvis. Men de fylder samme plads i receptionen som vigtige opkald.|"
       },
@@ -113,10 +113,10 @@ const whoAnswersPoints: Record<string, number> = {
 };
 
 const frequencyPoints: Record<string, number> = {
-  "Sjældent | vi bliver næsten aldrig afbrudt": 0,
-  "Indimellem | især i travle perioder": 2,
-  "Ofte | telefonen tager fokus flere gange om dagen": 4,
-  "Vi ved det ikke | vi tager den, når vi kan": 4,
+  "Sjældent, vi bliver næsten aldrig afbrudt": 0,
+  "Indimellem, især i travle perioder": 2,
+  "Ofte, telefonen tager fokus flere gange om dagen": 4,
+  "Vi ved det ikke, vi tager den, når vi kan": 4,
 };
 
 const followupPoints: Record<string, number> = {
@@ -143,13 +143,14 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
       level: "green",
     },
     "Vi skiftes": {
-      title: "Klarhed over hvem der følger op",
-      text: "Når flere skiftes til at tage telefonen, kan ansvaret blive uklart, især når der er travlt.",
+      title: "Når alle ejer telefonen, ejer ingen opfølgningen",
+      text: "I travle perioder kan det blive uklart, hvem der følger op på de opkald, I ikke når. GetXM samler automatisk op med SMS og giver jer besked, når noget kræver jeres opmærksomhed.",
       level: "yellow",
     },
+
     "Behandlerne selv": {
-      title: "Tid væk fra behandlingen",
-      text: "Når behandlerne selv tager telefonen, flytter opkald tid og opmærksomhed væk fra patienten foran jer.",
+      title: "Når behandleren tager telefonen, betaler koster det behandlingen",
+      text: "Et kort opkald bryder fokus og tager tid fra patienten foran jer. GetXM følger op, når I ikke kan svare, så henvendelsen ikke går tabt.",
       level: "red",
     },
   },
