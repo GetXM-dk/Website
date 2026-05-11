@@ -175,6 +175,8 @@ export interface DiagnosticCardData {
   level: DiagnosticLevel;
 }
 
+const PRIMARY_COST_LABEL = "STØRSTE OMKOSTNING";
+
 export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCardData, "category">>> = {
   whoAnswers: {
     [OPTION_LABELS.whoAnswers.RECEPTION]: {
@@ -250,19 +252,19 @@ export const diagnosticMapping: Record<string, Record<string, Omit<DiagnosticCar
   },
   painPoint: {
     [OPTION_LABELS.painPoint.NEW_PATIENTS]: {
-      costLabel: "STØRSTE OMKOSTNING",
+      costLabel: PRIMARY_COST_LABEL,
       title: "Tabt omsætning",
       text: "Den gode behandling starter, før patienten kommer ind ad døren. Hvis opkaldet ikke bliver taget, kan klinikken hurtigt føles utilgængelig.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.UNFOLLOWED]: {
-      costLabel: "STØRSTE OMKOSTNING",
+      costLabel: PRIMARY_COST_LABEL,
       title: "Mistet overblik",
       text: "Et ubesvaret opkald kan være en booking, et afbud, et spørgsmål eller noget vigtigt. Uden opfølgning ved I det ikke.",
       level: "red",
     },
     [OPTION_LABELS.painPoint.INTERRUPTIONS]: {
-      costLabel: "STØRSTE OMKOSTNING",
+      costLabel: PRIMARY_COST_LABEL,
       title: "Brudt patientoplevelse",
       text: "Når telefonen ringer midt i behandlingen, bliver patienten foran jer sat på pause for patienten i røret.",
       level: "red",
