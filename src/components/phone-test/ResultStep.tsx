@@ -30,7 +30,7 @@ const bandSentence = (band: "low" | "medium" | "high") => {
     case "medium":
       return "Mistede opkald koster jer noget i hverdagen — især overblik og opfølgning.";
     case "high":
-      return "Mistede opkald ser ud til at koste jer markant i tid, opfølgning og nye patienter.";
+      return "Mistede opkald ser ud til at koste jer markant i tid, opfølgning og nye bookinger.";
   }
 };
 
@@ -117,7 +117,7 @@ export const ResultStep = ({ answers }: ResultStepProps) => {
         <section className="space-y-8">
           <div className="space-y-1.5">
             <h3 className="font-display text-2xl md:text-3xl font-bold text-[#151515]">
-              Det koster jer især her
+              Hvor GetXM kan hjælpe
             </h3>
           </div>
 
