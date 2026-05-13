@@ -17,7 +17,10 @@ export type QuizAnswers = Record<Question["id"], string>;
 export const contactSchema = z.object({
   fullName: z.string().trim().min(4, "Skriv dit for- og efternavn"),
   email: z.string().trim().email("Skriv en gyldig arbejdsmail"),
-  phone: z.string().trim().min(8, "Skriv et gyldigt telefonnummer"),
+  phone: z.string()
+    .trim()
+    .min(8, "Skriv et gyldigt telefonnummer")
+    .transform(v => v.replace(/\D/g, "")),
   consent: z.literal(true, {
     errorMap: () => ({ message: "Du skal acceptere, at vi må kontakte dig om resultatet." }),
   }),
