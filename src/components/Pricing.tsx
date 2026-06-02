@@ -13,8 +13,8 @@ const features = [
 const Pricing = () => {
   const [isYearly, setIsYearly] = useState(true);
 
-  const monthlyPrice = 479;
-  const yearlyPrice = 349;
+  const monthlyPrice = 504;
+  const yearlyPrice = 378;
   const savings = (monthlyPrice - yearlyPrice) * 12;
 
   return (
@@ -53,7 +53,7 @@ const Pricing = () => {
                 Årlig betaling
               </button>
               <span className="hidden md:inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700">
-                Spar 27%
+                Spar {savings.toLocaleString('da-DK')} kr.
               </span>
             </div>
           </div>
@@ -65,7 +65,7 @@ const Pricing = () => {
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-10">
                 <div className="inline-flex items-center gap-2 bg-[#E7F8F1] text-[#0D9488] px-6 py-2.5 rounded-full text-sm font-bold shadow-xl animate-in fade-in zoom-in-95">
                   <Check className="w-4 h-4 stroke-[3]" />
-                  SPAR {savings.toLocaleString('da-DK')} KR.
+                  FÅ 3 MÅNEDER GRATIS
                 </div>
               </div>
             )}

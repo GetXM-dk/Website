@@ -302,7 +302,7 @@ const ClinicMatchTest = () => {
 
                 {/* Break-even Line */}
                 <p className="text-sm font-medium text-[#1A1A1A] max-w-sm mx-auto mb-12 leading-relaxed">
-                  GetXM koster 349 kr./md. Hvis bare én ekstra henvendelse bliver til en booking eller patientkontakt, kan løsningen hurtigt betale sig hjem.
+                  GetXM koster 378 kr./md. Hvis bare én ekstra henvendelse bliver til en booking eller patientkontakt, kan løsningen hurtigt betale sig hjem.
                 </p>
 
                 {/* Outcome Section */}

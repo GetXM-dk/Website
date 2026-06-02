@@ -11,7 +11,7 @@ const BreakEvenCalculator = () => {
   const [selectedValue, setSelectedValue] = useState<number>(500);
   const [form, setForm] = useState({ name: '', clinic: '', email: '', phone: '' });
 
-  const monthlyPrice = 349;
+  const monthlyPrice = 378;
   const breakEven = monthlyPrice / selectedValue;
 
   let resultText = "";
@@ -58,7 +58,7 @@ const BreakEvenCalculator = () => {
               <p className="caption-uppercase text-accent font-semibold">REGNESTYKKET ER ENKELT</p>
               <h2 className="display-lg mt-4 text-foreground leading-tight">Hvor lidt skal der til?</h2>
               <p className="mt-6 text-base text-muted-foreground md:text-lg leading-relaxed">
-                GetXM koster 349 kr./md. Vælg hvad én ekstra booking eller patientkontakt cirka er værd for jer.
+                GetXM koster 378 kr./md. Vælg hvad én ekstra booking eller patientkontakt cirka er værd for jer.
               </p>
             </div>
 
